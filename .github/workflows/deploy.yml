@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   web-deploy:
     name: 🎉 Deploying to Host
     runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name == 'main' && 'Production' || 'Staging' }}
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
@@ -19,4 +22,31 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: public_html/
+          server-dir: ${{ secrets.FTP_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github*
+            **/.github*/**
+            **/.agent*
+            **/.agent*/**
+            **/tests/**
+            **/phpunit.xml
+            **/webpack.mix.js
+            **/package.json
+            **/package-lock.json
+            **/composer.json
+            **/composer.lock
+            **/.editorconfig
+            **/.gitattributes
+            **/.DS_Store
+            **/Active eCommerce CMS Documentation (v-10.8).pdf
+            **/FlutterEcommerceAPI.postman_collection.json
+            **/Read me before update.txt
+            **/TODO.md
+            **/README.md
+            **/LICENSE.md
+            **/shop.sql
+            **/sqlupdates/**
+
+
