@@ -101,7 +101,8 @@ class AdminController extends Controller
         $data['total_customers'] = User::where('user_type', 'customer')->where('email_verified_at', '!=', null)->count();
         $data['top_customers'] = User::select('users.id', 'users.name', 'users.avatar_original', DB::raw('SUM(grand_total) as total'))
             ->join('orders', 'orders.user_id', '=', 'users.id')
-            ->groupBy('orders.user_id')
+            ->where('orders.delivery_status', 'delivered')
+            ->groupBy('users.id', 'users.name', 'users.avatar_original')
             ->where('users.user_type', 'customer')
             ->orderBy('total', 'desc')
             ->limit(6)
@@ -111,46 +112,48 @@ class AdminController extends Controller
         $data['total_sellers_products'] = Product::where('approved', 1)->where('published', 1)->where('added_by', '!=', 'admin')->count();
         $data['total_categories'] = Category::count();
         
-        $data['top_categories'] = Product::select('categories.name', 'categories.id', DB::raw('SUM(grand_total) as total'))
+        $data['top_categories'] = Product::select('categories.name', 'categories.id', DB::raw('SUM(order_details.price + order_details.tax) as total'))
             ->leftJoin('order_details', 'order_details.product_id', '=', 'products.id')
             ->leftJoin('orders', 'orders.id', '=', 'order_details.order_id')
             ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
             ->where('orders.delivery_status', 'delivered')
-            ->groupBy('categories.id')
+            ->groupBy('categories.id', 'categories.name')
             ->orderBy('total', 'desc')
             ->limit(3)
             ->get();
         $data['total_brands'] = Brand::count();
-        $data['top_brands'] = Product::select('brands.name', 'brands.id', DB::raw('SUM(grand_total) as total'))
+        $data['top_brands'] = Product::select('brands.name', 'brands.id', DB::raw('SUM(order_details.price + order_details.tax) as total'))
             ->leftJoin('order_details', 'order_details.product_id', '=', 'products.id')
             ->leftJoin('orders', 'orders.id', '=', 'order_details.order_id')
             ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
             ->where('orders.delivery_status', 'delivered')
-            ->groupBy('brands.id')
+            ->groupBy('brands.id', 'brands.name')
             ->orderBy('total', 'desc')
             ->limit(3)
             ->get();
         $data['total_sale'] = Order::where('delivery_status', 'delivered')->sum('grand_total');
-        $data['sale_this_month'] = Order::whereYear('created_at', Carbon::now()->year)
+        $data['sale_this_month'] = Order::where('delivery_status', 'delivered')
+                                        ->whereYear('created_at', Carbon::now()->year)
                                         ->whereMonth('created_at', Carbon::now()->month)
                                         ->sum('grand_total');
                                         
         $data['admin_sale_this_month'] = Order::select(DB::raw('COALESCE(users.user_type, "admin") as user_type'), DB::raw('COALESCE(SUM(grand_total), 0) as total_sale'))
             ->leftJoin('users', 'orders.seller_id', '=', 'users.id')
+            ->where('orders.delivery_status', 'delivered')
             ->whereRaw('users.user_type = "admin"')
             ->whereYear('orders.created_at', Carbon::now()->year)
             ->whereMonth('orders.created_at', Carbon::now()->month)
             ->first();
         $data['seller_sale_this_month'] = Order::select(DB::raw('COALESCE(users.user_type, "seller") as user_type'), DB::raw('COALESCE(SUM(grand_total), 0) as total_sale'))
             ->leftJoin('users', 'orders.seller_id', '=', 'users.id')
+            ->where('orders.delivery_status', 'delivered')
             ->whereRaw('users.user_type = "seller"')
             ->whereYear('orders.created_at', Carbon::now()->year)
             ->whereMonth('orders.created_at', Carbon::now()->month)
             ->first();
-        $sales_stat = Order::select('orders.user_id', 'users.name', 'users.user_type', 'users.avatar_original', DB::raw('SUM(grand_total) as total'), DB::raw('DATE_FORMAT(orders.created_at, "%M") AS month'))
-            ->leftJoin('users', 'orders.seller_id', '=', 'users.id')
-            ->whereRaw('users.user_type = "admin"')
-            ->whereYear('orders.created_at', '=', Date("Y"))
+        $sales_stat = Order::select(DB::raw('SUM(grand_total) as total'), DB::raw('DATE_FORMAT(orders.created_at, "%M") AS month'))
+            ->where('orders.delivery_status', 'delivered')
+            ->whereYear('orders.created_at', '=', date("Y"))
             ->groupBy('month')
             ->orderBy(DB::raw('MONTH(orders.created_at)'), 'asc')
             ->get();
@@ -160,19 +163,34 @@ class AdminController extends Controller
         }
         $data['sales_stat'] = $new_stat;
         $data['total_sellers'] = User::where('user_type', 'seller')->where('email_verified_at', '!=', null)->count();
-        $data['status_wise_sellers'] = Shop::select('verification_status', DB::raw('COUNT(*) as total'))
-            ->whereIn('user_id', function ($q){
-                $q->select('id')
-                    ->from(with(new User)->getTable())
-                    ->where('user_type', 'seller')
-                    ->where('email_verified_at', '!=', null);
-            })
-            ->groupBy('verification_status')
-            ->get();
+        
+        $approved_sellers_query = Shop::where('registration_approval', 1)->where('verification_status', 1);
+        $data['approved_sellers_count'] = $approved_sellers_query->whereIn('user_id', function ($q){
+            $q->select('id')
+                ->from('users')
+                ->where('user_type', 'seller')
+                ->where('email_verified_at', '!=', null);
+        })->count();
+
+        if (addon_is_activated('portfolio_system') == 1) {
+            $pending_sellers_query = Shop::where(function ($query) {
+                $query->where('verification_status', 0)
+                    ->orWhere('registration_approval', 0);
+            });
+        } else {
+            $pending_sellers_query = Shop::where('registration_approval', 0);
+        }
+        $data['pending_sellers_count'] = $pending_sellers_query->whereIn('user_id', function ($q){
+            $q->select('id')
+                ->from('users')
+                ->where('user_type', 'seller')
+                ->where('email_verified_at', '!=', null);
+        })->count();
         $data['top_sellers'] = Order::select('orders.seller_id', 'users.name', 'users.user_type', 'users.avatar_original', DB::raw('SUM(grand_total) as total'))
             ->leftJoin('users', 'orders.seller_id', '=', 'users.id')
+            ->where('orders.delivery_status', 'delivered')
             ->whereRaw('users.user_type = "seller"')
-            ->groupBy('users.id')
+            ->groupBy('orders.seller_id', 'users.name', 'users.user_type', 'users.avatar_original')
             ->orderBy('total', 'desc')
             ->limit(6)
             ->get();
@@ -185,10 +203,10 @@ class AdminController extends Controller
         $admin_id = User::select('id')->where('user_type', 'admin')->first()->id;
         $data['total_inhouse_sale'] = Order::where("seller_id", $admin_id)->sum('grand_total');
         $data['payment_type_wise_inhouse_sale'] = Order::select(DB::raw('case
-                                                    when payment_type in ("wallet") then "wallet"
-                                                    when payment_type NOT in ("cash_on_delivery") then "others"
-                                                    else cast(payment_type as char)
-                                                    end as payment_type, SUM(grand_total)  as total_amount'),)
+                                                     when payment_type in ("wallet") then "wallet"
+                                                     when payment_type NOT in ("cash_on_delivery") then "others"
+                                                     else cast(payment_type as char)
+                                                     end as payment_type, SUM(grand_total)  as total_amount'),)
             ->where("user_id", '!=', null)
             ->where("seller_id", $admin_id)
             ->groupBy(DB::raw('1'))
@@ -202,13 +220,13 @@ class AdminController extends Controller
     public function top_category_products_section(Request $request)
     {
         $top_categories_products = DB::table(DB::raw('(SELECT products.id product_id, products.name product_name, products.slug product_slug, products.auction_product, products.category_id,
-                                                        `products`.`thumbnail_img` as `product_thumbnail_img`, od.sales, od.total, od.created_at order_detail_created,
+                                                        `products`.`thumbnail_img` as `product_thumbnail_img`, od.sales, od.total,
                                                         categories.name AS category_name,
                                                         `categories`.`cover_image`,
                                                         ROW_NUMBER() OVER (PARTITION BY products.category_id ORDER BY od.sales DESC) rn
                                                 from products
                                                 INNER JOIN (
-                                                SELECT product_id, SUM(quantity) sales, SUM(price + tax) AS total, created_at
+                                                SELECT product_id, SUM(quantity) sales, SUM(price + tax) AS total
                                                 FROM order_details
                                                 WHERE ' . ($request->interval_type == 'all' ?: 'created_at >= DATE_SUB(NOW(), INTERVAL 1 ' . $request->interval_type . ')') . '
                                                 AND order_details.delivery_status = "delivered"
@@ -216,7 +234,7 @@ class AdminController extends Controller
                                                 )  od ON od.product_id = products.id
                                                 LEFT JOIN categories ON products.category_id = categories.id
                                                 ) t'))
-            ->select(DB::raw('category_id, category_name, cover_image, product_id, product_name, product_slug, auction_product, product_thumbnail_img, sales, total, order_detail_created'))
+            ->select(DB::raw('category_id, category_name, cover_image, product_id, product_name, product_slug, auction_product, product_thumbnail_img, sales, total'))
             ->where('rn', '<=', 3)
             ->orderBy('sales', 'desc')
             ->get();
@@ -298,7 +316,7 @@ class AdminController extends Controller
                     ->where('user_type', 'seller');
             })
             ->where('orders.delivery_status', 'delivered')
-            ->groupBy('orders.seller_id')
+            ->groupBy('orders.seller_id', 'shops.user_id', 'shops.name', 'shops.logo')
             ->orderBy('sale', 'desc');
         if ($request->interval_type != 'all') {
             $new_top_sellers_query->where('orders.created_at', '>=', DB::raw('DATE_SUB(NOW(), INTERVAL 1 ' . $request->interval_type . ')'));
@@ -308,7 +326,7 @@ class AdminController extends Controller
 
         foreach ($new_top_sellers as $key => $row) {
             $products_query = Product::query();
-            $products_query->select('products.id AS product_id', 'products.name', 'products.slug AS product_slug', 'products.auction_product', 'products.thumbnail_img', DB::raw('SUM(quantity) AS total_quantity, SUM(price * quantity) AS sale'))
+            $products_query->select('products.id AS product_id', 'products.name', 'products.slug AS product_slug', 'products.auction_product', 'products.thumbnail_img', DB::raw('SUM(quantity) AS total_quantity, SUM(order_details.price + order_details.tax) AS sale'))
                 ->join('order_details', 'order_details.product_id', '=', 'products.id')
                 ->where("seller_id", $row->shop_id)
                 ->where('order_details.delivery_status', 'delivered')
@@ -317,7 +335,7 @@ class AdminController extends Controller
             if ($request->interval_type != 'all') {
                 $products_query->where('order_details.created_at', '>=', DB::raw('DATE_SUB(NOW(), INTERVAL 1 ' . $request->interval_type . ')'));
             }
-            $products_query->groupBy('product_id')
+            $products_query->groupBy('products.id', 'products.name', 'products.slug', 'products.auction_product', 'products.thumbnail_img')
                 ->orderBy('sale', 'desc')
                 ->limit(3);
             $row->products = $products_query->get();
@@ -355,7 +373,7 @@ class AdminController extends Controller
                                                         ROW_NUMBER() OVER (PARTITION BY products.brand_id ORDER BY od.sales DESC) rn
                                             from products
                                             INNER JOIN (
-                                                SELECT product_id, SUM(quantity) sales, SUM(price + tax) AS total, created_at
+                                                SELECT product_id, SUM(quantity) sales, SUM(price + tax) AS total
                                                 FROM order_details
                                                 WHERE ' . ($request->interval_type == 'all' ?: 'created_at >= DATE_SUB(NOW(), INTERVAL 1 ' . $request->interval_type . ')') . '
                                                 AND order_details.delivery_status = "delivered"

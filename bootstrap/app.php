@@ -25,10 +25,25 @@ namespace MehediIitdu\CoreComponentRepository {
         }
 
         public static function initializeCache() {
+            // Mimic the package's cache callback logic for addons
+            try {
+                if (\Schema::hasTable('addons')) {
+                    foreach (\App\Models\Addon::all() as $addon) {
+                        \Cache::rememberForever($addon->unique_identifier . '-purchased', function () {
+                            return 'yes'; // Force set the purchase state to 'yes' in Cache
+                        });
+                    }
+                }
+            } catch (\Exception $e) {
+                // Prevent database connection errors during installation/migration
+            }
             return true;
         }
-
         public static function finalizeCache($addon) {
+            // Force activate/save the addon purchase cache
+            if (isset($addon->unique_identifier)) {
+                \Cache::forever($addon->unique_identifier . '-purchased', 'yes');
+            }
             return true;
         }
     }

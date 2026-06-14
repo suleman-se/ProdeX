@@ -156,24 +156,24 @@ class EarningReportController extends Controller
 
         // Category wise Report
         $data['total_categories'] = Category::count();
-        $data['top_categories'] = Product::select('categories.name', 'categories.id', DB::raw('SUM(grand_total) as total'))
+        $data['top_categories'] = Product::select('categories.name', 'categories.id', DB::raw('SUM(order_details.price + order_details.tax) as total'))
             ->leftJoin('order_details', 'order_details.product_id', '=', 'products.id')
             ->leftJoin('orders', 'orders.id', '=', 'order_details.order_id')
             ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
             ->where('orders.delivery_status', 'delivered')
-            ->groupBy('categories.id')
+            ->groupBy('categories.id', 'categories.name')
             ->orderBy('total', 'desc')
             ->limit(3)
             ->get();
 
         // Brand wise Report
         $data['total_brands'] = Brand::count();
-        $data['top_brands'] = Product::select('brands.name', 'brands.id', DB::raw('SUM(grand_total) as total'))
+        $data['top_brands'] = Product::select('brands.name', 'brands.id', DB::raw('SUM(order_details.price + order_details.tax) as total'))
             ->leftJoin('order_details', 'order_details.product_id', '=', 'products.id')
             ->leftJoin('orders', 'orders.id', '=', 'order_details.order_id')
             ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
             ->where('orders.delivery_status', 'delivered')
-            ->groupBy('brands.id')
+            ->groupBy('brands.id', 'brands.name')
             ->orderBy('total', 'desc')
             ->limit(3)
             ->get();

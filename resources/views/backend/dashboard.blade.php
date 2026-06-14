@@ -282,25 +282,24 @@
                                     </div>
                                     <!-- Sales -->
                                     <div>
-                                        @foreach ($status_wise_sellers as $key => $status_wise_seller)
-                                            <div
-                                                class="d-flex justify-content-between @if ($key == 0) mb-1 @endif">
-                                                <h3 class="fs-13 fw-600 mb-0">
-                                                    @if ($status_wise_seller->verification_status == 1)
-                                                        <span
-                                                            class="badge badge-md badge-dot badge-circle badge-success text-truncate mr-2"></span>
-                                                        {{ translate('Approved Sellers') }}
-                                                    @else
-                                                        <span
-                                                            class="badge badge-md badge-dot badge-circle badge-danger text-truncate mr-2"></span>
-                                                        {{ translate('Pending Seller') }}
-                                                    @endif
-                                                </h3>
-                                                <h3 class="fs-13 fw-600 mb-0">
-                                                    {{ $status_wise_seller->total }}
-                                                </h3>
-                                            </div>
-                                        @endforeach
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <h3 class="fs-13 fw-600 mb-0">
+                                                <span class="badge badge-md badge-dot badge-circle badge-success text-truncate mr-2"></span>
+                                                {{ translate('Approved Sellers') }}
+                                            </h3>
+                                            <h3 class="fs-13 fw-600 mb-0">
+                                                {{ $approved_sellers_count }}
+                                            </h3>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <h3 class="fs-13 fw-600 mb-0">
+                                                <span class="badge badge-md badge-dot badge-circle badge-danger text-truncate mr-2"></span>
+                                                {{ translate('Pending Sellers') }}
+                                            </h3>
+                                            <h3 class="fs-13 fw-600 mb-0">
+                                                {{ $pending_sellers_count }}
+                                            </h3>
+                                        </div>
                                     </div>
                                     <!-- Top Sellers -->
                                     <div>
@@ -324,7 +323,7 @@
                                     <div class="">
                                         <a href="{{ route('sellers.index') }}"
                                             class="btn btn-md btn-soft-success btn-block rounded-2 mb-3">{{ translate('All Sellers') }}</a>
-                                        <a href="{{ route('sellers.index') }}?approved_status=0"
+                                        <a href="{{ route('sellers.registration_pending') }}"
                                             class="btn btn-md btn-soft-danger btn-block rounded-2">{{ translate('Pending Sellers') }}</a>
                                     </div>
                                 </div>
