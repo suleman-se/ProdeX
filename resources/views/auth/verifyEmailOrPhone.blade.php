@@ -10,7 +10,7 @@
         let identifier = email ? email : phone;
         let verify_field = email ? 'email' :'phone';
         if (!identifier) {
-            AIZ.plugins.notify('danger', '{{ translate("Please enter your email or phone number") }}');
+            PEX.plugins.notify('danger', '{{ translate("Please enter your email or phone number") }}');
             return;
         }
 
@@ -24,21 +24,21 @@
             $.post('{{ route("customer-reg.verification_code_send") }}', data, function (res) {
 
                 if (res.status == 1) {
-                    AIZ.plugins.notify('success', res.message);
+                    PEX.plugins.notify('success', res.message);
                     //emailPhoneDiv.addClass('d-none');
                     $(`.${verify_field}-form-group`).addClass('d-none');
                     $('#mail_phone_toggle_btn').length && $('#mail_phone_toggle_btn').addClass('d-none');
                     codeGroup.removeClass('d-none').addClass('d-block');
 
                 } else if (res.status == 2) {
-                    AIZ.plugins.notify('danger', res.message);
+                    PEX.plugins.notify('danger', res.message);
 
                 } else {
-                    AIZ.plugins.notify('danger', res.message);
+                    PEX.plugins.notify('danger', res.message);
                 }
 
             }).fail(function () {
-                AIZ.plugins.notify('danger', 'Something went wrong');
+                PEX.plugins.notify('danger', 'Something went wrong');
             }).always(function () {
                 $(btn).prop('disabled', false).html(originalText);
             });
@@ -92,14 +92,14 @@
             }, function(data) {
                 if(data.status === 1){
                     verifyBtn.innerHTML = '<i class="las la-lg la-check-circle text-success"></i>';
-                    AIZ.plugins.notify('success', `${data.message}`);
+                    PEX.plugins.notify('success', `${data.message}`);
                     codeInput.disabled = true;
                     verifyBtn.classList.add('disabled');
                     verifyBtn.style.backgroundColor = '#f7f8fa';
                      toggleCreateBtn();
 
                 } else {
-                    AIZ.plugins.notify('danger', `${data.message}`);
+                    PEX.plugins.notify('danger', `${data.message}`);
                     verifyBtn.innerHTML = '<i class="las la-lg la-times-circle text-danger"></i>';
                      toggleCreateBtn();
                 }

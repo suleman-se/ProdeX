@@ -7,7 +7,7 @@
     CoreComponentRepository::initializeCache();
 @endphp
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{translate('Set Category Wise Product Discount')}}</h1>
@@ -26,7 +26,7 @@
         </form>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -88,7 +88,7 @@
                             <span class="me-3 mr-3">
                                 {{ $category->products->where('added_by', 'seller')->count() }} 
                             </span>
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input id="seller_product_discount_{{ $category->id }}" type="checkbox"   onchange="trigger_alert_switch(this, '{{ $key }}')"
                                     {{ $allMatch ? 'checked' : '' }}>
                                 <span class="slider round"></span>
@@ -110,7 +110,7 @@
                             </div>
                         </td>
                          <td>
-                            <input type="text" class="form-control aiz-date-range rounded-2" id="date_range_{{ $category->id }}" value="{{ $start_date && $end_date ? $start_date . ' to ' . $end_date : '' }}" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
+                            <input type="text" class="form-control pex-date-range rounded-2" id="date_range_{{ $category->id }}" value="{{ $start_date && $end_date ? $start_date . ' to ' . $end_date : '' }}" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
                         </td>
                         <td class="text-right">
                             <div class="form-group mb-0 text-right">
@@ -121,7 +121,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $categories->appends(request()->input())->links() }}
         </div>
     </div>
@@ -178,7 +178,7 @@
         let pendingType = null;
         $(document).ready(function() {
             setTimeout(() => {
-                AIZ.plugins.dateRange();
+                PEX.plugins.dateRange();
             }, "2000");
         });
 
@@ -219,7 +219,7 @@
         function setDiscount(){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 $('#confirm-modal').modal('hide');
                 return;
             }
@@ -231,7 +231,7 @@
             var sellerProductDiscount =  $("#seller_product_discount_" + CategoryId).prop('checked') ? 1 : 0;
 
             if(discount < 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Discount can not be less than 0') }}');
+                PEX.plugins.notify('danger', '{{ translate('Discount can not be less than 0') }}');
             }
             else{
                 $.post('{{ route('set_product_discount') }}', {
@@ -242,11 +242,11 @@
                     seller_product_discount:sellerProductDiscount
                 }, function(data) {
                     if(data == 1){
-                        AIZ.plugins.notify('success', '{{ translate('Category Wise Product Discount Set Successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Category Wise Product Discount Set Successfully') }}');
                     }
                     location.reload();
                 }).fail(function() {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 });
             }
         }

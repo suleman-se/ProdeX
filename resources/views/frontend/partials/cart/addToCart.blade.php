@@ -7,7 +7,7 @@
                     $photos = explode(',',$product->photos);
                 @endphp
                 <div class="col">
-                    <div class="aiz-carousel product-gallery" data-nav-for='.product-gallery-thumb' data-fade='true' data-auto-height='true'>
+                    <div class="pex-carousel product-gallery" data-nav-for='.product-gallery-thumb' data-fade='true' data-auto-height='true'>
                         @foreach ($photos as $key => $photo)
                         <div class="carousel-box img-zoom rounded-0">
                             <img class="img-fluid lazyload"
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="col-auto w-90px">
-                    <div class="aiz-carousel carousel-thumb product-gallery-thumb" data-items='5' data-nav-for='.product-gallery' data-vertical='true' data-focus-select='true'>
+                    <div class="pex-carousel carousel-thumb product-gallery-thumb" data-items='5' data-nav-for='.product-gallery' data-vertical='true' data-focus-select='true'>
                         @foreach ($photos as $key => $photo)
                         <div class="carousel-box c-pointer border rounded-0">
                             <img class="lazyload mw-100 size-60px mx-auto"
@@ -141,16 +141,16 @@
                                         <div class="text-secondary fs-14 fw-400 mt-2 ">{{ get_single_attribute_name($choice->attribute_id) }}</div>
                                     </div>
                                     <div class="col-9">
-                                        <div class="aiz-radio-inline">
+                                        <div class="pex-radio-inline">
                                             @foreach ($choice->values as $key => $value)
-                                            <label class="aiz-megabox pl-0 mr-2 mb-0">
+                                            <label class="pex-megabox pl-0 mr-2 mb-0">
                                                 <input
                                                     type="radio"
                                                     name="attribute_id_{{ $choice->attribute_id }}"
                                                     value="{{ $value }}"
                                                     @if($key == 0) checked @endif
                                                 >
-                                                <span class="aiz-megabox-elem rounded-0 d-flex align-items-center justify-content-center py-1 px-3">
+                                                <span class="pex-megabox-elem rounded-0 d-flex align-items-center justify-content-center py-1 px-3">
                                                     {{ $value }}
                                                 </span>
                                             </label>
@@ -169,16 +169,16 @@
                                     <div class="text-secondary fs-14 fw-400 mt-2">{{ translate('Color')}}</div>
                                 </div>
                                 <div class="col-9">
-                                    <div class="aiz-radio-inline">
+                                    <div class="pex-radio-inline">
                                         @foreach (json_decode($product->colors) as $key => $color)
-                                        <label class="aiz-megabox pl-0 mr-2 mb-0" data-toggle="tooltip" data-title="{{ get_single_color_name($color) }}">
+                                        <label class="pex-megabox pl-0 mr-2 mb-0" data-toggle="tooltip" data-title="{{ get_single_color_name($color) }}">
                                             <input
                                                 type="radio"
                                                 name="color"
                                                 value="{{ get_single_color_name($color) }}"
                                                 @if($key == 0) checked @endif
                                             >
-                                            <span class="aiz-megabox-elem rounded-0 d-flex align-items-center justify-content-center p-1">
+                                            <span class="pex-megabox-elem rounded-0 d-flex align-items-center justify-content-center p-1">
                                                 <span class="size-25px d-inline-block rounded" style="background: {{ $color }};"></span>
                                             </span>
                                         </label>
@@ -195,7 +195,7 @@
                             </div>
                             <div class="col-9">
                                 <div class="product-quantity d-flex align-items-center">
-                                    <div class="row no-gutters align-items-center aiz-plus-minus mr-3" style="width: 130px;">
+                                    <div class="row no-gutters align-items-center pex-plus-minus mr-3" style="width: 130px;">
                                         <button class="btn col-auto btn-icon btn-sm btn-light rounded-0" type="button" data-type="minus" data-field="quantity" disabled="">
                                             <i class="las la-minus"></i>
                                         </button>

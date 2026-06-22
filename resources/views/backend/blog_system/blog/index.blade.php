@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-auto">
             <h1 class="h3">{{translate('All Posts')}}</h1>
@@ -33,7 +33,7 @@
         </div>
         </form>
         <div class="card-body">
-            <table class="table mb-0 aiz-table">
+            <table class="table mb-0 pex-table">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -70,7 +70,7 @@
                         </td>
                         @if(addon_is_activated('portfolio_system'))
                         <td>
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input data-field="news" type="checkbox"
                                     @can('publish_blog') onchange="change_status(this)" @endcan
                                     value="{{ $blog->id }}"
@@ -82,7 +82,7 @@
                         </td>
 
                         <td>
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input data-field="event" type="checkbox"
                                     @can('publish_blog') onchange="change_status(this)" @endcan
                                     value="{{ $blog->id }}"
@@ -94,7 +94,7 @@
                         </td>
 
                         <td>
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input data-field="going_on" type="checkbox"
                                     @can('publish_blog') onchange="change_status(this)" @endcan
                                     value="{{ $blog->id }}"
@@ -106,7 +106,7 @@
                         </td>
                         @endif
                         <td>
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input data-field="status" type="checkbox"
                                     @can('publish_blog') onchange="change_status(this)" @endcan
                                     value="{{ $blog->id }}"
@@ -132,7 +132,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
                 {{ $blogs->appends(request()->input())->links() }}
             </div>
         </div>
@@ -151,7 +151,7 @@
         function change_status(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -162,10 +162,10 @@
             }
             $.post('{{ route('blog.change-status') }}', {_token:'{{ csrf_token() }}', id:el.value,field: field, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Blog') }} ' + field + ' {{ translate('updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Blog') }} ' + field + ' {{ translate('updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

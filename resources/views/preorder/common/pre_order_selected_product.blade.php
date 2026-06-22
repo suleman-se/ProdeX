@@ -1,5 +1,5 @@
 <div class="table-responsive mb-4">
-    <table class="table aiz-table mb-0">
+    <table class="table pex-table mb-0">
         <thead>
             <tr>
                 <th class="opacity-50 pl-0">{{ translate('Product Thumb') }}</th>

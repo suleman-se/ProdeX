@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="page-content">
-		<div class="aiz-titlebar text-left mt-2 pb-2 px-3 px-md-2rem border-bottom border-gray">
+		<div class="pex-titlebar text-left mt-2 pb-2 px-3 px-md-2rem border-bottom border-gray">
 			<div class="row align-items-center">
 				<div class="col">
 					<h1 class="h3">{{ translate('Homepage Settings (Re-Classic)') }}</h1>
@@ -214,7 +214,7 @@
 														<!-- Image -->
 														<div class="col-md-5">
 															<div class="form-group mb-md-0">
-																<div class="input-group" data-toggle="aizuploader" data-type="image">
+																<div class="input-group" data-toggle="pexuploader" data-type="image">
 																	<div class="input-group-prepend">
 																		<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																	</div>
@@ -257,7 +257,7 @@
 													<!-- Image -->
 													<div class="col-md-5">
 														<div class="form-group mb-md-0">
-															<div class="input-group" data-toggle="aizuploader" data-type="image">
+															<div class="input-group" data-toggle="pexuploader" data-type="image">
 																<div class="input-group-prepend">
 																	<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																</div>
@@ -309,7 +309,7 @@
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label class="col-from-label fs-13 fw-500">{{ translate("Large Banner") }} (<small>{{ translate('Will be shown in large device') }}</small>)</label>
-											<div class="input-group " data-toggle="aizuploader" data-type="image">
+											<div class="input-group " data-toggle="pexuploader" data-type="image">
 												<div class="input-group-prepend">
 													<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 												</div>
@@ -325,7 +325,7 @@
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label class="col-from-label fs-13 fw-500">{{ translate("Small Banner") }} (<small>{{ translate('Will be shown in small device') }}</small>)</label>
-											<div class="input-group" data-toggle="aizuploader" data-type="image">
+											<div class="input-group" data-toggle="pexuploader" data-type="image">
 												<div class="input-group-prepend">
 													<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 												</div>
@@ -372,7 +372,7 @@
 														<!-- Image -->
 														<div class="col-md-5">
 															<div class="form-group mb-md-0">
-																<div class="input-group" data-toggle="aizuploader" data-type="image">
+																<div class="input-group" data-toggle="pexuploader" data-type="image">
 																	<div class="input-group-prepend">
 																		<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																	</div>
@@ -415,7 +415,7 @@
 													<!-- Image -->
 													<div class="col-md-5">
 														<div class="form-group mb-md-0">
-															<div class="input-group" data-toggle="aizuploader" data-type="image">
+															<div class="input-group" data-toggle="pexuploader" data-type="image">
 																<div class="input-group-prepend">
 																	<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																</div>
@@ -472,21 +472,21 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Background color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="flash_deal_bg_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="flash_deal_bg_color" value="{{ get_setting('flash_deal_bg_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="flash_deal_bg_color" value="{{ get_setting('flash_deal_bg_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('flash_deal_bg_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('flash_deal_bg_color') }}">
 														</span>
 													</div>
 												</div>
 											</div>
 											<!-- Use Outline -->
 											<div class="form-group d-inline-block mb-1">
-												<label class="aiz-checkbox">
+												<label class="pex-checkbox">
 													<input type="hidden" name="types[]" value="flash_deal_section_outline">
 													<input type="checkbox" class="check-one" name="flash_deal_section_outline" value="1" @if(get_setting('flash_deal_section_outline') == 1) checked @endif>
 													<span class="fs-13 fw-400">{{ translate('Use Outline') }}</span>
-													<span class="aiz-square-check"></span>
+													<span class="pex-square-check"></span>
 												</label>
 											</div>
 											<!-- Outline color -->
@@ -494,10 +494,10 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Outline color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="flash_deal_section_outline_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="flash_deal_section_outline_color" value="{{ get_setting('flash_deal_section_outline_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="flash_deal_section_outline_color" value="{{ get_setting('flash_deal_section_outline_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('flash_deal_section_outline_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('flash_deal_section_outline_color') }}">
 														</span>
 													</div>
 												</div>
@@ -529,21 +529,21 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Background color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="featured_section_bg_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="featured_section_bg_color" value="{{ get_setting('featured_section_bg_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="featured_section_bg_color" value="{{ get_setting('featured_section_bg_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('featured_section_bg_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('featured_section_bg_color') }}">
 														</span>
 													</div>
 												</div>
 											</div>
 											<!-- Use Outline -->
 											<div class="form-group d-inline-block mb-1">
-												<label class="aiz-checkbox">
+												<label class="pex-checkbox">
 													<input type="hidden" name="types[]" value="featured_section_outline">
 													<input type="checkbox" class="check-one" name="featured_section_outline" value="1" @if(get_setting('featured_section_outline') == 1) checked @endif>
 													<span class="fs-13 fw-400">{{ translate('Use Outline') }}</span>
-													<span class="aiz-square-check"></span>
+													<span class="pex-square-check"></span>
 												</label>
 											</div>
 											<!-- Outline color -->
@@ -551,10 +551,10 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Outline color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="featured_section_outline_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="featured_section_outline_color" value="{{ get_setting('featured_section_outline_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="featured_section_outline_color" value="{{ get_setting('featured_section_outline_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('featured_section_outline_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('featured_section_outline_color') }}">
 														</span>
 													</div>
 												</div>
@@ -597,7 +597,7 @@
 														<!-- Image -->
 														<div class="col-md-5">
 															<div class="form-group mb-md-0">
-																<div class="input-group" data-toggle="aizuploader" data-type="image">
+																<div class="input-group" data-toggle="pexuploader" data-type="image">
 																	<div class="input-group-prepend">
 																		<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																	</div>
@@ -640,7 +640,7 @@
 													<!-- Image -->
 													<div class="col-md-5">
 														<div class="form-group mb-md-0">
-															<div class="input-group" data-toggle="aizuploader" data-type="image">
+															<div class="input-group" data-toggle="pexuploader" data-type="image">
 																<div class="input-group-prepend">
 																	<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																</div>
@@ -707,7 +707,7 @@
 														<!-- Image -->
 														<div class="col-md-5">
 															<div class="form-group mb-md-0">
-																<div class="input-group" data-toggle="aizuploader" data-type="image">
+																<div class="input-group" data-toggle="pexuploader" data-type="image">
 																	<div class="input-group-prepend">
 																		<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																	</div>
@@ -750,7 +750,7 @@
 													<!-- Image -->
 													<div class="col-md-5">
 														<div class="form-group mb-md-0">
-															<div class="input-group" data-toggle="aizuploader" data-type="image">
+															<div class="input-group" data-toggle="pexuploader" data-type="image">
 																<div class="input-group-prepend">
 																	<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																</div>
@@ -807,21 +807,21 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Background color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="best_selling_section_bg_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="best_selling_section_bg_color" value="{{ get_setting('best_selling_section_bg_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="best_selling_section_bg_color" value="{{ get_setting('best_selling_section_bg_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('best_selling_section_bg_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('best_selling_section_bg_color') }}">
 														</span>
 													</div>
 												</div>
 											</div>
 											<!-- Use Outline -->
 											<div class="form-group d-inline-block mb-1">
-												<label class="aiz-checkbox">
+												<label class="pex-checkbox">
 													<input type="hidden" name="types[]" value="best_selling_section_outline">
 													<input type="checkbox" class="check-one" name="best_selling_section_outline" value="1" @if(get_setting('best_selling_section_outline') == 1) checked @endif>
 													<span class="fs-13 fw-400">{{ translate('Use Outline') }}</span>
-													<span class="aiz-square-check"></span>
+													<span class="pex-square-check"></span>
 												</label>
 											</div>
 											<!-- Outline color -->
@@ -829,10 +829,10 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Outline color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="best_selling_section_outline_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="best_selling_section_outline_color" value="{{ get_setting('best_selling_section_outline_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="best_selling_section_outline_color" value="{{ get_setting('best_selling_section_outline_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('best_selling_section_outline_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('best_selling_section_outline_color') }}">
 														</span>
 													</div>
 												</div>
@@ -864,21 +864,21 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Background color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="new_products_section_bg_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="new_products_section_bg_color" value="{{ get_setting('new_products_section_bg_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="new_products_section_bg_color" value="{{ get_setting('new_products_section_bg_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('new_products_section_bg_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('new_products_section_bg_color') }}">
 														</span>
 													</div>
 												</div>
 											</div>
 											<!-- Use Outline -->
 											<div class="form-group d-inline-block mb-1">
-												<label class="aiz-checkbox">
+												<label class="pex-checkbox">
 													<input type="hidden" name="types[]" value="new_products_section_outline">
 													<input type="checkbox" class="check-one" name="new_products_section_outline" value="1" @if(get_setting('new_products_section_outline') == 1) checked @endif>
 													<span class="fs-13 fw-400">{{ translate('Use Outline') }}</span>
-													<span class="aiz-square-check"></span>
+													<span class="pex-square-check"></span>
 												</label>
 											</div>
 											<!-- Outline color -->
@@ -886,10 +886,10 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Outline color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="new_products_section_outline_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="new_products_section_outline_color" value="{{ get_setting('new_products_section_outline_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="new_products_section_outline_color" value="{{ get_setting('new_products_section_outline_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('new_products_section_outline_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('new_products_section_outline_color') }}">
 														</span>
 													</div>
 												</div>
@@ -931,7 +931,7 @@
 														<!-- Image -->
 														<div class="col-md-5">
 															<div class="form-group mb-md-0">
-																<div class="input-group" data-toggle="aizuploader" data-type="image">
+																<div class="input-group" data-toggle="pexuploader" data-type="image">
 																	<div class="input-group-prepend">
 																		<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																	</div>
@@ -974,7 +974,7 @@
 													<!-- Image -->
 													<div class="col-md-5">
 														<div class="form-group mb-md-0">
-															<div class="input-group" data-toggle="aizuploader" data-type="image">
+															<div class="input-group" data-toggle="pexuploader" data-type="image">
 																<div class="input-group-prepend">
 																	<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 																</div>
@@ -1032,10 +1032,10 @@
                                                 <label class="col-from-label fs-13 fw-500">{{ translate('Section Background color') }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="hidden" name="types[]" value="auction_section_bg_color">
-                                                    <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="auction_section_bg_color" value="{{ get_setting('auction_section_bg_color') }}">
+                                                    <input type="text" class="form-control pex-color-input" placeholder="#000000" name="auction_section_bg_color" value="{{ get_setting('auction_section_bg_color') }}">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text p-0">
-                                                            <input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('auction_section_bg_color') }}">
+                                                            <input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('auction_section_bg_color') }}">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -1045,21 +1045,21 @@
                                                 <label class="col-from-label fs-13 fw-500">{{ translate('Content Background color') }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="hidden" name="types[]" value="auction_content_bg_color">
-                                                    <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="auction_content_bg_color" value="{{ get_setting('auction_content_bg_color') }}">
+                                                    <input type="text" class="form-control pex-color-input" placeholder="#000000" name="auction_content_bg_color" value="{{ get_setting('auction_content_bg_color') }}">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text p-0">
-                                                            <input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('auction_content_bg_color') }}">
+                                                            <input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('auction_content_bg_color') }}">
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Use Outline -->
                                             <div class="form-group d-inline-block mb-1">
-                                                <label class="aiz-checkbox">
+                                                <label class="pex-checkbox">
                                                     <input type="hidden" name="types[]" value="auction_section_outline">
                                                     <input type="checkbox" class="check-one" name="auction_section_outline" value="1" @if(get_setting('auction_section_outline') == 1) checked @endif>
                                                     <span class="fs-13 fw-400">{{ translate('Use Outline') }}</span>
-                                                    <span class="aiz-square-check"></span>
+                                                    <span class="pex-square-check"></span>
                                                 </label>
                                             </div>
                                             <!-- Outline color -->
@@ -1067,10 +1067,10 @@
                                                 <label class="col-from-label fs-13 fw-500">{{ translate('Outline color') }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="hidden" name="types[]" value="auction_section_outline_color">
-                                                    <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="auction_section_outline_color" value="{{ get_setting('auction_section_outline_color') }}">
+                                                    <input type="text" class="form-control pex-color-input" placeholder="#000000" name="auction_section_outline_color" value="{{ get_setting('auction_section_outline_color') }}">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text p-0">
-                                                            <input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('auction_section_outline_color') }}">
+                                                            <input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('auction_section_outline_color') }}">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -1081,7 +1081,7 @@
                                         <label class="col-from-label fs-13 fw-500 mb-3">{{ translate('Auction Banner') }}</label>
                                         <!-- Images -->
                                         <div class="form-group">
-                                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                                 </div>
@@ -1118,7 +1118,7 @@
 											<div class="form-group">
 												<label class="col-from-label fs-13 fw-500">{{ translate('Background Image') }}</label>
 												<div class="input-group mb-3">
-													<div class="input-group" data-toggle="aizuploader" data-type="image">
+													<div class="input-group" data-toggle="pexuploader" data-type="image">
 														<div class="input-group-prepend">
 															<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 														</div>
@@ -1138,10 +1138,10 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Background color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="cupon_background_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="cupon_background_color" value="{{ get_setting('cupon_background_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="cupon_background_color" value="{{ get_setting('cupon_background_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('cupon_background_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('cupon_background_color') }}">
 														</span>
 													</div>
 												</div>
@@ -1203,7 +1203,7 @@
 							<div class="bg-white p-3 p-sm-2rem">
 								<div class="form-group">
 									<label class="col-from-label fs-13 fw-500">{{ translate("Banner") }}</label>
-									<div class="input-group " data-toggle="aizuploader" data-type="image">
+									<div class="input-group " data-toggle="pexuploader" data-type="image">
 										<div class="input-group-prepend">
 											<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 										</div>
@@ -1237,10 +1237,10 @@
                                                 <label class="col-from-label fs-13 fw-500">{{ translate('Section Background color') }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="hidden" name="types[]" value="home_categories_section_bg_color">
-                                                    <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="home_categories_section_bg_color" value="{{ get_setting('home_categories_section_bg_color') }}">
+                                                    <input type="text" class="form-control pex-color-input" placeholder="#000000" name="home_categories_section_bg_color" value="{{ get_setting('home_categories_section_bg_color') }}">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text p-0">
-                                                            <input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('home_categories_section_bg_color') }}">
+                                                            <input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('home_categories_section_bg_color') }}">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -1250,21 +1250,21 @@
                                                 <label class="col-from-label fs-13 fw-500">{{ translate('Content Background color') }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="hidden" name="types[]" value="home_categories_content_bg_color">
-                                                    <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="home_categories_content_bg_color" value="{{ get_setting('home_categories_content_bg_color') }}">
+                                                    <input type="text" class="form-control pex-color-input" placeholder="#000000" name="home_categories_content_bg_color" value="{{ get_setting('home_categories_content_bg_color') }}">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text p-0">
-                                                            <input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('home_categories_content_bg_color') }}">
+                                                            <input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('home_categories_content_bg_color') }}">
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Use Outline -->
                                             <div class="form-group d-inline-block mb-1">
-                                                <label class="aiz-checkbox">
+                                                <label class="pex-checkbox">
                                                     <input type="hidden" name="types[]" value="home_categories_content_outline">
                                                     <input type="checkbox" class="check-one" name="home_categories_content_outline" value="1" @if(get_setting('home_categories_content_outline') == 1) checked @endif>
                                                     <span class="fs-13 fw-400">{{ translate('Use Outline') }}</span>
-                                                    <span class="aiz-square-check"></span>
+                                                    <span class="pex-square-check"></span>
                                                 </label>
                                             </div>
                                             <!-- Outline color -->
@@ -1272,10 +1272,10 @@
                                                 <label class="col-from-label fs-13 fw-500">{{ translate('Outline color') }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="hidden" name="types[]" value="home_categories_content_outline_color">
-                                                    <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="home_categories_content_outline_color" value="{{ get_setting('home_categories_content_outline_color') }}">
+                                                    <input type="text" class="form-control pex-color-input" placeholder="#000000" name="home_categories_content_outline_color" value="{{ get_setting('home_categories_content_outline_color') }}">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text p-0">
-                                                            <input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('home_categories_content_outline_color') }}">
+                                                            <input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('home_categories_content_outline_color') }}">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -1295,7 +1295,7 @@
 													<div class="row gutters-5">
 														<div class="col">
 															<div class="form-group mb-0">
-																<select class="form-control aiz-selectpicker" name="home_categories[]" data-live-search="true" data-selected={{ $value }} required>
+																<select class="form-control pex-selectpicker" name="home_categories[]" data-live-search="true" data-selected={{ $value }} required>
 																	@foreach ($categories as $category)
 																		<option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
 																		@foreach ($category->childrenCategories as $childCategory)
@@ -1327,7 +1327,7 @@
 												<div class="row gutters-5">
 													<div class="col">
 														<div class="form-group mb-0">
-															<select class="form-control aiz-selectpicker" name="home_categories[]" data-live-search="true" required>
+															<select class="form-control pex-selectpicker" name="home_categories[]" data-live-search="true" required>
 																@foreach (\App\Models\Category::where('parent_id', 0)->with('childrenCategories')->get() as $category)
 																	<option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
 																	@foreach ($category->childrenCategories as $childCategory)
@@ -1374,21 +1374,21 @@
                                                 <label class="col-from-label fs-13 fw-500">{{ translate('Section Background color') }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="hidden" name="types[]" value="classified_section_bg_color">
-                                                    <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="classified_section_bg_color" value="{{ get_setting('classified_section_bg_color') }}">
+                                                    <input type="text" class="form-control pex-color-input" placeholder="#000000" name="classified_section_bg_color" value="{{ get_setting('classified_section_bg_color') }}">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text p-0">
-                                                            <input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('classified_section_bg_color') }}">
+                                                            <input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('classified_section_bg_color') }}">
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Use Outline -->
                                             <div class="form-group d-inline-block mb-1">
-                                                <label class="aiz-checkbox">
+                                                <label class="pex-checkbox">
                                                     <input type="hidden" name="types[]" value="classified_section_outline">
                                                     <input type="checkbox" class="check-one" name="classified_section_outline" value="1" @if(get_setting('classified_section_outline') == 1) checked @endif>
                                                     <span class="fs-13 fw-400">{{ translate('Use Outline') }}</span>
-                                                    <span class="aiz-square-check"></span>
+                                                    <span class="pex-square-check"></span>
                                                 </label>
                                             </div>
                                             <!-- Outline color -->
@@ -1396,10 +1396,10 @@
                                                 <label class="col-from-label fs-13 fw-500">{{ translate('Outline color') }}</label>
                                                 <div class="input-group mb-3">
                                                     <input type="hidden" name="types[]" value="classified_section_outline_color">
-                                                    <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="classified_section_outline_color" value="{{ get_setting('classified_section_outline_color') }}">
+                                                    <input type="text" class="form-control pex-color-input" placeholder="#000000" name="classified_section_outline_color" value="{{ get_setting('classified_section_outline_color') }}">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text p-0">
-                                                            <input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('classified_section_outline_color') }}">
+                                                            <input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('classified_section_outline_color') }}">
                                                         </span>
                                                     </div>
                                                 </div>
@@ -1410,7 +1410,7 @@
                                         <!-- Large Banner -->
                                         <div class="form-group">
                                             <label class="col-from-label fs-13 fw-500">{{ translate("Large Banner") }} (<small>{{ translate('Will be shown in large device') }}</small>)</label>
-                                            <div class="input-group " data-toggle="aizuploader" data-type="image">
+                                            <div class="input-group " data-toggle="pexuploader" data-type="image">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                                 </div>
@@ -1423,7 +1423,7 @@
                                         <!-- Small Banner -->
                                         <div class="form-group">
                                             <label class="col-from-label fs-13 fw-500">{{ translate("Small Banner") }} (<small>{{ translate('Will be shown in small device') }}</small>)</label>
-                                            <div class="input-group " data-toggle="aizuploader" data-type="image">
+                                            <div class="input-group " data-toggle="pexuploader" data-type="image">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                                 </div>
@@ -1459,21 +1459,21 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Background color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="sellers_section_bg_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="sellers_section_bg_color" value="{{ get_setting('sellers_section_bg_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="sellers_section_bg_color" value="{{ get_setting('sellers_section_bg_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('sellers_section_bg_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('sellers_section_bg_color') }}">
 														</span>
 													</div>
 												</div>
 											</div>
 											<!-- Use Outline -->
 											<div class="form-group d-inline-block mb-1">
-												<label class="aiz-checkbox">
+												<label class="pex-checkbox">
 													<input type="hidden" name="types[]" value="sellers_section_outline">
 													<input type="checkbox" class="check-one" name="sellers_section_outline" value="1" @if(get_setting('sellers_section_outline') == 1) checked @endif>
 													<span class="fs-13 fw-400">{{ translate('Use Outline') }}</span>
-													<span class="aiz-square-check"></span>
+													<span class="pex-square-check"></span>
 												</label>
 											</div>
 											<!-- Outline color -->
@@ -1481,10 +1481,10 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Outline color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="sellers_section_outline_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="sellers_section_outline_color" value="{{ get_setting('sellers_section_outline_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="sellers_section_outline_color" value="{{ get_setting('sellers_section_outline_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('sellers_section_outline_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('sellers_section_outline_color') }}">
 														</span>
 													</div>
 												</div>
@@ -1516,21 +1516,21 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Background color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="brands_section_bg_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="brands_section_bg_color" value="{{ get_setting('brands_section_bg_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="brands_section_bg_color" value="{{ get_setting('brands_section_bg_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('brands_section_bg_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('brands_section_bg_color') }}">
 														</span>
 													</div>
 												</div>
 											</div>
 											<!-- Use Outline -->
 											<div class="form-group d-inline-block mb-1">
-												<label class="aiz-checkbox">
+												<label class="pex-checkbox">
 													<input type="hidden" name="types[]" value="brands_section_outline">
 													<input type="checkbox" class="check-one" name="brands_section_outline" value="1" @if(get_setting('brands_section_outline') == 1) checked @endif>
 													<span class="fs-13 fw-400">{{ translate('Use Outline') }}</span>
-													<span class="aiz-square-check"></span>
+													<span class="pex-square-check"></span>
 												</label>
 											</div>
 											<!-- Outline color -->
@@ -1538,10 +1538,10 @@
 												<label class="col-from-label fs-13 fw-500">{{ translate('Outline color') }}</label>
 												<div class="input-group mb-3">
 													<input type="hidden" name="types[]" value="brands_section_outline_color">
-													<input type="text" class="form-control aiz-color-input" placeholder="#000000" name="brands_section_outline_color" value="{{ get_setting('brands_section_outline_color') }}">
+													<input type="text" class="form-control pex-color-input" placeholder="#000000" name="brands_section_outline_color" value="{{ get_setting('brands_section_outline_color') }}">
 													<div class="input-group-append">
 														<span class="input-group-text p-0">
-															<input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('brands_section_outline_color') }}">
+															<input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('brands_section_outline_color') }}">
 														</span>
 													</div>
 												</div>
@@ -1554,7 +1554,7 @@
 									<!-- Brands -->
 									<div class="form-group">
 										<input type="hidden" name="types[]" value="top_brands">
-										<select name="top_brands[]" class="form-control aiz-selectpicker" multiple data-max-options="12" data-live-search="true" data-selected="{{ get_setting('top_brands') }}">
+										<select name="top_brands[]" class="form-control pex-selectpicker" multiple data-max-options="12" data-live-search="true" data-selected="{{ get_setting('top_brands') }}">
 											@foreach (\App\Models\Brand::all() as $key => $brand)
 												<option value="{{ $brand->id }}">{{ $brand->getTranslation('name') }}</option>
 											@endforeach
@@ -1579,7 +1579,7 @@
 @section('script')
     <script type="text/javascript">
 		$(document).ready(function(){
-		    AIZ.plugins.bootstrapSelect('refresh');
+		    PEX.plugins.bootstrapSelect('refresh');
 		});
     </script>
 	<script>

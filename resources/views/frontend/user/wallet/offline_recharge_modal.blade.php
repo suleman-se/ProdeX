@@ -5,9 +5,9 @@
             <!-- Manual Payment Methods -->
             @foreach(get_all_manual_payment_methods() as $method)
               <div class="col-6 col-md-4">
-                <label class="aiz-megabox d-block mb-3">
+                <label class="pex-megabox d-block mb-3">
                     <input value="{{ $method->heading }}" type="radio" name="payment_option" onchange="toggleManualPaymentData({{ $method->id }})" data-id="{{ $method->id }}" checked>
-                    <span class="d-block p-3 aiz-megabox-elem">
+                    <span class="d-block p-3 pex-megabox-elem">
                         <img src="{{ uploaded_asset($method->photo) }}" class="img-fluid mb-2">
                         <span class="d-block text-center">
                             <span class="d-block fw-600 fs-15">{{ $method->heading }}</span>
@@ -49,7 +49,7 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label">{{ translate('Photo') }}</label>
                     <div class="col-md-9">
-                        <div class="input-group" data-toggle="aizuploader" data-type="image">
+                        <div class="input-group" data-toggle="pexuploader" data-type="image">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium rounded-0">{{ translate('Browse')}}</div>
                             </div>

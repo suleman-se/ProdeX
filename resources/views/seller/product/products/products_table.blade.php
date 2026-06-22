@@ -1,14 +1,14 @@
 <div class="card-body">
-    <table class="table mb-0" id="aiz-data-table">
+    <table class="table mb-0" id="pex-data-table">
          <thead>
             <tr>
                 
                 <th>
                     <div class="form-group">
-                        <div class="aiz-checkbox-inline">
-                            <label class="aiz-checkbox pt-5px d-block">
+                        <div class="pex-checkbox-inline">
+                            <label class="pex-checkbox pt-5px d-block">
                                 <input type="checkbox" class="check-all">
-                                <span class="aiz-square-check"></span>
+                                <span class="pex-square-check"></span>
                             </label>
                         </div>
                     </div>
@@ -41,9 +41,9 @@
                             class="toggle-plus-minus-btn border-0 bg-blue fs-14 fw-500 text-white p-0 align-items-center justify-content-center">+</button>
                     </div>
                     <div class="form-group d-inline-block">
-                        <label class="aiz-checkbox">
+                        <label class="pex-checkbox">
                             <input type="checkbox" class="check-one" name="id[]"value="{{ $product->id }}">
-                            <span class="aiz-square-check"></span>
+                            <span class="pex-square-check"></span>
                         </label>
                     </div>
                 </td>
@@ -124,7 +124,7 @@
                         
                 <td class="hide-xxl align-middle" data-label="Published">
                     @if (!$product->draft)
-                    <label class="aiz-switch aiz-switch-blue mb-0">
+                    <label class="pex-switch pex-switch-blue mb-0">
                         <input onchange="update_published(this)" value="{{ $product->id }}"type="checkbox" <?php if ($product->published == 1) {
                                 echo 'checked';
                             } ?>>
@@ -134,7 +134,7 @@
                 </td>
                 <td class="hide-xxl align-middle" data-label="Featured">
                     @if (!$product->draft)
-                    <label class="aiz-switch aiz-switch-blue mb-0">
+                    <label class="pex-switch pex-switch-blue mb-0">
                         <input onchange="update_featured(this)" value="{{ $product->id }}"
                             type="checkbox" <?php if ($product->featured == 1) {
                                 echo 'checked';
@@ -277,7 +277,7 @@
             @endforelse
         </tbody>
     </table>
-    <div class="aiz-pagination" id="pagination">
+    <div class="pex-pagination" id="pagination">
         {{ $products->links() }}
     </div>
 </div>

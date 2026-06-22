@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <h5 class="mb-0 h6">{{ translate('Note Information') }}</h5>
     </div>
 
@@ -28,7 +28,7 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">{{ translate('Type') }}</label>
                         <div class="col-md-10">
-                            <select name="note_type" required class="form-control aiz-selectpicker mb-2 mb-md-0">
+                            <select name="note_type" required class="form-control pex-selectpicker mb-2 mb-md-0">
                                 @foreach ($types as $type)
                                     <option value="{{ $type->value }}" class="text-uppercase" @selected($type->value == $note->note_type)>
                                         {{ translate($type->name) }}</option>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Seller;
 
-use AizPackages\CombinationGenerate\Services\CombinationService;
+use App\Services\CombinationService;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
 use App\Models\AttributeValue;

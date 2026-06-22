@@ -37,13 +37,13 @@
             });
         
             $.post('{{ route('cart.updateQuantity') }}', {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 id: key,
                 quantity: element.value
             }, function(data) {
                 updateNavCart(data.nav_cart_view, data.cart_count);
                 $('#cart-details').html(data.cart_view);
-                AIZ.extra.plusMinus();
+                PEX.extra.plusMinus();
             });
         }
 
@@ -62,19 +62,19 @@
             updateCartStatus();
         });
         function updateCartStatus() {
-            $('.aiz-refresh').addClass('active');
+            $('.pex-refresh').addClass('active');
             let product_id = [];
             $(".check-one[name='id[]']:checked").each(function() {
                 product_id.push($(this).val());
             });
 
             $.post('{{ route('cart.updateCartStatus') }}', {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 product_id: product_id
             }, function(data) {
                 $('#cart-details').html(data);
-                AIZ.extra.plusMinus();
-                $('.aiz-refresh').removeClass('active');
+                PEX.extra.plusMinus();
+                $('.pex-refresh').removeClass('active');
             });
             // GA4 - Track selected cart items
             $(".check-one[name='id[]']:checked").each(function() {
@@ -93,7 +93,7 @@
         $(document).on("click", "#coupon-apply", function() {
             @if (Auth::check())
                 @if(Auth::user()->user_type != 'customer')
-                    AIZ.plugins.notify('warning', "{{ translate('Please Login as a customer to apply coupon code.') }}");
+                    PEX.plugins.notify('warning', "{{ translate('Please Login as a customer to apply coupon code.') }}");
                     return false;
                 @endif
 
@@ -109,7 +109,7 @@
                     contentType: false,
                     processData: false,
                     success: function(data, textStatus, jqXHR) {
-                        AIZ.plugins.notify(data.response_message.response, data.response_message.message);
+                        PEX.plugins.notify(data.response_message.response, data.response_message.message);
                         $("#cart_summary").html(data.html);
                     }
                 });

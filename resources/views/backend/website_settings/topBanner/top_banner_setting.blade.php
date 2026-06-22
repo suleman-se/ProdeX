@@ -35,12 +35,12 @@
 							<div class="col-xxl-9">
 								<div class="input-group">
                                     <input type="hidden" name="types[]" value="top_banner_background_color">
-									<input type="text" class="form-control aiz-color-input" placeholder="Ex: #e1e1e1"
+									<input type="text" class="form-control pex-color-input" placeholder="Ex: #e1e1e1"
 										name="top_banner_background_color" value="{{ get_setting('top_banner_background_color') }}">
 									<div class="input-group-append">
 										<span class="input-group-text p-0">
 											<input data-target="top_banner_background_color"
-												class="aiz-color-picker border-0 size-40px" type="color"
+												class="pex-color-picker border-0 size-40px" type="color"
 												value="{{ get_setting('top_banner_background_color') }}">
 										</span>
 									</div>
@@ -54,19 +54,19 @@
                             </label>
                             <div class="col-xxl-9 d-flex align-items-center">
                                 <input type="hidden" name="types[]" value="top_banner_text_color">
-                                <label class="aiz-megabox d-block bg-white mb-0 mr-3" style="flex: 1;">
+                                <label class="pex-megabox d-block bg-white mb-0 mr-3" style="flex: 1;">
                                     <input type="radio" name="top_banner_text_color" value="white" @if(get_setting('top_banner_text_color') == 'white') checked @endif>
-                                    <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                    <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                         style="padding: 0.75rem 1.2rem;">
-                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="flex-grow-1 pl-3 fw-600">{{ translate('Light') }}</span>
                                     </span>                                
                                 </label>
-                                <label class="aiz-megabox d-block bg-white mb-0" style="flex: 1;">
+                                <label class="pex-megabox d-block bg-white mb-0" style="flex: 1;">
                                     <input type="radio" name="top_banner_text_color" value="dark" @if(get_setting('top_banner_text_color') == 'dark') checked @endif>
-                                    <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                    <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                         style="padding: 0.75rem 1.2rem;">
-                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="flex-grow-1 pl-3 fw-600">{{ translate('Dark') }}</span>
                                     </span>
                                 </label>
@@ -80,7 +80,7 @@
                                 <span class="fs-12 text-secondary fw-400">{{ translate('(2560px or 1920px X S/M/Lpx)') }}</span>
                             </label>
                             <div class="col-md-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="false">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">
                                             {{ translate('Browse')}}
@@ -103,7 +103,7 @@
                                 <span class="fs-12 text-secondary fw-400">{{ translate('(1024px X S/M/Lpx)') }}</span>
                             </label>
                             <div class="col-md-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="false">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">
                                             {{ translate('Browse')}}
@@ -126,7 +126,7 @@
                                 <span class="fs-12 text-secondary fw-400">{{ translate('(440px X S/M/Lpx)') }}</span>
                             </label>
                             <div class="col-md-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="false">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>

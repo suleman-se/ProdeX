@@ -153,7 +153,7 @@
                 <h5 class="mb-1 fs-16 fw-600">{{ translate('Most Visited Pages') }}</h5>
             </div>
             <div class="card-body px-0 py-0 h-400px c-scrollbar-light">
-                <table class="table table-vertical-middle aiz-table mb-0">
+                <table class="table table-vertical-middle pex-table mb-0">
                     <thead class="bg-soft-secondary">
                         <tr>
                             <th>{{ translate('Page Title') }}</th>

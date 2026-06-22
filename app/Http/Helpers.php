@@ -50,7 +50,7 @@ use App\Http\Resources\V2\CarrierCollection;
 use App\Http\Controllers\AffiliateController;
 use App\Http\Controllers\ClubPointController;
 use App\Http\Controllers\CommissionController;
-use AizPackages\ColorCodeConverter\Services\ColorCodeConverter;
+use App\Services\ColorCodeConverter;
 use App\Models\Address;
 use App\Models\AppTranslation;
 use App\Models\Area;
@@ -1337,7 +1337,20 @@ if (!function_exists('my_asset')) {
             return Storage::disk(config('filesystems.default'))->url($path);
         }
 
-        return app('url')->asset('public/' . $path, $secure);
+        $is_public_doc_root = false;
+        if (isset($_SERVER['DOCUMENT_ROOT'])) {
+            $doc_root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
+            if (str_ends_with($doc_root, '/public')) {
+                $is_public_doc_root = true;
+            }
+        }
+
+        $path_prefix = '';
+        if (!str_contains(request()->getBaseUrl(), '/public') && php_sapi_name() !== 'cli-server' && !$is_public_doc_root) {
+            $path_prefix = 'public/';
+        }
+
+        return app('url')->asset($path_prefix . $path, $secure);
     }
 }
 
@@ -1351,7 +1364,20 @@ if (!function_exists('static_asset')) {
      */
     function static_asset($path, $secure = null)
     {
-        return app('url')->asset('public/' . $path, $secure);
+        $is_public_doc_root = false;
+        if (isset($_SERVER['DOCUMENT_ROOT'])) {
+            $doc_root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
+            if (str_ends_with($doc_root, '/public')) {
+                $is_public_doc_root = true;
+            }
+        }
+
+        $path_prefix = '';
+        if (!str_contains(request()->getBaseUrl(), '/public') && php_sapi_name() !== 'cli-server' && !$is_public_doc_root) {
+            $path_prefix = 'public/';
+        }
+
+        return app('url')->asset($path_prefix . $path, $secure);
     }
 }
 

@@ -1,7 +1,7 @@
 @extends('frontend.layouts.user_panel')
 
 @section('panel_content')
-    <div class="aiz-titlebar mb-4">
+    <div class="pex-titlebar mb-4">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <b class="fs-20 fw-700 text-dark">{{ translate('Wishlist')}}</b>
@@ -12,7 +12,7 @@
     @if (count($wishlists) > 0)
         <div class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 gutters-16 border-top border-left mx-1 mx-md-0 mb-4">
             @foreach($wishlists as $key => $wishlist)
-                <div class="aiz-card-box col py-3 text-center border-right border-bottom has-transition hov-shadow-out z-1" id="wishlist_{{ $wishlist->id }}">
+                <div class="pex-card-box col py-3 text-center border-right border-bottom has-transition hov-shadow-out z-1" id="wishlist_{{ $wishlist->id }}">
                     <div class="position-relative h-140px h-md-200px img-fit overflow-hidden mb-3">
                         <!-- Image -->
                         <a href="{{ route('product', $wishlist->product->slug) }}" class="d-block h-100 position-relative image-hover-effect">
@@ -25,7 +25,7 @@
                                     title="{{$wishlist->product->getTranslation('name') }}">
                         </a>
                         <!-- Remove from wishlisht -->
-                        <div class="absolute-top-right aiz-p-hov-icon">
+                        <div class="absolute-top-right pex-p-hov-icon">
                             <a href="javascript:void(0)" onclick="removeFromWishlist({{ $wishlist->id }})" data-toggle="tooltip" data-title="{{ translate('Remove from wishlist') }}" data-placement="left">
                                 <i class="la la-trash"></i>
                             </a>
@@ -37,7 +37,7 @@
                         @endphp
             
                         @if ( (is_array($colors) && count($colors) > 0) || (is_array($attributes) && count($attributes) > 0) )
-                            <a class="cart-btn absolute-bottom-left w-100 h-35px aiz-p-hov-icon text-white fs-13 fw-700 d-none d-sm-flex flex-column justify-content-center align-items-center"
+                            <a class="cart-btn absolute-bottom-left w-100 h-35px pex-p-hov-icon text-white fs-13 fw-700 d-none d-sm-flex flex-column justify-content-center align-items-center"
                                 href="javascript:void(0)" onclick="showAddToCartRightCanvas({{ $wishlist->product->id }})">
                                 <span class="cart-btn-text">
                                     {{ translate('Select Option') }}
@@ -45,7 +45,7 @@
                                 <span><i class="las la-sliders-h" style="font-size: 1.4rem;"></i></span>
                             </a>
                         @else
-                            <a class="cart-btn absolute-bottom-left w-100 h-35px aiz-p-hov-icon text-white fs-13 fw-700 d-none d-sm-flex flex-column justify-content-center align-items-center"
+                            <a class="cart-btn absolute-bottom-left w-100 h-35px pex-p-hov-icon text-white fs-13 fw-700 d-none d-sm-flex flex-column justify-content-center align-items-center"
                                 href="javascript:void(0)" @if (Auth::check() || get_Setting('guest_checkout_activation') == 1) onclick="addToCartSingleProduct({{ $wishlist->product->id }})" @else onclick="showLoginModal()" @endif>
                                 <span class="cart-btn-text">
                                     {{ translate('Add to Cart') }}
@@ -80,7 +80,7 @@
         </div>
     @endif
     <!-- Pagination -->
-    <div class="aiz-pagination">
+    <div class="pex-pagination">
         {{ $wishlists->links() }}
     </div>
 @endsection
@@ -111,7 +111,7 @@
             $.post('{{ route('wishlists.remove') }}',{_token:'{{ csrf_token() }}', id:id}, function(data){
                 $('#wishlist').html(data);
                 $('#wishlist_'+id).hide();
-                AIZ.plugins.notify('success', '{{ translate("Item has been renoved from wishlist") }}');
+                PEX.plugins.notify('success', '{{ translate("Item has been renoved from wishlist") }}');
             })
         }
     </script>

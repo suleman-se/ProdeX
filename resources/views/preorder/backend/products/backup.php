@@ -7,7 +7,7 @@
     CoreComponentRepository::initializeCache();
 @endphp
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <h5 class="mb-0 h6">{{translate('Add New Product')}}</h5>
 </div>
 <div class="">
@@ -43,7 +43,7 @@
                         <div class="form-group row" id="category">
                             <label class="col-md-3 col-from-label">{{translate('Category')}} <span class="text-danger">*</span></label>
                             <div class="col-md-8">
-                                <select class="form-control aiz-selectpicker" name="category_id" id="category_id" data-live-search="true" required>
+                                <select class="form-control pex-selectpicker" name="category_id" id="category_id" data-live-search="true" required>
                                     @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
                                     @foreach ($category->childrenCategories as $childCategory)
@@ -56,7 +56,7 @@
                         <div class="form-group row" id="brand">
                             <label class="col-md-3 col-from-label">{{translate('Brand')}}</label>
                             <div class="col-md-8">
-                                <select class="form-control aiz-selectpicker" name="brand_id" id="brand_id" data-live-search="true">
+                                <select class="form-control pex-selectpicker" name="brand_id" id="brand_id" data-live-search="true">
                                     <option value="">{{ translate('Select Brand') }}</option>
                                     @foreach ($brands as $brand)
                                     <option value="{{ $brand->id }}">{{ $brand->getTranslation('name') }}</option>
@@ -103,7 +103,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Gallery Images')}} <small>(600x600)</small></label>
                             <div class="col-md-8">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -118,7 +118,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Thumbnail Image')}} <small>(300x300)</small></label>
                             <div class="col-md-8">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -133,7 +133,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Video Provider')}}</label>
                             <div class="col-md-8">
-                                <select class="form-control aiz-selectpicker" name="video_provider" id="video_provider">
+                                <select class="form-control pex-selectpicker" name="video_provider" id="video_provider">
                                     <option value="youtube">{{translate('Youtube')}}</option>
                                     <option value="dailymotion">{{translate('Dailymotion')}}</option>
                                     <option value="vimeo">{{translate('Vimeo')}}</option>
@@ -150,7 +150,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('PDF Specification')}}</label>
                             <div class="col-md-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="document">
+                                <div class="input-group" data-toggle="pexuploader" data-type="document">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -172,7 +172,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Description')}}</label>
                             <div class="col-md-8">
-                                <textarea class="aiz-text-editor" name="description"></textarea>
+                                <textarea class="pex-text-editor" name="description"></textarea>
                             </div>
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Enable Prepayment')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_prepayment" value="1">
                                     <span></span>
                                 </label>
@@ -279,7 +279,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Enable Sample Order')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_sample_order" value="1">
                                     <span></span>
                                 </label>
@@ -321,7 +321,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Prepayment Needed for Sample')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_prepayment_nedded" value="1">
                                     <span></span>
                                 </label>
@@ -341,7 +341,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Add Wholesale Price')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="radio" name="add_wholesale_price" value="1">
                                     <span></span>
                                 </label>
@@ -350,7 +350,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Show Lead Time')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="radio" name="show_lead_time" value="1">
                                     <span></span>
                                 </label>
@@ -428,7 +428,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 control-label" for="start_date">{{translate('Discount Date Range')}}</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control aiz-date-range" name="date_range" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
+                              <input type="text" class="form-control pex-date-range" name="date_range" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -439,7 +439,7 @@
                                         <input type="number"  min="0" value="0" step="1" placeholder="{{ translate('Discount Amount') }}" name="discount" class="form-control" required>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <select class="form-control aiz-selectpicker" name="discount_type">
+                                        <select class="form-control pex-selectpicker" name="discount_type">
                                             <option value="flat">{{translate('Flat')}}</option>
                                             <option value="percent">{{translate('Percent')}}</option>
                                         </select>
@@ -450,7 +450,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Use Advance Discount Option')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_Advance_discount" value="1">
                                     <span></span>
                                 </label>
@@ -470,7 +470,7 @@
                                         <input type="number"  min="0" value="0" step="1" placeholder="{{ translate('discount') }}" name="discount" class="form-control" required>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <select class="form-control aiz-selectpicker" name="discount_type">
+                                        <select class="form-control pex-selectpicker" name="discount_type">
                                             <option value="amount">{{translate('Flat')}}</option>
                                             <option value="percent">{{translate('Percent')}}</option>
                                         </select>
@@ -503,7 +503,7 @@
                                         <input type="number"  min="0" value="0" step="1" placeholder="{{ translate('Amount') }}" name="after_preorder_discount_amount" class="form-control" required>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <select class="form-control aiz-selectpicker" name="after_preorder_discount_type">
+                                        <select class="form-control pex-selectpicker" name="after_preorder_discount_type">
                                             <option value="amount">{{translate('Flat')}}</option>
                                             <option value="percent">{{translate('Percent')}}</option>
                                         </select>
@@ -519,7 +519,7 @@
                                         <input type="number"  min="0" value="0" step="1" placeholder="{{ translate('Amount') }}" name="direct_purchase_discount_amount" class="form-control" required>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <select class="form-control aiz-selectpicker" name="direct_purchase_discount_type[]">
+                                        <select class="form-control pex-selectpicker" name="direct_purchase_discount_type[]">
                                             <option value="amount">{{translate('Flat')}}</option>
                                             <option value="percent">{{translate('Percent')}}</option>
                                         </select>
@@ -537,7 +537,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Use Coupon For This Product')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_coupon" value="1">
                                     <span></span>
                                 </label>
@@ -546,7 +546,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Show Other Counpons For This Seller')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="show_seller_coupon" value="1">
                                     <span></span>
                                 </label>
@@ -569,12 +569,12 @@
                             <label class="col-md-3 col-from-label">{{translate('Coupon Date Range')}}</label>
                             <div class="col-md-9">
                                <div class="row">
-                                <label class="col-sm-3 aiz-switch aiz-switch-success mb-0">
+                                <label class="col-sm-3 pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_published" value="1">
                                     <span></span>
                                 </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control aiz-date-range" name="coupon_date_range" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
+                                    <input type="text" class="form-control pex-date-range" name="coupon_date_range" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
                                   </div>
                                </div>
                             </div>
@@ -582,7 +582,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-from-label">{{translate('Use Advanced Coupon Option')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_Advance_coupon" value="1">
                                     <span></span>
                                 </label>
@@ -652,7 +652,7 @@
                         <div class="form-group row">
                             <div class="col-md-3 " ></div>
                             <div class="col-md-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="document">
+                                <div class="input-group" data-toggle="pexuploader" data-type="document">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -689,7 +689,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label" for="signinSrEmail">{{ translate('Meta Image') }}</label>
                             <div class="col-md-8">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -723,7 +723,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label">{{translate('Published')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_published" value="1">
                                     <span></span>
                                 </label>
@@ -732,7 +732,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label">{{translate('Featured')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_featured" value="1">
                                     <span></span>
                                 </label>
@@ -741,7 +741,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label text-orange">{{translate('Show In Homepgae')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_show_on_homepage" value="1">
                                     <span></span>
                                 </label>
@@ -750,7 +750,7 @@
                         <div class="form-group row">
                             <label class="col-md-12 col-from-label text-orange fw-bold"><b>{{translate('Preorder Campaign')}}</b></label>
                             <div class="col-md-12">
-                                <select class="form-control aiz-selectpicker" name="campaign" id="campaign" data-live-search="true">
+                                <select class="form-control pex-selectpicker" name="campaign" id="campaign" data-live-search="true">
                                     <option value="0">{{ translate('Select One') }}</option>
                                     <option value="1">{{ translate('Select First') }}</option>
                                     <option value="2">{{ translate('Select Second') }}</option>
@@ -773,7 +773,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label">{{translate('Refundable')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_refundable" value="1">
                                     <span></span>
                                 </label>
@@ -849,7 +849,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label">{{translate('Cash On Delivery')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="radio" name="shipping_type" value="cod">
                                     <span></span>
                                 </label>
@@ -858,7 +858,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label">{{translate('Free Shipping')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="radio" name="shipping_type" value="free">
                                     <span></span>
                                 </label>
@@ -867,7 +867,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label ">{{translate('Flat Rate')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="radio" name="shipping_type" value="flat">
                                     <span></span>
                                 </label>
@@ -876,7 +876,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label ">{{translate('Is Product Quantity Multiply')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="radio" name="shipping_type" value="multiply">
                                     <span></span>
                                 </label>
@@ -952,7 +952,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label">{{translate('Cash on delivery available')}}</label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_cod" value="1">
                                     <span></span>
                                 </label>
@@ -1023,7 +1023,7 @@
                                 <input type="number"  min="0" value="0" step="1" placeholder="{{ translate('Tax') }}" name="tax_amount[]" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <select class="form-control aiz-selectpicker" name="tax_type[]">
+                                <select class="form-control pex-selectpicker" name="tax_type[]">
                                     <option value="amount">{{translate('Flat')}}</option>
                                     <option value="percent">{{translate('Percent')}}</option>
                                 </select>
@@ -1044,7 +1044,7 @@
                         <div class="form-group row">
                             <label class="col-md-6 col-from-label"><b>{{translate('Stock Visibility State')}}</b></label>
                             <div class="col-md-6">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="is_stock_visibility" value="1">
                                     <span></span>
                                 </label>
@@ -1082,7 +1082,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-6 col-from-label"><b>{{translate('Low Stock Quantity Warning')}}</b></label>
                                     <div class="col-md-6 d-flex">
-                                        <label class="aiz-switch aiz-switch-success mb-0  ">
+                                        <label class="pex-switch pex-switch-success mb-0  ">
                                             <input type="checkbox" name="is_low_stock_warning" value="1" class="mb-0">
                                             <span></span>
                                         </label>
@@ -1097,7 +1097,7 @@
                                 <div class="form-group row d-flex justify-content-between align-items-center">
                                     <label class="col-md-6 col-from-label"><b>{{translate('Custom Order Display')}}</b></label>
                                     <div class="col-md-6 ms-auto">
-                                        <label class="aiz-switch aiz-switch-success mb-0 ms-auto">
+                                        <label class="pex-switch pex-switch-success mb-0 ms-auto">
                                             <input type="checkbox" name="is_custom_order_show" value="1" class="ms-auto">
                                             <span></span>
                                         </label>
@@ -1228,7 +1228,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-from-label">{{translate('Category')}}</label>
                                             <div class="col-md-10">
-                                                <select class="form-control aiz-selectpicker" data-placeholder="{{ translate('Select a Category')}}" name="fq_bought_product_category_id" data-live-search="true" required>
+                                                <select class="form-control pex-selectpicker" data-placeholder="{{ translate('Select a Category')}}" name="fq_bought_product_category_id" data-live-search="true" required>
                                                     @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
                                                         @foreach ($category->childrenCategories as $childCategory)
@@ -1336,12 +1336,12 @@ $(document).ready(function() {
                         <input type="text" class="form-control" name="choice[]" value="'+name+'" placeholder="{{ translate('Choice Title') }}" readonly>\
                     </div>\
                     <div class="col-md-8">\
-                        <select class="form-control aiz-selectpicker attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" data-selected-text-format="count" multiple>\
+                        <select class="form-control pex-selectpicker attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" data-selected-text-format="count" multiple>\
                             '+obj+'\
                         </select>\
                     </div>\
                 </div>');
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
            }
        });
 
@@ -1351,11 +1351,11 @@ $(document).ready(function() {
     $('input[name="colors_active"]').on('change', function() {
         if(!$('input[name="colors_active"]').is(':checked')) {
             $('#colors').prop('disabled', true);
-            AIZ.plugins.bootstrapSelect('refresh');
+            PEX.plugins.bootstrapSelect('refresh');
         }
         else {
             $('#colors').prop('disabled', false);
-            AIZ.plugins.bootstrapSelect('refresh');
+            PEX.plugins.bootstrapSelect('refresh');
         }
         update_sku();
     });
@@ -1392,8 +1392,8 @@ $(document).ready(function() {
            data:$('#choice_form').serialize(),
            success: function(data) {
                 $('#sku_combination').html(data);
-                AIZ.uploader.previewGenerate();
-                AIZ.plugins.sectionFooTable('#sku_combination');
+                PEX.uploader.previewGenerate();
+                PEX.plugins.sectionFooTable('#sku_combination');
                 if (data.trim().length > 1) {
                    $('#show-hide-div').hide();
                 }
@@ -1432,9 +1432,9 @@ $(document).ready(function() {
     function filterFqBoughtProduct() {
         var searchKey = $('input[name=search_keyword]').val();
         var fqBroughCategory = $('select[name=fq_brough_category]').val();
-        $.post('{{ route('product.search') }}', { _token: AIZ.data.csrf, product_id: null, search_key:searchKey, category:fqBroughCategory, product_type:"physical" }, function(data){
+        $.post('{{ route('product.search') }}', { _token: PEX.data.csrf, product_id: null, search_key:searchKey, category:fqBroughCategory, product_type:"physical" }, function(data){
             $('#product-list').html(data);
-            AIZ.plugins.sectionFooTable('#product-list');
+            PEX.plugins.sectionFooTable('#product-list');
         });
     }
 
@@ -1451,10 +1451,10 @@ $(document).ready(function() {
 
         var productIds = selectedProducts.concat(fqBoughtProductIds.filter((item) => selectedProducts.indexOf(item) < 0))
 
-        $.post('{{ route('get-selected-products') }}', { _token: AIZ.data.csrf, product_ids:productIds}, function(data){
+        $.post('{{ route('get-selected-products') }}', { _token: PEX.data.csrf, product_ids:productIds}, function(data){
             $('#fq-bought-product-select-modal').modal('hide');
             $('#selected-fq-bought-products').html(data);
-            AIZ.plugins.sectionFooTable('#selected-fq-bought-products');
+            PEX.plugins.sectionFooTable('#selected-fq-bought-products');
         });
     }
 

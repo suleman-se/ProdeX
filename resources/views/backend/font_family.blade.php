@@ -15,7 +15,7 @@
 
                 <div class="row mx-1 font-family-card" style="margin-bottom: 4rem !important;"></div>
 
-                <div class="aiz-bottom-bar px-15px px-lg-25px bg-white">
+                <div class="pex-bottom-bar px-15px px-lg-25px bg-white">
                     <div class="text-center mt-3 mb-2" id="view-more-container">
                         @if(count($fonts) > 20)
                             <button type="button" class="btn btn-outline-primary"

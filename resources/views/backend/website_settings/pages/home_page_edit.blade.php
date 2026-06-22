@@ -40,7 +40,7 @@
 									<div class="row gutters-5">
 										<div class="col-md-5">
 											<div class="form-group">
-												<div class="input-group" data-toggle="aizuploader" data-type="image">
+												<div class="input-group" data-toggle="pexuploader" data-type="image">
 					                                <div class="input-group-prepend">
 					                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 					                                </div>
@@ -80,7 +80,7 @@
 								<div class="row gutters-5">
 									<div class="col-md-5">
 										<div class="form-group">
-											<div class="input-group" data-toggle="aizuploader" data-type="image">
+											<div class="input-group" data-toggle="pexuploader" data-type="image">
 												<div class="input-group-prepend">
 													<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 												</div>
@@ -140,7 +140,7 @@
 					@csrf
 					<div class="form-group">
 						<label class="col-from-label">{{ translate("Large Banner") }}</label>
-						<div class="input-group " data-toggle="aizuploader" data-type="image">
+						<div class="input-group " data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 								<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 							</div>
@@ -152,7 +152,7 @@
 					</div>
 					<div class="form-group">
 						<label class="col-from-label">{{ translate("Small Banner") }}</label>
-						<div class="input-group " data-toggle="aizuploader" data-type="image">
+						<div class="input-group " data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 								<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 							</div>
@@ -202,7 +202,7 @@
 									<div class="row gutters-5">
 										<div class="col-md-5">
 											<div class="form-group">
-												<div class="input-group" data-toggle="aizuploader" data-type="image">
+												<div class="input-group" data-toggle="pexuploader" data-type="image">
 					                                <div class="input-group-prepend">
 					                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 					                                </div>
@@ -242,7 +242,7 @@
 								<div class="row gutters-5">
 									<div class="col-md-5">
 										<div class="form-group">
-											<div class="input-group" data-toggle="aizuploader" data-type="image">
+											<div class="input-group" data-toggle="pexuploader" data-type="image">
 												<div class="input-group-prepend">
 													<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 												</div>
@@ -310,7 +310,7 @@
 									<div class="row gutters-5">
 										<div class="col-md-5">
 											<div class="form-group">
-												<div class="input-group" data-toggle="aizuploader" data-type="image">
+												<div class="input-group" data-toggle="pexuploader" data-type="image">
 					                                <div class="input-group-prepend">
 					                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 					                                </div>
@@ -350,7 +350,7 @@
 								<div class="row gutters-5">
 									<div class="col-md-5">
 										<div class="form-group">
-											<div class="input-group" data-toggle="aizuploader" data-type="image">
+											<div class="input-group" data-toggle="pexuploader" data-type="image">
 												<div class="input-group-prepend">
 													<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 												</div>
@@ -418,7 +418,7 @@
 									<div class="row gutters-5">
 										<div class="col-md-5">
 											<div class="form-group">
-												<div class="input-group" data-toggle="aizuploader" data-type="image">
+												<div class="input-group" data-toggle="pexuploader" data-type="image">
 					                                <div class="input-group-prepend">
 					                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 					                                </div>
@@ -458,7 +458,7 @@
 								<div class="row gutters-5">
 									<div class="col-md-5">
 										<div class="form-group">
-											<div class="input-group" data-toggle="aizuploader" data-type="image">
+											<div class="input-group" data-toggle="pexuploader" data-type="image">
 												<div class="input-group-prepend">
 													<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 												</div>
@@ -519,7 +519,7 @@
 					@csrf
 					
 					<div class="form-group">
-						<div class="input-group" data-toggle="aizuploader" data-type="image">
+						<div class="input-group" data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 								<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 							</div>
@@ -587,7 +587,7 @@
 									<div class="row gutters-5">
 										<div class="col">
 											<div class="form-group">
-												<select class="form-control aiz-selectpicker" name="home_categories[]" data-live-search="true" data-selected={{ $value }} required>
+												<select class="form-control pex-selectpicker" name="home_categories[]" data-live-search="true" data-selected={{ $value }} required>
 													@foreach (\App\Models\Category::where('parent_id', 0)->with('childrenCategories')->get() as $category)
 														<option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
 														@foreach ($category->childrenCategories as $childCategory)
@@ -613,7 +613,7 @@
 							data-content='<div class="row gutters-5">
 								<div class="col">
 									<div class="form-group">
-										<select class="form-control aiz-selectpicker" name="home_categories[]" data-live-search="true" required>
+										<select class="form-control pex-selectpicker" name="home_categories[]" data-live-search="true" required>
 											@foreach (\App\Models\Category::all() as $key => $category)
 												<option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
 											@endforeach
@@ -659,7 +659,7 @@
 					@csrf
 					<div class="form-group">
 						<label>{{ translate('Large Banner') }}</label>
-						<div class="input-group " data-toggle="aizuploader" data-type="image">
+						<div class="input-group " data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 								<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 							</div>
@@ -671,7 +671,7 @@
 					</div>
 					<div class="form-group">
 						<label>{{ translate('Small Banner') }}</label>
-						<div class="input-group " data-toggle="aizuploader" data-type="image">
+						<div class="input-group " data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 								<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 							</div>
@@ -700,7 +700,7 @@
 						<label class="col-md-2 col-from-label">{{translate('Top Brands (Max 12)')}}</label>
 						<div class="col-md-10">
 							<input type="hidden" name="types[]" value="top_brands">
-							<select name="top_brands[]" class="form-control aiz-selectpicker" multiple data-max-options="12" data-live-search="true" data-selected="{{ get_setting('top_brands') }}">
+							<select name="top_brands[]" class="form-control pex-selectpicker" multiple data-max-options="12" data-live-search="true" data-selected="{{ get_setting('top_brands') }}">
 								@foreach (\App\Models\Brand::all() as $key => $brand)
 									<option value="{{ $brand->id }}">{{ $brand->getTranslation('name') }}</option>
 								@endforeach
@@ -721,7 +721,7 @@
 @section('script')
     <script type="text/javascript">
 		$(document).ready(function(){
-		    AIZ.plugins.bootstrapSelect('refresh');
+		    PEX.plugins.bootstrapSelect('refresh');
 		});
     </script>
 @endsection

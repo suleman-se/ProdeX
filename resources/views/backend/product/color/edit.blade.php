@@ -19,7 +19,7 @@
                     </ul>
                 </div>
             @endif
-            <form class="p-4" action="{{ route('colors.update', $color->id) }}" method="POST" id="aizSubmitForm">
+            <form class="p-4" action="{{ route('colors.update', $color->id) }}" method="POST" id="pexSubmitForm">
                 <input name="_method" type="hidden" value="POST">
                 @csrf
                 <div class="form-group mb-3">

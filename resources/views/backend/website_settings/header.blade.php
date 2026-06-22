@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="aiz-titlebar text-left mt-2 mb-3">
+	<div class="pex-titlebar text-left mt-2 mb-3">
 		<div class="row align-items-center">
 			<div class="col">
 				<h1 class="h3">{{ translate('Selected Header') }}</h1>
@@ -27,7 +27,7 @@
 						<div class="form-group row">
 							<label class="col-md-3 col-from-label">{{ translate('Header Logo') }}</label>
 							<div class="col-md-8">
-								<div class=" input-group " data-toggle="aizuploader" data-type="image">
+								<div class=" input-group " data-toggle="pexuploader" data-type="image">
 									<div class="input-group-prepend">
 										<div class="input-group-text bg-soft-secondary font-weight-medium">
 											{{ translate('Browse') }}
@@ -47,7 +47,7 @@
 						<div class="form-group row">
 							<label class="col-md-3 col-from-label">{{translate('Show Language Switcher?')}}</label>
 							<div class="col-md-8">
-								<label class="aiz-switch aiz-switch-success mb-0">
+								<label class="pex-switch pex-switch-success mb-0">
 									<input type="hidden" name="types[]" value="show_language_switcher">
 									<input type="checkbox" name="show_language_switcher"
 										@if(get_setting('show_language_switcher') == 'on') checked @endif>
@@ -59,7 +59,7 @@
 						<div class="form-group row">
 							<label class="col-md-3 col-from-label">{{translate('Show Currency Switcher?')}}</label>
 							<div class="col-md-8">
-								<label class="aiz-switch aiz-switch-success mb-0">
+								<label class="pex-switch pex-switch-success mb-0">
 									<input type="hidden" name="types[]" value="show_currency_switcher">
 									<input type="checkbox" name="show_currency_switcher"
 										@if(get_setting('show_currency_switcher') == 'on') checked @endif>
@@ -71,7 +71,7 @@
 						<div class="form-group row">
 							<label class="col-md-3 col-from-label">{{translate('Enable stikcy header?')}}</label>
 							<div class="col-md-8">
-								<label class="aiz-switch aiz-switch-success mb-0">
+								<label class="pex-switch pex-switch-success mb-0">
 									<input type="hidden" name="types[]" value="header_stikcy">
 									<input type="checkbox" name="header_stikcy" @if(get_setting('header_stikcy') == 'on')
 									checked @endif>
@@ -88,12 +88,12 @@
 								<div class="col-md-8">
 									<div class="input-group">
 										<input type="hidden" name="types[]" value="{{ $style->name }}">
-										<input type="text" class="form-control aiz-color-input" placeholder="#000000"
+										<input type="text" class="form-control pex-color-input" placeholder="#000000"
 											name="{{ $style->name }}" value="{{ get_setting($style->name) }}">
 										<div class="input-group-append">
 											<span class="input-group-text p-0">
 												<input data-target="{{ $style->name }}"
-													class="aiz-color-picker border-0 size-40px" type="color"
+													class="pex-color-picker border-0 size-40px" type="color"
 													value="{{ get_setting($style->name) }}">
 											</span>
 										</div>
@@ -246,7 +246,7 @@
 				updateTopHeaderBgColor();
 			});
 
-			$('.aiz-color-picker').on('input change', function (e) {
+			$('.pex-color-picker').on('input change', function (e) {
 				e.preventDefault();
 				const color = $(this).val();
 				const target = $(this).data('target');
@@ -272,7 +272,7 @@
 				updateMiddleHeaderBgColor();
 			});
 
-			$('.aiz-color-picker').on('input change', function (e) {
+			$('.pex-color-picker').on('input change', function (e) {
 				e.preventDefault();
 				const color = $(this).val();
 				const target = $(this).data('target');
@@ -298,7 +298,7 @@
 				updateBottomHeaderBgColor();
 			});
 
-			$('.aiz-color-picker').on('input change', function (e) {
+			$('.pex-color-picker').on('input change', function (e) {
 				e.preventDefault();
 				const color = $(this).val();
 				const target = $(this).data('target');
@@ -322,7 +322,7 @@
 				updateTopHeaderTextColor('top_header_text_color', 'color', '.top-text-color-visibility');
 			});
 
-			$('.aiz-color-picker').on('input change', function () {
+			$('.pex-color-picker').on('input change', function () {
 				const color = $(this).val();
 				const target = $(this).data('target');
 				$('input[name="' + target + '"]').val(color).trigger('change');
@@ -346,7 +346,7 @@
 				updateMiddleHeaderTextColor('middle_header_text_color', 'color', '.middle-text-color-visibility');
 			});
 
-			$('.aiz-color-picker').on('input change', function () {
+			$('.pex-color-picker').on('input change', function () {
 				const color = $(this).val();
 				const target = $(this).data('target');
 				$('input[name="' + target + '"]').val(color).trigger('change');
@@ -369,7 +369,7 @@
 				updateBottomHeaderTextColor('bottom_header_text_color', 'color', '.bottom-text-color-visibility');
 			});
 
-			$('.aiz-color-picker').on('input change', function () {
+			$('.pex-color-picker').on('input change', function () {
 				const color = $(this).val();
 				const target = $(this).data('target');
 				$('input[name="' + target + '"]').val(color).trigger('change');

@@ -64,7 +64,7 @@
     @endif
 
     <!-- Pagination -->
-    <div class="aiz-pagination product-reviews-pagination py-2 px-4 d-flex justify-content-end">
+    <div class="pex-pagination product-reviews-pagination py-2 px-4 d-flex justify-content-end">
         {{ $reviews->links() }}
     </div>
 </div>

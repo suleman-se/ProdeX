@@ -152,7 +152,7 @@
                                                     <div class="form-group ">
                                                         <label class="col-form-label" for="signinSrEmail">{{translate('Proof
                                                             of payment')}}</label>
-                                                        <div class="input-group" data-toggle="aizuploader"
+                                                        <div class="input-group" data-toggle="pexuploader"
                                                             data-type="image" >
                                                             @if($order->prepayment_confirm_status == 0)  
                                                             <div class="input-group-prepend">
@@ -234,9 +234,9 @@
                                         <!-- Agree Box -->
                                         @if($order->prepayment_confirm_status == 0 && $order->request_preorder_status == 2)
                                         <div class="pt-2rem fs-14 mb-3 ml-4">
-                                            <label class="aiz-checkbox">
+                                            <label class="pex-checkbox">
                                                 <input type="checkbox" required id="agree_checkbox" onchange="stepCompletionPaymentInfo()">
-                                                <span class="aiz-square-check"></span>
+                                                <span class="pex-square-check"></span>
                                                 <span>{{ translate('I agree to the') }}</span>
                                             </label>
                                             <a href="{{ route('terms') }}" class="fw-700">{{ translate('terms and conditions') }}</a>,
@@ -382,7 +382,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-6 col-from-label">{{translate('Cash on delivery')}}</label>
                                                             <div class="col-md-6">
-                                                                <label class="aiz-switch aiz-switch-success mb-0">
+                                                                <label class="pex-switch pex-switch-success mb-0">
                                                                     <input type="checkbox" name="cod_for_final_order" value="1" id="final_payment_cash_on_delivery" onchange="toggleFinalpaymentFields()">
                                                                     <span></span>
                                                                 </label>
@@ -395,7 +395,7 @@
                                                                 <div class="form-group ">
                                                                     <label class="col-form-label" for="signinSrEmail">{{translate('Proof
                                                                         of payment')}}</label>
-                                                                    <div class="input-group" data-toggle="aizuploader"
+                                                                    <div class="input-group" data-toggle="pexuploader"
                                                                         data-type="image">
                                                                         @if($order->final_order_status == 0)
                                                                         <div class="input-group-prepend">
@@ -610,7 +610,7 @@
                                                 <div class="col-12">
                                                     <div class="form-group ">
                                                         <label class="col-form-label" for="signinSrEmail">{{translate('Refund Image')}}</label>
-                                                        <div class="input-group" data-toggle="aizuploader"
+                                                        <div class="input-group" data-toggle="pexuploader"
                                                             data-type="image">
                                                             @if($order->refund_status == 0)
                                                             <div class="input-group-prepend">
@@ -847,17 +847,17 @@ function stepCompletionShippingInfo() {
         });
 
         function updateDeliveryAddress(id, city_id = 0) {
-            $('.aiz-refresh').addClass('active');
+            $('.pex-refresh').addClass('active');
             $.post('{{ route('checkout.updateDeliveryAddress') }}', {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 address_id: id,
                 city_id: city_id
             }, function(data) {
                 $('#delivery_info').html(data.delivery_info);
                 $('#cart_summary').html(data.cart_summary);
-                $('.aiz-refresh').removeClass('active');
+                $('.pex-refresh').removeClass('active');
             });
-            AIZ.plugins.bootstrapSelect("refresh");
+            PEX.plugins.bootstrapSelect("refresh");
         }
 
         function stepCompletionDeliveryInfo() {
@@ -941,11 +941,11 @@ function stepCompletionShippingInfo() {
                     $('#preorder-product-review-modal').modal('show', {
                         backdrop: 'static'
                     });
-                    AIZ.extra.inputRating();
+                    PEX.extra.inputRating();
                 });
 
             @elseif (Auth::check() && !isCustomer())
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
             @else
                 $('#login_modal').modal('show');
             @endif
@@ -963,13 +963,13 @@ function stepCompletionShippingInfo() {
                         $('#product-review-modal').modal('show', {
                             backdrop: 'static'
                         });
-                        AIZ.extra.inputRating();
+                        PEX.extra.inputRating();
                     });
                 @else
-                    AIZ.plugins.notify('warning', '{{ translate("Sorry, You need to buy this product to give review.") }}');
+                    PEX.plugins.notify('warning', '{{ translate("Sorry, You need to buy this product to give review.") }}');
                 @endif
             @elseif (Auth::check() && !isCustomer())
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
             @else
                 $('#login_modal').modal('show');
             @endif

@@ -1,5 +1,5 @@
- <!-- aiz-main-wrapper -->
- <div class="aiz-main-wrapper d-flex flex-column justify-content-center bg-white">
+ <!-- pex-main-wrapper -->
+ <div class="pex-main-wrapper d-flex flex-column justify-content-center bg-white">
     <section class="bg-white overflow-hidden" style="min-height:100vh;">
         <div class="row no-gutters" style="min-height:100vh;">
             <!-- Left Side Image-->
@@ -62,10 +62,10 @@
                                         <div class="row mb-2">
                                             <!-- Remember Me -->
                                             <div class="col-6">
-                                                <label class="aiz-checkbox">
+                                                <label class="pex-checkbox">
                                                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                                     <span class="has-transition fs-12 fw-400 text-gray-dark hov-text-primary">{{  translate('Remember Me') }}</span>
-                                                    <span class="aiz-square-check"></span>
+                                                    <span class="pex-square-check"></span>
                                                 </label>
                                             </div>
                                             <!-- Forgot password -->

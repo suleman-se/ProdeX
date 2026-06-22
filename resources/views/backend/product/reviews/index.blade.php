@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-auto">
             <h1 class="h3">{{translate('All Rating & Reviews')}}</h1>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="col-lg-2 ml-auto">
-                <select class="form-control form-control-sm aiz-selectpicker" name="seller_id" id="seller_id" onchange="sort_reiewed_products()" data-selected="{{ $sellerID }}" >
+                <select class="form-control form-control-sm pex-selectpicker" name="seller_id" id="seller_id" onchange="sort_reiewed_products()" data-selected="{{ $sellerID }}" >
                     <option value="all">{{ translate('All') }}</option>
                     <option value="{{ get_admin()->id }}">{{ translate('In House') }}</option>
                     @foreach ($sellers as $seller)
@@ -36,7 +36,7 @@
                 </select>
             </div>
             <div class="col-lg-2">
-                <select class="form-control form-control-sm aiz-selectpicker" name="rating" id="rating" onchange="sort_reiewed_products()" data-selected="{{ $sortByRating }}">
+                <select class="form-control form-control-sm pex-selectpicker" name="rating" id="rating" onchange="sort_reiewed_products()" data-selected="{{ $sortByRating }}">
                     <option value="">{{translate('Filter by Rating')}}</option>
                     <option value="desc">{{translate('Rating (High > Low)')}}</option>
                     <option value="asc">{{translate('Rating (Low > High)')}}</option>
@@ -52,7 +52,7 @@
         </div>
     </form>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -96,7 +96,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $products->appends(request()->input())->links() }}
         </div>
     </div>

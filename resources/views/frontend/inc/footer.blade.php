@@ -21,7 +21,7 @@
                 </div>
                 <!-- Product Section -->
                 <div class="px-sm-3">
-                    <div class="aiz-carousel slick-left sm-gutters-16 arrow-none" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='false'>
+                    <div class="pex-carousel slick-left sm-gutters-16 arrow-none" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='false'>
                         @foreach ($lastViewedProducts as $key => $lastViewedProduct)
                             <div class="carousel-box px-3 position-relative has-transition hov-animate-outline border-right border-top border-bottom @if($key == 0) border-left @endif">
                                 @include('frontend.'.get_setting('homepage_select').'.partials.last_view_product_box_1',['product' => $lastViewedProduct->product])
@@ -387,11 +387,11 @@
     <!-- Accordion Fotter widgets -->
     <div class="d-lg-none bg-transparent">
         <!-- Quick links -->
-        <div class="aiz-accordion-wrap bg-black">
-            <div class="aiz-accordion-heading container bg-black">
-                <button class="aiz-accordion fs-14 text-white bg-transparent">{{ get_setting('widget_one',null,App::getLocale()) }}</button>
+        <div class="pex-accordion-wrap bg-black">
+            <div class="pex-accordion-heading container bg-black">
+                <button class="pex-accordion fs-14 text-white bg-transparent">{{ get_setting('widget_one',null,App::getLocale()) }}</button>
             </div>
-            <div class="aiz-accordion-panel bg-transparent" style="background-color: #212129 !important;">
+            <div class="pex-accordion-panel bg-transparent" style="background-color: #212129 !important;">
                 <div class="container">
                     <ul class="list-unstyled mt-3">
                         @if ( get_setting('widget_one_labels',null,App::getLocale()) !=  null )
@@ -415,11 +415,11 @@
         </div>
 
         <!-- Contacts -->
-        <div class="aiz-accordion-wrap bg-black">
-            <div class="aiz-accordion-heading container bg-black">
-                <button class="aiz-accordion fs-14 text-white bg-transparent">{{ translate('Contacts') }}</button>
+        <div class="pex-accordion-wrap bg-black">
+            <div class="pex-accordion-heading container bg-black">
+                <button class="pex-accordion fs-14 text-white bg-transparent">{{ translate('Contacts') }}</button>
             </div>
-            <div class="aiz-accordion-panel bg-transparent" style="background-color: #212129 !important;">
+            <div class="pex-accordion-panel bg-transparent" style="background-color: #212129 !important;">
                 <div class="container">
                     <ul class="list-unstyled mt-3">
                         <li class="mb-2">
@@ -442,11 +442,11 @@
         </div>
 
         <!-- My Account -->
-        <div class="aiz-accordion-wrap bg-black">
-            <div class="aiz-accordion-heading container bg-black">
-                <button class="aiz-accordion fs-14 text-white bg-transparent">{{ translate('My Account') }}</button>
+        <div class="pex-accordion-wrap bg-black">
+            <div class="pex-accordion-heading container bg-black">
+                <button class="pex-accordion fs-14 text-white bg-transparent">{{ translate('My Account') }}</button>
             </div>
-            <div class="aiz-accordion-panel bg-transparent" style="background-color: #212129 !important;">
+            <div class="pex-accordion-panel bg-transparent" style="background-color: #212129 !important;">
                 <div class="container">
                     <ul class="list-unstyled mt-3">
                         @auth
@@ -491,11 +491,11 @@
 
         <!-- Seller -->
         @if (get_setting('vendor_system_activation') == 1)
-        <div class="aiz-accordion-wrap bg-black">
-            <div class="aiz-accordion-heading container bg-black">
-                <button class="aiz-accordion fs-14 text-white bg-transparent">{{ translate('Seller Zone') }}</button>
+        <div class="pex-accordion-wrap bg-black">
+            <div class="pex-accordion-heading container bg-black">
+                <button class="pex-accordion fs-14 text-white bg-transparent">{{ translate('Seller Zone') }}</button>
             </div>
-            <div class="aiz-accordion-panel bg-transparent" style="background-color: #212129 !important;">
+            <div class="pex-accordion-panel bg-transparent" style="background-color: #212129 !important;">
                 <div class="container">
                     <ul class="list-unstyled mt-3">
                         <li class="mb-2 pb-2 {{ areActiveRoutes(['shops.create'],' active')}}">
@@ -526,11 +526,11 @@
 
         <!-- Delivery Boy -->
         @if (addon_is_activated('delivery_boy'))
-        <div class="aiz-accordion-wrap bg-black">
-            <div class="aiz-accordion-heading container bg-black">
-                <button class="aiz-accordion fs-14 text-white bg-transparent">{{ translate('Delivery Boy') }}</button>
+        <div class="pex-accordion-wrap bg-black">
+            <div class="pex-accordion-heading container bg-black">
+                <button class="pex-accordion fs-14 text-white bg-transparent">{{ translate('Delivery Boy') }}</button>
             </div>
-            <div class="aiz-accordion-panel bg-transparent" style="background-color: #212129 !important;">
+            <div class="pex-accordion-panel bg-transparent" style="background-color: #212129 !important;">
                 <div class="container">
                     <ul class="list-unstyled mt-3">
                         @guest
@@ -585,7 +585,7 @@
 </footer>
 
 <!-- Mobile bottom nav -->
-<div class="aiz-mobile-bottom-nav d-xl-none fixed-bottom border-top border-sm-bottom border-sm-left border-sm-right mx-auto mb-sm-2" style="background-color: rgb(255 255 255 / 90%)!important;">
+<div class="pex-mobile-bottom-nav d-xl-none fixed-bottom border-top border-sm-bottom border-sm-left border-sm-right mx-auto mb-sm-2" style="background-color: rgb(255 255 255 / 90%)!important;">
     <div class="row align-items-center gutters-5">
         <!-- Home -->
         <div class="col">
@@ -690,7 +690,7 @@
                         <span class="d-block mt-1 fs-10 fw-600 text-reset">{{ translate('My Account') }}</span>
                     </a>
                 @else
-                    <a href="javascript:void(0)" class="text-secondary d-block text-center pb-2 pt-3 mobile-side-nav-thumb" data-toggle="class-toggle" data-backdrop="static" data-target=".aiz-mobile-side-nav">
+                    <a href="javascript:void(0)" class="text-secondary d-block text-center pb-2 pt-3 mobile-side-nav-thumb" data-toggle="class-toggle" data-backdrop="static" data-target=".pex-mobile-side-nav">
                         <span class="d-block mx-auto">
                             @if($user->avatar_original != null)
                                 <img src="{{ $user_avatar }}" alt="{{ translate('avatar') }}" class="rounded-circle size-20px">
@@ -719,8 +719,8 @@
 
 @if (Auth::check() && auth()->user()->user_type == 'customer')
     <!-- User Side nav -->
-    <div class="aiz-mobile-side-nav collapse-sidebar-wrap sidebar-xl d-xl-none z-1035">
-        <div class="overlay dark c-pointer overlay-fixed" data-toggle="class-toggle" data-backdrop="static" data-target=".aiz-mobile-side-nav" data-same=".mobile-side-nav-thumb"></div>
+    <div class="pex-mobile-side-nav collapse-sidebar-wrap sidebar-xl d-xl-none z-1035">
+        <div class="overlay dark c-pointer overlay-fixed" data-toggle="class-toggle" data-backdrop="static" data-target=".pex-mobile-side-nav" data-same=".mobile-side-nav-thumb"></div>
         <div class="collapse-sidebar bg-white">
             @include('frontend.inc.user_side_nav')
         </div>

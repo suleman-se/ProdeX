@@ -38,14 +38,14 @@
             },
             type: "POST",
             url:
-                AIZ.data.appUrl +
+                PEX.data.appUrl +
                 "/admin/dashboard/top-category-products-section",
             data: {
                 interval_type: interval_type,
             },
             success: function (data) {
                 $("#top-category-products-section").html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             },
         });
     }
@@ -57,7 +57,7 @@
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
             type: "POST",
-            url: AIZ.data.appUrl + "/admin/dashboard/inhouse-top-brands",
+            url: PEX.data.appUrl + "/admin/dashboard/inhouse-top-brands",
             data: {
                 interval_type: interval_type,
             },
@@ -74,7 +74,7 @@
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
             type: "POST",
-            url: AIZ.data.appUrl + "/admin/dashboard/inhouse-top-categories",
+            url: PEX.data.appUrl + "/admin/dashboard/inhouse-top-categories",
             data: {
                 interval_type: interval_type,
             },
@@ -92,14 +92,14 @@
             },
             type: "POST",
             url:
-                AIZ.data.appUrl +
+                PEX.data.appUrl +
                 "/admin/dashboard/top-sellers-products-section",
             data: {
                 interval_type: interval_type,
             },
             success: function (data) {
                 $("#top-sellers-products-section").html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             },
         });
     }
@@ -112,14 +112,14 @@
             },
             type: "POST",
             url:
-                AIZ.data.appUrl +
+                PEX.data.appUrl +
                 "/admin/dashboard/top-brands-products-section",
             data: {
                 interval_type: interval_type,
             },
             success: function (data) {
                 $("#top-brands-products-section").html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             },
         });
     }

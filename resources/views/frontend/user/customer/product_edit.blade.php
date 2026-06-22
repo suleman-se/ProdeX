@@ -1,7 +1,7 @@
 @extends('frontend.layouts.user_panel')
 
 @section('panel_content')
-    <div class="aiz-titlebar mb-4">
+    <div class="pex-titlebar mb-4">
       <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="fs-20 fw-700 text-dark">{{ translate('Add Your Product') }}</h1>
@@ -41,7 +41,7 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-from-label">{{translate('Product Category')}} <span class="text-danger">*</span></label>
                     <div class="col-md-10">
-                        <select class="form-control aiz-selectpicker" data-placeholder="{{ translate('Select a Category')}}" id="categories" name="category_id" data-live-search="true" data-selected={{ $product->category_id }} required>
+                        <select class="form-control pex-selectpicker" data-placeholder="{{ translate('Select a Category')}}" id="categories" name="category_id" data-live-search="true" data-selected={{ $product->category_id }} required>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
                                 @foreach ($category->childrenCategories as $childCategory)
@@ -86,7 +86,7 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-from-label">{{ translate('Product Tag')}} <span class="text-danger">*</span></label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control aiz-tag-input rounded-0" name="tags[]" value="{{ $product->tags }}" placeholder="{{ translate('Type & hit enter')}}">
+                        <input type="text" class="form-control pex-tag-input rounded-0" name="tags[]" value="{{ $product->tags }}" placeholder="{{ translate('Type & hit enter')}}">
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-from-label">{{translate('Main Images')}} <span class="text-danger">*</span></label>
                     <div class="col-md-10">
-                        <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                        <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium rounded-0">{{ translate('Browse')}}</div>
                             </div>
@@ -115,7 +115,7 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-from-label">{{translate('Thumbnail Image')}} <span class="text-danger">*</span></label>
                     <div class="col-md-10">
-                        <div class="input-group" data-toggle="aizuploader" data-type="image">
+                        <div class="input-group" data-toggle="pexuploader" data-type="image">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium rounded-0">{{ translate('Browse')}}</div>
                             </div>
@@ -138,7 +138,7 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-from-label">{{translate('Video From')}}</label>
                     <div class="col-md-10">
-                        <select class="form-control aiz-selectpicker" data-minimum-results-for-search="Infinity" name="video_provider">
+                        <select class="form-control pex-selectpicker" data-minimum-results-for-search="Infinity" name="video_provider">
                             <option value="youtube" @if ($product->video_provider == 'youtube') selected @endif>{{ translate('Youtube')}}</option>
                             <option value="dailymotion" @if ($product->video_provider == 'dailymotion') selected @endif>{{ translate('Dailymotion')}}</option>
                             <option value="vimeo" @if ($product->video_provider == 'vimeo') selected @endif>{{ translate('Vimeo')}}</option>
@@ -175,7 +175,7 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-from-label">{{ translate('Meta Image')}}</label>
                     <div class="col-md-10">
-                        <div class="input-group" data-toggle="aizuploader" data-type="image">
+                        <div class="input-group" data-toggle="pexuploader" data-type="image">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium rounded-0">{{ translate('Browse')}}</div>
                             </div>
@@ -220,7 +220,7 @@
                     <label class="col-md-2 col-from-label">{{ translate('Description')}} <span class="text-danger">* <i class="las la-language" title="{{translate('Translatable')}}"></i></span></label>
                     <div class="col-md-10">
                         <div class="mb-3">
-                            <textarea class="aiz-text-editor rounded-0" name="description" required>{{$product->getTranslation('description')}}</textarea>
+                            <textarea class="pex-text-editor rounded-0" name="description" required>{{$product->getTranslation('description')}}</textarea>
                         </div>
                     </div>
                 </div>
@@ -236,7 +236,7 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-from-label">{{ translate('PDF')}}</label>
                     <div class="col-md-10">
-                        <div class="input-group" data-toggle="aizuploader" data-type="document">
+                        <div class="input-group" data-toggle="pexuploader" data-type="document">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium rounded-0">{{ translate('Browse')}}</div>
                             </div>
@@ -261,7 +261,7 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function() {
-        AIZ.plugins.tagify();
+        PEX.plugins.tagify();
     });
 </script>
 @endsection

@@ -8,7 +8,7 @@
                     <h3 class="mb-0 h6 text-center">{{translate('Seller Commission Activatation')}}</h3>
                 </div>
                 <div class="card-body text-center">
-                    <label class="aiz-switch aiz-switch-success mb-0">
+                    <label class="pex-switch pex-switch-success mb-0">
                         <input type="checkbox" onchange="updateSettings(this, 'vendor_commission_activation')" <?php if(get_setting('vendor_commission_activation') == 1) echo "checked";?>>
                         <span class="slider round"></span>
                     </label>
@@ -136,7 +136,7 @@
         function updateSettings(el, type){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -149,11 +149,11 @@
 
             $.post('{{ route('business_settings.update.activation') }}', {_token:'{{ csrf_token() }}', type:type, value:value}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
                     toggleCommissionInputs(value);
                 }
                 else{
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }

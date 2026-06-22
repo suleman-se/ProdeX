@@ -7,7 +7,7 @@
         <h5 class="mb-0 h6">{{translate('Classified Products')}}</h5>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -34,7 +34,7 @@
                             @endif
                         </td>
                         <td>
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input
                                     @can('publish_classified_product') onchange="update_published(this)" @endcan
                                     value="{{ $product->id }}" type="checkbox" <?php if($product->published == 1) echo "checked";?>
@@ -57,7 +57,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $products->links() }}
         </div>
     </div>
@@ -74,7 +74,7 @@
         function update_published(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -86,10 +86,10 @@
             }
             $.post('{{ route('classified_products.published') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Published products updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Published products updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

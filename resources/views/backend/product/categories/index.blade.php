@@ -8,7 +8,7 @@
 
 
     <div class="col-12 col-sm-12 col-lg-10 mx-auto">
-        <div class="aiz-titlebar text-left pb-5px">
+        <div class="pex-titlebar text-left pb-5px">
             <div class="row align-items-center">
                 <div class="col-auto">
                     <h1 class="h3 fw-bold">{{ translate('All Categories') }}</h1>
@@ -128,7 +128,7 @@
         function update_featured(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 hideBulkActionModal();
                 return;
             }
@@ -141,10 +141,10 @@
             }
             $.post('{{ route('categories.featured') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Featured categories updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Featured categories updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
@@ -152,7 +152,7 @@
         function update_hot(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 hideBulkActionModal();
                 return;
             }
@@ -165,10 +165,10 @@
             }
             $.post('{{ route('categories.hot') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Hot categories updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Hot categories updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
@@ -192,7 +192,7 @@
 
          function single_delete(categoryId) {
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 hideBulkActionModal();
                 return;
             }
@@ -201,7 +201,7 @@
                 type: 'GET',
                 success: function(response) {
                     if (response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
                         hideBulkActionModal();
                         getCategories(currentTab);
                     }
@@ -211,7 +211,7 @@
 
         function bulk_delete() {
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 hideBulkActionModal();
                 return;
             }
@@ -228,13 +228,13 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', 'Selected items Deleted successfully');
+                        PEX.plugins.notify('success', 'Selected items Deleted successfully');
                         hideBulkActionModal();
                         getCategories(currentTab);
                     }
                 },
                 error: function () {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }
@@ -242,7 +242,7 @@
 
         function bulk_feature() {
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 hideBulkActionModal();
                 return;
             }
@@ -259,13 +259,13 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected items added to featured categories successfully.') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected items added to featured categories successfully.') }}');
                         hideBulkActionModal(); 
                         getCategories(currentTab);
                     }
                 },
                 error: function () {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }
@@ -273,7 +273,7 @@
 
         function bulk_hot() {
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 hideBulkActionModal();
                 return;
             }
@@ -290,7 +290,7 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected items added to hot categories successfully.') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected items added to hot categories successfully.') }}');
                         hideBulkActionModal();
                         getCategories(currentTab);
                     }
@@ -301,7 +301,7 @@
 
         function bulkFeatured() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one category') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one category') }}');
                 return;
             }
             showBulkActionModal();
@@ -315,7 +315,7 @@
 
         function bulkHot() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one category') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one category') }}');
                 return;
             }
             showBulkActionModal();
@@ -329,7 +329,7 @@
 
         function bulkDeleted() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one category') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one category') }}');
                 return;
             }
 

@@ -2,7 +2,7 @@
 
 @section('panel_content')
 
-<div class="aiz-titlebar mt-2 mb-4">
+<div class="pex-titlebar mt-2 mb-4">
     <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{ translate('Update your product') }}</h1>
@@ -55,7 +55,7 @@
                     <div class="form-group row" id="brand">
                         <label class="col-lg-3 col-from-label">{{translate('Brand')}}</label>
                         <div class="col-lg-8">
-                            <select class="form-control aiz-selectpicker" name="brand_id" id="brand_id">
+                            <select class="form-control pex-selectpicker" name="brand_id" id="brand_id">
                                 <option value="">{{ translate('Select Brand') }}</option>
                                 @foreach (\App\Models\Brand::all() as $brand)
                                 <option value="{{ $brand->id }}" @if($product->brand_id == $brand->id) selected
@@ -89,7 +89,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-from-label">{{translate('Tags')}}</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control aiz-tag-input" name="tags[]" id="tags"
+                            <input type="text" class="form-control pex-tag-input" name="tags[]" id="tags"
                                 value="{{ $product->tags }}" placeholder="{{ translate('Type to add a tag') }}"
                                 data-role="tagsinput">
                         </div>
@@ -115,7 +115,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Gallery Images')}}</label>
                         <div class="col-md-8">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">
                                         {{ translate('Browse')}}</div>
@@ -132,7 +132,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Thumbnail Image')}}</label>
                         <div class="col-md-8">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">
                                         {{ translate('Browse')}}</div>
@@ -157,7 +157,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="signinSrEmail">{{ translate('Videos') }}</label>
                         <div class="col-md-9">
-                            <div class="input-group" data-toggle="aizuploader" data-type="video"
+                            <div class="input-group" data-toggle="pexuploader" data-type="video"
                                 data-multiple="true">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">
@@ -179,7 +179,7 @@
                         <label class="col-md-3 col-form-label"
                             for="signinSrEmail">{{ translate('Video Thumbnails') }}</label>
                         <div class="col-md-9">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image"
+                            <div class="input-group" data-toggle="pexuploader" data-type="image"
                                 data-multiple="true">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">
@@ -285,7 +285,7 @@
                             <input type="text" class="form-control" value="{{translate('Colors')}}" disabled>
                         </div>
                         <div class="col-lg-8">
-                            <select class="form-control aiz-selectpicker" data-live-search="true"
+                            <select class="form-control pex-selectpicker" data-live-search="true"
                                 data-selected-text-format="count" name="colors[]" id="colors" multiple>
                                 @foreach (\App\Models\Color::orderBy('name', 'asc')->get() as $key => $color)
                                 <option value="{{ $color->code }}"
@@ -295,7 +295,7 @@
                             </select>
                         </div>
                         <div class="col-lg-1">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input value="1" type="checkbox" name="colors_active"
                                     <?php if(count(json_decode($product->colors)) > 0) echo "checked";?>>
                                 <span></span>
@@ -309,7 +309,7 @@
                         </div>
                         <div class="col-lg-8">
                             <select name="choice_attributes[]" data-live-search="true" data-selected-text-format="count"
-                                id="choice_attributes" class="form-control aiz-selectpicker" multiple
+                                id="choice_attributes" class="form-control pex-selectpicker" multiple
                                 data-placeholder="{{ translate('Choose Attributes') }}">
                                 @foreach (\App\Models\Attribute::all() as $key => $attribute)
                                 <option value="{{ $attribute->id }}" @if($product->attributes != null &&
@@ -335,14 +335,14 @@
                                     placeholder="{{ translate('Choice Title') }}" disabled>
                             </div>
                             <div class="col-lg-8">
-                                <select class="form-control aiz-selectpicker attribute_choice" data-live-search="true" name="choice_options_{{ $choice_option->attribute_id }}[]" multiple>
+                                <select class="form-control pex-selectpicker attribute_choice" data-live-search="true" name="choice_options_{{ $choice_option->attribute_id }}[]" multiple>
                                     @foreach (\App\Models\AttributeValue::where('attribute_id', $choice_option->attribute_id)->get() as $row)
                                         <option value="{{ $row->value }}" @if( in_array($row->value, $choice_option->values)) selected @endif>
                                             {{ $row->value }}
                                         </option>
                                     @endforeach
                                 </select>
-                                {{-- <input type="text" class="form-control aiz-tag-input" name="choice_options_{{ $choice_option->attribute_id }}[]" placeholder="{{ translate('Enter choice values') }}" value="{{ implode(',', $choice_option->values) }}" data-on-change="update_sku"> --}}
+                                {{-- <input type="text" class="form-control pex-tag-input" name="choice_options_{{ $choice_option->attribute_id }}[]" placeholder="{{ translate('Enter choice values') }}" value="{{ implode(',', $choice_option->values) }}" data-on-change="update_sku"> --}}
                             </div>
                         </div>
                         @endforeach
@@ -374,7 +374,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-from-label" for="start_date">{{translate('Discount Date Range')}}</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control aiz-date-range" value="{{ $date_range }}" name="date_range" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
+                            <input type="text" class="form-control pex-date-range" value="{{ $date_range }}" name="date_range" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
                         </div>
                     </div>
 
@@ -385,7 +385,7 @@
                                 name="discount" class="form-control" value="{{ $product->discount }}" required>
                         </div>
                         <div class="col-lg-3">
-                            <select class="form-control aiz-selectpicker" name="discount_type" required>
+                            <select class="form-control pex-selectpicker" name="discount_type" required>
                                 <option value="amount" <?php if($product->discount_type == 'amount') echo "selected";?>>
                                     {{translate('Flat')}}</option>
                                 <option value="percent" <?php if($product->discount_type == 'percent') echo "selected";?>>
@@ -445,7 +445,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-from-label">{{translate('Description')}} <i class="las la-language text-danger" title="{{translate('Translatable')}}"></i></label>
                         <div class="col-lg-9">
-                            <textarea class="aiz-text-editor"
+                            <textarea class="pex-text-editor"
                                 name="description">{{$product->getTranslation('description',$lang)}}</textarea>
                         </div>
                     </div>
@@ -460,7 +460,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('PDF Specification')}}</label>
                         <div class="col-md-8">
-                            <div class="input-group" data-toggle="aizuploader">
+                            <div class="input-group" data-toggle="pexuploader">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}
                                     </div>
@@ -503,7 +503,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Meta Images')}}</label>
                         <div class="col-md-8">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}
                                     </div>
@@ -535,7 +535,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-from-label">{{translate('Refundable')}}?</label>
                             <div class="col-md-10">
-                                <label class="aiz-switch aiz-switch-success mb-0 d-block">
+                                <label class="pex-switch pex-switch-success mb-0 d-block">
                                     <input type="checkbox" name="refundable" value="1" @if ($product->refundable == 1) checked
                                     @endif onchange="isRefundable()">
                                     <span></span>
@@ -581,7 +581,7 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-from-label">{{translate('Warranty')}}</label>
                         <div class="col-md-10">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="checkbox" name="has_warranty" onchange="warrantySelection()" @if($product->has_warranty == 1) checked @endif> 
                                 <span></span>
                             </label>
@@ -592,7 +592,7 @@
                         <div class="form-group row">
                             <div class="col-md-2"></div>
                             <div class="col-md-10">
-                                <select class="form-control aiz-selectpicker" 
+                                <select class="form-control pex-selectpicker" 
                                     name="warranty_id" 
                                     id="warranty_id" 
                                     data-selected="{{ $product->warranty_id }}" 
@@ -671,7 +671,7 @@
                                     <div id="selected-fq-bought-products">
                                         @if(count($fq_bought_products) > 0)
                                             <div class="table-responsive mb-4">
-                                                <table class="table aiz-table mb-0">
+                                                <table class="table pex-table mb-0">
                                                     <thead>
                                                         <tr>
                                                             <th class="opacity-50 pl-0">{{ translate('Product Thumb') }}</th>
@@ -729,7 +729,7 @@
                                         <label class="col-md-2 col-from-label">{{translate('Category')}}</label>
                                         <div class="col-md-10">
                                             <select
-                                                class="form-control aiz-selectpicker"
+                                                class="form-control pex-selectpicker"
                                                 data-placeholder="{{ translate('Select a Category')}}"
                                                 name="fq_bought_product_category_id"
                                                 data-live-search="true"
@@ -793,7 +793,7 @@
                     <div class="form-group row">
                         <label class="col-lg-6 col-from-label">{{translate('Free Shipping')}}</label>
                         <div class="col-lg-6">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="radio" name="shipping_type" value="free" @if($product->shipping_type == 'free')
                                 checked @endif>
                                 <span></span>
@@ -804,7 +804,7 @@
                     <div class="form-group row">
                         <label class="col-lg-6 col-from-label">{{translate('Flat Rate')}}</label>
                         <div class="col-lg-6">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="radio" name="shipping_type" value="flat_rate" @if($product->shipping_type ==
                                 'flat_rate') checked @endif>
                                 <span></span>
@@ -826,7 +826,7 @@
                     <div class="form-group row">
                         <label class="col-md-6 col-from-label">{{translate('Is Product Quantity Mulitiply')}}</label>
                         <div class="col-md-6">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="checkbox" name="is_quantity_multiplied" value="1" @if($product->is_quantity_multiplied == 1) checked @endif>
                                 <span></span>
                             </label>
@@ -868,7 +868,7 @@
                     <div class="form-group row">
                         <label class="col-md-6 col-from-label">{{translate('Show Stock Quantity')}}</label>
                         <div class="col-md-6">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="radio" name="stock_visibility_state" value="quantity"
                                     @if($product->stock_visibility_state == 'quantity') checked @endif>
                                 <span></span>
@@ -879,7 +879,7 @@
                     <div class="form-group row">
                         <label class="col-md-6 col-from-label">{{translate('Show Stock With Text Only')}}</label>
                         <div class="col-md-6">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="radio" name="stock_visibility_state" value="text"
                                     @if($product->stock_visibility_state == 'text') checked @endif>
                                 <span></span>
@@ -890,7 +890,7 @@
                     <div class="form-group row">
                         <label class="col-md-6 col-from-label">{{translate('Hide Stock')}}</label>
                         <div class="col-md-6">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="radio" name="stock_visibility_state" value="hide"
                                     @if($product->stock_visibility_state == 'hide') checked @endif>
                                 <span></span>
@@ -912,7 +912,7 @@
                             <div class="form-group row">
                                 <label class="col-md-6 col-from-label">{{translate('Status')}}</label>
                                 <div class="col-md-6">
-                                    <label class="aiz-switch aiz-switch-success mb-0">
+                                    <label class="pex-switch pex-switch-success mb-0">
                                         <input type="checkbox" name="cash_on_delivery" value="1"
                                             @if($product->cash_on_delivery == 1) checked @endif>
                                         <span></span>
@@ -997,7 +997,7 @@
                                 placeholder="{{ translate('Tax') }}" name="tax[]" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <select class="form-control aiz-selectpicker" name="tax_type[]">
+                            <select class="form-control pex-selectpicker" name="tax_type[]">
                                 <option value="amount" @if($tax_type=='amount' ) selected @endif>
                                     {{translate('Flat')}}
                                 </option>
@@ -1107,12 +1107,12 @@
                         <input type="text" class="form-control" name="choice[]" value="'+name+'" placeholder="{{ translate('Choice Title') }}" readonly>\
                     </div>\
                     <div class="col-md-8">\
-                        <select class="form-control aiz-selectpicker attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
+                        <select class="form-control pex-selectpicker attribute_choice" data-live-search="true" name="choice_options_'+ i +'[]" multiple>\
                             '+obj+'\
                         </select>\
                     </div>\
                 </div>');
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
            }
        });
 
@@ -1122,11 +1122,11 @@
     $('input[name="colors_active"]').on('change', function() {
         if(!$('input[name="colors_active"]').is(':checked')){
             $('#colors').prop('disabled', true);
-            AIZ.plugins.bootstrapSelect('refresh');
+            PEX.plugins.bootstrapSelect('refresh');
         }
         else{
             $('#colors').prop('disabled', false);
-            AIZ.plugins.bootstrapSelect('refresh');
+            PEX.plugins.bootstrapSelect('refresh');
         }
         update_sku();
     });
@@ -1156,11 +1156,11 @@
            success: function(data){
                $('#sku_combination').html(data);
                setTimeout(() => {
-                        AIZ.uploader.previewGenerate();
+                        PEX.uploader.previewGenerate();
                 }, "2000");
                if (data.trim().length > 1) {
                    $('#show-hide-div').hide();
-                   AIZ.plugins.sectionFooTable('#sku_combination');
+                   PEX.plugins.sectionFooTable('#sku_combination');
                }
                else {
                     $('#show-hide-div').show();
@@ -1169,7 +1169,7 @@
        });
     }
 
-    AIZ.plugins.tagify();
+    PEX.plugins.tagify();
 
 
     $(document).ready(function(){
@@ -1230,9 +1230,9 @@
         var productID = $('input[name=id]').val();
         var searchKey = $('input[name=search_keyword]').val();
         var fqBroughCategory = $('select[name=fq_brough_category]').val();
-        $.post('{{ route('seller.product.search') }}', { _token: AIZ.data.csrf, product_id: productID, search_key:searchKey, category:fqBroughCategory, product_type:"physical" }, function(data){
+        $.post('{{ route('seller.product.search') }}', { _token: PEX.data.csrf, product_id: productID, search_key:searchKey, category:fqBroughCategory, product_type:"physical" }, function(data){
             $('#product-list').html(data);
-            AIZ.plugins.sectionFooTable('#product-list');
+            PEX.plugins.sectionFooTable('#product-list');
         });
     }
 
@@ -1249,10 +1249,10 @@
 
         var productIds = selectedProducts.concat(fqBoughtProductIds.filter((item) => selectedProducts.indexOf(item) < 0))
 
-        $.post('{{ route('seller.get-selected-products') }}', { _token: AIZ.data.csrf, product_ids:productIds}, function(data){
+        $.post('{{ route('seller.get-selected-products') }}', { _token: PEX.data.csrf, product_ids:productIds}, function(data){
             $('#fq-bought-product-select-modal').modal('hide');
             $('#selected-fq-bought-products').html(data);
-            AIZ.plugins.sectionFooTable('#selected-fq-bought-products');
+            PEX.plugins.sectionFooTable('#selected-fq-bought-products');
         });
     }
 

@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-10 mx-auto">
-        <div class="aiz-titlebar text-left mt-2 mb-3">
+        <div class="pex-titlebar text-left mt-2 mb-3">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h1 class="h3">{{translate('All Colors')}}</h1>
@@ -20,7 +20,7 @@
             <div class="alert alert-info my-2 text-center">
                 <div class=" pt-2 d-flex align-items-center justify-content-center flex-row">
                     <p class="mb-2 fs-13 fw-600 mr-2">Activate Color Filter for Product Listing Page</p>
-                    <label class="aiz-switch aiz-switch-success mb-0 ">
+                    <label class="pex-switch pex-switch-success mb-0 ">
                        <input type="checkbox" onchange="updateSettings(this, 'color_filter_activation')" @php if(get_setting('color_filter_activation') == 1) echo "checked";@endphp>
                     <span class="slider round"></span>
                     </label>
@@ -43,7 +43,7 @@
             </form>
             
             <div class="card-body">
-                <table class="table aiz-table mb-0">
+                <table class="table pex-table mb-0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -76,7 +76,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="aiz-pagination">
+                <div class="pex-pagination">
                     {{ $colors->appends(request()->input())->links() }}
                 </div>
             </div>
@@ -104,10 +104,10 @@
             
             $.post('{{ route('business_settings.update.activation') }}', {_token:'{{ csrf_token() }}', type:type, value:value}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }

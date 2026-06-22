@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="py-5 px-2 px-lg-3 px-xl-5 absolute-top-left w-100">
                                     <div class="bg-white">
-                                        <div class="aiz-count-down-circle" end-date="{{ date('Y/m/d H:i:s', $single->end_date) }}"></div>
+                                        <div class="pex-count-down-circle" end-date="{{ date('Y/m/d H:i:s', $single->end_date) }}"></div>
                                     </div>
                                 </div>
                             </div>
@@ -68,6 +68,6 @@
 
 @section('script')
     <script>
-        AIZ.plugins.particles();
+        PEX.plugins.particles();
     </script>
 @endsection

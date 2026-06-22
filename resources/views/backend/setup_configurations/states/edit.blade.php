@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <h5 class="mb-0 h6">{{ translate('State Information') }}</h5>
 </div>
 
@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label for="state_id">{{translate('Country')}}</label>
-                        <select class="select2 form-control aiz-selectpicker" name="country_id" data-selected="{{ $state->country_id }}" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true">
+                        <select class="select2 form-control pex-selectpicker" name="country_id" data-selected="{{ $state->country_id }}" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true">
                             @foreach ($countries as $country)
                                 <option value="{{ $country->id }}">
                                     {{ $country->name }}

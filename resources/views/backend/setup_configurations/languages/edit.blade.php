@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <h5 class="mb-0 h6">{{translate('Language Information')}}</h5>
 </div>
 
@@ -34,7 +34,7 @@
                                     unset($languagesArray[$key]);
                                 }
                             @endphp
-                            <select class="form-control aiz-selectpicker mb-2 mb-md-0" name="code" data-live-search="true" >
+                            <select class="form-control pex-selectpicker mb-2 mb-md-0" name="code" data-live-search="true" >
                                 @foreach(\File::files(base_path('public/assets/img/flags')) as $path)
                                     @if(!in_array(pathinfo($path)['filename'],$languagesArray))
                                     <option

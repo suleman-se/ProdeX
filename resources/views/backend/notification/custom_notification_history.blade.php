@@ -24,15 +24,15 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table aiz-table mb-0">
+                    <table class="table pex-table mb-0">
                         <thead>
                             <tr>
                                 <th width="40">
                                     <div class="form-group">
-                                        <div class="aiz-checkbox-inline">
-                                            <label class="aiz-checkbox">
+                                        <div class="pex-checkbox-inline">
+                                            <label class="pex-checkbox">
                                                 <input type="checkbox" class="check-all">
-                                                <span class="aiz-square-check"></span>
+                                                <span class="pex-square-check"></span>
                                             </label>
                                         </div>
                                     </div>
@@ -49,11 +49,11 @@
                                 <tr>
                                     <td>
                                         <div class="form-group">
-                                            <div class="aiz-checkbox-inline">
-                                                <label class="aiz-checkbox">
+                                            <div class="pex-checkbox-inline">
+                                                <label class="pex-checkbox">
                                                     <input type="checkbox" class="check-one" name="type_created_at[]"
                                                         value="{{ $customNotification->notification_type_id . '_' . $customNotification->created_at }}">
-                                                    <span class="aiz-square-check"></span>
+                                                    <span class="pex-square-check"></span>
                                                 </label>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="aiz-pagination customNotifications-pagination">
+                    <div class="pex-pagination customNotifications-pagination">
                         {{ $customNotifications->appends(request()->input())->links() }}
                     </div>
                 </div>
@@ -127,9 +127,9 @@
                 identifiers: identifiers
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success', '{{ translate('Custom Notification Deleted successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Custom Notification Deleted successfully') }}');
                 } else {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
                 location.reload();
             });

@@ -18,7 +18,7 @@
         </ul>
 
         <div class="form-group mb-0 w-25">
-            <select class="form-control aiz-selectpicker purchase-history" name="delivery_status" id="delivery_status"
+            <select class="form-control pex-selectpicker purchase-history" name="delivery_status" id="delivery_status"
                 data-style="btn-light" data-width="100%">
                 <option value="">{{ translate('All') }}</option>
                 <option value="pending" {{ request('delivery_status') == 'pending' ? 'selected' : '' }}>{{ translate('Pending') }}</option>
@@ -176,12 +176,12 @@
                 if (rightOffcanvas) {
                     rightOffcanvas.innerHTML = html;
 
-                    if (typeof AIZ !== 'undefined' && AIZ.extra && AIZ.extra.inputRating) {
-                        AIZ.extra.inputRating();
+                    if (typeof PEX !== 'undefined' && PEX.extra && PEX.extra.inputRating) {
+                        PEX.extra.inputRating();
                     }
 
-                    if (typeof AIZ !== 'undefined' && AIZ.plugins && AIZ.plugins.aizUploader) {
-                        AIZ.plugins.aizUploader();
+                    if (typeof PEX !== 'undefined' && PEX.plugins && PEX.plugins.pexUploader) {
+                        PEX.plugins.pexUploader();
                     }
                 }
             },
@@ -189,7 +189,7 @@
                 if (rightOffcanvas) {
                     rightOffcanvas.innerHTML = '<div class="p-4 text-center text-danger">{{ translate("Failed to load review form") }}</div>';
                 }
-                AIZ.plugins.notify('danger', '{{ translate("Something went wrong") }}');
+                PEX.plugins.notify('danger', '{{ translate("Something went wrong") }}');
             }
         });
     }
@@ -206,7 +206,7 @@
         const comment = $('textarea[name="comment"]').val();
 
         if (!product_id) {
-            AIZ.plugins.notify('danger', 'Product ID is missing!');
+            PEX.plugins.notify('danger', 'Product ID is missing!');
             return;
         }
 
@@ -224,11 +224,11 @@
         }
         
         if (!$('input[name="rating"]:checked').val()) {
-            AIZ.plugins.notify('warning', '{{ translate("Please select a rating") }}');
+            PEX.plugins.notify('warning', '{{ translate("Please select a rating") }}');
             return;
         }
         if (!$('textarea[name="comment"]').val()) {
-            AIZ.plugins.notify('warning', '{{ translate("Please write a comment") }}');
+            PEX.plugins.notify('warning', '{{ translate("Please write a comment") }}');
             return;
         }
         
@@ -242,7 +242,7 @@
             contentType: false,
             processData: false,
             success: function(response) {
-                AIZ.plugins.notify('success', '{{ translate("Review submitted successfully") }}');
+                PEX.plugins.notify('success', '{{ translate("Review submitted successfully") }}');
                 
                 if (typeof closeOffcanvas === 'function') {
                     closeOffcanvas();
@@ -265,7 +265,7 @@
             error: function(xhr) {
                 btn.prop('disabled', false).html('{{ translate("Confirm") }}');
                 const errorMsg = xhr.responseJSON?.message || '{{ translate("Something went wrong") }}';
-                AIZ.plugins.notify('danger', errorMsg);
+                PEX.plugins.notify('danger', errorMsg);
             }
         });
     });

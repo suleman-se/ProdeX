@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 @section('panel_content')
 
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Coupons') }}</h1>
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table aiz-table p-0">
+            <table class="table pex-table p-0">
                 <thead>
                     <tr>
                         <th data-breakpoints="lg">#</th>

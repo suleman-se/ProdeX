@@ -16,7 +16,7 @@
                             <label class="control-label">{{translate('Minimum Order Amount Check')}}</label>
                         </div>
                         <div class="col-md-8">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="hidden" name="types[]" value="minimum_order_amount_check">
                                 <input value="1" name="minimum_order_amount_check" type="checkbox" @if (get_setting('minimum_order_amount_check') == 1)
                                     checked

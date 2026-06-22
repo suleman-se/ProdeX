@@ -1,14 +1,14 @@
 @if(count($products) > 0)
-<table class="table table-bordered aiz-table">
+<table class="table table-bordered pex-table">
     <tbody>
         @foreach ($products as $key => $product)
             <tr>
               <td class="py-2">
                 <div class="from-group row align-items-center">
                   <div class="col-auto">
-                    <label class="aiz-checkbox">
+                    <label class="pex-checkbox">
                       <input type="checkbox" class="check-one" name="fq_bought_product_id" value="{{ $product->id }}">
-                      <span class="aiz-square-check"></span>
+                      <span class="pex-square-check"></span>
                     </label>
                     <img class="size-48px img-fit" src="{{ uploaded_asset($product->thumbnail_img)}}">
                   </div>

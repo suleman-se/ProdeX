@@ -6,7 +6,7 @@
             <h5 class="mb-0 h6">{{ translate('Contacts') }}</h5>
         </div>
         <div class="card-body">
-            <table class="table aiz-table mb-0 " cellspacing="0" width="100%">
+            <table class="table pex-table mb-0 " cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -45,7 +45,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
                 {{ $contacts->appends(request()->input())->links() }}
             </div>
         </div>

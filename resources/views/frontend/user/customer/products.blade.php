@@ -1,7 +1,7 @@
 @extends('frontend.layouts.user_panel')
 
 @section('panel_content')
-    <div class="aiz-titlebar mb-4">
+    <div class="pex-titlebar mb-4">
       <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="fs-20 fw-700 text-dark">{{ translate('Classified Products') }}</h1>
@@ -71,7 +71,7 @@
             <h5 class="mb-md-0 fs-20 fw-700 text-dark text-center text-md-left">{{ translate('All Products') }}</h5>
         </div>
         <div class="card-body py-0">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead class="text-gray fs-12">
                     <tr>
                         <th class="pl-0">#</th>
@@ -99,7 +99,7 @@
                         </td>
                         <td class="fw-700" style="vertical-align: middle;">{{ single_price($product->unit_price) }}</td>
                         <td style="vertical-align: middle;">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                             <input onchange="update_status(this)" value="{{ $product->id }}" type="checkbox" <?php if($product->status == 1) echo "checked";?> >
                             <span class="slider round"></span></label>
                         </td>
@@ -139,7 +139,7 @@
                 </tbody>
             </table>
             <!-- Pagination -->
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
                 {{ $products->links() }}
           	</div>
         </div>
@@ -162,10 +162,10 @@
             }
             $.post('{{ route('customer_products.update.status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Status has been updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Status has been updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

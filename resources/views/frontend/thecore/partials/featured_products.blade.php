@@ -16,7 +16,7 @@
             </a>
         </div>
         
-        <div class="aiz-carousel  arrow-inactive-transparent arrow-x-0 mt-2 carousel-arrow"
+        <div class="pex-carousel  arrow-inactive-transparent arrow-x-0 mt-2 carousel-arrow"
             data-rows="1" data-items="3" data-xxl-items="3" data-xl-items="3" data-lg-items="3"
             data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows="false" data-dots="false" data-autoplay="false" data-infinite="true">
         

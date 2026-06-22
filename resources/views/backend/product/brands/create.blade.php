@@ -8,7 +8,7 @@
                 <h5 class="mb-0 h6">{{translate('Brand Information')}}</h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('brands.store') }}" method="POST" id="aizSubmitForm">
+                <form action="{{ route('brands.store') }}" method="POST" id="pexSubmitForm">
 					@csrf
 					<div class="form-group mb-3">
 						<label for="name">{{translate('Name')}}</label>
@@ -16,7 +16,7 @@
 					</div>
 					<div class="form-group mb-3">
 						<label for="name">{{translate('Logo')}} <small>({{ translate('120x80') }})</small></label>
-						<div class="input-group" data-toggle="aizuploader" data-type="image">
+						<div class="input-group" data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 									<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 							</div>

@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Add New Carrier') }}</h1>
@@ -47,7 +47,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-from-label">{{ translate('Logo') }} </label>
                             <div class="col-md-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">
                                             {{ translate('Browse') }}</div>
@@ -62,7 +62,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-from-label">{{ translate('Free Shipping') }} ? </label>
                             <div class="col-md-9">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="shipping_type" onchange="freeShipping(this)">
                                     <span></span>
                                 </label>
@@ -72,7 +72,7 @@
                             <label class="col-md-2 col-from-label">{{ translate('Billing Type') }} <span
                                     class="text-danger">*</span></label>
                             <div class="col-md-9">
-                                <select class="form-control aiz-selectpicker" name="billing_type"
+                                <select class="form-control pex-selectpicker" name="billing_type"
                                     onchange="update_price_range_form()" id="billing_type" data-live-search="true">
                                     <option value="weight_based">{{ translate('According to Weight') }}</option>
                                     <option value="price_based">{{ translate('According to Price') }}</option>
@@ -123,7 +123,7 @@
                                                 <span class="mt-2">{{ $zone->name }}</span>
                                             </td>
                                             <td>
-                                                <input class="aiz-square-check zone_enable mt-2" type="checkbox"
+                                                <input class="pex-square-check zone_enable mt-2" type="checkbox"
                                                     name="zones[]" value="{{ $zone->id }}">
                                             </td>
                                             <td>

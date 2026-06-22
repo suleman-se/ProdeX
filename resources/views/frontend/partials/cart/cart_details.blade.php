@@ -25,11 +25,11 @@
                 <div class="bg-white p-3 p-lg-4 text-left">
                     <div class="mb-4">
                         <div class="form-group mb-2 border-bottom">
-                            <div class="aiz-checkbox-inline mb-3">
-                                <label class="aiz-checkbox">
+                            <div class="pex-checkbox-inline mb-3">
+                                <label class="pex-checkbox">
                                     <input type="checkbox" class="check-all" @if(count($active_carts) == $cart_count) checked @endif>
                                     <span class="fs-14 text-secondary ml-3">{{ translate('Select All') }} ({{ $cart_count }})</span>
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                 </label>
                             </div>
                         </div>
@@ -69,13 +69,13 @@
                                     }
                                 @endphp
                                 <div class="pt-3 px-0">
-                                    <div class="aiz-checkbox-inline">
-                                        <label class="aiz-checkbox d-block">
+                                    <div class="pex-checkbox-inline">
+                                        <label class="pex-checkbox d-block">
                                             <input type="checkbox" class="check-one check-seller" value="admin" @if($all_admin_products) checked @endif>
                                             <span class="fs-16 fw-700 text-dark ml-3 pb-3 d-block border-left-0 border-top-0 border-right-0 border-bottom border-dashed">
                                                 {{ translate('Inhouse Products') }} ({{ count($admin_products) }})
                                             </span>
-                                            <span class="aiz-square-check"></span>
+                                            <span class="pex-square-check"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -90,10 +90,10 @@
                                         <div class="row gutters-5 align-items-center">
                                             <!-- select -->
                                             <div class="col-auto">
-                                                <div class="aiz-checkbox pl-0">
-                                                    <label class="aiz-checkbox">
+                                                <div class="pex-checkbox pl-0">
+                                                    <label class="pex-checkbox">
                                                         <input type="checkbox" class="check-one check-one-admin" name="id[]" value="{{$product_id}}" @if($cartItem->status == 1) checked @endif>
-                                                        <span class="aiz-square-check"></span>
+                                                        <span class="pex-square-check"></span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -131,7 +131,7 @@
                                                 <!-- Quantity -->
                                                 <div>
                                                     @if ($product->digital != 1 && $product->auction_product == 0)
-                                                        <div class="d-flex flex-xl-column flex-xxl-row align-items-center aiz-plus-minus mr-0 ml-0" style="width: max-content !important;">
+                                                        <div class="d-flex flex-xl-column flex-xxl-row align-items-center pex-plus-minus mr-0 ml-0" style="width: max-content !important;">
                                                             <button
                                                                 class="btn col-auto btn-icon btn-sm btn-light rounded-0"
                                                                 type="button" data-type="plus"
@@ -185,13 +185,13 @@
                                         }
                                     @endphp
                                     <div class="pt-3 px-0">
-                                        <div class="aiz-checkbox-inline">
-                                            <label class="aiz-checkbox d-block">
+                                        <div class="pex-checkbox-inline">
+                                            <label class="pex-checkbox d-block">
                                                 <input type="checkbox" class="check-one check-seller" value="seller-{{ $key }}"  @if($all_seller_products) checked @endif>
                                                 <span class="fs-16 fw-700 text-dark ml-3 pb-3 d-block border-left-0 border-top-0 border-right-0 border-bottom border-dashed">
                                                     {{ get_shop_by_user_id($key)->name }} {{ translate('Products') }} ({{ count($seller_product) }})
                                                 </span>
-                                                <span class="aiz-square-check"></span>
+                                                <span class="pex-square-check"></span>
                                             </label>
                                         </div>
                                     </div>
@@ -206,10 +206,10 @@
                                             <div class="row gutters-5 align-items-center">
                                                 <!-- select -->
                                                 <div class="col-auto">
-                                                    <div class="aiz-checkbox pl-0">
-                                                        <label class="aiz-checkbox">
+                                                    <div class="pex-checkbox pl-0">
+                                                        <label class="pex-checkbox">
                                                             <input type="checkbox" class="check-one check-one-seller-{{ $key }}" name="id[]" value="{{$product_id}}" @if($cartItem->status == 1) checked @endif>
-                                                            <span class="aiz-square-check"></span>
+                                                            <span class="pex-square-check"></span>
                                                         </label>
                                                     </div>
                                                 </div>
@@ -248,7 +248,7 @@
                                                     <!-- Quantity -->
                                                     <div>
                                                         @if ($product->digital != 1 && $product->auction_product == 0)
-                                                            <div class="d-flex flex-xl-column flex-xxl-row align-items-center aiz-plus-minus mr-0 ml-0" style="width: max-content !important;">
+                                                            <div class="d-flex flex-xl-column flex-xxl-row align-items-center pex-plus-minus mr-0 ml-0" style="width: max-content !important;">
                                                                 <button
                                                                     class="btn col-auto btn-icon btn-sm btn-light rounded-0"
                                                                     type="button" data-type="plus"

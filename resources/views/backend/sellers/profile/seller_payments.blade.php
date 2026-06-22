@@ -1,7 +1,7 @@
 <h5 class=" mb-0 fw-semibold mt-2">{{ translate('Payment History') }}</h5>
 <div class=" mt-2">
     <div>
-        <table class="table aiz-table inv-table-2 mb-0">
+        <table class="table pex-table inv-table-2 mb-0">
             <thead>
                <tr>
                     <th class="pl-3" style="width: 15%;">#</th>
@@ -33,7 +33,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination inv-pagination mt-4">
+        <div class="pex-pagination inv-pagination mt-4">
             {{ $payments->appends(request()->input())->links() }}
         </div>
     </div>

@@ -2,8 +2,8 @@
 
 @section('content')
     @php $isOtpSystemActivated = addon_is_activated('otp_system'); @endphp
-    <!-- aiz-main-wrapper -->
-    <div class="aiz-main-wrapper d-flex flex-column justify-content-md-center bg-white">
+    <!-- pex-main-wrapper -->
+    <div class="pex-main-wrapper d-flex flex-column justify-content-md-center bg-white">
         <section class="bg-white overflow-hidden">
             <div class="row">
                 <div class="col-xxl-6 col-xl-9 col-lg-10 col-md-7 mx-auto py-lg-4">

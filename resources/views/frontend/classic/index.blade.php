@@ -20,7 +20,7 @@
             <!-- Sliders -->
             <div class="home-slider">
                 @if (get_setting('home_slider_images', null, $lang) != null)
-                <div class="aiz-carousel dots-inside-bottom" data-autoplay="true" data-infinite="true">
+                <div class="pex-carousel dots-inside-bottom" data-autoplay="true" data-infinite="true">
                     @php
                     $decoded_slider_images = json_decode(
                     get_setting('home_slider_images', null, $lang),
@@ -103,7 +103,7 @@ $flash_deal = get_featured_flash_deal();
                         style="background-image: url('{{ uploaded_asset($flash_deal->banner) }}'); background-size: cover; background-position: center center;">
                         <div class="py-5 px-md-3 px-xl-5 d-none d-md-block">
                             <div class="bg-white">
-                                <div class="aiz-count-down-circle"
+                                <div class="pex-count-down-circle"
                                     end-date="{{ date('Y/m/d H:i:s', $flash_deal->end_date) }}"></div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@ $flash_deal = get_featured_flash_deal();
                 @php
                 $flash_deal_products = get_flash_deal_products($flash_deal->id);
                 @endphp
-                <div class="aiz-carousel border-top @if (count($flash_deal_products) > 8) border-right @endif arrow-inactive-none arrow-x-0"
+                <div class="pex-carousel border-top @if (count($flash_deal_products) > 8) border-right @endif arrow-inactive-none arrow-x-0"
                     data-rows="2" data-items="5" data-xxl-items="5" data-xl-items="3.5" data-lg-items="3"
                     data-md-items="2" data-sm-items="2.5" data-xs-items="1.7" data-arrows="true" data-dots="false">
                     @foreach ($flash_deal_products as $key => $flash_deal_product)
@@ -248,7 +248,7 @@ $flash_deal = get_featured_flash_deal();
         $home_banner1_links = get_setting('home_banner1_links', null, $lang);
         @endphp
         <div class="w-100 w-100 pr-3 pr-md-0">
-            <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15 home-banner-1"
+            <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15 home-banner-1"
                 data-items="{{ count($banner_1_imags) }}" data-xxl-items="{{ count($banner_1_imags) }}"
                 data-xl-items="{{ count($banner_1_imags) }}" data-lg-items="{{ $data_md }}"
                 data-md-items="2.5" data-sm-items="2.5" data-xs-items="2.5" data-arrows="true"
@@ -288,7 +288,7 @@ $flash_deal = get_featured_flash_deal();
         $data_md = count($banner_2_imags) >= 2 ? 2 : 1;
         $home_preorder_banner_1_links = get_setting('home_preorder_banner_1_links', null, $lang);
         @endphp
-        <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+        <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
             data-items="{{ count($banner_2_imags) }}" data-xxl-items="{{ count($banner_2_imags) }}"
             data-xl-items="{{ count($banner_2_imags) }}" data-lg-items="{{ $data_md }}"
             data-md-items="{{ $data_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -327,7 +327,7 @@ $flash_deal = get_featured_flash_deal();
         $data_md = count($banner_2_imags) >= 2 ? 2 : 1;
         $home_banner2_links = get_setting('home_banner2_links', null, $lang);
         @endphp
-        <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+        <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
             data-items="{{ count($banner_2_imags) }}" data-xxl-items="{{ count($banner_2_imags) }}"
             data-xl-items="{{ count($banner_2_imags) }}" data-lg-items="{{ $data_md }}"
             data-md-items="{{ $data_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -369,7 +369,7 @@ $flash_deal = get_featured_flash_deal();
         $home_banner3_links = get_setting('home_banner3_links', null, $lang);
         @endphp
         <div class="w-100 pr-3 pr-md-0">
-            <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15 home-banner-1"
+            <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15 home-banner-1"
                 data-items="{{ count($banner_3_imags) }}" data-xxl-items="{{ count($banner_3_imags) }}"
                 data-xl-items="{{ count($banner_3_imags) }}" data-lg-items="{{ $data_md }}"
                 data-md-items="2.5" data-sm-items="2.5" data-xs-items="2.5" data-arrows="true"
@@ -537,7 +537,7 @@ $classified_products = get_home_page_classified_products(6);
                 @foreach ($classified_products as $key => $classified_product)
                 <div
                     class="col-xl-4 col-md-6 border-right border-bottom has-transition hov-shadow-out z-1">
-                    <div class="aiz-card-box p-2 has-transition bg-white">
+                    <div class="pex-card-box p-2 has-transition bg-white">
                         <div class="row hov-scale-img">
                             <div class="col-4 col-md-5 mb-3 mb-md-0">
                                 <a href="{{ route('customer.product', $classified_product->slug) }}"
@@ -579,7 +579,7 @@ $classified_products = get_home_page_classified_products(6);
 
         <!-- Mobile Slider -->
         <div class="bg-white d-sm-none ">
-            <div class="aiz-carousel @if (count($classified_products) <= 8) arrow-inactive-none arrow-x-0 @endif"
+            <div class="pex-carousel @if (count($classified_products) <= 8) arrow-inactive-none arrow-x-0 @endif"
                 data-items="1.5" data-sm-items="1.5" data-arrows="true" data-dots="false" data-dots="false"
                 data-autoplay="true" data-autoplay-speed="3000" data-rows="2">
                 @foreach ($classified_products as $key => $classified_product)
@@ -651,7 +651,7 @@ $best_selers = get_best_sellers(10);
             </div>
         </div>
         <!-- Sellers Section -->
-        <div class="aiz-carousel arrow-x-0 arrow-inactive-none" data-items="5" data-xxl-items="5"
+        <div class="pex-carousel arrow-x-0 arrow-inactive-none" data-items="5" data-xxl-items="5"
             data-xl-items="4" data-lg-items="3.4" data-md-items="2.5" data-sm-items="2" data-xs-items="2.5"
             data-arrows="true" data-dots="false">
             @foreach ($best_selers as $key => $seller)
@@ -786,7 +786,7 @@ $best_selers = get_best_sellers(10);
             </div>
 
             <!-- Mobile Slider (hidden on desktop) -->
-            <div class="d-sm-none aiz-carousel arrow-x-0 arrow-inactive-none" data-items="5" data-xxl-items="5"
+            <div class="d-sm-none pex-carousel arrow-x-0 arrow-inactive-none" data-items="5" data-xxl-items="5"
                 data-xl-items="4" data-lg-items="3.4" data-md-items="2.5" data-sm-items="2" data-xs-items="2.5"
                 data-arrows="true" data-dots="false">
                 @foreach ($brands as $brand)

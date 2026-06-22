@@ -17,7 +17,7 @@
                             <label class="control-label">{{translate('System Default Currency')}}</label>
                         </div>
                         <div class="col-lg-6">
-                            <select class="form-control aiz-selectpicker" name="system_default_currency" data-live-search="true">
+                            <select class="form-control pex-selectpicker" name="system_default_currency" data-live-search="true">
                                 @foreach ($active_currencies as $key => $currency)
                                     <option value="{{ $currency->id }}" <?php if(get_setting('system_default_currency') == $currency->id) echo 'selected'?> >
                                         {{ $currency->name }}
@@ -49,7 +49,7 @@
                             <label class="control-label">{{translate('Symbol Format')}}</label>
                         </div>
                         <div class="col-lg-6">
-                            <select class="form-control aiz-selectpicker" name="symbol_format">
+                            <select class="form-control pex-selectpicker" name="symbol_format">
                                 <option value="1" @if(get_setting('symbol_format') == 1) selected @endif>[Symbol][Amount]</option>
                                 <option value="2" @if(get_setting('symbol_format') == 2) selected @endif>[Amount][Symbol]</option>
                                 <option value="3" @if(get_setting('symbol_format') == 3) selected @endif>[Symbol] [Amount]</option>
@@ -63,7 +63,7 @@
                             <label class="control-label">{{translate('Decimal Separator')}}</label>
                         </div>
                         <div class="col-lg-6">
-                            <select class="form-control aiz-selectpicker" name="decimal_separator">
+                            <select class="form-control pex-selectpicker" name="decimal_separator">
                                 <option value="1" @if(get_setting('decimal_separator') == 1) selected @endif>1,23,456.70</option>
                                 <option value="2" @if(get_setting('decimal_separator') == 2) selected @endif>1.23.456,70</option>
                             </select>
@@ -75,7 +75,7 @@
                             <label class="control-label">{{translate('No of decimals')}}</label>
                         </div>
                         <div class="col-lg-6">
-                            <select class="form-control aiz-selectpicker" name="no_of_decimals">
+                            <select class="form-control pex-selectpicker" name="no_of_decimals">
                                 <option value="0" @if(get_setting('no_of_decimals') == 0) selected @endif>12345</option>
                                 <option value="1" @if(get_setting('no_of_decimals') == 1) selected @endif>1234.5</option>
                                 <option value="2" @if(get_setting('no_of_decimals') == 2) selected @endif>123.45</option>
@@ -92,7 +92,7 @@
     </div>
 </div>
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
 	<div class="row align-items-center">
 		<div class="col-md-6">
 			<h1 class="h3">{{translate('All Currencies')}}</h1>
@@ -119,7 +119,7 @@
         </div>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -140,7 +140,7 @@
                         <td>{{$currency->code}}</td>
                         <td>{{$currency->exchange_rate}}</td>
                         <td>
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input onchange="update_currency_status(this)" value="{{ $currency->id }}" type="checkbox" <?php if($currency->status == 1) echo "checked";?> >
                                 <span class="slider round"></span>
                             </label>
@@ -154,7 +154,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $currencies->appends(request()->input())->links() }}
         </div>
     </div>
@@ -202,7 +202,7 @@
         function update_currency_status(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -215,10 +215,10 @@
 
             $.post('{{ route('currency.update_status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Currency Status updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Currency Status updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

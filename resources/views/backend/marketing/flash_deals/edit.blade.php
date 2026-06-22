@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <h5 class="mb-0 h6">{{translate('Flash Deal Information')}}</h5>
 </div>
 
@@ -50,7 +50,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="signinSrEmail">{{translate('Banner')}}</label>
                         <div class="col-md-9">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                 </div>
@@ -71,14 +71,14 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-from-label" for="start_date">{{translate('Date')}}</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control aiz-date-range" value="{{ $start_date.' to '.$end_date }}" name="date_range" placeholder="{{ translate('Select Date') }}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off" required>
+                          <input type="text" class="form-control pex-date-range" value="{{ $start_date.' to '.$end_date }}" name="date_range" placeholder="{{ translate('Select Date') }}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-3 col-from-label" for="products">{{translate('Products')}}</label>
                         <div class="col-sm-9">
-                            <select name="products[]" id="products" class="form-control aiz-selectpicker" multiple required data-placeholder="{{ translate('Choose Products') }}" data-live-search="true" data-selected-text-format="count">
+                            <select name="products[]" id="products" class="form-control pex-selectpicker" multiple required data-placeholder="{{ translate('Choose Products') }}" data-live-search="true" data-selected-text-format="count">
                                 @foreach($products as $product)
                                     @php
                                         $flash_deal_product = \App\Models\FlashDealProduct::where('flash_deal_id', $flash_deal->id)->where('product_id', $product->id)->first();
@@ -124,7 +124,7 @@
                 if(product_ids.length > 0){
                     $.post('{{ route('flash_deals.product_discount_edit') }}', {_token:'{{ csrf_token() }}', product_ids:product_ids, flash_deal_id:{{ $flash_deal->id }}}, function(data){
                         $('#discount_table').html(data);
-                        AIZ.plugins.fooTable();
+                        PEX.plugins.fooTable();
                     });
                 }
                 else{

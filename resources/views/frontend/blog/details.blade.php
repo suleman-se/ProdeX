@@ -59,7 +59,7 @@
                         </div>
                         <!-- Share -->
                         <div class="col-8 text-right">
-                            <div class="aiz-share"></div>
+                            <div class="pex-share"></div>
                         </div>
                     </div>
                     <!-- Image -->

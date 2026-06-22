@@ -60,7 +60,7 @@ class SslCommerzController extends Controller
             $combinedOrderID = $combined_order->id;
 
             $post_data['value_b'] = $combinedOrderID;
-            $post_data['tran_id'] = 'AIZ-' . $combinedOrderID. '-' . date('Ymd'); // tran_id must be unique
+            $post_data['tran_id'] = 'PEX-' . $combinedOrderID. '-' . date('Ymd'); // tran_id must be unique
         }
         elseif ($paymentType == "order_re_payment") {
             $order = Order::findOrFail($request->order_id);
@@ -68,15 +68,15 @@ class SslCommerzController extends Controller
             $orderID = $order->id;
 
             $post_data['value_b'] = $orderID;
-            $post_data['tran_id'] = 'AIZ-' . $orderID . '-' . date('Ymd'); // tran_id must be unique
+            $post_data['tran_id'] = 'PEX-' . $orderID . '-' . date('Ymd'); // tran_id must be unique
         }
         else if ($paymentType == "wallet_payment"){
             $post_data['value_b'] = 'sslcommerz';
-            $post_data['tran_id'] = 'AIZ-' . $user_id . '-' . date('Ymd');
+            $post_data['tran_id'] = 'PEX-' . $user_id . '-' . date('Ymd');
         } 
         else if ($paymentType ==  "seller_package_payment" || $paymentType ==  "customer_package_payment") {
             $post_data['value_b'] = $request->package_id;
-            $post_data['tran_id'] = 'AIZ-' . $user_id . '-' . date('Ymd');
+            $post_data['tran_id'] = 'PEX-' . $user_id . '-' . date('Ymd');
         }
 
         $post_data['total_amount'] = $amount; # You cant not pay less than 10

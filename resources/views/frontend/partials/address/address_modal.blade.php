@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
-                                    <select class="form-control aiz-selectpicker rounded-0" data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
+                                    <select class="form-control pex-selectpicker rounded-0" data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
                                         <option value="">{{ translate('Select your country') }}</option>
                                         @foreach (get_active_countries() as $key => $country)
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -49,7 +49,7 @@
                                 <label>{{ translate('State')}}</label>
                             </div>
                             <div class="col-md-10">
-                                <select class="form-control mb-3 aiz-selectpicker rounded-0" data-live-search="true" name="state_id" required>
+                                <select class="form-control mb-3 pex-selectpicker rounded-0" data-live-search="true" name="state_id" required>
 
                                 </select>
                             </div>
@@ -62,7 +62,7 @@
                                 <label>{{ translate('City')}}</label>
                             </div>
                             <div class="col-md-10">
-                                <select class="form-control mb-3 aiz-selectpicker rounded-0" data-live-search="true" name="city_id" required>
+                                <select class="form-control mb-3 pex-selectpicker rounded-0" data-live-search="true" name="city_id" required>
 
                                 </select>
                             </div>
@@ -74,7 +74,7 @@
                                 <label>{{ translate('Area')}}</label>
                             </div>
                             <div class="col-md-10">
-                                <select class="form-control mb-3 aiz-selectpicker rounded-0" data-live-search="true" name="area_id">
+                                <select class="form-control mb-3 pex-selectpicker rounded-0" data-live-search="true" name="area_id">
 
                                 </select>
                             </div>

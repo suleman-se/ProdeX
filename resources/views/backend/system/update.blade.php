@@ -15,19 +15,19 @@
 								{{ translate('Make sure your server has matched with all requirements.') }}
 								<a href="{{route('system_server')}}">{{ translate('Check Here') }}</a>
 							</li>
-							<li class="">{{ translate('Download latest version from codecanyon.') }}</li>
-							<li class="">{{ translate('Extract downloaded zip. You will find updates.zip file in those extraced files.') }}</li>
+							<li class="">{{ translate('Download the latest version of the ProdeX update.') }}</li>
+							<li class="">{{ translate('Extract the downloaded zip. You will find updates.zip file inside.') }}</li>
 							<li class="">{{ translate('Upload that zip file here and click update now.') }}</li>
-							<li class="">{{ translate('If you are using any addon make sure to update those addons after updating.') }}</li>
+							<li class="">{{ translate('If you are using any addons, make sure to update them after updating.') }}</li>
 							<li class="">{{ translate('Please turn off maintenance mode before updating.') }}</li>
-							<li class="font-weight-bold">{{ translate('You can autometically update from previous 10 (ten) version.') }}</li>
+							<li class="font-weight-bold">{{ translate('You can automatically update from the previous 10 (ten) versions.') }}</li>
 						</ul>
 					</div>
 					<form action="{{ route('final_update') }}" method="post" enctype="multipart/form-data">
 						@csrf
 						<div class="row gutters-5">
 							<div class="col-md">
-        						<div class="input-group " data-toggle="aizuploader" data-type="archive">
+        						<div class="input-group " data-toggle="pexuploader" data-type="archive">
         							<div class="input-group-prepend">
         								<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
         							</div>
@@ -38,23 +38,11 @@
 							</div>
 						</div>
 
-						<div class="row gutters-5 mt-3">
-							<div class="col-md">
-		                        <div class="form-group">
-		                            <label for="purchase_code" class="fs-12 fw-700" style="color: #666;">Purchase Code. <a class="fs-12 fw-500" href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code" target="_blank" class="text-blue hov-text-primary"><i>Where to get purchase code?</i></a></label>
-		                            <input type="text" class="form-control rounded-2 border" style="height: 36px !important;" id="purchase_code" name="purchase_code" placeholder="**** **** **** ****" required="">
-		                        </div>
-								
-	                        </div>
-	                    </div>
-						<div class="row gutters-5">
-							<div class="col-md">
-		                        <div class="form-group">
-		                            <label for="system_key" class="fs-12 fw-700" style="color: #666;">System Key. <span class="fs-12 fw-500">If you have don't have System key, <a href="https://activeitzone.com/activation" target="_blank" class="text-blue hov-text-primary"><i>Click Here</i></a></span> </label>
-		                            <input type="text" class="form-control rounded-2 border" style="height: 36px !important;" id="system_key" name="system_key" placeholder="***************************" required>
-		                        </div>
-	                        </div>
-	                    </div>
+						<input type="hidden" id="purchase_code" name="purchase_code" value="11112222-3333-4444-5555-666677778888">
+						<input type="hidden" id="system_key" name="system_key" value="prodex-key">
+						<div class="text-center my-3">
+							<p class="fs-12 text-success fw-600">ProdeX System is active.</p>
+						</div>
 						<div class="row gutters-5">
 							<div class="col-md-auto">
 								<button type="submit" class="btn btn-primary btn-block">{{ translate('Update Now') }}</button>

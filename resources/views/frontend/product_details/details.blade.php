@@ -199,7 +199,7 @@
                     </div>
                     <div class="">
                         @if ($detailedProduct->auction_end_date > strtotime('now'))
-                            <div class="aiz-count-down align-items-center" data-date="{{ date('Y/m/d H:i:s', $detailedProduct->auction_end_date) }}"></div>
+                            <div class="pex-count-down align-items-center" data-date="{{ date('Y/m/d H:i:s', $detailedProduct->auction_end_date) }}"></div>
                         @else
                             <p class="m-0 text-dark fs-14 fw-400">{{ translate('Ended') }}</p>
                         @endif
@@ -449,9 +449,9 @@
                                     </div>
                                     <div class="variant-wrapper">
                                         @foreach ($choice->values as $key => $value)
-                                            <label class="rounded-1 bg-white cursor-pointer aiz-megabox mb-1">
+                                            <label class="rounded-1 bg-white cursor-pointer pex-megabox mb-1">
                                                 <input type="radio" name="attribute_id_{{ $choice->attribute_id }}" value="{{ $value }}" @if ($key == 0) checked @endif>
-                                                <div class="variant-item-select aiz-megabox-elem px-10px">
+                                                <div class="variant-item-select pex-megabox-elem px-10px">
                                                     <span class="fs-14 fw-400 text-dark px-15px">{{ $value }}</span>
                                                 </div>
                                             </label>
@@ -466,9 +466,9 @@
                                 <p class="mb-3 fs-14 fw-bold text-dark">{{ translate('Color') }}</p>
                                 <div class="variant-wrapper">
                                     @foreach (json_decode($detailedProduct->colors) as $key => $color)
-                                        <label class="aiz-megabox rounded-1 bg-white cursor-pointer" data-title="{{ get_single_color_name($color) }}">
+                                        <label class="pex-megabox rounded-1 bg-white cursor-pointer" data-title="{{ get_single_color_name($color) }}">
                                             <input type="radio" name="color" value="{{ get_single_color_name($color) }}" @if ($key == 0) checked @endif>
-                                            <div class="d-flex align-items-center variant-item-select aiz-megabox-elem px-15px">
+                                            <div class="d-flex align-items-center variant-item-select pex-megabox-elem px-15px">
                                                 <span class="w-15px h-15px rounded-circle" style="background-color: {{ $color }};"></span>
                                                 <span class="fs-14 fw-400 text-dark pl-2">{{ get_single_color_name($color) }}</span>
                                             </div>
@@ -532,7 +532,7 @@
                             @if ($detailedProduct->digital ==0)
                                 <div class="d-flex align-items-center flex-wrap">
                                     <span class="fs-14 fw-400 text-gray pr-20px">{{ translate('QTY')}}</span>
-                                    <div class="d-flex align-items-center aiz-plus-minus border border border-soft-light rounded-1">
+                                    <div class="d-flex align-items-center pex-plus-minus border border border-soft-light rounded-1">
                                         <!--Decrement-->
                                         <button type="button" data-type="minus" data-field="quantity" disabled=""
                                             class="inc-btn bg-transparent ml-2 border-0 w-30px h-35px rounded-circle d-flex align-items-center justify-content-center">

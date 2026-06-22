@@ -14,7 +14,7 @@
                             <div class="col-md-6">
                                 <div class="form-group d-flex align-items-center justify-content-between">
                                     <label class="col-from-label">{{translate('Show Custom Sale Alert')}}</label>
-                                    <label class="aiz-switch aiz-switch-success mb-0">
+                                    <label class="pex-switch pex-switch-success mb-0">
                                         <input value="1" name="show_custom_product_sale_alert" type="checkbox" @if (get_setting('show_custom_product_sale_alert')==1)
                                             checked
                                             @endif>
@@ -41,7 +41,7 @@
 
                                 <div class="form-group">
                                     <label class="col-from-label" for="products">{{translate('Products')}}</label>
-                                    <select name="products[]" id="products" class="form-control aiz-selectpicker" multiple required
+                                    <select name="products[]" id="products" class="form-control pex-selectpicker" multiple required
                                         data-placeholder="{{ translate('Choose Products') }}" data-live-search="true" data-selected-text-format="count">
                                         @foreach($products as $product)
                                         @php
@@ -90,7 +90,7 @@ $(document).ready(function() {
             $.post('{{ route('custom_sale_alerts.products')}}', {_token: '{{ csrf_token() }}', product_ids: product_ids},
                 function(data) {
                     $('#discount_table').html(data);
-                    AIZ.plugins.fooTable();
+                    PEX.plugins.fooTable();
                 });
         } else {
             $('#discount_table').html(null);
@@ -117,21 +117,21 @@ $(document).ready(function() {
             // Check for empty values
             if (!minInput.value || !maxInput.value) {
                 e.preventDefault();
-                AIZ.plugins.notify('danger', '{{ translate('Both Minimum and Maximum Interval are required.') }}');
+                PEX.plugins.notify('danger', '{{ translate('Both Minimum and Maximum Interval are required.') }}');
                 return;
             }
 
             // Integer validation
             if (!Number.isInteger(min) || !Number.isInteger(max)) {
                 e.preventDefault();
-                AIZ.plugins.notify('danger', '{{ translate('Only integer values are allowed for intervals.') }}');
+                PEX.plugins.notify('danger', '{{ translate('Only integer values are allowed for intervals.') }}');
                 return;
             }
 
             // Check min ≤ max
             if (min > max) {
                 e.preventDefault();
-                AIZ.plugins.notify('danger', '{{ translate('Minimum Interval cannot be greater than Maximum.') }}');
+                PEX.plugins.notify('danger', '{{ translate('Minimum Interval cannot be greater than Maximum.') }}');
                 minInput.focus();
                 return;
             }

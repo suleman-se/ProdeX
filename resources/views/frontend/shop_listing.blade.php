@@ -84,7 +84,7 @@
                         @endforeach
                     </div>
                     <!-- Pagination -->
-                    <div class="aiz-pagination aiz-pagination-center mt-4">
+                    <div class="pex-pagination pex-pagination-center mt-4">
                         {{ $shops->links() }}
                     </div>
                 </div>
@@ -96,6 +96,6 @@
 
 @section('script')
     <script>
-        AIZ.plugins.particles();
+        PEX.plugins.particles();
     </script>
 @endsection

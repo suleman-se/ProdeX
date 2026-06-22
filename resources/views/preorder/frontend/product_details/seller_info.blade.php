@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="float-right">
-                    <div class="aiz-share"></div>
+                    <div class="pex-share"></div>
                 </div>
             </div>
             <!-- Ratting -->

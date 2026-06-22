@@ -32,7 +32,7 @@
                                 </div>
                                 <!-- Category Products -->
                                 <div class="col pl-0 pl-sm-3 w-100 overflow-hidden pr-0">
-                                    <div class="aiz-carousel arrow-x-0 arrow-inactive-none" data-items="5"
+                                    <div class="pex-carousel arrow-x-0 arrow-inactive-none" data-items="5"
                                         data-xxl-items="5" data-xl-items="3.5" data-lg-items="3" data-md-items="2" data-sm-items="2"
                                         data-xs-items="1" data-arrows='true' data-infinite='false'>
                                         @foreach (get_cached_products($category->id) as $product_key => $product)

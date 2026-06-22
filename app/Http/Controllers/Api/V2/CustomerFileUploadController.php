@@ -93,9 +93,9 @@ class CustomerFileUploadController extends Controller
             "xlsx" => "document"
         );
         if (auth()->user()->user_type == 'customer') {
-            if ($request->hasFile('aiz_file')) {
+            if ($request->hasFile('pex_file')) {
                 $upload = new Upload;
-                $extension = strtolower($request->file('aiz_file')->getClientOriginalExtension());
+                $extension = strtolower($request->file('pex_file')->getClientOriginalExtension());
 
                 if (
                     env('DEMO_MODE') == 'On' &&
@@ -107,7 +107,7 @@ class CustomerFileUploadController extends Controller
 
                 if (isset($type[$extension])) {
                     $upload->file_original_name = null;
-                    $arr = explode('.', $request->file('aiz_file')->getClientOriginalName());
+                    $arr = explode('.', $request->file('pex_file')->getClientOriginalName());
                     for ($i = 0; $i < count($arr) - 1; $i++) {
                         if ($i == 0) {
                             $upload->file_original_name .= $arr[$i];
@@ -116,8 +116,8 @@ class CustomerFileUploadController extends Controller
                         }
                     }
 
-                    $path = $request->file('aiz_file')->store('uploads/all', 'local');
-                    $size = $request->file('aiz_file')->getSize();
+                    $path = $request->file('pex_file')->store('uploads/all', 'local');
+                    $size = $request->file('pex_file')->getSize();
 
                     // Return MIME type ala mimetype extension
                     $finfo = finfo_open(FILEINFO_MIME_TYPE);
@@ -127,7 +127,7 @@ class CustomerFileUploadController extends Controller
 
                     if ($type[$extension] == 'image' && get_setting('disable_image_optimization') != 1) {
                         try {
-                            $img = Image::make($request->file('aiz_file')->getRealPath())->encode();
+                            $img = Image::make($request->file('pex_file')->getRealPath())->encode();
                             $height = $img->height();
                             $width = $img->width();
                             if ($width > $height && $width > 1500) {

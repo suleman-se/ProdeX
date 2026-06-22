@@ -16,7 +16,7 @@
                         <div class="h-100 w-100 w-xl-auto" style="background-image: url('{{ uploaded_asset($flash_deal->banner) }}'); background-size: cover; background-position: center center;">
                             <div class="py-5 px-2 px-lg-3 px-xl-5">
                                 <div class="bg-white">
-                                    <div class="aiz-count-down-circle" end-date="{{ date('Y/m/d H:i:s', $flash_deal->end_date) }}"></div>
+                                    <div class="pex-count-down-circle" end-date="{{ date('Y/m/d H:i:s', $flash_deal->end_date) }}"></div>
                                 </div>
                             </div>
                         </div>

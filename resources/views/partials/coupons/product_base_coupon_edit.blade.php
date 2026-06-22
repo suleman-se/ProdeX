@@ -12,7 +12,7 @@
         <div class="form-group row">
             <label class="col-lg-3 control-label" for="name">{{translate('Product')}}</label>
             <div class="col-lg-9">
-                <select name="product_ids[]" class="form-control product_id aiz-selectpicker" data-live-search="true" data-selected-text-format="count" required multiple>
+                <select name="product_ids[]" class="form-control product_id pex-selectpicker" data-live-search="true" data-selected-text-format="count" required multiple>
                     @foreach($products as $key => $product)
                         <option value="{{$product->id}}"
                             @foreach (json_decode($coupon->details) as $key => $details)
@@ -34,7 +34,7 @@
 <div class="form-group row">
     <label class="col-sm-3 control-label" for="start_date">{{translate('Date')}}</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control aiz-date-range" value="{{ $start_date .' - '. $end_date }}" name="date_range" placeholder="{{ translate('Select Date') }}">
+      <input type="text" class="form-control pex-date-range" value="{{ $start_date .' - '. $end_date }}" name="date_range" placeholder="{{ translate('Select Date') }}">
     </div>
 </div>
 
@@ -45,7 +45,7 @@
 
    </div>
    <div class="col-lg-2">
-       <select class="form-control aiz-selectpicker" name="discount_type">
+       <select class="form-control pex-selectpicker" name="discount_type">
            <option value="amount" @if ($coupon->discount_type == 'amount') selected  @endif>{{translate('Amount')}}</option>
            <option value="percent" @if ($coupon->discount_type == 'percent') selected  @endif>{{translate('Percent')}}</option>
        </select>
@@ -55,8 +55,8 @@
 <script type="text/javascript">
 
     $(document).ready(function(){
-        $('.aiz-date-range').daterangepicker();
-        AIZ.plugins.bootstrapSelect('refresh');
+        $('.pex-date-range').daterangepicker();
+        PEX.plugins.bootstrapSelect('refresh');
     });
 
 </script>

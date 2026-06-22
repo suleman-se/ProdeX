@@ -12,7 +12,7 @@
         <div class="form-group row">
             <label class="col-lg-3 col-from-label" for="name">{{translate('Product')}}</label>
             <div class="col-lg-9">
-                <select name="product_ids[]" class="form-control product_id aiz-selectpicker" data-live-search="true" data-selected-text-format="count" required multiple>
+                <select name="product_ids[]" class="form-control product_id pex-selectpicker" data-live-search="true" data-selected-text-format="count" required multiple>
                     @foreach($products as $product)
                         <option value="{{$product->id}}">{{ $product->getTranslation('name') }}</option>
                     @endforeach
@@ -25,7 +25,7 @@
 <div class="form-group row">
     <label class="col-sm-3 control-label" for="start_date">{{translate('Date')}}</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control aiz-date-range" name="date_range" placeholder="{{ translate('Select Date') }}">
+      <input type="text" class="form-control pex-date-range" name="date_range" placeholder="{{ translate('Select Date') }}">
     </div>
 </div>
 <div class="form-group row">
@@ -34,7 +34,7 @@
       <input type="number" lang="en" min="0" step="0.01" placeholder="{{translate('Discount')}}" name="discount" class="form-control" required>
    </div>
    <div class="col-lg-2">
-       <select class="form-control aiz-selectpicker" name="discount_type">
+       <select class="form-control pex-selectpicker" name="discount_type">
            <option value="amount">{{translate('Amount')}}</option>
            <option value="percent">{{translate('Percent')}}</option>
        </select>
@@ -45,8 +45,8 @@
 <script type="text/javascript">
 
     $(document).ready(function(){
-        $('.aiz-date-range').daterangepicker();
-        AIZ.plugins.bootstrapSelect('refresh');
+        $('.pex-date-range').daterangepicker();
+        PEX.plugins.bootstrapSelect('refresh');
     });
 
 </script>

@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Carrier Informations') }}</h1>
@@ -43,7 +43,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-from-label">{{translate('Logo')}} <span class="text-danger">*</span></label>
                             <div class="col-md-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-from-label">{{translate('Free Shipping')}} ? </label>
                             <div class="col-md-9">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" name="shipping_type" onchange="freeShipping(this)" id="shipping_type" @if($carrier->free_shipping == 1) checked @endif>
                                     <span></span>
                                 </label>
@@ -67,7 +67,7 @@
                         <div class="form-group row" id="billing_type_section">
                             <label class="col-md-2 col-from-label">{{translate('Billing Type')}} <span class="text-danger">*</span></label>
                             <div class="col-md-9">
-                                <select class="form-control aiz-selectpicker" name="billing_type" onchange="update_price_range_form()" data-selected="{{ $carrier->carrier_ranges->first()->billing_type ?? '' }}"  id="billing_type" data-live-search="true">
+                                <select class="form-control pex-selectpicker" name="billing_type" onchange="update_price_range_form()" data-selected="{{ $carrier->carrier_ranges->first()->billing_type ?? '' }}"  id="billing_type" data-live-search="true">
                                     <option value="weight_based">{{ translate('According to Weight') }}</option>
                                     <option value="price_based">{{ translate('According to Price') }}</option>
                                 </select>
@@ -143,7 +143,7 @@
                                                 $selected_zones = $carrier->carrier_range_prices->unique('zone_id')->pluck('zone_id')->toArray();
                                             @endphp
                                             <td>
-                                                <input class="aiz-square-check zone_enable mt-2" type="checkbox" name="zones[]" value="{{ $zone->id }}" @if(in_array($zone->id, $selected_zones)) checked @endif>
+                                                <input class="pex-square-check zone_enable mt-2" type="checkbox" name="zones[]" value="{{ $zone->id }}" @if(in_array($zone->id, $selected_zones)) checked @endif>
                                             </td>
                                             @foreach($carrier->carrier_ranges as $key => $carrier_range)
                                                 @php

@@ -1,8 +1,8 @@
 @extends('auth.layouts.authentication')
 
 @section('content')
-    <!-- aiz-main-wrapper -->
-    <div class="aiz-main-wrapper d-flex flex-column justify-content-md-center bg-white">
+    <!-- pex-main-wrapper -->
+    <div class="pex-main-wrapper d-flex flex-column justify-content-md-center bg-white">
         <section class="bg-white overflow-hidden">
             <div class="row">
                 <div class="col-xxl-6 col-xl-9 col-lg-10 col-md-7 mx-auto py-lg-4">
@@ -63,10 +63,10 @@
                                             <div class="row mb-2">
                                                 <!-- Remember Me -->
                                                 <div class="col-6">
-                                                    <label class="aiz-checkbox">
+                                                    <label class="pex-checkbox">
                                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                                         <span class="has-transition fs-12 fw-400 text-gray-dark hov-text-primary">{{  translate('Remember Me') }}</span>
-                                                        <span class="aiz-square-check"></span>
+                                                        <span class="pex-square-check"></span>
                                                     </label>
                                                 </div>
                                                 <!-- Forgot password -->

@@ -54,9 +54,9 @@
 
                                 <!-- Agree Box -->
                                 <div class="pt-2rem fs-14 mb-4">
-                                        <label class="aiz-checkbox">
+                                        <label class="pex-checkbox">
                                             <input type="checkbox" required id="agree_checkbox" onchange="stepCompletionPaymentInfo()"> 
-                                            <span class="aiz-square-check"></span>
+                                            <span class="pex-square-check"></span>
                                             <span>{{ translate('I agree to the') }}</span>
                                         </label>
                                         <a href="{{ route('terms') }}" class="fw-700">{{ translate('terms and conditions') }}</a>,

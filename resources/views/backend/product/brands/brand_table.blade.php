@@ -1,14 +1,14 @@
 <div class="card-body">
-    <table class="table mb-0" id="aiz-data-table">
+    <table class="table mb-0" id="pex-data-table">
         <thead>
             <tr>
                 @if (auth()->user()->can('delete_brand'))
                     <th>
                         <div class="form-group">
-                            <div class="aiz-checkbox-inline">
-                                <label class="aiz-checkbox pt-5px d-block">
+                            <div class="pex-checkbox-inline">
+                                <label class="pex-checkbox pt-5px d-block">
                                     <input type="checkbox" class="check-all">
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                 </label>
                             </div>
                         </div>
@@ -40,9 +40,9 @@
                         </div>
                         @if (auth()->user()->can('delete_brand'))
                         <div class="form-group d-inline-block">
-                            <label class="aiz-checkbox">
+                            <label class="pex-checkbox">
                                 <input type="checkbox" class="check-one" name="id[]" value="{{ $brand->id }}">
-                                <span class="aiz-square-check"></span>
+                                <span class="pex-square-check"></span>
                             </label>
                         </div>
                         @else
@@ -206,7 +206,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="aiz-pagination" id="pagination">
+    <div class="pex-pagination" id="pagination">
         {{ $brands->links() }}
     </div>
 </div>

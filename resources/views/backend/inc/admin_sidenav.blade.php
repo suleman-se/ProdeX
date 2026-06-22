@@ -1,6 +1,6 @@
-<div class="aiz-sidebar-wrap">
-    <div class="aiz-sidebar left c-scrollbar">
-        <div class="aiz-side-nav-logo-wrap">
+<div class="pex-sidebar-wrap">
+    <div class="pex-sidebar left c-scrollbar">
+        <div class="pex-side-nav-logo-wrap">
             <a href="{{ route('admin.dashboard') }}" class="d-block text-left">
                 @if(get_setting('system_logo_black') != null)
                 <img class="mw-100" src="{{ uploaded_asset(get_setting('system_logo_black')) }}" class="brand-icon"
@@ -11,7 +11,7 @@
                 @endif
             </a>
         </div>
-        <div class="aiz-side-nav-wrap">
+        <div class="pex-side-nav-wrap">
             <div class="px-3 mb-3 position-relative">
                 <input class="form-control bg-transparent rounded-2 form-control-sm text-white fs-14" type="text"
                     name="" placeholder="{{ translate('Search in menu') }}" id="menu-search" onkeyup="menuSearch()">
@@ -23,15 +23,15 @@
                     </svg>
                 </span>
             </div>
-            <ul class="aiz-side-nav-list" id="search-menu">
+            <ul class="pex-side-nav-list" id="search-menu">
             </ul>
-            <ul class="aiz-side-nav-list" id="main-menu" data-toggle="aiz-side-menu">
+            <ul class="pex-side-nav-list" id="main-menu" data-toggle="pex-side-menu">
 
                 {{-- Dashboard --}}
                 @can('admin_dashboard')
-                <li class="aiz-side-nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="{{route('admin.dashboard')}}" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="_3d6902ec768df53cd9e274ca8a57e401"
                                     data-name="3d6902ec768df53cd9e274ca8a57e401"
@@ -39,16 +39,16 @@
                                     transform="translate(-2 -2)" fill="#575b6a" fill-rule="evenodd" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Dashboard')}}</span>
+                        <span class="pex-side-nav-text">{{translate('Dashboard')}}</span>
                     </a>
                 </li>
                 @endcan
 
                 <!-- POS Addon-->
                 @if (addon_is_activated('pos_system') && (auth()->user()->can('pos_manager') || auth()->user()->can('pos_configuration')))
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="13.79" height="16" viewBox="0 0 13.79 16">
                                 <g id="_371925cdd3f531725a9fa8f3ebf8fe9e" data-name="371925cdd3f531725a9fa8f3ebf8fe9e"
                                     transform="translate(-2.26 0)">
@@ -65,7 +65,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('POS System')}}</span>
+                        <span class="pex-side-nav-text">{{translate('POS System')}}</span>
                         @if (env("DEMO_MODE") == "On")
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                             class="mx-2">
@@ -74,37 +74,37 @@
                                 transform="translate(19337 -3329)" fill="#f51350" />
                         </svg>
                         @endif
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('pos_manager')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('poin-of-sales.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['poin-of-sales.index', 'poin-of-sales.create'])}}">
-                                <span class="aiz-side-nav-text">{{translate('POS Manager')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['poin-of-sales.index', 'poin-of-sales.create'])}}">
+                                <span class="pex-side-nav-text">{{translate('POS Manager')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('pos_configuration')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('poin-of-sales.activation')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('POS Configuration')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('poin-of-sales.activation')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('POS Configuration')}}</span>
                             </a>
                         </li>
                         @endcan
 
                        @can('pos_Order')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('pos.orders')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('POS Orders')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('pos.orders')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('POS Orders')}}</span>
                             </a>
                         </li>
                         @endcan
 
                         @can('add_pos_products')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('admin.pos.products')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('POS Products')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('admin.pos.products')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('POS Products')}}</span>
                             </a>
                         </li>
                         @endcan
@@ -115,9 +115,9 @@
                 <!-- Product -->
                 @canany(['add_new_product', 'show_all_products','show_in_house_products','show_seller_products','add_digital_product','edit_digital_product','product_bulk_import',
                         'product_bulk_export','view_product_categories','view_all_brands', 'brand_bulk_upload','view_product_attributes','view_colors','view_product_warranties', 'smart-bar', 'view_custom_label', 'view_product_reviews'])
-                    <li class="aiz-side-nav-item">
-                        <a href="#" class="aiz-side-nav-link">
-                            <div class="aiz-side-nav-icon">
+                    <li class="pex-side-nav-item">
+                        <a href="#" class="pex-side-nav-link">
+                            <div class="pex-side-nav-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13.714" viewBox="0 0 16 13.714">
                                     <g id="Layer_2" data-name="Layer 2" transform="translate(-2 -4)">
                                         <path id="Path_40719" data-name="Path 40719"
@@ -129,62 +129,62 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="aiz-side-nav-text">{{translate('Products')}}</span>
-                            <span class="aiz-side-nav-arrow"></span>
+                            <span class="pex-side-nav-text">{{translate('Products')}}</span>
+                            <span class="pex-side-nav-arrow"></span>
                         </a>
                         <!--Submenu-->
-                        <ul class="aiz-side-nav-list level-2">
+                        <ul class="pex-side-nav-list level-2">
                             @can('add_new_product')
-                            <li class="aiz-side-nav-item">
-                                <a class="aiz-side-nav-link" href="{{route('products.create')}}">
-                                    <span class="aiz-side-nav-text">{{translate('Add New product')}}</span>
+                            <li class="pex-side-nav-item">
+                                <a class="pex-side-nav-link" href="{{route('products.create')}}">
+                                    <span class="pex-side-nav-text">{{translate('Add New product')}}</span>
                                 </a>
                             </li>
                             @endcan
                             @can('show_all_products')
-                            <li class="aiz-side-nav-item">
-                                <a href="{{route('products.all')}}" class="aiz-side-nav-link {{ areActiveRoutes(['digitalproducts.edit']) }}">
-                                    <span class="aiz-side-nav-text">{{ translate('All Products') }}</span>
+                            <li class="pex-side-nav-item">
+                                <a href="{{route('products.all')}}" class="pex-side-nav-link {{ areActiveRoutes(['digitalproducts.edit']) }}">
+                                    <span class="pex-side-nav-text">{{ translate('All Products') }}</span>
                                 </a>
                             </li>
                             @endcan
                             @can('show_in_house_products')
-                            <li class="aiz-side-nav-item">
+                            <li class="pex-side-nav-item">
                                 <a href="{{route('products.admin')}}"
-                                    class="aiz-side-nav-link {{ areActiveRoutes(['products.admin', 'products.admin.edit']) }}">
-                                    <span class="aiz-side-nav-text">{{ translate('In House Products') }}</span>
+                                    class="pex-side-nav-link {{ areActiveRoutes(['products.admin', 'products.admin.edit']) }}">
+                                    <span class="pex-side-nav-text">{{ translate('In House Products') }}</span>
                                 </a>
                             </li>
                             @endcan
                             @can('add_digital_product')
-                            <li class="aiz-side-nav-item">
+                            <li class="pex-side-nav-item">
                                 <a href="{{ route('digitalproducts.create') }}"
-                                    class="aiz-side-nav-link {{ areActiveRoutes(['digitalproducts.create']) }}">
-                                    <span class="aiz-side-nav-text">{{ translate('Add New Digital Product') }}</span>
+                                    class="pex-side-nav-link {{ areActiveRoutes(['digitalproducts.create']) }}">
+                                    <span class="pex-side-nav-text">{{ translate('Add New Digital Product') }}</span>
                                 </a>
                             </li>
                             @endcan
                             @if(get_setting('vendor_system_activation') == 1)
                             @can('show_seller_products')
-                            <li class="aiz-side-nav-item">
-                                <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text">{{translate('Seller Product')}}</span>
-                                    <span class="aiz-side-nav-arrow"></span>
+                            <li class="pex-side-nav-item">
+                                <a href="javascript:void(0);" class="pex-side-nav-link">
+                                    <span class="pex-side-nav-text">{{translate('Seller Product')}}</span>
+                                    <span class="pex-side-nav-arrow"></span>
                                 </a>
-                                <ul class="aiz-side-nav-list level-3">
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{ route('products.seller','all') }}" class="aiz-side-nav-link {{ areActiveRoutes(['products.seller.edit','digitalproducts.seller.edit']) }}">
-                                            <span class="aiz-side-nav-text">{{translate('All Products')}}</span>
+                                <ul class="pex-side-nav-list level-3">
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{ route('products.seller','all') }}" class="pex-side-nav-link {{ areActiveRoutes(['products.seller.edit','digitalproducts.seller.edit']) }}">
+                                            <span class="pex-side-nav-text">{{translate('All Products')}}</span>
                                         </a>
                                     </li>
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{ route('products.seller','physical') }}" class="aiz-side-nav-link {{ areActiveRoutes(['products.seller.edit']) }}">
-                                            <span class="aiz-side-nav-text">{{translate('Physical Products')}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{ route('products.seller','physical') }}" class="pex-side-nav-link {{ areActiveRoutes(['products.seller.edit']) }}">
+                                            <span class="pex-side-nav-text">{{translate('Physical Products')}}</span>
                                         </a>
                                     </li>
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{ route('products.seller','digital') }}" class="aiz-side-nav-link {{ areActiveRoutes(['digitalproducts.seller.edit']) }}">
-                                            <span class="aiz-side-nav-text">{{translate('Digital Products')}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{ route('products.seller','digital') }}" class="pex-side-nav-link {{ areActiveRoutes(['digitalproducts.seller.edit']) }}">
+                                            <span class="pex-side-nav-text">{{translate('Digital Products')}}</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -193,52 +193,52 @@
                             @endif
 
                             @can('product_bulk_import')
-                            <li class="aiz-side-nav-item">
-                                <a href="{{ route('product_bulk_upload.index') }}" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text">{{ translate('Bulk Import') }}</span>
+                            <li class="pex-side-nav-item">
+                                <a href="{{ route('product_bulk_upload.index') }}" class="pex-side-nav-link">
+                                    <span class="pex-side-nav-text">{{ translate('Bulk Import') }}</span>
                                 </a>
                             </li>
                             @endcan
                             @can('product_bulk_export')
-                            <li class="aiz-side-nav-item">
-                                <a href="{{route('product_bulk_export.index')}}" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text">{{translate('Bulk Export')}}</span>
+                            <li class="pex-side-nav-item">
+                                <a href="{{route('product_bulk_export.index')}}" class="pex-side-nav-link">
+                                    <span class="pex-side-nav-text">{{translate('Bulk Export')}}</span>
                                 </a>
                             </li>
                             @endcan
                             @can('view_product_categories')
-                            <li class="aiz-side-nav-item">
+                            <li class="pex-side-nav-item">
                                 <a href="{{route('categories.index')}}"
-                                    class="aiz-side-nav-link {{ areActiveRoutes(['categories.index', 'categories.create', 'categories.edit'])}}">
-                                    <span class="aiz-side-nav-text">{{translate('Category')}}</span>
+                                    class="pex-side-nav-link {{ areActiveRoutes(['categories.index', 'categories.create', 'categories.edit'])}}">
+                                    <span class="pex-side-nav-text">{{translate('Category')}}</span>
                                 </a>
                             </li>
                             @endcan
                             @can('set_category_wise_discount')
-                            <li class="aiz-side-nav-item">
-                                <a href="{{route('categories_wise_product_discount')}}" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text">{{translate('Category Based Discount')}}</span>
+                            <li class="pex-side-nav-item">
+                                <a href="{{route('categories_wise_product_discount')}}" class="pex-side-nav-link">
+                                    <span class="pex-side-nav-text">{{translate('Category Based Discount')}}</span>
                                 </a>
                             </li>
                             @endcan
                             @canany(['view_all_brands', 'brand_bulk_upload'])
-                                <li class="aiz-side-nav-item">
-                                    <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Brand')}}</span>
-                                        <span class="aiz-side-nav-arrow"></span>
+                                <li class="pex-side-nav-item">
+                                    <a href="javascript:void(0);" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Brand')}}</span>
+                                        <span class="pex-side-nav-arrow"></span>
                                     </a>
-                                    <ul class="aiz-side-nav-list level-3">
+                                    <ul class="pex-side-nav-list level-3">
                                         @can('view_all_brands')
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('brands.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['brands.index', 'brands.create', 'brands.edit'])}}">
-                                                <span class="aiz-side-nav-text">{{translate('All Brands')}}</span>
+                                        <li class="pex-side-nav-item">
+                                            <a href="{{ route('brands.index') }}" class="pex-side-nav-link {{ areActiveRoutes(['brands.index', 'brands.create', 'brands.edit'])}}">
+                                                <span class="pex-side-nav-text">{{translate('All Brands')}}</span>
                                             </a>
                                         </li>
                                         @endcan
                                         @can('brand_bulk_upload')
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('brand_bulk_upload.index') }}" class="aiz-side-nav-link">
-                                                <span class="aiz-side-nav-text">{{translate('Brand Bulk Import')}}</span>
+                                        <li class="pex-side-nav-item">
+                                            <a href="{{ route('brand_bulk_upload.index') }}" class="pex-side-nav-link">
+                                                <span class="pex-side-nav-text">{{translate('Brand Bulk Import')}}</span>
                                             </a>
                                         </li>
                                         @endcan
@@ -246,46 +246,46 @@
                                 </li>
                             @endcan
                             @can('view_custom_label')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('custom_label.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['custom_label.edit', 'custom_label.create'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Custom Label')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{route('custom_label.index')}}" class="pex-side-nav-link {{ areActiveRoutes(['custom_label.edit', 'custom_label.create'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Custom Label')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('view_product_attributes')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('attributes.index')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['attributes.index','attributes.create','attributes.edit','attributes.show'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Attribute')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['attributes.index','attributes.create','attributes.edit','attributes.show'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Attribute')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('view_colors')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('colors')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['colors','colors.edit','colors.create'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Colors')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['colors','colors.edit','colors.create'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Colors')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @canany(['view_size_charts', 'view_measurement_points'])
-                            <li class="aiz-side-nav-item">
-                                <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text">{{translate('Size Guide')}}</span>
-                                    <span class="aiz-side-nav-arrow"></span>
+                            <li class="pex-side-nav-item">
+                                <a href="javascript:void(0);" class="pex-side-nav-link">
+                                    <span class="pex-side-nav-text">{{translate('Size Guide')}}</span>
+                                    <span class="pex-side-nav-arrow"></span>
                                 </a>
-                                <ul class="aiz-side-nav-list level-3">
+                                <ul class="pex-side-nav-list level-3">
                                     @can('view_size_charts')
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('size-charts.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['size-charts.index', 'size-charts.create', 'size-charts.edit'])}}">
-                                                <span class="aiz-side-nav-text">{{translate('Size Chart')}}</span>
+                                        <li class="pex-side-nav-item">
+                                            <a href="{{ route('size-charts.index') }}" class="pex-side-nav-link {{ areActiveRoutes(['size-charts.index', 'size-charts.create', 'size-charts.edit'])}}">
+                                                <span class="pex-side-nav-text">{{translate('Size Chart')}}</span>
                                             </a>
                                         </li>
                                     @endcan
                                     @can('view_measurement_points')
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('measurement-points.index') }}" class="aiz-side-nav-link">
-                                                <span class="aiz-side-nav-text">{{translate('Measurement Points')}}</span>
+                                        <li class="pex-side-nav-item">
+                                            <a href="{{ route('measurement-points.index') }}" class="pex-side-nav-link">
+                                                <span class="pex-side-nav-text">{{translate('Measurement Points')}}</span>
                                             </a>
                                         </li>
                                     @endcan
@@ -293,23 +293,23 @@
                             </li>
                             @endcan
                             @can('view_product_warranties')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('warranties.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['warranties.edit'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Warranty')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{route('warranties.index')}}" class="pex-side-nav-link {{ areActiveRoutes(['warranties.edit'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Warranty')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('smart-bar')
-                                <li class="aiz-side-nav-item">
-                                    <a class="aiz-side-nav-link {{ areActiveRoutes(['smart.bar'])}}" href="{{route('smart.bar')}}">
-                                        <span class="aiz-side-nav-text">{{translate('Smart Bar')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a class="pex-side-nav-link {{ areActiveRoutes(['smart.bar'])}}" href="{{route('smart.bar')}}">
+                                        <span class="pex-side-nav-text">{{translate('Smart Bar')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('view_product_reviews')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('reviews.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['detail-reviews', 'custom-review.edit']) }}">
-                                        <span class="aiz-side-nav-text">{{translate('Product Reviews')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{route('reviews.index')}}" class="pex-side-nav-link {{ areActiveRoutes(['detail-reviews', 'custom-review.edit']) }}">
+                                        <span class="pex-side-nav-text">{{translate('Product Reviews')}}</span>
                                     </a>
                                 </li>
                             @endcan
@@ -323,46 +323,46 @@
                             'view_all_seller_preorders', 'view_all_delayed_prepayment_preorders', 'view_all_final_preorders', 'view_preorder_seller_commission_history',
                             'preorder_settings', 'view_all_preorder_product_conversations','view_all_preorder_product_queries', 'view_all_preorder_product_reviews',
                             'view_all_faqs', 'view_all_preorder_notification_types'])
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <div class="aiz-side-nav-icon">
+                        <li class="pex-side-nav-item">
+                            <a href="#" class="pex-side-nav-link">
+                                <div class="pex-side-nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16.002" viewBox="0 0 16 16.002">
                                         <path id="Union_63" data-name="Union 63" d="M14072,894a8,8,0,1,1,8,8A8.011,8.011,0,0,1,14072,894Zm1,0a7,7,0,1,0,7-7A7.007,7.007,0,0,0,14073,894Zm10.652,3.674-3.2-2.781a1,1,0,0,1-.953-1.756V889.5a.5.5,0,1,1,1,0v3.634a1,1,0,0,1,.5.863c0,.015,0,.029,0,.044l3.311,2.876a.5.5,0,0,1,.05.7.5.5,0,0,1-.708.049Z" transform="translate(-14072 -885.998)" fill="#b5b5bf"/>
                                     </svg>
                                 </div>
-                                <span class="aiz-side-nav-text">{{translate('Preorder')}}</span>
-                                <span class="aiz-side-nav-arrow"></span>
+                                <span class="pex-side-nav-text">{{translate('Preorder')}}</span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
                             <!--Submenu-->
-                            <ul class="aiz-side-nav-list level-2">
+                            <ul class="pex-side-nav-list level-2">
                                 @can('preorder_dashboard')
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{route('preorder.dashboard')}}" class="aiz-side-nav-link">
-                                            <span class="aiz-side-nav-text">{{translate('Dashboard')}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{route('preorder.dashboard')}}" class="pex-side-nav-link">
+                                            <span class="pex-side-nav-text">{{translate('Dashboard')}}</span>
                                         </a>
                                     </li>
                                 @endcan
                                 @can('add_preorder_product')
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{route('preorder-product.create')}}" class="aiz-side-nav-link">
-                                            <span class="aiz-side-nav-text">{{translate('Add New Preorder products')}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{route('preorder-product.create')}}" class="pex-side-nav-link">
+                                            <span class="pex-side-nav-text">{{translate('Add New Preorder products')}}</span>
                                         </a>
                                     </li>
                                 @endcan
                                 @can('view_all_preorder_products')
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{route('preorder-product.index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['preorder-product.edit'])}}">
-                                            <span class="aiz-side-nav-text">{{translate('Preorder Products')}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{route('preorder-product.index')}}" class="pex-side-nav-link {{ areActiveRoutes(['preorder-product.edit'])}}">
+                                            <span class="pex-side-nav-text">{{translate('Preorder Products')}}</span>
                                         </a>
                                     </li>
                                 @endcan
                                 @canany(['view_all_preorders', 'view_all_inhouse_preorders', 'view_all_seller_preorders', 'view_all_delayed_prepayment_preorders', 'view_all_final_preorders'])
-                                    <li class="aiz-side-nav-item">
-                                        <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                            <span class="aiz-side-nav-text">{{translate('Orders (Preorder)')}}</span>
-                                            <span class="aiz-side-nav-arrow"></span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="javascript:void(0);" class="pex-side-nav-link">
+                                            <span class="pex-side-nav-text">{{translate('Orders (Preorder)')}}</span>
+                                            <span class="pex-side-nav-arrow"></span>
                                         </a>
-                                        <ul class="aiz-side-nav-list level-3">
+                                        <ul class="pex-side-nav-list level-3">
                                             @php
                                             $adminId = get_admin()->id;
                                             // Clone the original query to preserve it
@@ -405,37 +405,37 @@
                                                 })->count();
                                             @endphp
                                             @can('view_all_preorders')
-                                                <li class="aiz-side-nav-item">
-                                                    <a href="{{ route('all_preorder.list') }}" class="aiz-side-nav-link {{ areActiveRoutes(['preorder-order.show'])}} }}">
-                                                        <span class="aiz-side-nav-text">{{translate('All Orders')}} <span class="badge badge-info ml-1">{{ $all_preorders_count ?: '' }}</span> </span>
+                                                <li class="pex-side-nav-item">
+                                                    <a href="{{ route('all_preorder.list') }}" class="pex-side-nav-link {{ areActiveRoutes(['preorder-order.show'])}} }}">
+                                                        <span class="pex-side-nav-text">{{translate('All Orders')}} <span class="badge badge-info ml-1">{{ $all_preorders_count ?: '' }}</span> </span>
                                                     </a>
                                                 </li>
                                             @endcan
                                             @can('view_all_inhouse_preorders')
-                                                <li class="aiz-side-nav-item">
-                                                    <a href="{{ route('inhouse_preorder.list') }}" class="aiz-side-nav-link">
-                                                        <span class="aiz-side-nav-text">{{translate('Inhouse Orders')}} <span class="badge badge-info ml-1">{{ $inhouse_preorders_count ?: '' }}</span></span>
+                                                <li class="pex-side-nav-item">
+                                                    <a href="{{ route('inhouse_preorder.list') }}" class="pex-side-nav-link">
+                                                        <span class="pex-side-nav-text">{{translate('Inhouse Orders')}} <span class="badge badge-info ml-1">{{ $inhouse_preorders_count ?: '' }}</span></span>
                                                     </a>
                                                 </li>
                                             @endcan
                                             @can('view_all_seller_preorders')
-                                                <li class="aiz-side-nav-item">
-                                                    <a href="{{ route('seller_preorder.list') }}" class="aiz-side-nav-link">
-                                                        <span class="aiz-side-nav-text">{{translate('Seller Orders')}} <span class="badge badge-info ml-1">{{ $sellers_preorders_count ?: '' }}</span></span>
+                                                <li class="pex-side-nav-item">
+                                                    <a href="{{ route('seller_preorder.list') }}" class="pex-side-nav-link">
+                                                        <span class="pex-side-nav-text">{{translate('Seller Orders')}} <span class="badge badge-info ml-1">{{ $sellers_preorders_count ?: '' }}</span></span>
                                                     </a>
                                                 </li>
                                             @endcan
                                             @can('view_all_delayed_prepayment_preorders')
-                                                <li class="aiz-side-nav-item">
-                                                    <a href="{{ route('delayed_prepayment_preorders.list') }}" class="aiz-side-nav-link">
-                                                        <span class="aiz-side-nav-text">{{translate('Delayed Prepayment')}} <span class="badge badge-info ml-1">{{ $delayed_prepayment_preorders_count ?: '' }}</span></span>
+                                                <li class="pex-side-nav-item">
+                                                    <a href="{{ route('delayed_prepayment_preorders.list') }}" class="pex-side-nav-link">
+                                                        <span class="pex-side-nav-text">{{translate('Delayed Prepayment')}} <span class="badge badge-info ml-1">{{ $delayed_prepayment_preorders_count ?: '' }}</span></span>
                                                     </a>
                                                 </li>
                                             @endcan
                                             @can('view_all_final_preorders')
-                                                <li class="aiz-side-nav-item">
-                                                    <a href="{{ route('delayed_final_orders.list') }}" class="aiz-side-nav-link">
-                                                        <span class="aiz-side-nav-text">{{translate('Delayed Final Orders')}} <span class="badge badge-info ml-1">{{ $delayed_final_orders_count ?: '' }}</span></span>
+                                                <li class="pex-side-nav-item">
+                                                    <a href="{{ route('delayed_final_orders.list') }}" class="pex-side-nav-link">
+                                                        <span class="pex-side-nav-text">{{translate('Delayed Final Orders')}} <span class="badge badge-info ml-1">{{ $delayed_final_orders_count ?: '' }}</span></span>
                                                     </a>
                                                 </li>
                                             @endcan
@@ -443,16 +443,16 @@
                                     </li>
                                 @endcan
                                 @can('view_preorder_seller_commission_history')
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{ route('preorder-commission-history') }}" class="aiz-side-nav-link">
-                                            <span class="aiz-side-nav-text">{{translate("Preorder Commission History")}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{ route('preorder-commission-history') }}" class="pex-side-nav-link">
+                                            <span class="pex-side-nav-text">{{translate("Preorder Commission History")}}</span>
                                         </a>
                                     </li>
                                 @endcan
                                 @can('preorder_settings')
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{ route('preorder-settings') }}" class="aiz-side-nav-link {{ areActiveRoutes(['faqs.create', 'faq.edit'])}}">
-                                            <span class="aiz-side-nav-text">{{translate("Preorder Settings")}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{ route('preorder-settings') }}" class="pex-side-nav-link {{ areActiveRoutes(['faqs.create', 'faq.edit'])}}">
+                                            <span class="pex-side-nav-text">{{translate("Preorder Settings")}}</span>
                                         </a>
                                     </li>
                                 @endcan
@@ -461,10 +461,10 @@
                                         @php
                                             $preorderConversation = get_non_viewed_preorder_conversations();
                                         @endphp   
-                                        <li class="aiz-side-nav-item">
+                                        <li class="pex-side-nav-item">
                                             <a href="{{ route('preorder-conversations.admin_index') }}"
-                                                class="aiz-side-nav-link {{ areActiveRoutes(['preorder-conversations.admin_index','preorder-conversations.admin_show']) }}">
-                                                <span class="aiz-side-nav-text">{{ translate('Preorder Product Conversation') }}</span>
+                                                class="pex-side-nav-link {{ areActiveRoutes(['preorder-conversations.admin_index','preorder-conversations.admin_show']) }}">
+                                                <span class="pex-side-nav-text">{{ translate('Preorder Product Conversation') }}</span>
                                                 @if ($preorderConversation > 0)
                                                     <span class="badge badge-danger">({{ $preorderConversation }})</span>
                                                 @endif
@@ -474,34 +474,34 @@
                                 @endcan
                                 @can('view_all_preorder_product_queries')
                                     @if (get_setting('product_query_activation') == 1)
-                                        <li class="aiz-side-nav-item">
+                                        <li class="pex-side-nav-item">
                                             <a href="{{ route('preorder.product_query.index') }}"
-                                                class="aiz-side-nav-link {{ areActiveRoutes(['preorder.product_query.index','preorder.product_query.show']) }}">
-                                                <span class="aiz-side-nav-text">{{ translate('Preorder Product Queries') }}</span>
+                                                class="pex-side-nav-link {{ areActiveRoutes(['preorder.product_query.index','preorder.product_query.show']) }}">
+                                                <span class="pex-side-nav-text">{{ translate('Preorder Product Queries') }}</span>
                                             </a>
                                         </li>
                                     @endif
                                 @endcan
                                 @can('view_all_preorder_product_reviews')
-                                    <li class="aiz-side-nav-item">
+                                    <li class="pex-side-nav-item">
                                         <a href="{{ route('preorder.product_reviews.index') }}"
-                                            class="aiz-side-nav-link {{ areActiveRoutes(['preorder.product_detail_reviews']) }}">
-                                            <span class="aiz-side-nav-text">{{ translate('Preorder Product Reviews') }}</span>
+                                            class="pex-side-nav-link {{ areActiveRoutes(['preorder.product_detail_reviews']) }}">
+                                            <span class="pex-side-nav-text">{{ translate('Preorder Product Reviews') }}</span>
                                         </a>
                                     </li>
                                 @endcan
                                 @can('view_all_faqs')
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{ route('faqs.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['faqs.create', 'faq.edit'])}}">
-                                            <span class="aiz-side-nav-text">{{translate("FAQs")}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{ route('faqs.index') }}" class="pex-side-nav-link {{ areActiveRoutes(['faqs.create', 'faq.edit'])}}">
+                                            <span class="pex-side-nav-text">{{translate("FAQs")}}</span>
                                         </a>
                                     </li>
                                 @endcan
                                 @can('view_all_preorder_notification_types')
-                                    <li class="aiz-side-nav-item">
+                                    <li class="pex-side-nav-item">
                                         <a href="{{ route('preorder-notification-types.index') }}"
-                                            class="aiz-side-nav-link {{ areActiveRoutes(['preorder.notification-type.edit'])}}">
-                                            <span class="aiz-side-nav-text">{{translate('Preorder Notification Types')}}</span>
+                                            class="pex-side-nav-link {{ areActiveRoutes(['preorder.notification-type.edit'])}}">
+                                            <span class="pex-side-nav-text">{{translate('Preorder Notification Types')}}</span>
                                         </a>
                                     </li>
                                 @endcan
@@ -512,29 +512,29 @@
 
                 <!-- Note  -->
                 @canany(['view_notes', 'add_note'])
-                    <li class="aiz-side-nav-item">
-                        <a href="#" class="aiz-side-nav-link">
-                            <div class="aiz-side-nav-icon">
+                    <li class="pex-side-nav-item">
+                        <a href="#" class="pex-side-nav-link">
+                            <div class="pex-side-nav-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16.001" viewBox="0 0 16 16.001">
                                     <path id="Union_64" data-name="Union 64" d="M.333,16A.315.315,0,0,1,0,15.668V.335A.315.315,0,0,1,.333,0h9.31a.285.285,0,0,1,.123.014A.318.318,0,0,1,9.9.1l2.667,2.667.009.01a.293.293,0,0,1,.079.132.274.274,0,0,1,.012.112V5.835l1.267-1.267a.322.322,0,0,1,.466,0l1.5,1.5a.322.322,0,0,1,0,.466L12.667,9.768v5.9a.315.315,0,0,1-.333.333Zm.334-.666H12v-4.9L9.133,13.3a.3.3,0,0,1-.233.1H8.882L6.4,14.468a.2.2,0,0,1-.133.033.332.332,0,0,1-.3-.466l.589-1.368H2.667a.333.333,0,0,1,0-.667H6.843l.258-.6a.321.321,0,0,1,.176-.177L8.5,10H2.667a.333.333,0,0,1,0-.667h6.5L12,6.5V3.335H9.667A.315.315,0,0,1,9.333,3V.668H.667Zm6.233-1.8,1.4-.6-.8-.8-.1.239a.323.323,0,0,1-.074.172Zm2-.967,6.3-6.3-.283-.283-6.3,6.3ZM7.867,11.534l.284.284,6.3-6.3-.283-.283L12.624,6.777a.291.291,0,0,1-.115.115L9.558,9.844a.291.291,0,0,1-.115.115ZM10,2.668h1.533L10.767,1.9,10,1.135ZM2.667,7.335a.333.333,0,0,1,0-.667H10a.333.333,0,1,1,0,.667Zm0-2.668a.333.333,0,1,1,0-.666H10a.333.333,0,1,1,0,.666Z" fill="#575b6a"/>
                                 </svg>
                             </div>
-                            <span class="aiz-side-nav-text">{{translate('Notes')}}</span>
-                            <span class="aiz-side-nav-arrow"></span>
+                            <span class="pex-side-nav-text">{{translate('Notes')}}</span>
+                            <span class="pex-side-nav-arrow"></span>
                         </a>
                         <!--Submenu-->
-                        <ul class="aiz-side-nav-list level-2">
+                        <ul class="pex-side-nav-list level-2">
                             @can('add_note')
-                                <li class="aiz-side-nav-item">
-                                    <a class="aiz-side-nav-link" href="{{route('note.create')}}">
-                                        <span class="aiz-side-nav-text">{{translate('Add New Note')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a class="pex-side-nav-link" href="{{route('note.create')}}">
+                                        <span class="pex-side-nav-text">{{translate('Add New Note')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('view_notes')
-                                <li class="aiz-side-nav-item">
-                                    <a class="aiz-side-nav-link" href="{{route('note.index')}}">
-                                        <span class="aiz-side-nav-text">{{translate('Note List')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a class="pex-side-nav-link" href="{{route('note.index')}}">
+                                        <span class="pex-side-nav-text">{{translate('Note List')}}</span>
                                     </a>
                                 </li>
                             @endcan
@@ -545,9 +545,9 @@
                 <!-- Auction Product -->
                 @if(addon_is_activated('auction'))
                     @canany(['add_auction_product','view_all_auction_products','view_inhouse_auction_products','view_seller_auction_products','view_auction_product_orders'])
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <div class="aiz-side-nav-icon">
+                        <li class="pex-side-nav-item">
+                            <a href="#" class="pex-side-nav-link">
+                                <div class="pex-side-nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15.964" height="16" viewBox="0 0 15.964 16">
                                         <path id="_608087065a4e8d47000761280c315020"
                                             data-name="608087065a4e8d47000761280c315020"
@@ -555,7 +555,7 @@
                                             transform="translate(-4.993 -4.912)" fill="#575b6a" />
                                     </svg>
                                 </div>
-                                <span class="aiz-side-nav-text">{{translate('Auction Products')}}</span>
+                                <span class="pex-side-nav-text">{{translate('Auction Products')}}</span>
                                 @if (env("DEMO_MODE") == "On")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                                     class="mx-2">
@@ -564,46 +564,46 @@
                                         transform="translate(19337 -3329)" fill="#f51350" />
                                 </svg>
                                 @endif
-                                <span class="aiz-side-nav-arrow"></span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
                             <!--Submenu-->
-                            <ul class="aiz-side-nav-list level-2">
+                            <ul class="pex-side-nav-list level-2">
                                 @can('add_auction_product')
-                                <li class="aiz-side-nav-item">
-                                    <a class="aiz-side-nav-link" href="{{route('auction_product_create.admin')}}">
-                                        <span class="aiz-side-nav-text">{{translate('Add New auction product')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a class="pex-side-nav-link" href="{{route('auction_product_create.admin')}}">
+                                        <span class="pex-side-nav-text">{{translate('Add New auction product')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('view_all_auction_products')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('auction.all_products')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['auction_product_edit.admin','product_bids.admin']) }}">
-                                        <span class="aiz-side-nav-text">{{ translate('All Auction Products') }}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['auction_product_edit.admin','product_bids.admin']) }}">
+                                        <span class="pex-side-nav-text">{{ translate('All Auction Products') }}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('view_inhouse_auction_products')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('auction.inhouse_products')}}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{ translate('Inhouse Auction Products') }}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{route('auction.inhouse_products')}}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{ translate('Inhouse Auction Products') }}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @if (get_setting('vendor_system_activation') == 1)
                                 @can('view_seller_auction_products')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('auction.seller_products')}}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{ translate('Seller Auction Products') }}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{route('auction.seller_products')}}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{ translate('Seller Auction Products') }}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @endif
                                 @can('view_auction_product_orders')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('auction_products_orders')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['auction_products_orders.index']) }}">
-                                        <span class="aiz-side-nav-text">{{ translate('Auction Products Orders') }}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['auction_products_orders.index']) }}">
+                                        <span class="pex-side-nav-text">{{ translate('Auction Products Orders') }}</span>
                                     </a>
                                 </li>
                                 @endcan
@@ -615,16 +615,16 @@
                 <!-- Wholesale Product -->
                 @if(addon_is_activated('wholesale'))
                 @canany(['add_wholesale_product','view_all_wholesale_products','view_inhouse_wholesale_products','view_sellers_wholesale_products'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="Union_48" data-name="Union 48"
                                     d="M1.2,14.236a1.762,1.762,0,0,1,1.2-1.657V2c0-.325-.268-.823-.6-.823H.6C.268,1.176,0,1.031,0,.7V.647A.645.645,0,0,1,.6,0H2.4A1.407,1.407,0,0,1,3.6,1.41v9.65h10a1.4,1.4,0,0,1,1.2,1.518,1.757,1.757,0,0,1,1.165,2.01,1.8,1.8,0,0,1-3.566-.353,1.761,1.761,0,0,1,1.2-1.656v-.342H3.6v.342a1.754,1.754,0,0,1,1.165,2.01A1.784,1.784,0,0,1,3.338,15.97,1.927,1.927,0,0,1,3,16,1.782,1.782,0,0,1,1.2,14.236Zm12.4,0a.594.594,0,0,0,.6.588h0a.6.6,0,0,0,.6-.589c0-.389-.272-.5-.6-.617C13.872,13.732,13.6,13.846,13.6,14.235Zm-11.2,0a.6.6,0,0,0,.6.588H3a.6.6,0,0,0,.6-.589c0-.389-.272-.5-.6-.617C2.671,13.732,2.4,13.846,2.4,14.235Zm4.216-4.158A1.615,1.615,0,0,1,5,8.462V6.692A1.615,1.615,0,0,1,6.615,5.077h5.77A1.616,1.616,0,0,1,14,6.692V8.462a1.616,1.616,0,0,1-1.616,1.615ZM6.234,6.311a.542.542,0,0,0-.157.382V8.462A.538.538,0,0,0,6.615,9h5.77a.538.538,0,0,0,.538-.538V6.692a.536.536,0,0,0-.538-.538H6.612A.535.535,0,0,0,6.234,6.311ZM5.473,3.527A1.617,1.617,0,0,1,5,2.385V1.616A1.615,1.615,0,0,1,6.615,0H9.384A1.616,1.616,0,0,1,11,1.616v.769A1.615,1.615,0,0,1,9.384,4H6.612A1.614,1.614,0,0,1,5.473,3.527Zm.761-2.293a.542.542,0,0,0-.157.382v.769a.538.538,0,0,0,.538.538H9.384a.538.538,0,0,0,.539-.538V1.616a.542.542,0,0,0-.157-.382.536.536,0,0,0-.382-.157H6.612A.535.535,0,0,0,6.234,1.234Z"
                                     fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Wholesale Products')}}</span>
+                        <span class="pex-side-nav-text">{{translate('Wholesale Products')}}</span>
                         @if (env("DEMO_MODE") == "On")
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                             class="mx-2">
@@ -633,38 +633,38 @@
                                 transform="translate(19337 -3329)" fill="#f51350" />
                         </svg>
                         @endif
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('add_wholesale_product')
-                        <li class="aiz-side-nav-item">
-                            <a class="aiz-side-nav-link" href="{{route('wholesale_product_create.admin')}}">
-                                <span class="aiz-side-nav-text">{{translate('Add New Wholesale Product')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a class="pex-side-nav-link" href="{{route('wholesale_product_create.admin')}}">
+                                <span class="pex-side-nav-text">{{translate('Add New Wholesale Product')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_all_wholesale_products')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('wholesale_products.all')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['wholesale_product_edit.admin']) }}">
-                                <span class="aiz-side-nav-text">{{ translate('All Wholesale Products') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['wholesale_product_edit.admin']) }}">
+                                <span class="pex-side-nav-text">{{ translate('All Wholesale Products') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_inhouse_wholesale_products')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('wholesale_products.in_house')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['wholesale_product_edit.admin']) }}">
-                                <span class="aiz-side-nav-text">{{ translate('In House Wholesale Products') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['wholesale_product_edit.admin']) }}">
+                                <span class="pex-side-nav-text">{{ translate('In House Wholesale Products') }}</span>
                             </a>
                         </li>
                         @endcan
                         @if (get_setting('vendor_system_activation') == 1)
                         @can('view_sellers_wholesale_products')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('wholesale_products.seller')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['wholesale_product_edit.admin']) }}">
-                                <span class="aiz-side-nav-text">{{ translate('Seller Wholesale Products') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['wholesale_product_edit.admin']) }}">
+                                <span class="pex-side-nav-text">{{ translate('Seller Wholesale Products') }}</span>
                             </a>
                         </li>
                         @endcan
@@ -676,9 +676,9 @@
 
                 <!-- Sale -->
                 @canany(['view_all_orders', 'view_inhouse_orders','view_seller_orders','view_pickup_point_orders'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="15.997" height="16" viewBox="0 0 15.997 16">
                                 <g id="Layer_2" data-name="Layer 2" transform="translate(-2 -1.994)">
                                     <path id="Path_40726" data-name="Path 40726"
@@ -690,51 +690,51 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Sales')}}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{translate('Sales')}}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
                     <!--Submenu-->
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('view_all_orders')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('all_orders.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['all_orders.index', 'all_orders.show'])}}">
-                                <span class="aiz-side-nav-text">{{translate('All Orders')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['all_orders.index', 'all_orders.show'])}}">
+                                <span class="pex-side-nav-text">{{translate('All Orders')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_inhouse_orders')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('inhouse_orders.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['inhouse_orders.index', 'inhouse_orders.show'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Inhouse orders')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['inhouse_orders.index', 'inhouse_orders.show'])}}">
+                                <span class="pex-side-nav-text">{{translate('Inhouse orders')}}</span>
                             </a>
                         </li>
                         @endcan
                         @if (get_setting('vendor_system_activation') == 1)
                         @can('view_seller_orders')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('seller_orders.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['seller_orders.index', 'seller_orders.show'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Seller Orders')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['seller_orders.index', 'seller_orders.show'])}}">
+                                <span class="pex-side-nav-text">{{translate('Seller Orders')}}</span>
                             </a>
                         </li>
                         @endcan
                         @endif
 
                         @can('view_pickup_point_orders')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('pick_up_point.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['pick_up_point.index','pick_up_point.order_show'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Pick-up Point Orders')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['pick_up_point.index','pick_up_point.order_show'])}}">
+                                <span class="pex-side-nav-text">{{translate('Pick-up Point Orders')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_all_unpaid_orders')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('unpaid_orders.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['unpaid_orders.index'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Unpaid Orders')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['unpaid_orders.index'])}}">
+                                <span class="pex-side-nav-text">{{translate('Unpaid Orders')}}</span>
                             </a>
                         </li>
                         @endcan
@@ -745,9 +745,9 @@
                 <!-- Deliver Boy Addon-->
                 @if (addon_is_activated('delivery_boy'))
                 @canany(['view_all_delivery_boy','add_delivery_boy','delivery_boy_payment_history','collected_histories_from_delivery_boy','order_cancle_request_by_delivery_boy','delivery_boy_configuration'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg id="Group_28285" data-name="Group 28285" xmlns="http://www.w3.org/2000/svg" width="16"
                                 height="16" viewBox="0 0 16 16">
                                 <path id="Path_40728" data-name="Path 40728"
@@ -758,7 +758,7 @@
                                     transform="translate(-363.281 -392.344)" fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Delivery Boy')}}</span>
+                        <span class="pex-side-nav-text">{{translate('Delivery Boy')}}</span>
                         @if (env("DEMO_MODE") == "On")
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                             class="mx-2">
@@ -767,48 +767,48 @@
                                 transform="translate(19337 -3329)" fill="#f51350" />
                         </svg>
                         @endif
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('view_all_delivery_boy')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('delivery-boys.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('All Delivery Boy')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('delivery-boys.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('All Delivery Boy')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('add_delivery_boy')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('delivery-boys.create')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Add Delivery Boy')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('delivery-boys.create')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Add Delivery Boy')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('delivery_boy_payment_history')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('delivery-boys-payment-histories')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Payment Histories')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('delivery-boys-payment-histories')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Payment Histories')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('collected_histories_from_delivery_boy')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('delivery-boys-collection-histories')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Collected Histories')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('delivery-boys-collection-histories')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Collected Histories')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('order_cancle_request_by_delivery_boy')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('delivery-boy.cancel-request')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Cancel Request')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('delivery-boy.cancel-request')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Cancel Request')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('delivery_boy_configuration')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('delivery-boy-configuration')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Configuration')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('delivery-boy-configuration')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Configuration')}}</span>
                             </a>
                         </li>
                         @endcan
@@ -820,9 +820,9 @@
  <!-- Refund addon -->
                 @if (addon_is_activated('refund_request'))
                     @canany(['view_refund_requests','view_approved_refund_requests','view_rejected_refund_requests','refund_request_configuration','set_category_wise_refund'])
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <div class="aiz-side-nav-icon">
+                        <li class="pex-side-nav-item">
+                            <a href="#" class="pex-side-nav-link">
+                                <div class="pex-side-nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                         <path id="_4436b8ef9250481406399210799cb7f1"
                                             data-name="4436b8ef9250481406399210799cb7f1"
@@ -830,7 +830,7 @@
                                             transform="translate(-3.25 -3.25)" fill="#575b6a" />
                                     </svg>
                                 </div>
-                                <span class="aiz-side-nav-text">{{ translate('Refunds') }}</span>
+                                <span class="pex-side-nav-text">{{ translate('Refunds') }}</span>
                                 @if (env("DEMO_MODE") == "On")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                                     class="mx-2">
@@ -839,43 +839,43 @@
                                         transform="translate(19337 -3329)" fill="#f51350" />
                                 </svg>
                                 @endif
-                                <span class="aiz-side-nav-arrow"></span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
-                            <ul class="aiz-side-nav-list level-2">
+                            <ul class="pex-side-nav-list level-2">
                                 @can('view_refund_requests')
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{route('refund_requests_all')}}" class="aiz-side-nav-link {{ areActiveRoutes(['refund_requests_all'])}}">
-                                            <span class="aiz-side-nav-text">{{translate('Refund Requests')}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{route('refund_requests_all')}}" class="pex-side-nav-link {{ areActiveRoutes(['refund_requests_all'])}}">
+                                            <span class="pex-side-nav-text">{{translate('Refund Requests')}}</span>
                                         </a>
                                     </li>
                                 @endcan
                                 @can('view_dispute_refund_requests')
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{route('dispute_refund_requests_all')}}" class="aiz-side-nav-link {{ areActiveRoutes(['dispute_refund_requests_all'])}}">
-                                            <span class="aiz-side-nav-text">{{translate('Dispute Refund Requests')}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{route('dispute_refund_requests_all')}}" class="pex-side-nav-link {{ areActiveRoutes(['dispute_refund_requests_all'])}}">
+                                            <span class="pex-side-nav-text">{{translate('Dispute Refund Requests')}}</span>
                                         </a>
                                     </li>
                                 @endcan
                                 
                                 @can('refund_request_configuration')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('refund_time_config')}}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Refund Configuration')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{route('refund_time_config')}}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Refund Configuration')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                  @can('view_refund_reason')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{route('refund_reason_index')}}" class="aiz-side-nav-link {{ areActiveRoutes(['refund_reason_index', 'refund_reason_create', 'refund_reason_edit'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Refund Reasons')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{route('refund_reason_index')}}" class="pex-side-nav-link {{ areActiveRoutes(['refund_reason_index', 'refund_reason_create', 'refund_reason_edit'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Refund Reasons')}}</span>
                                     </a>
                                 </li>
                                 @endcan
 
                                   @can('set_category_wise_refund')
-                                    <li class="aiz-side-nav-item">
-                                        <a href="{{route('categories_wise_product_refund')}}" class="aiz-side-nav-link">
-                                            <span class="aiz-side-nav-text">{{translate('Category Based Refund')}}</span>
+                                    <li class="pex-side-nav-item">
+                                        <a href="{{route('categories_wise_product_refund')}}" class="pex-side-nav-link">
+                                            <span class="pex-side-nav-text">{{translate('Category Based Refund')}}</span>
                                         </a>
                                     </li>
                                 @endcan
@@ -886,34 +886,34 @@
 
                 <!-- Customers -->
                 @canany(['view_all_customers','view_classified_products','view_classified_packages'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="Path_40769" data-name="Path 40769"
                                     d="M8,10.667A2.667,2.667,0,1,1,10.667,8,2.667,2.667,0,0,1,8,10.667Zm0-4A1.333,1.333,0,1,0,9.333,8,1.333,1.333,0,0,0,8,6.667Zm4,8.667a4,4,0,1,0-8,0,.667.667,0,0,0,1.333,0,2.667,2.667,0,1,1,5.333,0,.667.667,0,0,0,1.333,0Zm0-10a2.667,2.667,0,1,1,2.667-2.667A2.667,2.667,0,0,1,12,5.333Zm0-4a1.333,1.333,0,1,0,1.333,1.333A1.333,1.333,0,0,0,12,1.333ZM16,10a4,4,0,0,0-4-4,.667.667,0,0,0,0,1.333A2.667,2.667,0,0,1,14.667,10,.667.667,0,1,0,16,10ZM4,5.333A2.667,2.667,0,1,1,6.667,2.667,2.667,2.667,0,0,1,4,5.333Zm0-4A1.333,1.333,0,1,0,5.333,2.667,1.333,1.333,0,0,0,4,1.333ZM1.333,10A2.667,2.667,0,0,1,4,7.333.667.667,0,0,0,4,6a4,4,0,0,0-4,4,.667.667,0,0,0,1.333,0Z"
                                     fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{ translate('Customers') }}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{ translate('Customers') }}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('view_all_customers')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('customers.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['customers.create'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Customer list') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['customers.create'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Customer list') }}</span>
                             </a>
                         </li>
                         @endcan
 
                         @if(addon_is_activated('portfolio_system') && get_setting('customer_verification'))
                         @can('view_all_customers')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('customers.unverified.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['customers.create'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Unverified Customers') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['customers.create'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Unverified Customers') }}</span>
                             </a>
                         </li>
                         @endcan
@@ -921,17 +921,17 @@
 
                         @if(get_setting('classified_product') == 1)
                         @can('view_classified_products')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('classified_products')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Classified Products')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('classified_products')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Classified Products')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_classified_packages')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('customer_packages.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['customer_packages.index', 'customer_packages.create', 'customer_packages.edit'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Classified Packages') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['customer_packages.index', 'customer_packages.create', 'customer_packages.edit'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Classified Packages') }}</span>
                             </a>
                         </li>
                         @endcan
@@ -943,89 +943,89 @@
                 <!-- Sellers -->
                 @if (get_setting('vendor_system_activation') == 1)
                 @canany(['view_all_seller','seller_payment_history','view_seller_payout_requests','seller_commission_configuration','view_all_seller_packages','seller_verification_form_configuration','set_category_wise_commission','set_seller_based_commission'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="ef567a7fa3ca8f4541f8ab7b62352aa6"
                                     d="M19,9.625a.638.638,0,0,0-.079-.307l-2.779-5A.614.614,0,0,0,15.606,4H6.394a.614.614,0,0,0-.536.318l-2.779,5A.638.638,0,0,0,3,9.625a2.5,2.5,0,0,0,1.231,2.153V18.75A1.24,1.24,0,0,0,5.462,20H9.08a1.24,1.24,0,0,0,1.231-1.25V16.058a.759.759,0,0,1,.615-.773.684.684,0,0,1,.534.176.706.706,0,0,1,.229.521V18.75A1.24,1.24,0,0,0,12.92,20h3.618a1.24,1.24,0,0,0,1.231-1.25V11.777A2.5,2.5,0,0,0,19,9.625Zm-1.239.149a1.23,1.23,0,0,1-2.453-.149.578.578,0,0,0-.017-.086.548.548,0,0,0-.006-.084L14.114,5.25h1.132ZM9.164,5.25h1.22V9.625a1.23,1.23,0,0,1-2.455.063Zm2.451,0h1.22l1.235,4.437a1.23,1.23,0,0,1-2.455-.062Zm-4.862,0H7.886l-1.169,4.2a.548.548,0,0,0-.006.084.578.578,0,0,0-.018.086,1.23,1.23,0,0,1-2.453.149Zm9.785,13.5H12.92V15.981a1.964,1.964,0,0,0-.635-1.446,1.9,1.9,0,0,0-1.482-.491A2,2,0,0,0,9.08,16.061V18.75H5.462V12.125a2.439,2.439,0,0,0,1.846-.848A2.419,2.419,0,0,0,11,11.261a2.419,2.419,0,0,0,3.692.016,2.439,2.439,0,0,0,1.846.848Z"
                                     transform="translate(-3 -4)" fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{ translate('Sellers') }}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{ translate('Sellers') }}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('view_all_seller')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             @php
                             $sellers = \App\Models\Shop::where('verification_status', 0)->where('verification_info',
                             '!=', null)->count();
                             @endphp
                             <a href="{{ route('sellers.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['sellers.index', 'sellers.profile']) }}">
-                                <span class="aiz-side-nav-text">{{ translate('All Seller') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['sellers.index', 'sellers.profile']) }}">
+                                <span class="pex-side-nav-text">{{ translate('All Seller') }}</span>
                                 @if($sellers > 0)<span class="badge badge-info">{{ $sellers }}</span> @endif
                             </a>
                         </li>
                         @endcan
                         @can('view_pending_seller')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('sellers.registration_pending') }}"
-                                class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Applied Seller') }}</span>
+                                class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Applied Seller') }}</span>
                             </a>
                         </li>
                         @endcan
 
                         @can('view_all_seller_rating_and_followers')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('sellers.rating_followers') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Seller Rating & Followers') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('sellers.rating_followers') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Seller Rating & Followers') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('seller_payment_history')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('sellers.payment_histories') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Payouts') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('sellers.payment_histories') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Payouts') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_seller_payout_requests')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('withdraw_requests_all') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Payout Requests') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('withdraw_requests_all') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Payout Requests') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('seller_commission_configuration')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('business_settings.vendor_commission') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Seller Commission') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('business_settings.vendor_commission') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Seller Commission') }}</span>
                                 </a>
                         </li>
                         @endcan
                         @can('set_seller_based_commission')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('seller_based_commission') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Seller Based Commission') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('seller_based_commission') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Seller Based Commission') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('set_category_wise_commission')
-                            <li class="aiz-side-nav-item">
-                                <a href="{{route('categories_wise_commission')}}" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text">{{translate('Category Based Commission')}}</span>
+                            <li class="pex-side-nav-item">
+                                <a href="{{route('categories_wise_commission')}}" class="pex-side-nav-link">
+                                    <span class="pex-side-nav-text">{{translate('Category Based Commission')}}</span>
                             </a>
                         </li>
                         @endcan
                         @if (addon_is_activated('seller_subscription'))
                         @can('view_all_seller_packages')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('seller_packages.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['seller_packages.index', 'seller_packages.create', 'seller_packages.edit'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Seller Packages') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['seller_packages.index', 'seller_packages.create', 'seller_packages.edit'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Seller Packages') }}</span>
                                 @if (env("DEMO_MODE") == "On")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001"
                                     viewBox="0 0 16 14.001" class="mx-2">
@@ -1039,9 +1039,9 @@
                         @endcan
                         @endif
                         @can('seller_verification_form_configuration')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('seller_verification_form.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Seller Verification Form') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('seller_verification_form.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Seller Verification Form') }}</span>
                             </a>
                         </li>
                         @endcan
@@ -1051,10 +1051,10 @@
                 @endif
 
                 {{-- Uploads Files --}}
-                <li class="aiz-side-nav-item">
+                <li class="pex-side-nav-item">
                     <a href="{{ route('uploaded-files.index') }}"
-                        class="aiz-side-nav-link {{ areActiveRoutes(['uploaded-files.create'])}}">
-                        <div class="aiz-side-nav-icon">
+                        class="pex-side-nav-link {{ areActiveRoutes(['uploaded-files.create'])}}">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <g id="layer1" transform="translate(-0.53 -0.53)">
                                     <path id="path3159"
@@ -1063,16 +1063,16 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{ translate('Uploaded Files') }}</span>
+                        <span class="pex-side-nav-text">{{ translate('Uploaded Files') }}</span>
                     </a>
                 </li>
 
                 <!-- Reports -->
                 @canany(['earning_report',
                 'in_house_product_sale_report','seller_products_sale_report','products_stock_report','product_wishlist_report','user_search_report','commission_history_report','wallet_transaction_report'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg id="stats_3916778" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 viewBox="0 0 16 16">
                                 <path id="Path_40739" data-name="Path 40739"
@@ -1087,68 +1087,68 @@
                                     transform="translate(6.667 4)" fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{ translate('Reports') }}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{ translate('Reports') }}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('earning_report')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('earning_payout_report.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Earning Report') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('earning_payout_report.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Earning Report') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('in_house_product_sale_report')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('in_house_sale_report.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['in_house_sale_report.index'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('In House Product Sale') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['in_house_sale_report.index'])}}">
+                                <span class="pex-side-nav-text">{{ translate('In House Product Sale') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('seller_products_sale_report')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('seller_sale_report.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['seller_sale_report.index'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Seller Products Sale') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['seller_sale_report.index'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Seller Products Sale') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('products_stock_report')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('stock_report.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['stock_report.index'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Products Stock') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['stock_report.index'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Products Stock') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('product_wishlist_report')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('wish_report.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['wish_report.index'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Products wishlist') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['wish_report.index'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Products wishlist') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('user_search_report')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('user_search_report.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['user_search_report.index'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('User Searches') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['user_search_report.index'])}}">
+                                <span class="pex-side-nav-text">{{ translate('User Searches') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('commission_history_report')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('commission-log.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Commission History') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('commission-log.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Commission History') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('wallet_transaction_report')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('wallet-history.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Wallet Recharge History') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('wallet-history.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Wallet Recharge History') }}</span>
                             </a>
                         </li>
                         @endcan
@@ -1158,32 +1158,32 @@
 
                 <!--Blog System-->
                 @canany(['view_blogs','view_blog_categories'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="Path_40771" data-name="Path 40771"
                                     d="M9.688,16H3.75A3.754,3.754,0,0,1,0,12.25V3.75A3.754,3.754,0,0,1,3.75,0h8.5A3.754,3.754,0,0,1,16,3.75V9.734a.625.625,0,0,1-1.25,0V3.75a2.5,2.5,0,0,0-2.5-2.5H3.75a2.5,2.5,0,0,0-2.5,2.5v8.5a2.5,2.5,0,0,0,2.5,2.5H9.688a.625.625,0,0,1,0,1.25ZM12.875,3.938a.625.625,0,0,0-.625-.625H6.531a.625.625,0,0,0,0,1.25H12.25A.625.625,0,0,0,12.875,3.938Zm0,2.5a.625.625,0,0,0-.625-.625H3.75a.625.625,0,0,0,0,1.25h8.5A.625.625,0,0,0,12.875,6.438Zm-6.25,2.5A.625.625,0,0,0,6,8.313H3.75a.625.625,0,0,0,0,1.25H6A.625.625,0,0,0,6.625,8.938Zm-3.5-5.062a.781.781,0,1,0,.781-.781A.781.781,0,0,0,3.125,3.875ZM15.332,15.332a2.284,2.284,0,0,0,0-3.226L13.141,9.915a4.506,4.506,0,0,0-2.31-1.236L9.06,8.325a.625.625,0,0,0-.735.735l.354,1.771a4.506,4.506,0,0,0,1.236,2.31l2.191,2.191a2.281,2.281,0,0,0,3.226,0ZM10.586,9.9a3.259,3.259,0,0,1,1.671.894l2.191,2.191a1.031,1.031,0,1,1-1.458,1.458L10.8,12.257A3.26,3.26,0,0,1,9.9,10.586l-.17-.852Z"
                                     fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{ translate('Blog System') }}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{ translate('Blog System') }}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('view_blogs')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('blog.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['blog.create', 'blog.edit'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('All Posts') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['blog.create', 'blog.edit'])}}">
+                                <span class="pex-side-nav-text">{{ translate('All Posts') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_blog_categories')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('blog-category.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['blog-category.create', 'blog-category.edit'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Categories') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['blog-category.create', 'blog-category.edit'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Categories') }}</span>
                             </a>
                         </li>
                         @endcan
@@ -1204,9 +1204,9 @@
                 'send_bulk_sms',
                 'view_all_subscribers',
                 'view_all_coupons'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <g id="_8dbc7a38f7bdee3f0be2c44d010760a2" data-name="8dbc7a38f7bdee3f0be2c44d010760a2"
                                     transform="translate(0 -4.027)">
@@ -1222,68 +1222,68 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{ translate('Marketing') }}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{ translate('Marketing') }}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('view_all_flash_deals')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('flash_deals.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['flash_deals.index', 'flash_deals.create', 'flash_deals.edit'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Flash deals') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['flash_deals.index', 'flash_deals.create', 'flash_deals.edit'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Flash deals') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_all_dynamic_popups')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('dynamic-popups.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['dynamic-popups.index', 'dynamic-popups.create', 'dynamic-popups.edit'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Dynamic Pop-up') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['dynamic-popups.index', 'dynamic-popups.create', 'dynamic-popups.edit'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Dynamic Pop-up') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_all_custom_alerts')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('custom-alerts.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['custom-alerts.index', 'custom-alerts.create', 'custom-alerts.edit','custom-sale-alert.edit'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Custom Alert') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['custom-alerts.index', 'custom-alerts.create', 'custom-alerts.edit','custom-sale-alert.edit'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Custom Alert') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_custom_sale_alert')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('custom-sale-alerts.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['custom-sale-alerts.index'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Custom Sell Alert') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['custom-sale-alerts.index'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Custom Sell Alert') }}</span>
                             </a>
                         </li>
                         @endcan
                         @can('manage_email_templates')
-                        <li class="aiz-side-nav-item">
-                            <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Email Templates')}}</span>
-                                <span class="aiz-side-nav-arrow"></span>
+                        <li class="pex-side-nav-item">
+                            <a href="javascript:void(0);" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Email Templates')}}</span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
-                            <ul class="aiz-side-nav-list level-3">
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('email-templates.index', 'admin') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Admin Templates')}}</span>
+                            <ul class="pex-side-nav-list level-3">
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('email-templates.index', 'admin') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Admin Templates')}}</span>
                                     </a>
                                 </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('email-templates.index', 'seller') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Seller Templates')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('email-templates.index', 'seller') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Seller Templates')}}</span>
                                     </a>
                                 </li>
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{ route('email-templates.index', 'customer') }}"
-                                        class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Customer Templates')}}</span>
+                                        class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Customer Templates')}}</span>
                                     </a>
                                 </li>
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('email-templates.index', 'all') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Common Templates')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('email-templates.index', 'all') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Common Templates')}}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -1291,45 +1291,45 @@
                         @endcan
                         
                         @can('send_newsletter')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('newsletters.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Newsletters') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('newsletters.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Newsletters') }}</span>
                             </a>
                         </li>
                         @endcan
                         @canany(['notification_settings','view_all_notification_types','send_custom_notification', 'view_custom_notification_history'])
-                        <li class="aiz-side-nav-item">
-                            <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Notification')}}</span>
-                                <span class="aiz-side-nav-arrow"></span>
+                        <li class="pex-side-nav-item">
+                            <a href="javascript:void(0);" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Notification')}}</span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
-                            <ul class="aiz-side-nav-list level-3">
+                            <ul class="pex-side-nav-list level-3">
                                 @can('notification_settings')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('notification.settings') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Settings')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('notification.settings') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Settings')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('view_all_notification_types')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{ route('notification-type.index') }}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['notification-type.edit'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Notification Types')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['notification-type.edit'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Notification Types')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('send_custom_notification')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('custom_notification') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Custom Notification')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('custom_notification') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Custom Notification')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('view_custom_notification_history')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('custom_notification.history') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Custom Notification History')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('custom_notification.history') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Custom Notification History')}}</span>
                                     </a>
                                 </li>
                                 @endcan
@@ -1337,9 +1337,9 @@
                         </li>
                         @endcanany
                         @if (addon_is_activated('otp_system') && auth()->user()->can('send_bulk_sms'))
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('sms.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Bulk SMS') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('sms.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Bulk SMS') }}</span>
                                 @if (env("DEMO_MODE") == "On")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001"
                                     viewBox="0 0 16 14.001" class="mx-2">
@@ -1352,26 +1352,26 @@
                         </li>
                         @endif
                         @can('view_all_subscribers')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('subscribers.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{ translate('Subscribers') }}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('subscribers.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{ translate('Subscribers') }}</span>
                             </a>
                         </li>
                         @endcan
                         @if (get_setting('coupon_system') == 1 && auth()->user()->can('view_all_coupons') )
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('coupon.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['coupon.index','coupon.create','coupon.edit'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Coupon') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['coupon.index','coupon.create','coupon.edit'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Coupon') }}</span>
                             </a>
                         </li>
                         @endif
 
                         @can('custom_visitors_setup')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('custom_product_visitors')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['custom_product_visitors'])}}">
-                                <span class="aiz-side-nav-text">{{ translate('Custom Visitors') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['custom_product_visitors'])}}">
+                                <span class="pex-side-nav-text">{{ translate('Custom Visitors') }}</span>
                             </a>
                         </li>
                         @endcan
@@ -1381,49 +1381,49 @@
 
                 {{-- Marketing Analysis --}}
                 @canany(['manage_google_analytics','manage_pixel_analytics'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="Union_77" data-name="Union 77" d="M5.5,16a.625.625,0,0,1,0-1.25H7.375V13.5H2.5A2.5,2.5,0,0,1,0,11V2.5A2.5,2.5,0,0,1,2.5,0h11A2.5,2.5,0,0,1,16,2.5V11a2.5,2.5,0,0,1-2.5,2.5h-3a.625.625,0,0,1,0-1.25h3A1.251,1.251,0,0,0,14.75,11V2.5A1.251,1.251,0,0,0,13.5,1.25H2.5A1.251,1.251,0,0,0,1.25,2.5V11A1.251,1.251,0,0,0,2.5,12.25H8a.625.625,0,0,1,.625.626V14.75H10.5a.625.625,0,1,1,0,1.25ZM2.377,9.539a1.105,1.105,0,0,1-.03-1.2,1.126,1.126,0,0,1,1.206-.495.988.988,0,0,1,.136.04L4.866,6.826l.5-.447a1.113,1.113,0,0,1,.322-1.087,1.13,1.13,0,0,1,1.245-.176,1.1,1.1,0,0,1,.607.9.434.434,0,0,1,.007.088.68.68,0,0,1-.006.09L9,7.1a1.1,1.1,0,0,1,.864-.13l.051-.057L11.169,5.5l.516-.578a1.136,1.136,0,0,1,.209-1.131,1.1,1.1,0,0,1,1.162-.319,1.13,1.13,0,0,1,.765.97.439.439,0,0,1,.006.084,1.124,1.124,0,0,1-.816,1.067,1.1,1.1,0,0,1-.578,0l-.052.059L11.122,7.059l-.52.584a1.156,1.156,0,0,1,.074.332.432.432,0,0,1,0,.059h0a.467.467,0,0,1,0,.078,1.122,1.122,0,0,1-.812.989A1.106,1.106,0,0,1,8.739,8.76a1.175,1.175,0,0,1-.27-.657.955.955,0,0,1,0-.154l-1.455-.9a1.193,1.193,0,0,1-.511.159,1,1,0,0,1-.474-.074L4.856,8.187l-.5.448a1.155,1.155,0,0,1,.042.281.469.469,0,0,1-.008.1,1.1,1.1,0,0,1-1.1,1.009,1.136,1.136,0,0,1-.913-.486ZM3.3,9.039ZM3.332,9.03Zm-.074,0-.005-.006h0ZM3.219,9.03Zm.087-.006.019-.005L3.354,9,3.36,9l.009-.009.015-.026L3.39,8.93V8.909l-.007-.025-.02-.036-.005-.006-.007-.007-.023-.013L3.3,8.815H3.276l-.02.005-.029.016h0l-.014.013L3.2,8.875,3.19,8.9v.048l.017.03.006.006.008.007.026.016.022.006Zm-.056,0ZM3.2,9Zm.182-.037Zm.008-.008Zm0-.005Zm-.206-.07v0Zm.174-.04Zm-.011-.009-.006-.006h0ZM3.335,8.82ZM9.586,8.155ZM9.615,8.146Zm-.074,0V8.14h0ZM9.5,8.146Zm.087-.006h.018l.029-.017.006-.006L9.651,8.1l.016-.027.006-.022V8.038A.217.217,0,0,0,9.663,8l-.01-.018L9.644,7.97l-.011-.013-.028-.016-.023-.006H9.537l-.03.017h0L9.5,7.966l-.006.011L9.477,8v.049l.005.02L9.5,8.1l0,0,.008.008.026.016.021.006Zm-.057,0ZM9.478,8.132ZM9.66,8.1Zm.008-.009Zm.005-.006V8.069h0Zm-.005-.093Zm-.055-.045Zm0,0A.032.032,0,0,0,9.6,7.928l.011.006ZM6.462,6.228ZM6.493,6.218ZM6.412,6.218ZM6.454,6.2h.017L6.5,6.181h0l.006-.006.019-.033.006-.023V6.076h0l-.017-.029L6.508,6.04,6.5,6.027l-.026-.016L6.452,6H6.424L6.4,6.01l-.027.015-.008.008-.008.008-.016.027-.006.021V6.12l.006.023.015.026.014.014h0L6.4,6.2l.024.007Zm-.121-.13.006-.006h0l-.006.009Zm.008-.009ZM6.541,6.043ZM6.534,6.008Zm-.047,0ZM6.48,6H6.472l.005.006ZM12.739,4.643ZM12.77,4.634Zm-.082-.006-.01-.006h0Zm.047-.007.02-.005.027-.016.007-.006.008-.009.015-.026.007-.026V4.488l-.012-.02L12.8,4.454l-.01-.009-.028-.015h-.077l-.03.017-.006.006-.008.008-.016.027-.005.019V4.54l.005.019.012.02.008.008.011.013.028.016.022.006Zm.07-.044Zm.01-.011Zm.005-.006Zm-.209-.06.006-.005h0Zm.009-.01Zm.2-.011Zm-.006,0Zm.007-.013h-.008Zm-.008,0ZM12.8,4.432Z" fill="#beb8cc"/>
                             </svg>
 
                         </div>
-                        <span class="aiz-side-nav-text">{{ translate('Marketing Analytics') }}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{ translate('Marketing Analytics') }}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('manage_google_analytics')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('google-analytics-config') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Google Analytics (GA4)')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('google-analytics-config') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Google Analytics (GA4)')}}</span>
                             </a>
                         </li>
                         @if (get_setting('google_analytics') == 1)
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('google-analytics-test.result') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Google Analytics Reports')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('google-analytics-test.result') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Google Analytics Reports')}}</span>
                             </a>
                         </li>
                         @endif
 
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('google-tag-manager-config') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Google TAG Manager')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('google-tag-manager-config') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Google TAG Manager')}}</span>
                             </a>
                         </li>
                         @endcan
 
                         @can('manage_pixel_analytics')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('pixel_analytics.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Meta Pixel')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('pixel_analytics.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Meta Pixel')}}</span>
                             </a>
                         </li>
 
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('pixel_conversation_api.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Meta Conversion API')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('pixel_conversation_api.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Meta Conversion API')}}</span>
                             </a>
                         </li>
                         @endcan
@@ -1433,9 +1433,9 @@
 
                  {{-- Marketing Analysis --}}
                 @canany(['manage_ai_configuration'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
                                 <defs>
                                     <clipPath id="clip-path">
@@ -1450,31 +1450,31 @@
 
 
                         </div>
-                        <span class="aiz-side-nav-text">{{ translate('AI Studio') }}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{ translate('AI Studio') }}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('manage_ai_configuration')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('ai-add_edit_products') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Add/Edit Product With AI')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('ai-add_edit_products') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Add/Edit Product With AI')}}</span>
                             </a>
                         </li>
 
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('ai-prompt-templates-config') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Prompt Templates')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('ai-prompt-templates-config') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Prompt Templates')}}</span>
                             </a>
                         </li>
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('ai-token-usege') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Token Usage')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('ai-token-usege') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Token Usage')}}</span>
                             </a>
                         </li>
 
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('ai-config') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('AI Configuration')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('ai-config') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('AI Configuration')}}</span>
                             </a>
                         </li>
                         
@@ -1485,9 +1485,9 @@
 
                 <!-- Support -->
                 @canany(['view_all_support_tickets','view_all_product_conversations','view_all_product_queries'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <g id="Group_28286" data-name="Group 28286" transform="translate(0)">
                                     <path id="Path_40743" data-name="Path 40743"
@@ -1501,10 +1501,10 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Support')}}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{translate('Support')}}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('view_all_support_tickets')
                             @php
                                 $support_ticket = DB::table('tickets')
@@ -1512,10 +1512,10 @@
                                                     ->select('id')
                                                     ->count();
                             @endphp
-                            <li class="aiz-side-nav-item">
+                            <li class="pex-side-nav-item">
                                 <a href="{{ route('support_ticket.admin_index') }}"
-                                    class="aiz-side-nav-link {{ areActiveRoutes(['support_ticket.admin_index', 'support_ticket.admin_show'])}}">
-                                    <span class="aiz-side-nav-text">{{translate('Ticket')}}</span>
+                                    class="pex-side-nav-link {{ areActiveRoutes(['support_ticket.admin_index', 'support_ticket.admin_show'])}}">
+                                    <span class="pex-side-nav-text">{{translate('Ticket')}}</span>
                                     @if($support_ticket > 0)<span class="badge badge-info">{{ $support_ticket
                                         }}</span>@endif
                                 </a>
@@ -1526,10 +1526,10 @@
                             @php
                                 $conversation = \App\Models\Conversation::where('receiver_id', Auth::user()->id)->where('receiver_viewed', '0')->get();
                             @endphp
-                            <li class="aiz-side-nav-item">
+                            <li class="pex-side-nav-item">
                                 <a href="{{ route('conversations.admin_index') }}"
-                                    class="aiz-side-nav-link {{ areActiveRoutes(['conversations.admin_index', 'conversations.admin_show'])}}">
-                                    <span class="aiz-side-nav-text">{{translate('Product Conversations')}}</span>
+                                    class="pex-side-nav-link {{ areActiveRoutes(['conversations.admin_index', 'conversations.admin_show'])}}">
+                                    <span class="pex-side-nav-text">{{translate('Product Conversations')}}</span>
                                     @if (count($conversation) > 0)
                                         <span class="badge badge-info">{{ count($conversation) }}</span>
                                     @endif
@@ -1539,19 +1539,19 @@
 
                         @if (get_setting('product_query_activation') == 1)
                             @can('view_all_product_queries')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{ route('product_query.index') }}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['product_query.index','product_query.show']) }}">
-                                        <span class="aiz-side-nav-text">{{ translate('Product Queries') }}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['product_query.index','product_query.show']) }}">
+                                        <span class="pex-side-nav-text">{{ translate('Product Queries') }}</span>
                                     </a>
                                 </li>
                             @endcan
                         @endif
                         @can('view_all_contacts')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('contacts') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['contacts']) }}">
-                                <span class="aiz-side-nav-text">{{ translate('Contacts') }}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['contacts']) }}">
+                                <span class="pex-side-nav-text">{{ translate('Contacts') }}</span>
                             </a>
                         </li>
                         @endcan
@@ -1562,9 +1562,9 @@
                 <!-- Affiliate Addon -->
                 @if (addon_is_activated('affiliate_system'))
                 @canany(['affiliate_registration_form_config','affiliate_configurations','view_affiliate_users','view_all_referral_users','view_affiliate_withdraw_requests','view_affiliate_logs'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg id="Group_28297" data-name="Group 28297" xmlns="http://www.w3.org/2000/svg" width="16"
                                 height="16" viewBox="0 0 16 16">
                                 <path id="Path_40762" data-name="Path 40762"
@@ -1590,7 +1590,7 @@
                                     transform="translate(-170.498 -267.375)" fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Affiliate System')}}</span>
+                        <span class="pex-side-nav-text">{{translate('Affiliate System')}}</span>
                         @if (env("DEMO_MODE") == "On")
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                                 class="mx-2">
@@ -1599,49 +1599,49 @@
                                     transform="translate(19337 -3329)" fill="#f51350" />
                             </svg>
                         @endif
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('affiliate_registration_form_config')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('affiliate.configs')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Affiliate Registration Form')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('affiliate.configs')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Affiliate Registration Form')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('affiliate_configurations')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('affiliate.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Affiliate Configurations')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('affiliate.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Affiliate Configurations')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_affiliate_users')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('affiliate.users')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['affiliate.users', 'affiliate_users.show_verification_request', 'affiliate_user.payment_history'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Affiliate Users')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['affiliate.users', 'affiliate_users.show_verification_request', 'affiliate_user.payment_history'])}}">
+                                <span class="pex-side-nav-text">{{translate('Affiliate Users')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_all_referral_users')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('refferals.users')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Referral Users')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('refferals.users')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Referral Users')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_affiliate_withdraw_requests')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('affiliate.withdraw_requests')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Affiliate Withdraw Requests')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('affiliate.withdraw_requests')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Affiliate Withdraw Requests')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_affiliate_logs')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('affiliate.logs.admin')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Affiliate Logs')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('affiliate.logs.admin')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Affiliate Logs')}}</span>
                             </a>
                         </li>
                         @endcan
@@ -1655,9 +1655,9 @@
                 <!-- Club Point Addon-->
                 @if (addon_is_activated('club_point'))
                 @canany(['club_point_configurations','set_club_points','view_users_club_points'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <g id="Group_28289" data-name="Group 28289" transform="translate(-24 -896)">
                                     <g id="Group_28287" data-name="Group 28287" transform="translate(28 900)">
@@ -1674,7 +1674,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Club Point System')}}</span>
+                        <span class="pex-side-nav-text">{{translate('Club Point System')}}</span>
                         @if (env("DEMO_MODE") == "On")
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                             class="mx-2">
@@ -1683,29 +1683,29 @@
                                 transform="translate(19337 -3329)" fill="#f51350" />
                         </svg>
                         @endif
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('club_point_configurations')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('club_points.configs') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Club Point Configurations')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('club_points.configs') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Club Point Configurations')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('set_club_points')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('set_product_points')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['set_product_points', 'product_club_point.edit'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Set Product Point')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['set_product_points', 'product_club_point.edit'])}}">
+                                <span class="pex-side-nav-text">{{translate('Set Product Point')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_users_club_points')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('club_points.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['club_points.index', 'club_point.details'])}}">
-                                <span class="aiz-side-nav-text">{{translate('User Points')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['club_points.index', 'club_point.details'])}}">
+                                <span class="pex-side-nav-text">{{translate('User Points')}}</span>
                             </a>
                         </li>
                         @endcan
@@ -1717,16 +1717,16 @@
                 <!--OTP addon -->
                 @if (addon_is_activated('otp_system'))
                 @canany(['otp_configurations','sms_templates','sms_providers_configurations','send_bulk_sms'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="pin-code"
                                     d="M4.25,12.25a.625.625,0,0,1,.625.625h0a.625.625,0,1,1-1.25,0h0A.625.625,0,0,1,4.25,12.25Zm1.875.625h0a.625.625,0,1,0,1.25,0h0a.625.625,0,1,0-1.25,0Zm2.5,0h0a.625.625,0,1,0,1.25,0h0a.625.625,0,1,0-1.25,0Zm2.5,0h0a.625.625,0,1,0,1.25,0h0a.625.625,0,0,0-1.25,0Zm3-3.046a.625.625,0,0,0-.312,1.211,1.249,1.249,0,0,1,.937,1.211V13.5a1.251,1.251,0,0,1-1.25,1.25H2.5A1.251,1.251,0,0,1,1.25,13.5V12.25a1.257,1.257,0,0,1,.9-1.2.625.625,0,1,0-.354-1.2,2.518,2.518,0,0,0-1.284.888A2.478,2.478,0,0,0,0,12.25V13.5A2.5,2.5,0,0,0,2.5,16h11A2.5,2.5,0,0,0,16,13.5V12.25A2.5,2.5,0,0,0,14.125,9.829Zm-10.562-.7V5.749A1.877,1.877,0,0,1,5.437,3.874h.124V2.387a2.438,2.438,0,0,1,4.875,0V3.874h.126a1.877,1.877,0,0,1,1.875,1.875V9.124A1.877,1.877,0,0,1,10.562,11H5.437A1.877,1.877,0,0,1,3.562,9.124Zm3.249-5.25H9.187V2.387a1.189,1.189,0,0,0-2.375,0V3.874Zm-2,5.25a.626.626,0,0,0,.625.625h5.125a.626.626,0,0,0,.625-.625V5.749a.626.626,0,0,0-.625-.625H5.437a.626.626,0,0,0-.625.625ZM8,8.125A.625.625,0,0,0,8.625,7.5h0a.625.625,0,0,0-1.25,0h0A.625.625,0,0,0,8,8.125Z"
                                     transform="translate(0)" fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('OTP System')}}</span>
+                        <span class="pex-side-nav-text">{{translate('OTP System')}}</span>
                         @if (env("DEMO_MODE") == "On")
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                             class="mx-2">
@@ -1735,25 +1735,25 @@
                                 transform="translate(19337 -3329)" fill="#f51350" />
                         </svg>
                         @endif
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('otp_configurations')
-                            <li class="aiz-side-nav-item">
-                                <a href="{{ route('otp.login_configuration') }}" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text">{{translate('OTP Login Configuration')}}</span>
+                            <li class="pex-side-nav-item">
+                                <a href="{{ route('otp.login_configuration') }}" class="pex-side-nav-link">
+                                    <span class="pex-side-nav-text">{{translate('OTP Login Configuration')}}</span>
                                 </a>
                             </li>
-                            <li class="aiz-side-nav-item">
-                                <a href="{{ route('otp.configconfiguration') }}" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text">{{translate('OTP Configurations')}}</span>
+                            <li class="pex-side-nav-item">
+                                <a href="{{ route('otp.configconfiguration') }}" class="pex-side-nav-link">
+                                    <span class="pex-side-nav-text">{{translate('OTP Configurations')}}</span>
                                 </a>
                             </li>
                         @endcan
                         @can('sms_templates')
-                            <li class="aiz-side-nav-item">
-                                <a href="{{route('sms-templates.index')}}" class="aiz-side-nav-link">
-                                    <span class="aiz-side-nav-text">{{translate('SMS Templates')}}</span>
+                            <li class="pex-side-nav-item">
+                                <a href="{{route('sms-templates.index')}}" class="pex-side-nav-link">
+                                    <span class="pex-side-nav-text">{{translate('SMS Templates')}}</span>
                                 </a>
                             </li>
                         @endcan
@@ -1766,14 +1766,14 @@
                 <!--Shipping System -->
                 @if (addon_is_activated('shiprocket') || addon_is_activated('steadfast') || addon_is_activated('pathao') || addon_is_activated('redx'))
                     @canany(['manage_shipping_system'])
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <div class="aiz-side-nav-icon">
+                        <li class="pex-side-nav-item">
+                            <a href="#" class="pex-side-nav-link">
+                                <div class="pex-side-nav-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#575b6a">
                                         <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm0-12H4v-.5L12 16l8-5V6z"/>
                                     </svg>
                                 </div>
-                                <span class="aiz-side-nav-text">{{translate('Shipping System')}}</span>
+                                <span class="pex-side-nav-text">{{translate('Shipping System')}}</span>
                                 @if (env("DEMO_MODE") == "On")
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                                         class="mx-2">
@@ -1782,62 +1782,62 @@
                                             transform="translate(19337 -3329)" fill="#f51350" />
                                     </svg>
                                 @endif
-                                <span class="aiz-side-nav-arrow"></span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
                             @if (addon_is_activated('shiprocket'))
-                                <ul class="aiz-side-nav-list level-2">
+                                <ul class="pex-side-nav-list level-2">
                                     @can('manage_shipping_system')
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('shiprocket_configuration') }}" class="aiz-side-nav-link {{ areActiveRoutes(['shiprocket_configuration'])}}">
-                                                <span class="aiz-side-nav-text">{{translate('Shiprocket')}}</span>
+                                        <li class="pex-side-nav-item">
+                                            <a href="{{ route('shiprocket_configuration') }}" class="pex-side-nav-link {{ areActiveRoutes(['shiprocket_configuration'])}}">
+                                                <span class="pex-side-nav-text">{{translate('Shiprocket')}}</span>
                                             </a>
                                         </li>
                                     @endcan
                                 </ul>
                             @endif
                             @if (addon_is_activated('steadfast'))
-                                <ul class="aiz-side-nav-list level-2">
+                                <ul class="pex-side-nav-list level-2">
                                     @can('manage_shipping_system')
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('steadfast_configuration') }}" class="aiz-side-nav-link {{ areActiveRoutes(['steadfast_configuration'])}}">
-                                                <span class="aiz-side-nav-text">{{translate('Steadfast')}}</span>
+                                        <li class="pex-side-nav-item">
+                                            <a href="{{ route('steadfast_configuration') }}" class="pex-side-nav-link {{ areActiveRoutes(['steadfast_configuration'])}}">
+                                                <span class="pex-side-nav-text">{{translate('Steadfast')}}</span>
                                             </a>
                                         </li>
                                     @endcan
                                 </ul>
                             @endif
                             @if (addon_is_activated('pathao'))
-                                <ul class="aiz-side-nav-list level-2">
+                                <ul class="pex-side-nav-list level-2">
                                     @can('manage_shipping_system')
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('pathao_configuration') }}" class="aiz-side-nav-link {{ areActiveRoutes(['pathao_configuration'])}}">
-                                                <span class="aiz-side-nav-text">{{translate('Pathao')}}</span>
+                                        <li class="pex-side-nav-item">
+                                            <a href="{{ route('pathao_configuration') }}" class="pex-side-nav-link {{ areActiveRoutes(['pathao_configuration'])}}">
+                                                <span class="pex-side-nav-text">{{translate('Pathao')}}</span>
                                             </a>
                                         </li>
                                     @endcan
                                 </ul>
                             @endif
                             @if (addon_is_activated('redx')) 
-                                <ul class="aiz-side-nav-list level-2">
-                                    <li class="aiz-side-nav-item">
-                                        <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                            <span class="aiz-side-nav-text">{{translate('Redx')}}</span>
-                                            <span class="aiz-side-nav-arrow"></span>
+                                <ul class="pex-side-nav-list level-2">
+                                    <li class="pex-side-nav-item">
+                                        <a href="javascript:void(0);" class="pex-side-nav-link">
+                                            <span class="pex-side-nav-text">{{translate('Redx')}}</span>
+                                            <span class="pex-side-nav-arrow"></span>
                                         </a>
-                                        <ul class="aiz-side-nav-list level-3">
+                                        <ul class="pex-side-nav-list level-3">
                                             @can('manage_shipping_system')
-                                                <li class="aiz-side-nav-item">
-                                                    <a href="{{ route('redx_configuration') }}" class="aiz-side-nav-link {{ areActiveRoutes(['redx_configuration'])}}">
-                                                        <span class="aiz-side-nav-text">{{translate('Redx Configuration')}}</span>
+                                                <li class="pex-side-nav-item">
+                                                    <a href="{{ route('redx_configuration') }}" class="pex-side-nav-link {{ areActiveRoutes(['redx_configuration'])}}">
+                                                        <span class="pex-side-nav-text">{{translate('Redx Configuration')}}</span>
                                                     </a>
                                                 </li>
                                             @endcan
                                         </ul>
-                                        <ul class="aiz-side-nav-list level-3">
+                                        <ul class="pex-side-nav-list level-3">
                                             @can('manage_redx_pickup_store')
-                                                <li class="aiz-side-nav-item">
-                                                    <a href="{{ route('redx_pickup.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['redx_pickup.index'])}}">
-                                                        <span class="aiz-side-nav-text">{{translate('Redx Pickup Store')}}</span>
+                                                <li class="pex-side-nav-item">
+                                                    <a href="{{ route('redx_pickup.index') }}" class="pex-side-nav-link {{ areActiveRoutes(['redx_pickup.index'])}}">
+                                                        <span class="pex-side-nav-text">{{translate('Redx Pickup Store')}}</span>
                                                     </a>
                                                 </li>
                                             @endcan
@@ -1851,15 +1851,15 @@
                   
                 <!--GST addon -->
                 @if (addon_is_activated('gst_system'))
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="Path_1" data-name="Path 1" d="M104-848a2.507,2.507,0,0,1-.958-.187,2.451,2.451,0,0,1-.812-.542,3.083,3.083,0,0,0-.948-.687,3.092,3.092,0,0,0-1.177-.187,2.411,2.411,0,0,1-1.771-.729A2.411,2.411,0,0,1,97.6-852.1a3.108,3.108,0,0,0-.187-1.167,3.033,3.033,0,0,0-.687-.958,2.451,2.451,0,0,1-.542-.812A2.507,2.507,0,0,1,96-856a2.507,2.507,0,0,1,.188-.958,2.451,2.451,0,0,1,.542-.812,3.083,3.083,0,0,0,.688-.948A3.092,3.092,0,0,0,97.6-859.9a2.411,2.411,0,0,1,.729-1.771,2.411,2.411,0,0,1,1.771-.729,3.108,3.108,0,0,0,1.167-.187,3.033,3.033,0,0,0,.958-.687,2.451,2.451,0,0,1,.813-.542A2.507,2.507,0,0,1,104-864a2.507,2.507,0,0,1,.958.188,2.451,2.451,0,0,1,.813.542,3.083,3.083,0,0,0,.948.688,3.092,3.092,0,0,0,1.177.188,2.411,2.411,0,0,1,1.771.729,2.411,2.411,0,0,1,.729,1.771,3.108,3.108,0,0,0,.188,1.167,3.033,3.033,0,0,0,.688.958,2.451,2.451,0,0,1,.542.813A2.507,2.507,0,0,1,112-856a2.507,2.507,0,0,1-.187.958,2.451,2.451,0,0,1-.542.813,3.083,3.083,0,0,0-.687.948,3.092,3.092,0,0,0-.187,1.177,2.411,2.411,0,0,1-.729,1.771,2.411,2.411,0,0,1-1.771.729,3.108,3.108,0,0,0-1.167.188,3.033,3.033,0,0,0-.958.688,2.451,2.451,0,0,1-.812.542A2.507,2.507,0,0,1,104-848Zm0-1.5a1,1,0,0,0,.385-.073.985.985,0,0,0,.323-.219,4.243,4.243,0,0,1,1.438-1.021,4.709,4.709,0,0,1,1.75-.292.968.968,0,0,0,.713-.287.968.968,0,0,0,.287-.713,4.627,4.627,0,0,1,.292-1.74,4.484,4.484,0,0,1,1.021-1.448A.964.964,0,0,0,110.5-856a.964.964,0,0,0-.292-.708,4.484,4.484,0,0,1-1.021-1.448,4.627,4.627,0,0,1-.292-1.74.968.968,0,0,0-.287-.713.968.968,0,0,0-.713-.287,4.627,4.627,0,0,1-1.74-.292,4.485,4.485,0,0,1-1.448-1.021.985.985,0,0,0-.323-.219A1,1,0,0,0,104-862.5a1,1,0,0,0-.385.073.985.985,0,0,0-.323.219,4.243,4.243,0,0,1-1.437,1.021,4.709,4.709,0,0,1-1.75.292.968.968,0,0,0-.713.287.968.968,0,0,0-.287.713,4.627,4.627,0,0,1-.292,1.74,4.484,4.484,0,0,1-1.021,1.448A.964.964,0,0,0,97.5-856a.964.964,0,0,0,.292.708,4.484,4.484,0,0,1,1.021,1.448,4.627,4.627,0,0,1,.292,1.74.968.968,0,0,0,.287.713.968.968,0,0,0,.713.287,4.627,4.627,0,0,1,1.74.292,4.485,4.485,0,0,1,1.448,1.021.985.985,0,0,0,.323.219A1,1,0,0,0,104-849.5Zm2.25-3a1.205,1.205,0,0,0,.885-.365,1.206,1.206,0,0,0,.365-.885,1.206,1.206,0,0,0-.365-.885,1.205,1.205,0,0,0-.885-.365,1.205,1.205,0,0,0-.885.365,1.206,1.206,0,0,0-.365.885,1.206,1.206,0,0,0,.365.885A1.205,1.205,0,0,0,106.25-852.5Zm-4.25-.437,5-5L105.938-859l-5,5ZM101.75-857a1.205,1.205,0,0,0,.885-.365,1.206,1.206,0,0,0,.365-.885,1.206,1.206,0,0,0-.365-.885,1.205,1.205,0,0,0-.885-.365,1.205,1.205,0,0,0-.885.365,1.206,1.206,0,0,0-.365.885,1.206,1.206,0,0,0,.365.885A1.205,1.205,0,0,0,101.75-857ZM104-856Z" transform="translate(-96 864)" fill="#575b6a"/>
                             </svg>
 
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('GST System')}}</span>
+                        <span class="pex-side-nav-text">{{translate('GST System')}}</span>
                         @if (env("DEMO_MODE") == "On")
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                             class="mx-2">
@@ -1868,38 +1868,38 @@
                                 transform="translate(19337 -3329)" fill="#f51350" />
                         </svg>
                         @endif
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">       
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('gst.unverified.sellers') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Unverified Sellers')}}</span>
+                    <ul class="pex-side-nav-list level-2">       
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('gst.unverified.sellers') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Unverified Sellers')}}</span>
                             </a>
                         </li>
                         @can('gst_assign')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('products.hsn-gst.assigns') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('HSN Assign')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('products.hsn-gst.assigns') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('HSN Assign')}}</span>
                             </a>
                         </li>
                         @if (addon_is_activated('wholesale'))
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('products.wholesale-hsn-gst.assigns') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Wholesale Products')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('products.wholesale-hsn-gst.assigns') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Wholesale Products')}}</span>
                             </a>
                         </li>
                         @endif
                         @if (addon_is_activated('preorder'))
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('products.preorder-hsn-gst.assigns') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Preorder Products')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('products.preorder-hsn-gst.assigns') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Preorder Products')}}</span>
                             </a>
                         </li>
                         @endif
                         @if (addon_is_activated('auction'))
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('products.auction-hsn-gst.assigns') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Auction Products')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('products.auction-hsn-gst.assigns') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Auction Products')}}</span>
                             </a>
                         </li>
                         @endif
@@ -1912,10 +1912,10 @@
 
                 @canany(['payment_methods_configurations','african_pg_configuration','african_pg_credentials_configuration','view_all_manual_payment_methods','view_all_offline_payment_orders',
                         'view_all_offline_wallet_recharges','view_all_offline_customer_package_payments','view_all_offline_seller_package_payments','asian_payment_gateway_configuration'])
-                <li class="aiz-side-nav-item">
+                <li class="pex-side-nav-item">
                     
-                    <a href="javascript:void(0);" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                    <a href="javascript:void(0);" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <g id="Payment_1_" transform="translate(0 -16)">
                                     <path id="Path_40758" data-name="Path 40758"
@@ -1935,14 +1935,14 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Payment Gateways')}}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{translate('Payment Gateways')}}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('payment_methods_configurations')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('payment_method.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Payment Methods')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('payment_method.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Payment Methods')}}</span>
                             </a>
                         </li>
                         @endcan
@@ -1950,9 +1950,9 @@
                         
                         <!-- Cybersource Addon -->
                         @if (addon_is_activated('cybersource')  && auth()->user()->can('cybersource_pg_configuration'))
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('cybersource_configuration')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Cybersource Payment Gateway')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('cybersource_configuration')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Cybersource Payment Gateway')}}</span>
                                 @if (env("DEMO_MODE") == "On")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                                     class="mx-2">
@@ -1971,9 +1971,9 @@
                        
                         <!-- Paytm Addon -->
                         @if (addon_is_activated('paytm') && auth()->user()->can('asian_payment_gateway_configuration'))
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('paytm.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Asian Payment Gateway')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('paytm.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Asian Payment Gateway')}}</span>
                                 @if (env("DEMO_MODE") == "On")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                                     class="mx-2">
@@ -1989,9 +1989,9 @@
                          <!-- African Payment Gateway -->
                         @if(addon_is_activated('african_pg'))
                         @canany(['african_pg_configuration','african_pg_credentials_configuration'])
-                         <li class="aiz-side-nav-item">
-                            <a href="{{route('african_credentials.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('African Payment Gateway')}}</span>
+                         <li class="pex-side-nav-item">
+                            <a href="{{route('african_credentials.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('African Payment Gateway')}}</span>
                                 @if (env("DEMO_MODE") == "On")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                                     class="mx-2">
@@ -2011,9 +2011,9 @@
                         @if (addon_is_activated('offline_payment'))
                         @canany(['view_all_manual_payment_methods','view_all_offline_payment_orders',
                         'view_all_offline_wallet_recharges','view_all_offline_customer_package_payments','view_all_offline_seller_package_payments', 'view_all_payout_method_for_customer'])
-                        <li class="aiz-side-nav-item">
-                            <a href="#" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Offline Payment System')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="#" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Offline Payment System')}}</span>
                                 @if (env("DEMO_MODE") == "On")
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14.001" viewBox="0 0 16 14.001"
                                     class="mx-2">
@@ -2022,56 +2022,56 @@
                                         transform="translate(19337 -3329)" fill="#f51350" />
                                 </svg>
                                 @endif
-                                <span class="aiz-side-nav-arrow"></span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
-                            <ul class="aiz-side-nav-list level-3">
+                            <ul class="pex-side-nav-list level-3">
                                 @can('view_all_manual_payment_methods')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{ route('manual_payment_methods.index') }}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['manual_payment_methods.index', 'manual_payment_methods.create', 'manual_payment_methods.edit'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Manual Payment Methods')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['manual_payment_methods.index', 'manual_payment_methods.create', 'manual_payment_methods.edit'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Manual Payment Methods')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('view_all_offline_payment_orders')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('offline_payment_orders.index') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Offline Payment Orders')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('offline_payment_orders.index') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Offline Payment Orders')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('view_all_offline_wallet_recharges')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('offline_wallet_recharge_request.index') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Offline Wallet Recharge')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('offline_wallet_recharge_request.index') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Offline Wallet Recharge')}}</span>
                                     </a>
                                 </li>
                                 @endcan
 
                                 @if(get_setting('classified_product') == 1 &&
                                 auth()->user()->can('view_all_offline_customer_package_payments'))
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{ route('offline_customer_package_payment_request.index') }}"
-                                        class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Offline Customer Package
+                                        class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Offline Customer Package
                                             Payments')}}</span>
                                     </a>
                                 </li>
                                 @endif
                                 @if (addon_is_activated('seller_subscription') &&
                                 auth()->user()->can('view_all_offline_seller_package_payments'))
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{ route('offline_seller_package_payment_request.index') }}"
-                                        class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Offline Seller Package Payments')}}</span>
+                                        class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Offline Seller Package Payments')}}</span>
                                     </a>
                                 </li>
                                 @endif
                                 @if (addon_is_activated('refund_request') && auth()->user()->can('view_all_payout_method_for_customer'))
-                                    <li class="aiz-side-nav-item">
+                                    <li class="pex-side-nav-item">
                                         <a href="{{ route('payout_method_for_customer_index') }}"
-                                            class="aiz-side-nav-link {{ areActiveRoutes(['payout_method_for_customer_index', 'payout_method_for_customer_create', 'payout_method_for_customer_edit'])}}">
-                                            <span class="aiz-side-nav-text">{{translate('Offline Payout Methods')}}</span>
+                                            class="pex-side-nav-link {{ areActiveRoutes(['payout_method_for_customer_index', 'payout_method_for_customer_create', 'payout_method_for_customer_edit'])}}">
+                                            <span class="pex-side-nav-text">{{translate('Offline Payout Methods')}}</span>
                                         </a>
                                     </li>
                                 @endif
@@ -2082,9 +2082,9 @@
 
                         @if (addon_is_activated('knet'))
                             @can('knet_configuration')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('knet.configuration')}}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Knet Payment Gateway')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('knet.configuration')}}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Knet Payment Gateway')}}</span>
                                     </a>
                                 </li>
                             @endcan
@@ -2092,9 +2092,9 @@
 
                         @if (addon_is_activated('uddoktapay'))
                             @can('uddoktapay_configuration')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('uddoktapay.configuration')}}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Uddoktapay')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('uddoktapay.configuration')}}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Uddoktapay')}}</span>
                                     </a>
                                 </li>
                             @endcan
@@ -2108,9 +2108,9 @@
 
                 <!-- Website Setup -->
                 @canany(['header_setup', 'footer_setup', 'view_all_website_pages', 'website_appearance', 'authentication_layout_settings', 'top_banner_setting', 'view_top_banner'])
-                    <li class="aiz-side-nav-item">
-                        <a href="#" class="aiz-side-nav-link {{ (areActiveRoutes(['website.footer', 'website.header', 'website.pages', 'website.appearance']) && request('id') != 'portfolio' && request('page') != 'portfolio') ? 'active' : '' }}">
-                            <div class="aiz-side-nav-icon">
+                    <li class="pex-side-nav-item">
+                        <a href="#" class="pex-side-nav-link {{ (areActiveRoutes(['website.footer', 'website.header', 'website.pages', 'website.appearance']) && request('id') != 'portfolio' && request('page') != 'portfolio') ? 'active' : '' }}">
+                            <div class="pex-side-nav-icon">
                                 <svg id="Group_28315" data-name="Group 28315" xmlns="http://www.w3.org/2000/svg" width="16"
                                     height="16" viewBox="0 0 16 16">
                                     <circle id="Ellipse_893" data-name="Ellipse 893" cx="0.625" cy="0.625" r="0.625"
@@ -2123,87 +2123,87 @@
                                         transform="translate(-112.375 -73.625)" fill="#575b6a" />
                                 </svg>
                             </div>
-                            <span class="aiz-side-nav-text">{{translate('Website Setup')}}</span>
-                            <span class="aiz-side-nav-arrow"></span>
+                            <span class="pex-side-nav-text">{{translate('Website Setup')}}</span>
+                            <span class="pex-side-nav-arrow"></span>
                         </a>
-                        <ul class="aiz-side-nav-list level-2">
+                        <ul class="pex-side-nav-list level-2">
                             @can('select_homepage')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('website.select-homepage') }}" class="aiz-side-nav-link {{ areActiveRoutes(['website.select-homepage'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Select Homepage')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('website.select-homepage') }}" class="pex-side-nav-link {{ areActiveRoutes(['website.select-homepage'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Select Homepage')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('edit_website_page')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{ route('custom-pages.edit', ['id' => 'home', 'lang' => env('DEFAULT_LANGUAGE'), 'page' => 'home']) }}"
-                                        class="aiz-side-nav-link {{ (request('id') == 'home' || request('page') == 'home') ? 'active' : '' }}">
-                                        <span class="aiz-side-nav-text">{{translate('Homepage Settings')}}</span>
+                                        class="pex-side-nav-link {{ (request('id') == 'home' || request('page') == 'home') ? 'active' : '' }}">
+                                        <span class="pex-side-nav-text">{{translate('Homepage Settings')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('select_font_family')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('website.select-font-family') }}" class="aiz-side-nav-link {{ areActiveRoutes(['website.select-font-family'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Font Family')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('website.select-font-family') }}" class="pex-side-nav-link {{ areActiveRoutes(['website.select-font-family'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Font Family')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('authentication_layout_settings')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('website.authentication-layout-settings') }}" class="aiz-side-nav-link {{ areActiveRoutes(['website.authentication-layout-settings'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Authentication Layout & Settings')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('website.authentication-layout-settings') }}" class="pex-side-nav-link {{ areActiveRoutes(['website.authentication-layout-settings'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Authentication Layout & Settings')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             <!-- @can('show_element')
-                                <li class="aiz-side-nav-item">
-                                    <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Element')}}</span>
-                                        <span class="aiz-side-nav-arrow"></span>
+                                <li class="pex-side-nav-item">
+                                    <a href="javascript:void(0);" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Element')}}</span>
+                                        <span class="pex-side-nav-arrow"></span>
                                     </a>
-                                    <ul class="aiz-side-nav-list level-3">
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('elements.index') }}" class="aiz-side-nav-link">
-                                                <span class="aiz-side-nav-text">{{translate('All Elements')}}</span>
+                                    <ul class="pex-side-nav-list level-3">
+                                        <li class="pex-side-nav-item">
+                                            <a href="{{ route('elements.index') }}" class="pex-side-nav-link">
+                                                <span class="pex-side-nav-text">{{translate('All Elements')}}</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                             @endcan -->
                             @can('select_header')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('website.select-header') }}" class="aiz-side-nav-link {{ areActiveRoutes(['website.select-header'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Select Header')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('website.select-header') }}" class="pex-side-nav-link {{ areActiveRoutes(['website.select-header'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Select Header')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('header_setup')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('website.header') }}" class="aiz-side-nav-link {{ (Route::is('website.header') && request('id') != 'portfolio') ? 'active' : '' }}">
-                                        <span class="aiz-side-nav-text">{{translate('Header Settings')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('website.header') }}" class="pex-side-nav-link {{ (Route::is('website.header') && request('id') != 'portfolio') ? 'active' : '' }}">
+                                        <span class="pex-side-nav-text">{{translate('Header Settings')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @canany(['view_top_banner'])
-                                <li class="aiz-side-nav-item">
-                                    <a href="#" class="aiz-side-nav-link {{ areActiveRoutes(['top_banner.index', 'top_banner.setting', 'top_banner.create', 'top_banner.edit'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Top Bar')}}</span>
-                                        <span class="aiz-side-nav-arrow"></span>
+                                <li class="pex-side-nav-item">
+                                    <a href="#" class="pex-side-nav-link {{ areActiveRoutes(['top_banner.index', 'top_banner.setting', 'top_banner.create', 'top_banner.edit'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Top Bar')}}</span>
+                                        <span class="pex-side-nav-arrow"></span>
                                     </a>
                                     <!--Submenu-->
-                                    <ul class="aiz-side-nav-list level-3">
+                                    <ul class="pex-side-nav-list level-3">
                                         @can('view_top_banner')
-                                            <li class="aiz-side-nav-item">
-                                                <a class="aiz-side-nav-link {{ areActiveRoutes(['top_banner.index', 'top_banner.create', 'top_banner.edit'])}}" href="{{route('top_banner.index')}}">
-                                                    <span class="aiz-side-nav-text">{{translate('Top Bar List')}}</span>
+                                            <li class="pex-side-nav-item">
+                                                <a class="pex-side-nav-link {{ areActiveRoutes(['top_banner.index', 'top_banner.create', 'top_banner.edit'])}}" href="{{route('top_banner.index')}}">
+                                                    <span class="pex-side-nav-text">{{translate('Top Bar List')}}</span>
                                                 </a>
                                             </li>
                                         @endcan
                                         @can('top_banner_setting')
-                                            <li class="aiz-side-nav-item">
-                                                <a class="aiz-side-nav-link {{ areActiveRoutes(['top_banner.setting'])}}" href="{{route('top_banner.setting')}}">
-                                                    <span class="aiz-side-nav-text">{{translate('Top Bar Settings')}}</span>
+                                            <li class="pex-side-nav-item">
+                                                <a class="pex-side-nav-link {{ areActiveRoutes(['top_banner.setting'])}}" href="{{route('top_banner.setting')}}">
+                                                    <span class="pex-side-nav-text">{{translate('Top Bar Settings')}}</span>
                                                 </a>
                                             </li>
                                         @endcan
@@ -2211,24 +2211,24 @@
                                 </li>
                             @endcanany
                             @can('footer_setup')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('website.footer', ['lang' => App::getLocale()]) }}" class="aiz-side-nav-link {{ (Route::is('website.footer') && request('id') != 'portfolio') ? 'active' : '' }}">
-                                        <span class="aiz-side-nav-text">{{translate('Footer Settings')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('website.footer', ['lang' => App::getLocale()]) }}" class="pex-side-nav-link {{ (Route::is('website.footer') && request('id') != 'portfolio') ? 'active' : '' }}">
+                                        <span class="pex-side-nav-text">{{translate('Footer Settings')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('view_all_website_pages')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{ route('website.pages') }}"
-                                        class="aiz-side-nav-link {{ (areActiveRoutes(['website.pages', 'custom-pages.create', 'custom-pages.edit']) && request('id') != 'portfolio' && request('page') != 'portfolio') ? 'active' : '' }}">
-                                        <span class="aiz-side-nav-text">{{translate('Pages')}}</span>
+                                        class="pex-side-nav-link {{ (areActiveRoutes(['website.pages', 'custom-pages.create', 'custom-pages.edit']) && request('id') != 'portfolio' && request('page') != 'portfolio') ? 'active' : '' }}">
+                                        <span class="pex-side-nav-text">{{translate('Pages')}}</span>
                                     </a>
                                 </li>
                             @endcan
                             @can('website_appearance')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('website.appearance') }}" class="aiz-side-nav-link {{ areActiveRoutes(['website.appearance'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Appearance')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('website.appearance') }}" class="pex-side-nav-link {{ areActiveRoutes(['website.appearance'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Appearance')}}</span>
                                     </a>
                                 </li>
                             @endcan
@@ -2237,34 +2237,34 @@
                 @endcanany
 
                 @if(addon_is_activated('portfolio_system'))
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link {{ (request('id') == 'portfolio' || request('page') == 'portfolio' || Route::is('website.portfolioheader')) ? 'active' : '' }}">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link {{ (request('id') == 'portfolio' || request('page') == 'portfolio' || Route::is('website.portfolioheader')) ? 'active' : '' }}">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="landing_portfolio" data-name="Path 1" d="M81.6-784a1.406,1.406,0,0,1-1.13-.588A2.191,2.191,0,0,1,80-786v-12a2.191,2.191,0,0,1,.47-1.412A1.406,1.406,0,0,1,81.6-800H94.4a1.406,1.406,0,0,1,1.13.588A2.191,2.191,0,0,1,96-798v12a2.191,2.191,0,0,1-.47,1.412A1.406,1.406,0,0,1,94.4-784Zm0-2H90v-3.5H81.6Zm10,0h2.8v-9H91.6Zm-10-5.5H90V-795H81.6Z" transform="translate(-80 800)" fill="#575b6a"/>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Landing Page Setup')}}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{translate('Landing Page Setup')}}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
 
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('website.portfolioheader') }}"
-                                class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Header Nav')}}</span>
+                                class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Header Nav')}}</span>
                             </a>
                         </li>
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('custom-pages.edit', ['id' => 'portfolio', 'lang' => env('DEFAULT_LANGUAGE'), 'page' => 'portfolio']) }}"
-                                class="aiz-side-nav-link {{ (request('id') == 'portfolio' || request('page') == 'portfolio') ? 'active' : '' }}">
-                                <span class="aiz-side-nav-text">{{translate('Landing Page')}}</span>
+                                class="pex-side-nav-link {{ (request('id') == 'portfolio' || request('page') == 'portfolio') ? 'active' : '' }}">
+                                <span class="pex-side-nav-text">{{translate('Landing Page')}}</span>
                             </a>
                         </li>
                         @can('footer_setup')
-                            <li class="aiz-side-nav-item">
-                                <a href="{{ route('website.footer', ['lang' => App::getLocale(), 'id' => 'portfolio']) }}" class="aiz-side-nav-link {{ (Route::is('website.footer') && request('id') == 'portfolio') ? 'active' : '' }}">
-                                    <span class="aiz-side-nav-text">{{translate('Footer Settings')}}</span>
+                            <li class="pex-side-nav-item">
+                                <a href="{{ route('website.footer', ['lang' => App::getLocale(), 'id' => 'portfolio']) }}" class="pex-side-nav-link {{ (Route::is('website.footer') && request('id') == 'portfolio') ? 'active' : '' }}">
+                                    <span class="pex-side-nav-text">{{translate('Footer Settings')}}</span>
                                 </a>
                             </li>
                         @endcan
@@ -2277,124 +2277,124 @@
                 'pickup_point_setup','smtp_settings','payment_methods_configurations','order_configuration','file_system_&_cache_configuration',
                 'social_media_logins','facebook_chat','facebook_comment','analytics_tools_configuration','google_recaptcha_configuration','google_map_setting',
                 'google_firebase_setting','shipping_configuration','shipping_country_setting','manage_shipping_states','manage_shipping_cities','manage_zones','manage_carriers','select_shipping_methods'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="Path_40779" data-name="Path 40779"
                                     d="M7.688,16h.625a1.877,1.877,0,0,0,1.875-1.875V13.81a.209.209,0,0,1,.133-.191l.011,0a.209.209,0,0,1,.23.041l.223.223a1.875,1.875,0,0,0,2.652,0l.442-.442a1.875,1.875,0,0,0,0-2.652l-.223-.223a.209.209,0,0,1-.041-.23l0-.012a.209.209,0,0,1,.191-.133h.315A1.877,1.877,0,0,0,16,8.313V7.688a1.877,1.877,0,0,0-1.875-1.875H13.81a.209.209,0,0,1-.191-.133l0-.011a.209.209,0,0,1,.041-.23l.223-.223a1.875,1.875,0,0,0,0-2.652l-.442-.442a1.875,1.875,0,0,0-2.652,0l-.223.223a.21.21,0,0,1-.23.041l-.012,0a.209.209,0,0,1-.133-.191V1.875A1.877,1.877,0,0,0,8.312,0H7.687A1.877,1.877,0,0,0,5.812,1.875V2.19a.209.209,0,0,1-.133.191l-.012,0a.209.209,0,0,1-.23-.041l-.223-.223a1.875,1.875,0,0,0-2.652,0l-.442.442a1.875,1.875,0,0,0,0,2.652l.223.223a.209.209,0,0,1,.041.23l0,.011a.209.209,0,0,1-.191.133H1.875A1.877,1.877,0,0,0,0,7.687v.625a1.874,1.874,0,0,0,1.407,1.816.625.625,0,1,0,.312-1.211.624.624,0,0,1-.468-.605V7.688a.626.626,0,0,1,.625-.625H2.19a1.455,1.455,0,0,0,1.347-.906l0-.011a1.455,1.455,0,0,0-.312-1.591l-.223-.223a.625.625,0,0,1,0-.884l.442-.442a.625.625,0,0,1,.884,0l.223.223a1.456,1.456,0,0,0,1.593.311l.009,0A1.455,1.455,0,0,0,7.063,2.19V1.875a.626.626,0,0,1,.625-.625h.625a.626.626,0,0,1,.625.625V2.19a1.455,1.455,0,0,0,.906,1.347l.009,0a1.455,1.455,0,0,0,1.593-.311l.223-.223a.625.625,0,0,1,.884,0l.442.442a.625.625,0,0,1,0,.884l-.223.223a1.455,1.455,0,0,0-.311,1.593l0,.009a1.455,1.455,0,0,0,1.347.906h.315a.626.626,0,0,1,.625.625v.625a.626.626,0,0,1-.625.625H13.81a1.455,1.455,0,0,0-1.347.906l0,.009a1.455,1.455,0,0,0,.311,1.593l.223.223a.625.625,0,0,1,0,.884l-.442.442a.625.625,0,0,1-.884,0l-.223-.223a1.456,1.456,0,0,0-1.593-.311l-.009,0a1.455,1.455,0,0,0-.906,1.347v.315a.626.626,0,0,1-.625.625H7.688a.622.622,0,0,1-.6-.437.625.625,0,1,0-1.193.375A1.867,1.867,0,0,0,7.688,16ZM.536,15.433a1.829,1.829,0,0,1,0-2.586h0L4.589,8.811a3.234,3.234,0,0,1-.308-1.259,2.97,2.97,0,0,1,.9-2.141A4.228,4.228,0,0,1,8.13,4.255h.007a3.322,3.322,0,0,1,1.086.188A.625.625,0,0,1,9.47,5.473L7.964,7.01l.188.811L8.95,8,10.479,6.47a.625.625,0,0,1,1.034.24,3.472,3.472,0,0,1,.2,1.121,4.373,4.373,0,0,1-.8,2.556,3.047,3.047,0,0,1-2.49,1.3H8.417A3.414,3.414,0,0,1,7.159,11.4L3.122,15.433a1.829,1.829,0,0,1-2.586,0Zm6.876-5.311a2.1,2.1,0,0,0,1.007.316,1.818,1.818,0,0,0,1.487-.792,2.988,2.988,0,0,0,.528-1.361l-.843.845A.625.625,0,0,1,9.01,9.3L7.494,8.953a.625.625,0,0,1-.471-.468L6.669,6.959a.625.625,0,0,1,.162-.579l.823-.84A2.844,2.844,0,0,0,6.067,6.3,1.723,1.723,0,0,0,5.531,7.55a2.123,2.123,0,0,0,.342,1,.625.625,0,0,1-.065.809L1.419,13.731a.579.579,0,1,0,.819.818l4.368-4.361a.625.625,0,0,1,.806-.066Z"
                                     fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Setup & Configurations')}}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{translate('Setup & Configurations')}}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
 
                         @can('business_settings')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('business_settings.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Business Settings')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('business_settings.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Business Settings')}}</span>
                             </a>
                         </li>
                         @endcan
 
                         @can('features_activation')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('activation.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Features activation')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('activation.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Features activation')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('language_setup')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('languages.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['languages.index', 'languages.create', 'languages.store', 'languages.show', 'languages.edit'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Languages')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['languages.index', 'languages.create', 'languages.store', 'languages.show', 'languages.edit'])}}">
+                                <span class="pex-side-nav-text">{{translate('Languages')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('currency_setup')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('currency.index')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Currency')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('currency.index')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Currency')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('vat_&_tax_setup')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('tax.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['tax.index', 'tax.create', 'tax.store', 'tax.show', 'tax.edit'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Vat & TAX')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['tax.index', 'tax.create', 'tax.store', 'tax.show', 'tax.edit'])}}">
+                                <span class="pex-side-nav-text">{{translate('Vat & TAX')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('pickup_point_setup')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('pick_up_points.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['pick_up_points.index','pick_up_points.create','pick_up_points.edit'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Pickup point')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['pick_up_points.index','pick_up_points.create','pick_up_points.edit'])}}">
+                                <span class="pex-side-nav-text">{{translate('Pickup point')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('smtp_settings')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('smtp_settings.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('SMTP Settings')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('smtp_settings.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('SMTP Settings')}}</span>
                             </a>
                         </li>
                         @endcan
 
                         @can('order_configuration')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('order_configuration.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Order Configuration')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('order_configuration.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Order Configuration')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('file_system_&_cache_configuration')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('file_system.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('File System & Cache
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('file_system.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('File System & Cache
                                     Configuration')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('social_media_logins')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('social_login.index') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Social media Logins')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('social_login.index') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Social media Logins')}}</span>
                             </a>
                         </li>
                         @endcan
                         @canany(['facebook_chat','facebook_comment'])
-                        <li class="aiz-side-nav-item">
-                            <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Facebook')}}</span>
-                                <span class="aiz-side-nav-arrow"></span>
+                        <li class="pex-side-nav-item">
+                            <a href="javascript:void(0);" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Facebook')}}</span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
-                            <ul class="aiz-side-nav-list level-3">
+                            <ul class="pex-side-nav-list level-3">
                                 {{-- @can('facebook_chat')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('facebook_chat.index') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Facebook Chat')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('facebook_chat.index') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Facebook Chat')}}</span>
                                     </a>
                                 </li>
                                 
                                 @endcan --}}
 
                                 @can('whatsapp_chat')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('whatsapp_chat.index') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('WhatsApp Chat')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('whatsapp_chat.index') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('WhatsApp Chat')}}</span>
                                     </a>
                                 </li>
                                 @endcan
 
                                 @can('facebook_comment')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('facebook-comment') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Facebook Comment')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('facebook-comment') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Facebook Comment')}}</span>
                                     </a>
                                 </li>
                                 @endcan
@@ -2402,31 +2402,31 @@
                         </li>
                         @endcanany
                         @canany(['analytics_tools_configuration','google_recaptcha_configuration','google_map_setting','google_firebase_setting'])
-                        <li class="aiz-side-nav-item">
-                            <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Google')}}</span>
-                                <span class="aiz-side-nav-arrow"></span>
+                        <li class="pex-side-nav-item">
+                            <a href="javascript:void(0);" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Google')}}</span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
-                            <ul class="aiz-side-nav-list level-3">
+                            <ul class="pex-side-nav-list level-3">
                                
                                 @can('google_recaptcha_configuration')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('google_recaptcha.index') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Google reCAPTCHA')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('google_recaptcha.index') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Google reCAPTCHA')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('google_map_setting')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('google-map.index') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Google Map')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('google-map.index') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Google Map')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('google_firebase_setting')
-                                <li class="aiz-side-nav-item">
-                                    <a href="{{ route('google-firebase.index') }}" class="aiz-side-nav-link">
-                                        <span class="aiz-side-nav-text">{{translate('Google Firebase')}}</span>
+                                <li class="pex-side-nav-item">
+                                    <a href="{{ route('google-firebase.index') }}" class="pex-side-nav-link">
+                                        <span class="pex-side-nav-text">{{translate('Google Firebase')}}</span>
                                     </a>
                                 </li>
                                 @endcan
@@ -2434,91 +2434,91 @@
                         </li>
                         @endcanany
                         @canany(['shipping_configuration','select_shipping_methods','shipping_country_setting','manage_shipping_states','manage_shipping_cities','manage_zones','manage_carriers', 'shipping_box_size_index', 'pickup_address_index'])
-                        <li class="aiz-side-nav-item">
-                            <a href="javascript:void(0);" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Shipping')}}</span>
-                                <span class="aiz-side-nav-arrow"></span>
+                        <li class="pex-side-nav-item">
+                            <a href="javascript:void(0);" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Shipping')}}</span>
+                                <span class="pex-side-nav-arrow"></span>
                             </a>
-                            <ul class="aiz-side-nav-list level-3">
+                            <ul class="pex-side-nav-list level-3">
 
 
                                 @can('select_shipping_methods')
-                                    <li class="aiz-side-nav-item">
+                                    <li class="pex-side-nav-item">
                                         <a href="{{route('shipping_configuration.shipping_method')}}"
-                                            class="aiz-side-nav-link {{ areActiveRoutes(['shipping_configuration.shipping_method'])}}">
-                                            <span class="aiz-side-nav-text">{{translate('Select Shipping Method')}}</span>
+                                            class="pex-side-nav-link {{ areActiveRoutes(['shipping_configuration.shipping_method'])}}">
+                                            <span class="pex-side-nav-text">{{translate('Select Shipping Method')}}</span>
                                         </a>
                                     </li>
                                 @endcan
                                 @can('shipping_configuration')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('shipping_configuration.index')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['shipping_configuration.index','shipping_configuration.edit','shipping_configuration.update'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Shipping Configuration')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['shipping_configuration.index','shipping_configuration.edit','shipping_configuration.update'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Shipping Configuration')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('shipping_country_setting')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('countries.index')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['countries.index','countries.edit','countries.update'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Shipping Countries')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['countries.index','countries.edit','countries.update'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Shipping Countries')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('manage_shipping_states')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('states.index')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['states.index','states.edit','states.update'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Shipping States')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['states.index','states.edit','states.update'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Shipping States')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('manage_shipping_cities')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('cities.index')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['cities.index','cities.edit','cities.update'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Shipping Cities')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['cities.index','cities.edit','cities.update'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Shipping Cities')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('manage_shipping_areas')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('areas.index')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['areas.index','areas.edit','areas.update'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Shipping Areas')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['areas.index','areas.edit','areas.update'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Shipping Areas')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('manage_zones')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('zones.index')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['zones.index','zones.create','zones.edit'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Shipping Zones')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['zones.index','zones.create','zones.edit'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Shipping Zones')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @can('manage_carriers')
-                                <li class="aiz-side-nav-item">
+                                <li class="pex-side-nav-item">
                                     <a href="{{route('carriers.index')}}"
-                                        class="aiz-side-nav-link {{ areActiveRoutes(['carriers.index','carriers.create','carriers.edit'])}}">
-                                        <span class="aiz-side-nav-text">{{translate('Shipping Carrier')}}</span>
+                                        class="pex-side-nav-link {{ areActiveRoutes(['carriers.index','carriers.create','carriers.edit'])}}">
+                                        <span class="pex-side-nav-text">{{translate('Shipping Carrier')}}</span>
                                     </a>
                                 </li>
                                 @endcan
                                 @if (addon_is_activated('shiprocket'))
                                     @can('pickup_address_index')
-                                        <li class="aiz-side-nav-item">
-                                            <a href="{{ route('pickup_address.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['pickup_address.index','pickup_address.create','pickup_address.edit'])}}">
-                                                <span class="aiz-side-nav-text">{{translate('Pickup Addresses')}}</span>
+                                        <li class="pex-side-nav-item">
+                                            <a href="{{ route('pickup_address.index') }}" class="pex-side-nav-link {{ areActiveRoutes(['pickup_address.index','pickup_address.create','pickup_address.edit'])}}">
+                                                <span class="pex-side-nav-text">{{translate('Pickup Addresses')}}</span>
                                             </a>
                                         </li>
                                     @endcan
                                     @can('shipping_box_size_index')
-                                    <li class="aiz-side-nav-item">
+                                    <li class="pex-side-nav-item">
                                         <a href="{{route('shipping_box_size.index')}}"
-                                            class="aiz-side-nav-link {{ areActiveRoutes(['shipping_box_size.index','shipping_box_size.create','shipping_box_size.edit'])}}">
-                                            <span class="aiz-side-nav-text">{{translate('Shipping Box Size Configuration')}}</span>
+                                            class="pex-side-nav-link {{ areActiveRoutes(['shipping_box_size.index','shipping_box_size.create','shipping_box_size.edit'])}}">
+                                            <span class="pex-side-nav-text">{{translate('Shipping Box Size Configuration')}}</span>
                                         </a>
                                     </li>
                                     @endcan
@@ -2532,9 +2532,9 @@
 
                 <!-- Staffs -->
                 @canany(['view_all_staffs','view_staff_roles'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <g id="Group_28314" data-name="Group 28314" transform="translate(-19299 2175)">
                                     <path id="Path_40774" data-name="Path 40774"
@@ -2554,23 +2554,23 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Staffs')}}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{translate('Staffs')}}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('view_all_staffs')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{ route('staffs.index') }}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['staffs.index', 'staffs.create', 'staffs.edit'])}}">
-                                <span class="aiz-side-nav-text">{{translate('All staffs')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['staffs.index', 'staffs.create', 'staffs.edit'])}}">
+                                <span class="pex-side-nav-text">{{translate('All staffs')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('view_staff_roles')
-                        <li class="aiz-side-nav-item">
+                        <li class="pex-side-nav-item">
                             <a href="{{route('roles.index')}}"
-                                class="aiz-side-nav-link {{ areActiveRoutes(['roles.index', 'roles.create', 'roles.edit'])}}">
-                                <span class="aiz-side-nav-text">{{translate('Staff permissions')}}</span>
+                                class="pex-side-nav-link {{ areActiveRoutes(['roles.index', 'roles.create', 'roles.edit'])}}">
+                                <span class="pex-side-nav-text">{{translate('Staff permissions')}}</span>
                             </a>
                         </li>
                         @endcan
@@ -2580,9 +2580,9 @@
 
                 <!-- System Update & Server Status -->
                 @canany(['system_update','server_status'])
-                <li class="aiz-side-nav-item">
-                    <a href="#" class="aiz-side-nav-link">
-                        <div class="aiz-side-nav-icon">
+                <li class="pex-side-nav-item">
+                    <a href="#" class="pex-side-nav-link">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <g id="Group_28317" data-name="Group 28317" transform="translate(-19315.001 1976)">
                                     <g id="layer1" transform="translate(19314.471 -1976.53)">
@@ -2624,29 +2624,29 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('System')}}</span>
-                        <span class="aiz-side-nav-arrow"></span>
+                        <span class="pex-side-nav-text">{{translate('System')}}</span>
+                        <span class="pex-side-nav-arrow"></span>
                     </a>
-                    <ul class="aiz-side-nav-list level-2">
+                    <ul class="pex-side-nav-list level-2">
                         @can('system_update')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('system_update') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Update')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('system_update') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Update')}}</span>
                             </a>
                         </li>
                         @endcan
                         @can('server_status')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{route('system_server')}}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Server status')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{route('system_server')}}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Server status')}}</span>
                             </a>
                         </li>
                         @endcan
                        
                         @can('sitemap_generator')
-                        <li class="aiz-side-nav-item">
-                            <a href="{{ route('sitemap_generator') }}" class="aiz-side-nav-link">
-                                <span class="aiz-side-nav-text">{{translate('Sitemap Generator')}}</span>
+                        <li class="pex-side-nav-item">
+                            <a href="{{ route('sitemap_generator') }}" class="pex-side-nav-link">
+                                <span class="pex-side-nav-text">{{translate('Sitemap Generator')}}</span>
                             </a>
                         </li>
                         @endcan
@@ -2656,10 +2656,10 @@
 
                 <!-- Addon Manager -->
                 @can('manage_addons')
-                <li class="aiz-side-nav-item">
+                <li class="pex-side-nav-item">
                     <a href="{{route('addons.index')}}"
-                        class="aiz-side-nav-link {{ areActiveRoutes(['addons.index', 'addons.create'])}}">
-                        <div class="aiz-side-nav-icon">
+                        class="pex-side-nav-link {{ areActiveRoutes(['addons.index', 'addons.create'])}}">
+                        <div class="pex-side-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                 <path id="_0339d7f72e6ebf7daea77d00de6c6177"
                                     data-name="0339d7f72e6ebf7daea77d00de6c6177"
@@ -2667,12 +2667,12 @@
                                     transform="translate(-1 -1)" fill="#575b6a" />
                             </svg>
                         </div>
-                        <span class="aiz-side-nav-text">{{translate('Addon Manager')}}</span>
+                        <span class="pex-side-nav-text">{{translate('Addon Manager')}}</span>
                     </a>
                 </li>
                 @endcan
-            </ul><!-- .aiz-side-nav -->
-        </div><!-- .aiz-side-nav-wrap -->
-    </div><!-- .aiz-sidebar -->
-    <div class="aiz-sidebar-overlay"></div>
-</div><!-- .aiz-sidebar -->
+            </ul><!-- .pex-side-nav -->
+        </div><!-- .pex-side-nav-wrap -->
+    </div><!-- .pex-sidebar -->
+    <div class="pex-sidebar-overlay"></div>
+</div><!-- .pex-sidebar -->

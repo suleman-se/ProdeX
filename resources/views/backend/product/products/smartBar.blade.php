@@ -16,7 +16,7 @@
                             <label class="col-xxl-3 col-from-label fs-13">{{ translate('Show Smart Bar') }}</label>
                             <div class="col-xxl-9">
                                 <div class="input-group">
-                                    <label class="aiz-switch aiz-switch-success mb-0">
+                                    <label class="pex-switch pex-switch-success mb-0">
                                         <input type="checkbox" 
                                             id="smart_bar_status"
                                             @if(get_setting('smart_bar_status')) checked @endif>
@@ -34,23 +34,23 @@
                                 <input type="hidden" name="types[]" value="smart_bar_background_design">
 
                                 <!-- Light Option -->
-                                <label class="aiz-megabox d-block bg-white mb-0 mr-4" style="flex: 1; min-width: 120px;"> 
+                                <label class="pex-megabox d-block bg-white mb-0 mr-4" style="flex: 1; min-width: 120px;"> 
                                     <input type="radio" name="smart_bar_background_design" value="plain"
                                         @if(get_setting('smart_bar_background_design') == 'plain') checked @endif>
-                                    <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                    <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                         style="padding: 0.75rem 1.2rem;">
-                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="flex-grow-1 pl-3 fw-600">{{ translate('Plain') }}</span>
                                     </span>
                                 </label>
 
                                 <!-- Dark Option -->
-                                <label class="aiz-megabox d-block bg-white mb-0" style="flex: 1; min-width: 120px;">
+                                <label class="pex-megabox d-block bg-white mb-0" style="flex: 1; min-width: 120px;">
                                     <input type="radio" name="smart_bar_background_design" value="blur"
                                         @if(get_setting('smart_bar_background_design') == 'blur') checked @endif>
-                                    <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                    <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                         style="padding: 0.75rem 1.2rem;">
-                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="flex-grow-1 pl-3 fw-600">{{ translate('Blur') }}</span>
                                     </span>
                                 </label>
@@ -61,13 +61,13 @@
                             <div class="col-xxl-9">
                                 <div class="input-group">
                                     <input type="hidden" name="types[]" value="smart_bar_background_color">
-                                    <input type="text" class="form-control aiz-color-input" placeholder="Ex: #e1e1e1"
+                                    <input type="text" class="form-control pex-color-input" placeholder="Ex: #e1e1e1"
                                         name="smart_bar_background_color"
                                         value="{{ get_setting('smart_bar_background_color') }}">
                                     <div class="input-group-append">
                                         <span class="input-group-text p-0">
                                             <input data-target="smart_bar_background_color"
-                                                class="aiz-color-picker border-0 size-40px" type="color"
+                                                class="pex-color-picker border-0 size-40px" type="color"
                                                 value="{{ get_setting('smart_bar_background_color') }}">
                                         </span>
                                     </div>
@@ -82,23 +82,23 @@
                                 <input type="hidden" name="types[]" value="smart_bar_text_color">
 
                                 <!-- Light Option -->
-                                <label class="aiz-megabox d-block bg-white mb-0 mr-4" style="flex: 1; min-width: 120px;"> 
+                                <label class="pex-megabox d-block bg-white mb-0 mr-4" style="flex: 1; min-width: 120px;"> 
                                     <input type="radio" name="smart_bar_text_color" value="white"
                                         @if(get_setting('smart_bar_text_color') == 'white') checked @endif>
-                                    <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                    <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                         style="padding: 0.75rem 1.2rem;">
-                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="flex-grow-1 pl-3 fw-600">{{ translate('Light') }}</span>
                                     </span>
                                 </label>
 
                                 <!-- Dark Option -->
-                                <label class="aiz-megabox d-block bg-white mb-0" style="flex: 1; min-width: 120px;">
+                                <label class="pex-megabox d-block bg-white mb-0" style="flex: 1; min-width: 120px;">
                                     <input type="radio" name="smart_bar_text_color" value="dark"
                                         @if(get_setting('smart_bar_text_color') == 'dark') checked @endif>
-                                    <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                    <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                         style="padding: 0.75rem 1.2rem;">
-                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="flex-grow-1 pl-3 fw-600">{{ translate('Dark') }}</span>
                                     </span>
                                 </label>
@@ -109,13 +109,13 @@
                             <div class="col-xxl-9">
                                 <div class="input-group">
                                     <input type="hidden" name="types[]" value="smart_bar_button_color">
-                                    <input type="text" class="form-control aiz-color-input" placeholder="Ex: #e1e1e1"
+                                    <input type="text" class="form-control pex-color-input" placeholder="Ex: #e1e1e1"
                                         name="smart_bar_button_color"
                                         value="{{ get_setting('smart_bar_button_color') }}">
                                     <div class="input-group-append">
                                         <span class="input-group-text p-0">
                                             <input data-target="smart_bar_button_color"
-                                                class="aiz-color-picker border-0 size-40px" type="color"
+                                                class="pex-color-picker border-0 size-40px" type="color"
                                                 value="{{ get_setting('smart_bar_button_color') }}">
                                         </span>
                                     </div>
@@ -130,23 +130,23 @@
                                 <input type="hidden" name="types[]" value="smart_bar_button_text_color">
 
                                 <!-- Light Option -->
-                                <label class="aiz-megabox d-block bg-white mb-0 mr-4" style="flex: 1; min-width: 120px;"> 
+                                <label class="pex-megabox d-block bg-white mb-0 mr-4" style="flex: 1; min-width: 120px;"> 
                                     <input type="radio" name="smart_bar_button_text_color" value="white"
                                         @if(get_setting('smart_bar_button_text_color') == 'white') checked @endif>
-                                    <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                    <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                         style="padding: 0.75rem 1.2rem;">
-                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="flex-grow-1 pl-3 fw-600">{{ translate('Light') }}</span>
                                     </span>
                                 </label>
 
                                 <!-- Dark Option -->
-                                <label class="aiz-megabox d-block bg-white mb-0" style="flex: 1; min-width: 120px;">
+                                <label class="pex-megabox d-block bg-white mb-0" style="flex: 1; min-width: 120px;">
                                     <input type="radio" name="smart_bar_button_text_color" value="dark"
                                         @if(get_setting('smart_bar_button_text_color') == 'dark') checked @endif>
-                                    <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                    <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                         style="padding: 0.75rem 1.2rem;">
-                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="flex-grow-1 pl-3 fw-600">{{ translate('Dark') }}</span>
                                     </span>
                                 </label>
@@ -207,18 +207,18 @@
                 value: value
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
                 } else {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             }).fail(function() {
-                AIZ.plugins.notify('danger', '{{ translate('Network error') }}');
+                PEX.plugins.notify('danger', '{{ translate('Network error') }}');
             });
         }
 
         $('#smart_bar_status').on('change', function() {
             if('{{ env('DEMO_MODE') }}' == 'On') {
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 $(this).prop('checked', !$(this).is(':checked'));
                 return;
             }

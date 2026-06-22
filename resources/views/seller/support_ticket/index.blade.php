@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 
 @section('panel_content')
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Support Ticket') }}</h1>
@@ -24,7 +24,7 @@
             <h5 class="mb-0 h6">{{ translate('Tickets')}}</h5>
         </div>
           <div class="card-body">
-              <table class="table aiz-table mb-0">
+              <table class="table pex-table mb-0">
                   <thead>
                       <tr>
                           <th data-breakpoints="lg">{{ translate('Ticket ID') }}</th>
@@ -59,7 +59,7 @@
                       @endforeach
                   </tbody>
               </table>
-              <div class="aiz-pagination">
+              <div class="pex-pagination">
                   {{ $tickets->links() }}
               </div>
           </div>
@@ -99,7 +99,7 @@
                       <div class="form-group row">
                           <label class="col-md-2 col-form-label">{{ translate('Photo') }}</label>
                           <div class="col-md-10">
-                              <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                              <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                   <div class="input-group-prepend">
                                       <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                   </div>

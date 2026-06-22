@@ -126,7 +126,7 @@
                 <div class="w-100 w-md-auto col-12 col-md-7">
                     <label for="sortBy" class="fs-14 fw-400 text-gray d-block text-md-right">{{ translate('Sort by') }}</label>
                     <div class="custom-select-wrapper w-100">
-                        <select class="aiz-selectpicker" id="sortBy" onchange="reviewBySort(this.value)"
+                        <select class="pex-selectpicker" id="sortBy" onchange="reviewBySort(this.value)"
                             class="form-control px-15px py-10px fs-14 fw-400 cursor-pointer bg-white text-dark border border-1 border-gray-300 rounded-1">
                             <option value="newest" selected class="cursor-pointer">{{ translate('Newest') }}</option>
                             <option value="oldest" class="cursor-pointer">{{ translate('Oldest') }}</option>

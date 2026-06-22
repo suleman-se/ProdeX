@@ -6,8 +6,6 @@
     "type": "project",
     "require": {
         "php": "^8.2",
-        "aiz-packages/color-code-converter": "dev-main",
-        "aiz-packages/combination-generate": "dev-main",
         "anandsiddharth/laravel-paytm-wallet": "^2.0",
         "authorizenet/authorizenet": "^2.0",
         "enshrined/svg-sanitize": "^0.15.4",

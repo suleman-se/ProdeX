@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <h5 class="mb-0 h6">{{ translate('Attribute Information') }}</h5>
     </div>
 
@@ -20,7 +20,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <form class="p-4" action="{{ route('attributes.update', $attribute->id) }}" method="POST" id="aizSubmitForm">
+                <form class="p-4" action="{{ route('attributes.update', $attribute->id) }}" method="POST" id="pexSubmitForm">
                     <input name="_method" type="hidden" value="PATCH">
                     <input type="hidden" name="lang" value="{{ $lang }}">
                     @csrf

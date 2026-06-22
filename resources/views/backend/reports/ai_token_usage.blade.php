@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="col-md-4 offset-md-4 inner-select input-group mt-2 mt-md-0 border border-light bg-light rounded-1 px-0">
-                        <input type="text" class="aiz-date-range form-control form-control-sm border-0 px-2 bg-transparent" 
+                        <input type="text" class="pex-date-range form-control form-control-sm border-0 px-2 bg-transparent" 
                             value="{{ $date ?? '' }}" name="date" placeholder="{{ translate('Filter by date') }}" 
                             data-format="DD-MM-Y" data-separator=" to " data-advanced-range="true" autocomplete="off">
                     </div>
@@ -77,7 +77,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <table class="table mb-0" id="aiz-data-table">
+                <table class="table mb-0" id="pex-data-table">
                     <thead>
                         <tr>
                             <th class="text-uppercase fs-10 fs-md-12 fw-700 text-secondary">{{ translate('Date & Time') }}</th>
@@ -149,7 +149,7 @@
                 </table>
 
                 @if($logs->hasPages())
-                <div class="aiz-pagination mt-3" id="pagination">
+                <div class="pex-pagination mt-3" id="pagination">
                     {{ $logs->appends(request()->input())->links() }}
                 </div>
                 @endif
@@ -162,18 +162,18 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.aiz-date-range').on('apply.daterangepicker', function(ev, picker) {
+        $('.pex-date-range').on('apply.daterangepicker', function(ev, picker) {
             $(this).val(picker.startDate.format('DD-MM-Y') + ' to ' + picker.endDate.format('DD-MM-Y'));
             $('#sort_orders').submit();
         });
 
-        $('.aiz-date-range').on('cancel.daterangepicker', function(ev, picker) {
+        $('.pex-date-range').on('cancel.daterangepicker', function(ev, picker) {
             $(this).val('');
             $('#sort_orders').submit();
         });
         $('#sort_orders').on('submit', function() {
             $(this).find('button[type=submit]').prop('disabled', true);
-            $('#aiz-data-table tbody').html(`
+            $('#pex-data-table tbody').html(`
                 <tr>
                     <td colspan="6" class="text-center py-5">
                         <div class="spinner-border text-primary" role="status">

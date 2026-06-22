@@ -6,7 +6,7 @@
     $route = Route::currentRouteName() == 'sellers.index' ? 'all_seller_route' : 'seller_rating_followers';
 @endphp
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3 ml-2">{{translate('Set Seller Based Commission')}}</h1>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                 <tr>
                     <th>#</th>
@@ -115,7 +115,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
               {{ $shops->appends(request()->input())->links() }}
             </div>
         </div>
@@ -152,7 +152,7 @@
 
 $(document).ready(function() {
     setTimeout(() => {
-        AIZ.plugins.dateRange();
+        PEX.plugins.dateRange();
     }, "2000");
 });
 
@@ -163,7 +163,7 @@ function trigger_alert(shopID){
 
 function setCommission(){
     if('{{env('DEMO_MODE')}}' == 'On'){
-        AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+        PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
         $('#confirm-modal').modal('hide');
         return;
     }
@@ -172,7 +172,7 @@ function setCommission(){
     var seller_id = $('#trigger_btn').attr('data-value');
     var commission =  $("#commission_" + seller_id).val();
     if(commission < 0) {
-        AIZ.plugins.notify('danger', '{{ translate('Commission can not be less than 0') }}');
+        PEX.plugins.notify('danger', '{{ translate('Commission can not be less than 0') }}');
     }
     else{
         $.post('{{ route('set_seller_commission') }}', {
@@ -181,11 +181,11 @@ function setCommission(){
             commission_percentage:commission,
         }, function(data) {
             if(data == 1){
-                AIZ.plugins.notify('success', '{{ translate('Seller Based Commission Set Successfully') }}');
+                PEX.plugins.notify('success', '{{ translate('Seller Based Commission Set Successfully') }}');
             }
             location.reload();
         }).fail(function() {
-            AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+            PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
         });
     }
 }

@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
     	<div class="row align-items-center">
     		<div class="col-md-12">
     			<h1 class="h3">{{translate('All cities')}}</h1>
@@ -21,7 +21,7 @@
                         </div>
                         @if (get_setting('has_state') == 1)
                         <div class="col-md-4">
-                            <select class="form-control aiz-selectpicker" data-live-search="true" id="sort_state" name="sort_state">
+                            <select class="form-control pex-selectpicker" data-live-search="true" id="sort_state" name="sort_state">
                                 <option value="">{{ translate('Select State') }}</option>
                                 @foreach ($states as $state)
                                     <option value="{{ $state->id }}" @if ($sort_state == $state->id) selected @endif {{$sort_state}}>
@@ -32,7 +32,7 @@
                         </div>
                         @else
                         <div class="col-md-4">
-                            <select class="form-control aiz-selectpicker" data-live-search="true" id="sort_country" name="sort_country">
+                            <select class="form-control pex-selectpicker" data-live-search="true" id="sort_country" name="sort_country">
                                 <option value="">{{ translate('Select Country') }}</option>
                                 @foreach ($countries as $country)
                                     <option value="{{ $country->id }}" @if ($sort_country == $country->id) selected @endif {{$sort_country}}>
@@ -49,7 +49,7 @@
                     </div>
                 </form>
                 <div class="card-body">
-                    <table class="table aiz-table mb-0">
+                    <table class="table pex-table mb-0">
                         <thead>
                             <tr>
                                 <th data-breakpoints="lg">#</th>
@@ -74,7 +74,7 @@
                                     <td>{{ $city->country->name ?? '' }}</td>
                                     <td>{{ single_price($city->cost) }}</td>
                                     <td>
-                                        <label class="aiz-switch aiz-switch-success mb-0">
+                                        <label class="pex-switch pex-switch-success mb-0">
                                           <input onchange="triggerConfirmation(this)" value="{{ $city->id }}" type="checkbox" <?php if($city->status == 1) echo "checked";?> >
                                           <span class="slider round"></span>
                                         </label>
@@ -91,7 +91,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="aiz-pagination">
+                    <div class="pex-pagination">
                         {{ $cities->appends(request()->input())->links() }}
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                         @if (get_setting('has_state') == 1)
                         <div class="form-group">
                             <label for="country">{{translate('State')}}</label>
-                            <select class="select2 form-control aiz-selectpicker" name="state_id" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true" required>
+                            <select class="select2 form-control pex-selectpicker" name="state_id" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true" required>
                                 @foreach ($states as $state)
                                     <option value="{{ $state->id }}">{{ $state->name }}</option>
                                 @endforeach
@@ -122,7 +122,7 @@
                         @else
                         <div class="form-group">
                             <label for="country">{{translate('Country')}}</label>
-                            <select class="select2 form-control aiz-selectpicker" name="country_id" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true" required>
+                            <select class="select2 form-control pex-selectpicker" name="country_id" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true" required>
                                 @foreach ($countries as $country)
                                     <option value="{{ $country->id }}">{{ $country->name }}</option>
                                 @endforeach
@@ -205,7 +205,7 @@
         function update_status(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -217,10 +217,10 @@
             }
             $.post('{{ route('cities.status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('City status updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('City status updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

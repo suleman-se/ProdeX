@@ -45,7 +45,7 @@
                                     $photos = explode(',',$detailedProduct->photos);
                                 @endphp
                                 <div class="col order-1 order-md-2">
-                                    <div class="aiz-carousel product-gallery" data-nav-for='.product-gallery-thumb'
+                                    <div class="pex-carousel product-gallery" data-nav-for='.product-gallery-thumb'
                                         data-fade='true' data-auto-height='true'>
                                         @foreach ($photos as $key => $photo)
                                         <div class="carousel-box img-zoom rounded">
@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto w-80px w-md-90px order-2 order-md-1 mt-3 mt-md-0">
-                                    <div class="aiz-carousel carousel-thumb product-gallery-thumb" data-items='5' data-nav-for='.product-gallery' data-vertical='true' data-focus-select='true'>
+                                    <div class="pex-carousel carousel-thumb product-gallery-thumb" data-items='5' data-nav-for='.product-gallery' data-vertical='true' data-focus-select='true'>
                                         @foreach ($photos as $key => $photo)
                                         <div class="carousel-box c-pointer border rounded-0">
                                             <img class="lazyload mw-100 size-60px mx-auto"
@@ -371,7 +371,7 @@
                                     <div class="text-secondary fs-14 fw-400 mt-2">{{ translate('Share') }}</div>
                                 </div>
                                 <div class="col-sm-10">
-                                    <div class="aiz-share"></div>
+                                    <div class="pex-share"></div>
                                 </div>
                             </div>
 
@@ -533,7 +533,7 @@
                     <!-- Description, Video, Downloads -->
                     <div class="bg-white mb-4 border p-4">
                         <!-- Tabs -->
-                        <div class="nav aiz-nav-tabs">
+                        <div class="nav pex-nav-tabs">
                             <a href="#tab_default_1" data-toggle="tab"
                                 class="mr-5 pb-2 fs-16 fw-700 text-reset active show">{{ translate('Description') }}</a>
                             @if ($detailedProduct->video_link != null)
@@ -553,7 +553,7 @@
                             <!-- Description -->
                             <div class="tab-pane fade active show" id="tab_default_1">
                                 <div class="py-5">
-                                    <div class="mw-100 overflow-hidden text-left aiz-editor-data">
+                                    <div class="mw-100 overflow-hidden text-left pex-editor-data">
                                         <?php echo $detailedProduct->getTranslation('description'); ?>
                                     </div>
                                 </div>
@@ -644,12 +644,12 @@
                             </h3>
                         </div>
                         <div class="px-4">
-                            <div class="aiz-carousel gutters-5 half-outside-arrow" data-items="5" data-xl-items="3"
+                            <div class="pex-carousel gutters-5 half-outside-arrow" data-items="5" data-xl-items="3"
                                 data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2"
                                 data-arrows='true' data-infinite='true'>
                                 @foreach (get_frequently_bought_products($detailedProduct) as $key => $related_product)
                                     <div class="carousel-box">
-                                        <div class="aiz-card-box hov-shadow-md my-2 has-transition hov-scale-img">
+                                        <div class="pex-card-box hov-shadow-md my-2 has-transition hov-scale-img">
                                             <div class="">
                                                 <a href="{{ route('product', $related_product->slug) }}"
                                                     class="d-block">
@@ -857,10 +857,10 @@
 
                             <div class="row mb-2">
                                 <div class="col-6">
-                                    <label class="aiz-checkbox">
+                                    <label class="pex-checkbox">
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                         <span class=opacity-60>{{  translate('Remember Me') }}</span>
-                                        <span class="aiz-square-check"></span>
+                                        <span class="pex-square-check"></span>
                                     </label>
                                 </div>
                                 <div class="col-6 text-right">

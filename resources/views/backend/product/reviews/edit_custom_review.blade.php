@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label for="custom_reviewer_image">{{ translate('Custom Reviewer Image')}}</label>
                         <div class="">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                 </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="product">{{ translate('Product')}} <span class="text-danger">*</span></label>
-                        <select class="form-control aiz-selectpicker" disabled>
+                        <select class="form-control pex-selectpicker" disabled>
                             <option data-content="<img src='{{ uploaded_asset($review->product->thumbnail_img)}}' class='img-fit size-40px'><span class='fw-600'> {{ $review->product->getTranslation('name') }} </span>"></option>
                         </select>
                     </div>
@@ -102,7 +102,7 @@
                             @endif
                         </div>
                         <div class="date-selection-div @if($review->created_at_is_custom == 0) d-none @endif">
-                            <input type="text" class="form-control aiz-date-range" name="custom_date" value="{{ $review->created_at }}" placeholder="{{ translate('Select Date') }}" data-single="true" data-time-picker="true" data-format="Y-MM-DD HH:mm:ss" data-show-dropdown="true" autocomplete="off">
+                            <input type="text" class="form-control pex-date-range" name="custom_date" value="{{ $review->created_at }}" placeholder="{{ translate('Select Date') }}" data-single="true" data-time-picker="true" data-format="Y-MM-DD HH:mm:ss" data-show-dropdown="true" autocomplete="off">
                         </div>
                     </div>
 
@@ -115,7 +115,7 @@
                     <div class="form-group">
                         <label class="" for="photos">{{translate('Review Images')}}</label>
                         <div class="">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                 </div>

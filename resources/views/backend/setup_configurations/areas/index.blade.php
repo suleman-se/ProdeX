@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
     	<div class="row align-items-center">
     		<div class="col-md-12">
     			<h1 class="h3">{{translate('All areas')}}</h1>
@@ -21,7 +21,7 @@
                         </div>
                         @if (get_setting('has_state') == 1)
                         <div class="col-md-3">
-                            <select class="form-control aiz-selectpicker" data-live-search="true" id="sort_state" name="sort_state">
+                            <select class="form-control pex-selectpicker" data-live-search="true" id="sort_state" name="sort_state">
                                 <option value="">{{ translate('Select State') }}</option>
                                 @foreach ($states as $state)
                                     <option value="{{ $state->id }}" @if ($sort_state == $state->id) selected @endif {{$sort_state}}>
@@ -32,7 +32,7 @@
                         </div>
                         @else
                         <div class="col-md-3">
-                            <select class="form-control aiz-selectpicker" data-live-search="true" id="sort_country" name="sort_country">
+                            <select class="form-control pex-selectpicker" data-live-search="true" id="sort_country" name="sort_country">
                                 <option value="">{{ translate('Select Country') }}</option>
                                 @foreach ($countries as $country)
                                     <option value="{{ $country->id }}" @if ($sort_country == $country->id) selected @endif {{$sort_country}}>
@@ -44,7 +44,7 @@
                         @endif
 
                          <div class="col-md-3">
-                            <select class="form-control aiz-selectpicker" data-live-search="true" id="sort_city" name="sort_city">
+                            <select class="form-control pex-selectpicker" data-live-search="true" id="sort_city" name="sort_city">
                                 <option value="">{{ translate('Select City') }}</option>
                                 @foreach ($cities as $city)
                                     <option value="{{ $city->id }}" @if ($sort_city == $city->id) selected @endif {{$sort_city}}>
@@ -59,7 +59,7 @@
                     </div>
                 </form>
                 <div class="card-body">
-                    <table class="table aiz-table mb-0">
+                    <table class="table pex-table mb-0">
                         <thead>
                             <tr>
                                 <th data-breakpoints="lg">#</th>
@@ -78,7 +78,7 @@
                                     <td>{{ $area->city->name }}</td>
                                     <td>{{ single_price($area->cost) }}</td>
                                     <td>
-                                        <label class="aiz-switch aiz-switch-success mb-0">
+                                        <label class="pex-switch pex-switch-success mb-0">
                                           <input onchange="update_status(this)" value="{{ $area->id }}" type="checkbox" <?php if($area->status == 1) echo "checked";?> >
                                           <span class="slider round"></span>
                                         </label>
@@ -95,7 +95,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="aiz-pagination">
+                    <div class="pex-pagination">
                         {{ $areas->appends(request()->input())->links() }}
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         <!-- State Select -->
                         <div class="form-group mb-3">
                             <label for="state_id">{{ translate('State') }}</label>
-                            <select id="form_state" class="select2 form-control aiz-selectpicker" name="state_id"
+                            <select id="form_state" class="select2 form-control pex-selectpicker" name="state_id"
                                     data-toggle="select2" data-placeholder="Choose..." data-live-search="true" required>
                                 <option value="">{{ translate('Select State') }}</option>
                                 @foreach ($states as $state)
@@ -132,7 +132,7 @@
                         <!-- Country Select -->
                         <div class="form-group mb-3">
                             <label for="country_id">{{ translate('Country') }}</label>
-                            <select id="form_country" class="select2 form-control aiz-selectpicker" name="country_id"
+                            <select id="form_country" class="select2 form-control pex-selectpicker" name="country_id"
                                     data-toggle="select2" data-placeholder="Choose..." data-live-search="true" required>
                                 <option value="">{{ translate('Select Country') }}</option>
                                 @foreach ($countries as $country)
@@ -145,7 +145,7 @@
                         <!-- City Select -->
                         <div class="form-group mb-3">
                             <label for="city_id">{{ translate('City') }}</label>
-                            <select id="form_city" class="select2 form-control aiz-selectpicker" name="city_id"
+                            <select id="form_city" class="select2 form-control pex-selectpicker" name="city_id"
                                     data-toggle="select2" data-placeholder="Choose..." data-live-search="true" required>
                                 <option value="">{{ translate('Select City') }}</option>
                                 <!-- Will be populated dynamically -->
@@ -184,7 +184,7 @@
         function update_status(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -196,10 +196,10 @@
             }
             $.post('{{ route('areas.status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Area status updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Area status updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

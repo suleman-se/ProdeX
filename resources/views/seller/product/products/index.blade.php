@@ -2,7 +2,7 @@
 
 @section('panel_content')
 
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
       <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{ translate('Products') }}</h1>
@@ -151,7 +151,7 @@
 
 
                     <div class="col-md-2 ml-auto pr-0 pr-md-3 pl-0 inner-select ">
-                        <select class="form-control  aiz-selectpicker mb-2 mb-md-0 bg-light" name="type"
+                        <select class="form-control  pex-selectpicker mb-2 mb-md-0 bg-light" name="type"
                             id="type" onchange="sort_products()">
                             <option value="" class="hov-text-light text-white fs-14 fw-400">{{ translate('Sort') }}</option>
                             <option value="rating,desc" class="hov-bg-light text-secondary fs-14 fw-40"
@@ -236,10 +236,10 @@
             }
             $.post('{{ route('seller.products.featured') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Featured products updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Featured products updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                     location.reload();
                 }
             });
@@ -254,18 +254,18 @@
             }
             $.post('{{ route('seller.products.published') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Published products updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Published products updated successfully') }}');
                 }
                 else if(data == 2){
-                    AIZ.plugins.notify('danger', '{{ translate('Please upgrade your package.') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Please upgrade your package.') }}');
                     location.reload();
                 }
                 else if(data == 3){
-                    AIZ.plugins.notify('danger', '{{ translate('GST verification is pending for your account.') }}');
+                    PEX.plugins.notify('danger', '{{ translate('GST verification is pending for your account.') }}');
                     location.reload();
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                     location.reload();
                 }
             });
@@ -474,12 +474,12 @@
                 },
                 success: function(response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Stock updated successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Stock updated successfully') }}');
                         closeRightcanvas();
                     }
                 },
                 error: function() {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
@@ -490,7 +490,7 @@
                 type: 'GET',
                 success: function(response) {
                     if (response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
                         hideBulkActionModal();
                         getProducts(currentTab);
                     }

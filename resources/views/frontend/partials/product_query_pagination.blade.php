@@ -77,7 +77,7 @@
     @endforelse
 
     <!-- Pagination -->
-    <div class="aiz-pagination product-queries-pagination py-2 d-flex justify-content-end">
+    <div class="pex-pagination product-queries-pagination py-2 d-flex justify-content-end">
         {{ $product_queries->links() }}
     </div>
 </div>

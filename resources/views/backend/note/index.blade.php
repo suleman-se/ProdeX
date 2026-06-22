@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('All Notes') }}</h1>
@@ -21,7 +21,7 @@
             <div class="form-group mb-0 row">
                 <label class="col-md-2 col-from-label">{{translate('Seller Can Add Note')}}?</label>
                 <div class="col-md-10">
-                    <label class="aiz-switch aiz-switch-success mb-0">
+                    <label class="pex-switch pex-switch-success mb-0">
                         <input type="checkbox" onchange="updateSettings(this, 'seller_can_add_note')" @if(get_setting('seller_can_add_note')) checked @endif >
                         <span></span>
                     </label>
@@ -61,7 +61,7 @@
         </form>
 
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                     <tr>
                         <th data-breakpoints="lg">#</th>
@@ -84,7 +84,7 @@
                             <td><p class="text-truncate-2">{{ $note->getTranslation('description') }}</p></td>
                             <td>
                                 @if( $note->user_id == get_admin()->id)
-                                    <label class="aiz-switch aiz-switch-success mb-0">
+                                    <label class="pex-switch pex-switch-success mb-0">
                                         <input onchange="updateSellerAccess(this)" value="{{ $note->id }}" type="checkbox" <?php if ($note->seller_access == 1) echo "checked"; ?> >
                                         <span class="slider round"></span>
                                     </label>
@@ -112,7 +112,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
                 {{ $notes->appends(request()->input())->links() }}
             </div>
         </div>
@@ -150,7 +150,7 @@
 
         function updateSellerAccess (el){
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
             var isCanAccess = el.checked ? 1 : 0;
@@ -160,17 +160,17 @@
                 status      :   isCanAccess
             }, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Admin note seller access status update successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Admin note seller access status update successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
 
         function updateSettings(el, type) {
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
             var value = ($(el).is(':checked')) ? 1 : 0;
@@ -180,9 +180,9 @@
                 value: value
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
                 } else {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }

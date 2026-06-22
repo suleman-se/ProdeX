@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AizUploadController;
+use App\Http\Controllers\PexUploadController;
 use App\Http\Controllers\Seller\CustomLabelController;
 use App\Http\Controllers\Seller\DashboardController;
 use App\Http\Controllers\Seller\GSTController;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 //Upload
 Route::group(['prefix' => 'seller', 'middleware' => ['seller', 'verified', 'user', 'prevent-back-history'], 'as' => 'seller.'], function () {
-    Route::controller(AizUploadController::class)->group(function () {
+    Route::controller(PexUploadController::class)->group(function () {
         Route::any('/uploads', 'index')->name('uploaded-files.index');
         Route::any('/uploads/create', 'create')->name('uploads.create');
         Route::any('/uploads/file-info', 'file_info')->name('my_uploads.info');

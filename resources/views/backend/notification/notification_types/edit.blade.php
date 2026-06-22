@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <h5 class="mb-0 h6">{{ translate('Notification Type Information') }}</h5>
     </div>
 
@@ -50,7 +50,7 @@
                         <label class="col-md-3 col-form-label" for="signinSrEmail">{{ translate('Image') }}
                             <small>({{ translate('36x36') }})</small></label>
                         <div class="col-md-9">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">
                                         {{ translate('Browse') }}</div>

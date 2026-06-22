@@ -137,15 +137,15 @@
                                                 {{ get_single_attribute_name($choice->attribute_id) }}</div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="aiz-radio-inline">
+                                            <div class="pex-radio-inline">
                                                 @foreach ($choice->values as $key => $value)
-                                                    <label class="aiz-megabox pl-0 mr-2 my-1">
+                                                    <label class="pex-megabox pl-0 mr-2 my-1">
                                                         <input type="radio"
                                                             name="attribute_id_{{ $choice->attribute_id }}"
                                                             value="{{ $value }}"
                                                             @if ($key == 0) checked @endif>
                                                         <span
-                                                            class="aiz-megabox-elem rounded-0 d-flex align-items-center justify-content-center py-1 px-3 rounded-1">
+                                                            class="pex-megabox-elem rounded-0 d-flex align-items-center justify-content-center py-1 px-3 rounded-1">
                                                             {{ $value }}
                                                         </span>
                                                     </label>
@@ -164,15 +164,15 @@
                                         <div class="text-dark fs-14 fw-700">{{ translate('Color') }}</div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="aiz-radio-inline">
+                                        <div class="pex-radio-inline">
                                             @foreach (json_decode($product->colors) as $key => $color)
-                                                <label class="aiz-megabox pl-0 mr-2 mb-0" data-toggle="tooltip"
+                                                <label class="pex-megabox pl-0 mr-2 mb-0" data-toggle="tooltip"
                                                     data-title="{{ get_single_color_name($color) }}">
                                                     <input type="radio" name="color"
                                                         value="{{ get_single_color_name($color) }}"
                                                         @if ($key == 0) checked @endif>
                                                     <span
-                                                        class="aiz-megabox-elem rounded-0 d-flex align-items-center justify-content-center p-1 rounded-1">
+                                                        class="pex-megabox-elem rounded-0 d-flex align-items-center justify-content-center p-1 rounded-1">
                                                         <span class="size-25px d-inline-block rounded"
                                                             style="background: {{ $color }};"></span>
                                                     </span>
@@ -229,7 +229,7 @@
                     <!--Quantity-->
                     <div class="d-flex align-items-center flex-wrap">
                         <span class="fs-14 fw-400 text-gray pr-20px">{{ translate('QTY') }}</span>
-                        <div class="d-flex align-items-center aiz-plus-minus border border  border-soft-light rounded-1">
+                        <div class="d-flex align-items-center pex-plus-minus border border  border-soft-light rounded-1">
                             <!--Decrement-->
                             <button type="button" data-type="minus" data-field="quantity" disabled="disabled"
                                 class="inc-btn bg-transparent ml-2 border-0 w-30px h-35px rounded-circle  d-flex align-items-center justify-content-center">

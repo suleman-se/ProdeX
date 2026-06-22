@@ -25,12 +25,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
 
-    <!-- aiz core css -->
+    <!-- pex core css -->
     <link rel="stylesheet" href="{{ static_asset('assets/css/vendors.css?v=') }}{{ get_setting('current_version') }}">
     @if (\App\Models\Language::where('code', Session::get('locale', Config::get('app.locale')))->first()->rtl == 1)
         <link rel="stylesheet" href="{{ static_asset('assets/css/bootstrap-rtl.min.css') }}">
     @endif
-    <link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css?v=') }}{{ rand(1000,9999) }}">
+    <link rel="stylesheet" href="{{ static_asset('assets/css/pex-core.css?v=') }}{{ rand(1000,9999) }}">
     <link rel="stylesheet" href="{{ static_asset('assets/css/custom-style.css?v=') }}{{ rand(1000,9999) }}">
 
     <style>
@@ -84,7 +84,7 @@
         .form-control {
             border: 1px solid #e4e5eb;
         }
-        .aiz-color-input{
+        .pex-color-input{
             border-top-left-radius: 4px !important;
             border-bottom-left-radius: 4px !important;
         }
@@ -94,8 +94,8 @@
         }
     </style>
     <script>
-        var AIZ = AIZ || {};
-        AIZ.local = {
+        var PEX = PEX || {};
+        PEX.local = {
             nothing_selected: '{!! translate('Nothing selected', null, true) !!}',
             nothing_found: '{!! translate('Nothing found', null, true) !!}',
             choose_file: '{{ translate('Choose file') }}',
@@ -127,20 +127,20 @@
 
 <body class="">
 
-    <div class="aiz-main-wrapper">
+    <div class="pex-main-wrapper">
         @include('backend.inc.admin_sidenav')
-        <div class="aiz-content-wrapper bg-white">
+        <div class="pex-content-wrapper bg-white">
             @include('backend.inc.admin_nav')
-            <div class="aiz-main-content">
+            <div class="pex-main-content">
                 <div class="px-15px px-lg-25px">
                     @yield('content')
                 </div>
                 <div class="bg-white text-center py-3 px-15px px-lg-25px mt-auto border-top">
                     <p class="mb-0">&copy; {{ get_setting('site_name') }} v{{ get_setting('current_version') }}</p>
                 </div>
-            </div><!-- .aiz-main-content -->
-        </div><!-- .aiz-content-wrapper -->
-    </div><!-- .aiz-main-wrapper -->
+            </div><!-- .pex-main-content -->
+        </div><!-- .pex-content-wrapper -->
+    </div><!-- .pex-main-wrapper -->
 
     
     <!-- Bulk Action modal -->
@@ -149,14 +149,14 @@
 
 
     <script src="{{ static_asset('assets/js/vendors.js?v=') }}{{ get_setting('current_version') }}"></script>
-    <script src="{{ static_asset('assets/js/aiz-core.js?v=') }}{{ rand(1000,9999) }}"></script>
-    <script src="{{ static_asset('assets/js/aiz-form-submission.js?v=') }}{{ rand(1000,9999) }}"></script>
+    <script src="{{ static_asset('assets/js/pex-core.js?v=') }}{{ rand(1000,9999) }}"></script>
+    <script src="{{ static_asset('assets/js/pex-form-submission.js?v=') }}{{ rand(1000,9999) }}"></script>
 
     @yield('script')
 
     <script type="text/javascript">
         @foreach (session('flash_notification', collect())->toArray() as $message)
-            AIZ.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
+            PEX.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
             @if ($message['message'] == translate('Product has been inserted successfully'))
                 var data_type = ['digital', 'physical', 'auction', 'wholesale'];
                 data_type.forEach(element => {
@@ -193,7 +193,7 @@
             filter = $("#menu-search").val().toUpperCase();
             items = $("#main-menu").find("a");
             items = items.filter(function(i, item) {
-                if ($(item).find(".aiz-side-nav-text")[0].innerText.toUpperCase().indexOf(filter) > -1 && $(item)
+                if ($(item).find(".pex-side-nav-text")[0].innerText.toUpperCase().indexOf(filter) > -1 && $(item)
                     .attr('href') !== '#') {
                     return item;
                 }
@@ -204,15 +204,15 @@
                 $("#search-menu").html('')
                 if (items.length > 0) {
                     for (i = 0; i < items.length; i++) {
-                        const text = $(items[i]).find(".aiz-side-nav-text")[0].innerText;
+                        const text = $(items[i]).find(".pex-side-nav-text")[0].innerText;
                         const link = $(items[i]).attr('href');
                         $("#search-menu").append(
-                            `<li class="aiz-side-nav-item"><a href="${link}" class="aiz-side-nav-link"><i class="las la-ellipsis-h aiz-side-nav-icon"></i><span>${text}</span></a></li`
+                            `<li class="pex-side-nav-item"><a href="${link}" class="pex-side-nav-link"><i class="las la-ellipsis-h pex-side-nav-icon"></i><span>${text}</span></a></li`
                             );
                     }
                 } else {
                     $("#search-menu").html(
-                        `<li class="aiz-side-nav-item"><span	class="text-center text-muted d-block">{{ translate('Nothing Found') }}</span></li>`
+                        `<li class="pex-side-nav-item"><span	class="text-center text-muted d-block">{{ translate('Nothing Found') }}</span></li>`
                         );
                 }
             } else {

@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
 	<div class="align-items-center">
 			<h1 class="h3">{{translate('Update Package Information')}}</h1>
 	</div>
@@ -70,7 +70,7 @@
                             <span class="text-danger">*</span> 
                         </label>
                         <div class="col-md-9">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                 </div>

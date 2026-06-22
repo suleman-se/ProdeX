@@ -13,7 +13,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">{{ translate('Type') }}</label>
                             <div class="col-md-9">
-                                <select name="note_type" class="form-control aiz-selectpicker mb-2 mb-md-0" required>
+                                <select name="note_type" class="form-control pex-selectpicker mb-2 mb-md-0" required>
                                     @foreach ($types as $type)
                                         <option value="{{ $type->value }}" class="text-uppercase">{{ translate($type->name) }}</option>
                                     @endforeach

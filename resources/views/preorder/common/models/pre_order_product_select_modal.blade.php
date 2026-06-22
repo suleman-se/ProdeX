@@ -8,7 +8,7 @@
             <div class="modal-body" style="min-height: 300px;">
                 <div class="row gutters-5">
                     <div class="col-md-6">
-                        <select class="form-control aiz-selectpicker" name="pre_order_category"
+                        <select class="form-control pex-selectpicker" name="pre_order_category"
                             onchange="filterPreOrderProduct()" data-placeholder="{{ translate('Select a Category')}}"
                             data-live-search="true">
                             <option value="">{{ translate('Choose Category') }}</option>

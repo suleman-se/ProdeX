@@ -8,7 +8,7 @@
     @php
         $isCategoryBasedRefund = get_setting('refund_type') == 'category_based_refund';
     @endphp
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{translate('Set Category Wise Product Refund')}}</h1>
@@ -221,7 +221,7 @@
 
         function assignBulkRefundDays() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
                 return;
             }
             showBulkActionModal();
@@ -251,14 +251,14 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected items Updated successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected items Updated successfully') }}');
                         hideBulkActionModal(); 
                         getCategories(currentTab);
                         closeRightcanvas();
                     }
                 },
                 error: function () {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }
@@ -361,7 +361,7 @@
                 let fieldValue = input.val();
                 let fieldLabel = fieldName.replace(/_/g, ' ').toUpperCase();
                 if (fieldValue === "" || fieldValue === null) {
-                    AIZ.plugins.notify('danger', fieldLabel + ' cannot be empty!');
+                    PEX.plugins.notify('danger', fieldLabel + ' cannot be empty!');
                     input.focus();
                     return;
                 }
@@ -375,10 +375,10 @@
                         refund_request_time: fieldValue,
                     },
                     success: function(res){
-                        AIZ.plugins.notify('success', 'Updated successfully');
+                        PEX.plugins.notify('success', 'Updated successfully');
                     },
                     error: function(){
-                        AIZ.plugins.notify('danger', 'Update failed');
+                        PEX.plugins.notify('danger', 'Update failed');
                     }
                 });
             }

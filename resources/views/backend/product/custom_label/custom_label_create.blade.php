@@ -28,11 +28,11 @@
                                         class="col-xxl-4 col-from-label fs-13">{{ translate('Background Color') }}</label>
                                     <div class="col-xxl-8">
                                         <div class="input-group">
-                                            <input type="text" class="form-control aiz-color-input" name="background_color"
+                                            <input type="text" class="form-control pex-color-input" name="background_color"
                                                 placeholder="Ex: #e1e1e1" required>
                                             <div class="input-group-append">
                                                 <span class="input-group-text p-0">
-                                                    <input class="aiz-color-picker border-0 size-40px" type="color">
+                                                    <input class="pex-color-picker border-0 size-40px" type="color">
                                                 </span>
                                             </div>
                                         </div>
@@ -45,21 +45,21 @@
                                         class="col-xxl-4 col-from-label fs-13">{{ translate('Select Text Color') }}</label>
                                     <div class="col-xxl-8 d-flex align-items-center">
                                         <!-- Light Option -->
-                                        <label class="aiz-megabox d-block bg-white mb-0 mr-3" style="flex: 1;">
+                                        <label class="pex-megabox d-block bg-white mb-0 mr-3" style="flex: 1;">
                                             <input type="radio" name="text_color" value="white" checked>
-                                            <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                            <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                                 style="padding: 0.75rem 1.2rem;">
-                                                <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                 <span class="flex-grow-1 pl-3 fw-600">{{ translate('Light') }}</span>
                                             </span>
                                         </label>
 
                                         <!-- Dark Option -->
-                                        <label class="aiz-megabox d-block bg-white mb-0" style="flex: 1;">
+                                        <label class="pex-megabox d-block bg-white mb-0" style="flex: 1;">
                                             <input type="radio" name="text_color" value="dark">
-                                            <span class="d-flex align-items-center aiz-megabox-elem rounded-0"
+                                            <span class="d-flex align-items-center pex-megabox-elem rounded-0"
                                                 style="padding: 0.75rem 1.2rem;">
-                                                <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                 <span class="flex-grow-1 pl-3 fw-600">{{ translate('Dark') }}</span>
                                             </span>
                                         </label>
@@ -70,7 +70,7 @@
                                 <div class="form-group row">
                                     <label class="col-xxl-4 col-from-label fs-13">{{ translate('Products') }}</label>
                                     <div class="col-xxl-8">
-                                        <select name="products[]" id="products" class="form-control aiz-selectpicker"
+                                        <select name="products[]" id="products" class="form-control pex-selectpicker"
                                             multiple data-placeholder="{{ translate('Choose Products') }}"
                                             data-live-search="true" data-selected-text-format="count">
                                             @foreach($products as $product)
@@ -114,7 +114,7 @@
                         { _token: '{{ csrf_token() }}', product_ids: product_ids },
                         function (data) {
                             $('#discount_table').html(data);
-                            AIZ.plugins.fooTable();
+                            PEX.plugins.fooTable();
                         });
                 } else {
                     $('#discount_table').html('');

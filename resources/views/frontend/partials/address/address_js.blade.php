@@ -16,7 +16,7 @@
             success: function (response) {
                 if(response ==  1){
                     $('#login_modal').modal();
-                    AIZ.plugins.notify('warning', '{{ translate('You already have an account with this information. Please Login first.') }}');
+                    PEX.plugins.notify('warning', '{{ translate('You already have an account with this information. Please Login first.') }}');
                 }
                 else{
                     $('#shipping_info_form').submit();
@@ -46,7 +46,7 @@
             success: function (response) {
                 $('#edit_modal_body').html(response.html);
                 $('#edit-address-modal').modal('show');
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
 
                 @if (get_setting('google_map') == 1)
                     var lat     = -33.8688;
@@ -81,7 +81,7 @@
             success: function (response) {
                 $('#edit_modal_body').html(response.html);
                 $('#edit-address-modal').modal('show');
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
 
                 @if (get_setting('google_map') == 1)
                     var lat     = -33.8688;
@@ -157,7 +157,7 @@
                 var obj = JSON.parse(response);
                 if(obj != '') {
                     $('[name="state_id"]').html(obj);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });
@@ -178,7 +178,7 @@
                 var obj = JSON.parse(response);
                 if(obj != '') {
                     $('[name="billing_state_id"]').html(obj);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });
@@ -202,11 +202,11 @@
                 if(obj != ''&& $('<select></select>').html(obj).find('option').length > 1) {
                     $('[name="city_id"]').attr('disabled', false);
                     $('[name="city_id"]').html(obj);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }else{
                     $('[name="city_id"]').html('<option value="">{{ translate('No cities are available under this state.') }}</option>');
                     $('[name="city_id"]').attr('disabled', true);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });
@@ -228,11 +228,11 @@
                 if(obj != ''&& $('<select></select>').html(obj).find('option').length > 1) {
                     $('[name="billing_city_id"]').attr('disabled', false);
                     $('[name="billing_city_id"]').html(obj);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }else{
                     $('[name="cbilling_ity_id"]').html('<option value="">{{ translate('No cities are available under this state.') }}</option>');
                     $('[name="billing_city_id"]').attr('disabled', true);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });
@@ -254,7 +254,7 @@
             success: function (response) {
                 var obj = JSON.parse(response);
                 $('[name="area_id"]').html(obj);
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
                 if (obj.includes('<option') && !obj.includes('disabled selected')) {
                     $('[name="area_id"]').attr('required', true);
                     $('.area-field').removeClass('d-none'); 
@@ -283,11 +283,11 @@
                 if(obj != '' && $('<select></select>').html(obj).find('option').length > 1) {
                     $('[name="city_id"]').attr('disabled', false);
                     $('[name="city_id"]').html(obj);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }else{
                     $('[name="city_id"]').html('<option value="">{{ translate('No cities are available under this country.') }}</option>');
                     $('[name="city_id"]').attr('disabled', true);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });
@@ -308,7 +308,7 @@
             success: function (response) {
                 var obj = JSON.parse(response);
                 $('[name="billing_area_id"]').html(obj);
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
                 if (obj.includes('<option') && !obj.includes('disabled selected')) {
                     $('[name="billing_area_id"]').attr('required', true);
                     $('.billing-area-field').removeClass('d-none'); 
@@ -337,11 +337,11 @@
                 if(obj != '' && $('<select></select>').html(obj).find('option').length > 1) {
                     $('[name="billing_city_id"]').attr('disabled', false);
                     $('[name="billing_city_id"]').html(obj);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }else{
                     $('[name="billing_city_id"]').html('<option value="">{{ translate('No cities are available under this country.') }}</option>');
                     $('[name="billing_city_id"]').attr('disabled', true);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });

@@ -70,15 +70,15 @@
     @if ($rtl == 1)
         <link rel="stylesheet" href="{{ static_asset('assets/css/bootstrap-rtl.min.css') }}">
     @endif
-    <link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css?v=') }}{{ rand(1000, 9999) }}">
+    <link rel="stylesheet" href="{{ static_asset('assets/css/pex-core.css?v=') }}{{ rand(1000, 9999) }}">
     <link rel="stylesheet" href="{{ static_asset('assets/css/custom-style.css?v=') }}{{ get_setting('current_version') }}">
     @if(get_setting('homepage_select') == 'thecore')
     <link rel="stylesheet" href="{{ static_asset('assets/css/thecore.css') }}">
     @endif
 
     <script>
-        var AIZ = AIZ || {};
-        AIZ.local = {
+        var PEX = PEX || {};
+        PEX.local = {
             nothing_selected: '{!! translate('Nothing selected', null, true) !!}',
             nothing_found: '{!! translate('Nothing found', null, true) !!}',
             choose_file: '{{ translate('Choose file') }}',
@@ -219,8 +219,8 @@
 
 </head>
 <body>
-    <!-- aiz-main-wrapper -->
-    <div class="aiz-main-wrapper d-flex flex-column bg-white aiz-{{ get_setting('homepage_select') }}">
+    <!-- pex-main-wrapper -->
+    <div class="pex-main-wrapper d-flex flex-column bg-white pex-{{ get_setting('homepage_select') }}">
         @php
             $user = auth()->user();
             $user_avatar = null;
@@ -246,15 +246,12 @@
         @include('frontend.inc.floating_buttons')
     @endif
 
-    <div class="aiz-refresh">
-        <div class="aiz-refresh-content"><div></div><div></div><div></div></div>
+    <div class="pex-refresh">
+        <div class="pex-refresh-content"><div></div><div></div><div></div></div>
     </div>
 
 
-    @if (env("DEMO_MODE") == "On")
-        <!-- demo nav -->
-        @include('frontend.inc.demo_nav')
-    @endif
+
 
     <!-- cookies agreement -->
     @php
@@ -271,15 +268,15 @@
         }
     @endphp
 
-    <div class="aiz-custom-alert {{ get_setting('custom_alert_location') }}" id="aiz-custom-sale-alert">
+    <div class="pex-custom-alert {{ get_setting('custom_alert_location') }}" id="pex-custom-sale-alert">
         @foreach ($custom_alerts as $custom_alert)
             @if($custom_alert->id == 1)
-                <div class="aiz-cookie-alert mb-3" style="box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.24);">
+                <div class="pex-cookie-alert mb-3" style="box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.24);">
                     <div class="p-3 px-lg-2rem rounded-2" style="background: {{ $custom_alert->background_color }};">
                         <div class="text-{{ $custom_alert->text_color }} mb-3">
                             {!! $custom_alert->description !!}
                         </div>
-                        <button class="btn btn-block btn-primary rounded-0 aiz-cookie-accept">
+                        <button class="btn btn-block btn-primary rounded-0 pex-cookie-accept">
                             {{ translate('Ok. I Understood') }}
                         </button>
                     </div>
@@ -294,7 +291,7 @@
                     }
                 @endphp
                 @if(addon_is_activated('club_point') && get_setting('set_point_for_product_review') != 0 && $showalert)
-                    <div class="aiz-cookie-alert mb-3 club-point-alert" style="box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.24);">
+                    <div class="pex-cookie-alert mb-3 club-point-alert" style="box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.24);">
                         <div class="p-3 px-lg-2rem rounded-2" style="background: {{ $custom_alert->background_color }};">
                             <div class="text-{{ $custom_alert->text_color }} mb-3 custom-alert-for-product-club-point">
                                 {!! $custom_alert->description !!}
@@ -302,7 +299,7 @@
                                     {{ translate('Club points are awarded only for reviews on admin’s products.') }}
                                 @endif
                             </div>
-                            <button class="btn btn-block btn-primary rounded-0 aiz-cookie-accept-club-point">
+                            <button class="btn btn-block btn-primary rounded-0 pex-cookie-accept-club-point">
                                 {{ translate('Ok. I Understood') }}
                             </button>
                         </div>
@@ -317,12 +314,12 @@
                     }
                 @endphp
                 @if(addon_is_activated('otp_system') && $showcustomalert && auth()->user()->otp_alert_seen == 0)
-                    <div class="aiz-cookie-alert mb-3" style="box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.24);">
+                    <div class="pex-cookie-alert mb-3" style="box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.24);">
                         <div class="p-3 px-lg-2rem rounded-0" style="background: {{ $custom_alert->background_color }};">
                             <div class="text-{{ $custom_alert->text_color }} mb-3">
                                 {!! $custom_alert->description !!}
                             </div>
-                            <button class="btn btn-block btn-primary rounded-0 aiz-cookie-accept">
+                            <button class="btn btn-block btn-primary rounded-0 pex-cookie-accept">
                                 {{ translate('Ok. I Understood') }}
                             </button>
                         </div>
@@ -490,7 +487,7 @@
 
     <!-- SCRIPTS -->
     <script src="{{ static_asset('assets/js/vendors.js?v=') }}{{ get_setting('current_version') }}"></script>
-    <script src="{{ static_asset('assets/js/aiz-core.js?v=') }}{{ rand(1000, 9999) }}"></script>
+    <script src="{{ static_asset('assets/js/pex-core.js?v=') }}{{ rand(1000, 9999) }}"></script>
 
     {{-- WhatsaApp Chat --}}
     @if (get_setting('whatsapp_chat') == 1)
@@ -538,7 +535,7 @@
 
     <script>
         @foreach (session('flash_notification', collect())->toArray() as $message)
-            AIZ.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
+            PEX.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
         @endforeach
     </script>
 
@@ -563,7 +560,7 @@
         
         $(document).ready(function() {
             // Handle auto-hide alerts
-            $('.aiz-custom-alert .custom-alert-box[data-auto_hide]').each(function() {
+            $('.pex-custom-alert .custom-alert-box[data-auto_hide]').each(function() {
                 const $alert = $(this);
                 const seconds = parseInt($alert.attr('data-auto_hide'), 10) || 0;
                 if (seconds > 0) {                    
@@ -574,16 +571,16 @@
             });
 
             // Handle cookie alert accept button
-            $('.aiz-custom-alert').on('click', '.aiz-cookie-accept, .aiz-cookie-accept-club-point', function(e) {
+            $('.pex-custom-alert').on('click', '.pex-cookie-accept, .pex-cookie-accept-club-point', function(e) {
                 e.preventDefault();
-                const $parent = $(this).closest('.aiz-cookie-alert');
+                const $parent = $(this).closest('.pex-cookie-alert');
                 if ($parent.length) {
                     smoothlyRemoveElement($parent);
                 }
             });
 
             // Handle custom alert box close button
-            $('.aiz-custom-alert').on('click', '[data-parent=".custom-alert-box"]', function(e) {
+            $('.pex-custom-alert').on('click', '[data-parent=".custom-alert-box"]', function(e) {
                 e.preventDefault();
                 const $box = $(this).closest('.custom-alert-box');
                 if ($box.length) {
@@ -600,28 +597,28 @@
                 _token: '{{ csrf_token() }}'
             }, function(data) {
                 $('#section_featured').html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             });
 
             $.post('{{ route('home.section.todays_deal') }}', {
                 _token: '{{ csrf_token() }}'
             }, function(data) {
                 $('#todays_deal').html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             });
 
             $.post('{{ route('home.section.best_selling') }}', {
                 _token: '{{ csrf_token() }}'
             }, function(data) {
                 $('#section_best_selling').html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             });
 
             $.post('{{ route('home.section.newest_products') }}', {
                 _token: '{{ csrf_token() }}'
             }, function(data) {
                 $('#section_newest').html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
                 @if (get_setting('homepage_select') == 'thecore')
                  toggleViewMoreButton();
                 @endif
@@ -631,7 +628,7 @@
                 _token: '{{ csrf_token() }}'
             }, function(data) {
                 $('#auction_products').html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             });
 
             var isPreorderEnabled = @json(addon_is_activated('preorder'));
@@ -641,7 +638,7 @@
                     _token: '{{ csrf_token() }}'
                 }, function(data) {
                     $('#section_featured_preorder_products').html(data);
-                    AIZ.plugins.slickCarousel();
+                    PEX.plugins.slickCarousel();
                 });
             }
 
@@ -649,7 +646,7 @@
                 _token: '{{ csrf_token() }}'
             }, function(data) {
                 $('#section_home_categories').html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             });
 
         @endif
@@ -660,7 +657,7 @@
                 $(el).on('mouseover', function(){
                     if(!$(el).find('.sub-cat-menu').hasClass('loaded')){
                         $.post('{{ route('category.elements') }}', {
-                            _token: AIZ.data.csrf,
+                            _token: PEX.data.csrf,
                             id:$(el).data('id'
                             )}, function(data){
                             $(el).find('.sub-cat-menu').addClass('loaded').html(data);
@@ -675,7 +672,7 @@
                         e.preventDefault();
                         var $this = $(this);
                         var locale = $this.data('flag');
-                        $.post('{{ route('language.change') }}',{_token: AIZ.data.csrf, locale:locale}, function(data){
+                        $.post('{{ route('language.change') }}',{_token: PEX.data.csrf, locale:locale}, function(data){
                             location.reload();
                         });
 
@@ -689,7 +686,7 @@
                         e.preventDefault();
                         var $this = $(this);
                         var currency_code = $this.data('currency');
-                        $.post('{{ route('currency.change') }}',{_token: AIZ.data.csrf, currency_code:currency_code}, function(data){
+                        $.post('{{ route('currency.change') }}',{_token: PEX.data.csrf, currency_code:currency_code}, function(data){
                             location.reload();
                         });
 
@@ -713,7 +710,7 @@
 
                 $('.typed-search-box').removeClass('d-none');
                 $('.search-preloader').removeClass('d-none');
-                $.post('{{ route('search.ajax') }}', { _token: AIZ.data.csrf, search:searchKey}, function(data){
+                $.post('{{ route('search.ajax') }}', { _token: PEX.data.csrf, search:searchKey}, function(data){
                     if(data == '0'){
                         // $('.typed-search-box').addClass('d-none');
                         $('#search-content').html(null);
@@ -734,7 +731,7 @@
             }
         }
 
-        $(".aiz-user-top-menu").on("mouseover", function (event) {
+        $(".pex-user-top-menu").on("mouseover", function (event) {
             $(".hover-user-top-menu").addClass('active');
         })
         .on("mouseout", function (event) {
@@ -756,12 +753,12 @@
 
         function removeFromCart(key){
             $.post('{{ route('cart.removeFromCart') }}', {
-                _token  : AIZ.data.csrf,
+                _token  : PEX.data.csrf,
                 id      :  key
             }, function(data){
                 updateNavCart(data.nav_cart_view,data.cart_count);
                 $('#cart-details').html(data.cart_view);
-                AIZ.plugins.notify('danger', "{{ translate('Item has been removed from cart') }}");
+                PEX.plugins.notify('danger', "{{ translate('Item has been removed from cart') }}");
                 $('#cart_items_sidenav').html(parseInt($('#cart_items_sidenav').html())-1);
             });
         }
@@ -771,28 +768,28 @@
         }
 
         function addToCompare(id){
-            $.post('{{ route('compare.addToCompare') }}', {_token: AIZ.data.csrf, id:id}, function(data){
+            $.post('{{ route('compare.addToCompare') }}', {_token: PEX.data.csrf, id:id}, function(data){
                 $('#compare').html(data);
-                AIZ.plugins.notify('success', "{{ translate('Item has been added to compare list') }}");
+                PEX.plugins.notify('success', "{{ translate('Item has been added to compare list') }}");
                 $('#compare_items_sidenav').html(parseInt($('#compare_items_sidenav').html())+1);
             });
         }
 
         function addToWishList(id){
             @if (Auth::check() && Auth::user()->user_type == 'customer')
-                $.post('{{ route('wishlists.store') }}', {_token: AIZ.data.csrf, id:id}, function(data){
+                $.post('{{ route('wishlists.store') }}', {_token: PEX.data.csrf, id:id}, function(data){
                     if(data != 0){
                         $('#wishlist').html(data);
-                        AIZ.plugins.notify('success', "{{ translate('Item has been added to wishlist') }}");
+                        PEX.plugins.notify('success', "{{ translate('Item has been added to wishlist') }}");
                     }
                     else{
-                        AIZ.plugins.notify('warning', "{{ translate('Please login first') }}");
+                        PEX.plugins.notify('warning', "{{ translate('Please login first') }}");
                     }
                 });
             @elseif(Auth::check() && Auth::user()->user_type != 'customer')
-                AIZ.plugins.notify('warning', "{{ translate('Please Login as a customer to add products to the WishList.') }}");
+                PEX.plugins.notify('warning', "{{ translate('Please Login as a customer to add products to the WishList.') }}");
             @else
-                AIZ.plugins.notify('warning', "{{ translate('Please login first') }}");
+                PEX.plugins.notify('warning', "{{ translate('Please login first') }}");
             @endif
         }
 
@@ -803,12 +800,12 @@
             $('#addToCart-modal-body').html(null);
                 $('#addToCart').modal();
             $('.c-preloader').show();
-            $.post('{{ route('cart.showCartModal') }}', {_token: AIZ.data.csrf, id:id}, function(data){
+            $.post('{{ route('cart.showCartModal') }}', {_token: PEX.data.csrf, id:id}, function(data){
                 $('.c-preloader').hide();
                 $('#addToCart-modal-body').html(data);
-                AIZ.plugins.slickCarousel();
-                AIZ.plugins.zoom();
-                AIZ.extra.plusMinus();
+                PEX.plugins.slickCarousel();
+                PEX.plugins.zoom();
+                PEX.extra.plusMinus();
                 getVariantPrice();
             });
         }
@@ -832,14 +829,14 @@
                 url: '{{ route('cart.selectVariantCanvas') }}',
                 type: 'POST',
                 data: {
-                    _token: AIZ.data.csrf,
+                    _token: PEX.data.csrf,
                     id: id
                 },
                 success: function (data) {
                     rightOffcanvas.innerHTML = data;
-                    AIZ.plugins.slickCarousel();
-                    AIZ.plugins.zoom();
-                    AIZ.extra.plusMinus();
+                    PEX.plugins.slickCarousel();
+                    PEX.plugins.zoom();
+                    PEX.extra.plusMinus();
                     getVariantPrice();
                 },
                 error: function () {
@@ -961,7 +958,7 @@
                            $('.out-of-stock').addClass('d-none');
                         }
 
-                        AIZ.extra.plusMinus();
+                        PEX.extra.plusMinus();
                     }
                 });
                 $('#add_to_cart_count').text('(' + String($('#option-choice-form input[name=quantity]').val()).padStart(2, '0') + ')');
@@ -987,7 +984,7 @@
 
         function addToCart(){
             @if (Auth::check() && Auth::user()->user_type != 'customer')
-                AIZ.plugins.notify('warning', "{{ translate('Please Login as a customer to add products to the Cart.') }}");
+                PEX.plugins.notify('warning', "{{ translate('Please Login as a customer to add products to the Cart.') }}");
                 return false;
             @endif
 
@@ -1005,8 +1002,8 @@
                        $('.c-preloader').hide();
                        $('#modal-size').removeClass('modal-lg');
                        $('#addToCart-modal-body').html(data.modal_view);
-                       AIZ.extra.plusMinus();
-                       AIZ.plugins.slickCarousel();
+                       PEX.extra.plusMinus();
+                       PEX.plugins.slickCarousel();
                        updateNavCart(data.nav_cart_view,data.cart_count);
                     }
                 });
@@ -1019,18 +1016,18 @@
             }
             else{
                 animateAddToCartButton('#added_to_cart_btn', 'reset');
-                AIZ.plugins.notify('warning', "{{ translate('Please choose all the options') }}");
+                PEX.plugins.notify('warning', "{{ translate('Please choose all the options') }}");
             }
         }
 
         function addToCartSingleProduct(productId = null){
             @if (Auth::check() && Auth::user()->user_type != 'customer')
-                AIZ.plugins.notify('warning', "{{ translate('Please Login as a customer to add products to the Cart.') }}");
+                PEX.plugins.notify('warning', "{{ translate('Please Login as a customer to add products to the Cart.') }}");
                 return false;
             @endif
 
             if(!productId){
-                AIZ.plugins.notify('warning', "{{ translate('Product not found') }}");
+                PEX.plugins.notify('warning', "{{ translate('Product not found') }}");
                 return false;
             }
 
@@ -1057,8 +1054,8 @@
                             $('#addToCart-modal-body').html(data.modal_view);
 
                             try {
-                                AIZ.extra.plusMinus();
-                                AIZ.plugins.slickCarousel();
+                                PEX.extra.plusMinus();
+                                PEX.plugins.slickCarousel();
                                 if (typeof updateNavCart === 'function') {
                                     updateNavCart(data.nav_cart_view, data.cart_count);
                                 }
@@ -1072,7 +1069,7 @@
                         }
                     },
                     error: function() {
-                        AIZ.plugins.notify('danger', "{{ translate('Something went wrong') }}");
+                        PEX.plugins.notify('danger', "{{ translate('Something went wrong') }}");
                         $('.c-preloader').hide();
                     }
                 });
@@ -1082,13 +1079,13 @@
                 }
             }
             else{
-                AIZ.plugins.notify('warning', "{{ translate('Please choose all the options') }}");
+                PEX.plugins.notify('warning', "{{ translate('Please choose all the options') }}");
             }
         }
 
         function buyNow(){
             @if (Auth::check() && Auth::user()->user_type != 'customer')
-                AIZ.plugins.notify('warning', "{{ translate('Please Login as a customer to add products to the Cart.') }}");
+                PEX.plugins.notify('warning', "{{ translate('Please Login as a customer to add products to the Cart.') }}");
                 return false;
             @endif
 
@@ -1116,7 +1113,7 @@
                });
             }
             else{
-                AIZ.plugins.notify('warning', "{{ translate('Please choose all the options') }}");
+                PEX.plugins.notify('warning', "{{ translate('Please choose all the options') }}");
             }
         }
 
@@ -1131,17 +1128,17 @@
                 $('#bid_amount').attr('min', min_bid_amount);
                 $('#bid_for_product').modal('show');
             @elseif (Auth::check() && isAdmin())
-                AIZ.plugins.notify('warning', '{{ translate('Sorry, Only customers & Sellers can Bid.') }}');
+                PEX.plugins.notify('warning', '{{ translate('Sorry, Only customers & Sellers can Bid.') }}');
             @else
                 $('#login_modal').modal('show');
             @endif
         }
 
         function clickToSlide(btn,id){
-            $('#'+id+' .aiz-carousel').find('.'+btn).trigger('click');
+            $('#'+id+' .pex-carousel').find('.'+btn).trigger('click');
             $('#'+id+' .slide-arrow').removeClass('link-disable');
             var arrow = btn=='slick-prev' ? 'arrow-prev' : 'arrow-next';
-            if ($('#'+id+' .aiz-carousel').find('.'+btn).hasClass('slick-disabled')) {
+            if ($('#'+id+' .pex-carousel').find('.'+btn).hasClass('slick-disabled')) {
                 $('#'+id).find('.'+arrow).addClass('link-disable');
             }
         }
@@ -1152,7 +1149,7 @@
 
         function copyCouponCode(code){
             navigator.clipboard.writeText(code);
-            AIZ.plugins.notify('success', "{{ translate('Coupon Code Copied') }}");
+            PEX.plugins.notify('success', "{{ translate('Coupon Code Copied') }}");
         }
 
         $(document).ready(function(){
@@ -1277,7 +1274,7 @@
     </script>
 
     <script>
-        var acc = document.getElementsByClassName("aiz-accordion-heading");
+        var acc = document.getElementsByClassName("pex-accordion-heading");
         var i;
         for (i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
@@ -1300,11 +1297,11 @@
 
     @if (env("DEMO_MODE") == "On")
         <script>
-            var demoNav = document.querySelector('.aiz-demo-nav');
-            var menuBtn = document.querySelector('.aiz-demo-nav-toggler');
-            var lineOne = document.querySelector('.aiz-demo-nav-toggler .aiz-demo-nav-btn .line--1');
-            var lineTwo = document.querySelector('.aiz-demo-nav-toggler .aiz-demo-nav-btn .line--2');
-            var lineThree = document.querySelector('.aiz-demo-nav-toggler .aiz-demo-nav-btn .line--3');
+            var demoNav = document.querySelector('.pex-demo-nav');
+            var menuBtn = document.querySelector('.pex-demo-nav-toggler');
+            var lineOne = document.querySelector('.pex-demo-nav-toggler .pex-demo-nav-btn .line--1');
+            var lineTwo = document.querySelector('.pex-demo-nav-toggler .pex-demo-nav-btn .line--2');
+            var lineThree = document.querySelector('.pex-demo-nav-toggler .pex-demo-nav-btn .line--3');
             menuBtn.addEventListener('click', () => {
                 toggleDemoNav();
             });
@@ -1315,17 +1312,17 @@
                 lineOne.classList.toggle('line-cross');
                 lineTwo.classList.toggle('line-fade-out');
                 lineThree.classList.toggle('line-cross');
-                if ($('.aiz-demo-nav-toggler').hasClass('show')) {
-                    $('.aiz-demo-nav-toggler').removeClass('show');
+                if ($('.pex-demo-nav-toggler').hasClass('show')) {
+                    $('.pex-demo-nav-toggler').removeClass('show');
                     demoHideOverlay();
                 }else{
-                    $('.aiz-demo-nav-toggler').addClass('show');
+                    $('.pex-demo-nav-toggler').addClass('show');
                     demoShowOverlay();
                 }
             }
 
-            $('.aiz-demos').click(function(e){
-                if (!e.target.closest('.aiz-demos .aiz-demo-content')) {
+            $('.pex-demos').click(function(e){
+                if (!e.target.closest('.pex-demos .pex-demo-content')) {
                     toggleDemoNav();
                 }
             });
@@ -1334,12 +1331,12 @@
                 $('.top-banner').removeClass('z-1035').addClass('z-1');
                 $('.top-navbar').removeClass('z-1035').addClass('z-1');
                 $('header').removeClass('z-1020').addClass('z-1');
-                $('.aiz-demos').addClass('show');
+                $('.pex-demos').addClass('show');
             }
 
             function demoHideOverlay(cls=null){
-                if($('.aiz-demos').hasClass('show')){
-                    $('.aiz-demos').removeClass('show');
+                if($('.pex-demos').hasClass('show')){
+                    $('.pex-demos').removeClass('show');
                     $('.top-banner').delay(800).removeClass('z-1').addClass('z-1035');
                     $('.top-navbar').delay(800).removeClass('z-1').addClass('z-1035');
                     $('header').delay(800).removeClass('z-1').addClass('z-1020');
@@ -1411,7 +1408,7 @@
                     </div>
                 </div>
             `;
-            const $container = $('#aiz-custom-sale-alert');
+            const $container = $('#pex-custom-sale-alert');
             @if ( get_setting('custom_alert_location')  == 'top-left' || get_setting('custom_alert_location') == 'top-right')
             const $alert = $(html).appendTo($container);
             @else
@@ -1452,7 +1449,7 @@
         $('.set-session').on('click', function(e) {
             const $target = $(e.currentTarget);
             const parent = $target.data('parent');
-            if (parent && !$target.closest('.aiz-custom-alert').length) {
+            if (parent && !$target.closest('.pex-custom-alert').length) {
                 e.preventDefault();
                 $target.closest(parent).fadeOut(600);
             }

@@ -5,7 +5,7 @@
         </h3>
     </div>
     <div class="px-4">
-        <div class="aiz-carousel gutters-5 half-outside-arrow" data-items="5" data-xl-items="3" data-lg-items="4"
+        <div class="pex-carousel gutters-5 half-outside-arrow" data-items="5" data-xl-items="3" data-lg-items="4"
             data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='true'>
             @foreach ($more_products as $key => $more_product)
                 @if($more_product->is_published)

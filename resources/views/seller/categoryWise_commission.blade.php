@@ -14,7 +14,7 @@
         </form>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -61,7 +61,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $categories->appends(request()->input())->links() }}
         </div>
     </div>

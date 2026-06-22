@@ -8,12 +8,12 @@
                     <h5 class="mb-0 h6">{{ translate('Edit Box Size Information') }}</h5>
                 </div>
                 <div class="card-body">
-                    <form class="form-horizontal" action="{{ route('shipping_box_size.update', $box_size->id) }}" method="POST" id="aizSubmitForm">
+                    <form class="form-horizontal" action="{{ route('shipping_box_size.update', $box_size->id) }}" method="POST" id="pexSubmitForm">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="col-from-label fs-13">{{translate('Courier Type')}}<span class="text-danger"> *</span>
                             </label>
-                            <select name="courier_type" class="form-control aiz-selectpicker mb-2 mb-md-0" data-live-search="true">
+                            <select name="courier_type" class="form-control pex-selectpicker mb-2 mb-md-0" data-live-search="true">
                                 <option value="">{{ translate('Set Courier Type') }}</option>
                                 <option value="shiprocket" 
                                 {{ old('courier_type', $box_size->courier_type) == 'shiprocket' ? 'selected' : '' }}>{{ ucfirst(translate('Shiprocket')) }}

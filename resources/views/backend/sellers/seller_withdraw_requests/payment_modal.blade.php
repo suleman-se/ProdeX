@@ -101,6 +101,6 @@ $(document).ready(function(){
       }
     });
     $("#txn_div").hide();
-    AIZ.plugins.bootstrapSelect('refresh');
+    PEX.plugins.bootstrapSelect('refresh');
 });
 </script>

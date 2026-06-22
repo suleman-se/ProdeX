@@ -7,7 +7,7 @@
     CoreComponentRepository::initializeCache();
 @endphp
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{translate('Set Category Wise Commission')}}</h1>
@@ -37,7 +37,7 @@
         </form>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -96,7 +96,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $categories->appends(request()->input())->links() }}
         </div>
     </div>
@@ -132,7 +132,7 @@
 
         $(document).ready(function() {
             setTimeout(() => {
-                AIZ.plugins.dateRange();
+                PEX.plugins.dateRange();
             }, "2000");
         });
 
@@ -144,7 +144,7 @@
         function setDiscount(){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 $('#confirm-modal').modal('hide');
                 return;
             }
@@ -153,7 +153,7 @@
             var CategoryId = $('#trigger_btn').attr('data-value');
             var commission =  $("#commission_" + CategoryId).val();
             if(commission < 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Commission can not be less than 0') }}');
+                PEX.plugins.notify('danger', '{{ translate('Commission can not be less than 0') }}');
             }
             else{
                 $.post('{{ route('categories_wise_commission.update') }}', {
@@ -162,11 +162,11 @@
                     commission:commission,
                 }, function(data) {
                     if(data == 1){
-                        AIZ.plugins.notify('success', '{{ translate('Category Wise Commission Set Successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Category Wise Commission Set Successfully') }}');
                     }
                     location.reload();
                 }).fail(function() {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 });
             }
         }

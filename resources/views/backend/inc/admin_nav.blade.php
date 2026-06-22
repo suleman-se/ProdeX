@@ -1,7 +1,7 @@
-<div class="aiz-topbar px-15px px-lg-25px d-flex align-items-stretch justify-content-between">
+<div class="pex-topbar px-15px px-lg-25px d-flex align-items-stretch justify-content-between">
     <div class="d-flex">
         <!-- Mobile toggler -->
-        <div class="aiz-topbar-nav-toggler d-flex align-items-center justify-content-start ml-0 mr-2" data-toggle="aiz-mobile-nav">
+        <div class="pex-topbar-nav-toggler d-flex align-items-center justify-content-start ml-0 mr-2" data-toggle="pex-mobile-nav">
             <a class="btn btn-topbar has-transition btn-icon p-0 d-flex align-items-center" href="javascript:void(0)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                     <g id="Group_28009" data-name="Group 28009" transform="translate(0 16) rotate(-90)">
@@ -17,7 +17,7 @@
     <div class="d-flex justify-content-between align-items-stretch flex-grow-1">
         <div class="d-flex justify-content-around align-items-center align-items-stretch">
             <!-- Browse Website -->
-            <div class="aiz-topbar-item mr-3">
+            <div class="pex-topbar-item mr-3">
                 <div class="d-flex align-items-center">
                     <a class="btn btn-topbar has-transition btn-icon btn-circle btn-light p-0 hov-bg-primary hov-svg-white d-flex align-items-center justify-content-center"
                         href="{{ route('home') }}" target="_blank" data-toggle="tooltip" data-title="{{ translate('Browse Website') }}">
@@ -29,7 +29,7 @@
             </div>
             @if (addon_is_activated('pos_system') && auth()->user()->can('pos_manager'))
             <!-- POS -->
-            <div class="aiz-topbar-item mr-3">
+            <div class="pex-topbar-item mr-3">
                 <div class="d-flex align-items-center">
                     <a class="btn btn-topbar has-transition btn-icon btn-circle btn-light p-0 hov-bg-primary hov-svg-white d-flex align-items-center justify-content-center"
                         href="{{ route('poin-of-sales.index') }}" target="_blank" data-toggle="tooltip" data-title="{{ translate('POS') }}">
@@ -46,7 +46,7 @@
             </div>
             @endif
             <!-- Clear Cache -->
-            <div class="aiz-topbar-item mr-3">
+            <div class="pex-topbar-item mr-3">
                 <div class="d-flex align-items-center">
                     <a class="btn btn-topbar has-transition btn-icon btn-circle btn-light p-0 hov-bg-primary hov-svg-white d-flex align-items-center justify-content-center"
                         href="{{ route('cache.clear') }}" data-toggle="tooltip" data-title="{{ translate('Clear Cache') }}">
@@ -57,31 +57,31 @@
                 </div>
             </div>
             <!-- Topbar menus -->
-            <div class="aiz-topbar-item mr-2 d-none d-xl-block">
+            <div class="pex-topbar-item mr-2 d-none d-xl-block">
                 <div class="d-flex align-items-center h-100">
-                    <a class="aiz-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ areActiveRoutes(['admin.dashboard']) }}"
+                    <a class="pex-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ areActiveRoutes(['admin.dashboard']) }}"
                         href="{{ route('admin.dashboard') }}">{{ translate('Dashboard') }}</a>
                     @can('view_all_orders')
-                        <a class="aiz-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ areActiveRoutes(['all_orders.index']) }}"
+                        <a class="pex-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ areActiveRoutes(['all_orders.index']) }}"
                             href="{{ route('all_orders.index') }}">{{ translate('Orders') }}</a>
                     @endcan
                     @if (addon_is_activated('preorder'))
-                    <a class="aiz-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ areActiveRoutes(['all_orders.index']) }}"
+                    <a class="pex-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ areActiveRoutes(['all_orders.index']) }}"
                             href="{{ route('all_preorder.list') }}">{{ translate('Preorders') }}</a>
                     @endif
                     @can('earning_report')
-                        <a class="aiz-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ areActiveRoutes(['earning_payout_report.index']) }}"
+                        <a class="pex-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ areActiveRoutes(['earning_payout_report.index']) }}"
                             href="{{ route('earning_payout_report.index') }}">{{ translate('Earnings') }}</a>
                     @endcan
                     @can('edit_website_page')
-                        <a class="aiz-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ (url()->current() == url('/admin/website/custom-pages/edit/home')) ? 'active' : '' }}"
+                        <a class="pex-topbar-menu fs-13 fw-600 d-flex align-items-center justify-content-center {{ (url()->current() == url('/admin/website/custom-pages/edit/home')) ? 'active' : '' }}"
                             href="{{ route('custom-pages.edit', ['id'=>'home', 'lang'=>env('DEFAULT_LANGUAGE'), 'page'=>'home']) }}">{{ translate('Homepage Settings') }}</a>
                     @endcan
                 </div>
             </div>
             <!-- Add New Button -->
             <div class="d-flex justify-content-around align-items-center align-items-stretch">
-                <div class="aiz-topbar-item d-none d-sm-block">
+                <div class="pex-topbar-item d-none d-sm-block">
                     <div class="d-flex align-items-center h-100 dropdown">
                         <a class="dropdown-toggle no-arrow h-100" data-toggle="dropdown" href="javascript:void(0);"
                             role="button" aria-haspopup="false" aria-expanded="false">
@@ -119,7 +119,7 @@
         <div class="d-flex justify-content-around align-items-center align-items-stretch">
             <!-- Notifications -->
             @can('view_notifications')
-                <div class="aiz-topbar-item mr-3">
+                <div class="pex-topbar-item mr-3">
                     <div class="align-items-stretch d-flex dropdown">
                         <a class="dropdown-toggle no-arrow" data-toggle="dropdown" href="javascript:void(0);" role="button"
                             aria-haspopup="false" aria-expanded="false">
@@ -195,7 +195,7 @@
                     $locale = env('DEFAULT_LANGUAGE');
                 }
             @endphp
-            <div class="aiz-topbar-item mr-3">
+            <div class="pex-topbar-item mr-3">
                 <div class="align-items-stretch d-flex dropdown" id="lang-change">
                     <a class="dropdown-toggle no-arrow" data-toggle="dropdown" href="javascript:void(0);"
                         role="button" aria-haspopup="false" aria-expanded="false">
@@ -219,7 +219,7 @@
                 </div>
             </div>
             <!-- User -->
-            <div class="aiz-topbar-item">
+            <div class="pex-topbar-item">
                 <div class="align-items-stretch d-flex dropdown">
                     <!-- Image & Name -->
                     <a class="dropdown-toggle no-arrow text-dark" data-toggle="dropdown" href="javascript:void(0);"
@@ -248,7 +248,7 @@
                         </a>
                     </div>
                 </div>
-            </div><!-- .aiz-topbar-item -->
+            </div><!-- .pex-topbar-item -->
         </div>
     </div>
-</div><!-- .aiz-topbar -->
+</div><!-- .pex-topbar -->

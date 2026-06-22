@@ -26,7 +26,7 @@
                             @php
                                 $languagesArray = \App\Models\Language::pluck('code')->toarray();
                             @endphp
-                            <select class="form-control aiz-selectpicker mb-2 mb-md-0" name="code" data-live-search="true" >
+                            <select class="form-control pex-selectpicker mb-2 mb-md-0" name="code" data-live-search="true" >
                                 @foreach(\File::files(base_path('public/assets/img/flags')) as $path)
 
                                     @if(!in_array(pathinfo($path)['filename'],$languagesArray))

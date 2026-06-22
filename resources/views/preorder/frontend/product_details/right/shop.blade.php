@@ -119,7 +119,7 @@
                 <div class="text-secondary fs-14 fw-400 mt-2">{{ translate('Share') }}</div>
             </div>
             <div class="col-sm-10">
-                <div class="aiz-share"></div>
+                <div class="pex-share"></div>
             </div>
         </div>
 

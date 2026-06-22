@@ -2,7 +2,7 @@
 
 @section('content')
 
-        <div class="aiz-titlebar text-left mt-2 mb-3">
+        <div class="pex-titlebar text-left mt-2 mb-3">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h1 class="h3">{{translate('Set Translations')}}</h1>
@@ -16,7 +16,7 @@
                         title="{{ translate('Translate With Google') }}">
                         
                         <i class="las la-language" id="icon-{{ $language->id }}"></i>
-                        <img src="{{ static_asset('assets/img/aiz-loader.gif') }}" width="20" height="20"
+                        <img src="{{ static_asset('assets/img/pex-loader.gif') }}" width="20" height="20"
                             alt="Loading" class="d-none" id="loader-{{ $language->id }}">
                         <span>{{ translate('Translate By Google') }}</span>
                     </button>
@@ -77,7 +77,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="aiz-pagination">
+                <div class="pex-pagination">
                    {{ $lang_keys->appends(request()->input())->links() }}
                 </div>
 
@@ -124,10 +124,10 @@
             .then(response => response.json())
             .then(data => {
                 if (data.result) {
-                    AIZ.plugins.notify('success', data.message);
+                    PEX.plugins.notify('success', data.message);
                      location.reload()
                 } else {
-                    AIZ.plugins.notify('danger', data.message);
+                    PEX.plugins.notify('danger', data.message);
                 }
             })
             .catch(error => {

@@ -20,12 +20,12 @@
 	<!-- google font -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
 
-	<!-- aiz core css -->
+	<!-- pex core css -->
 	<link rel="stylesheet" href="{{ static_asset('assets/css/vendors.css') }}">
     @if(\App\Models\Language::where('code', Session::get('locale', Config::get('app.locale')))->first()->rtl == 1)
     <link rel="stylesheet" href="{{ static_asset('assets/css/bootstrap-rtl.min.css') }}">
     @endif
-	<link rel="stylesheet" href="{{ static_asset('assets/css/aiz-seller.css') }}">
+	<link rel="stylesheet" href="{{ static_asset('assets/css/pex-seller.css') }}">
     <link rel="stylesheet" href="{{ static_asset('assets/css/custom-style.css') }}">
     <link rel="stylesheet" href="{{ static_asset('assets/css/seller-custom-style.css') }}">
 
@@ -48,8 +48,8 @@
 
     </style>
 	<script>
-    	var AIZ = AIZ || {};
-        AIZ.local = {
+    	var PEX = PEX || {};
+        PEX.local = {
             nothing_selected: '{!! translate('Nothing selected', null, true) !!}',
             nothing_found: '{!! translate('Nothing found', null, true) !!}',
             choose_file: '{{ translate('Choose file') }}',
@@ -76,11 +76,11 @@
 </head>
 <body class="">
 
-	<div class="aiz-main-wrapper">
+	<div class="pex-main-wrapper">
         @include('seller.inc.seller_sidenav')
-		<div class="aiz-content-wrapper">
+		<div class="pex-content-wrapper">
             @include('seller.inc.seller_nav')
-			<div class="aiz-main-content">
+			<div class="pex-main-content">
 				<div class="px-15px px-lg-25px">
                     @yield('panel_content')
 				</div>
@@ -106,22 +106,22 @@
                     </p>
 
                 </div>
-			</div><!-- .aiz-main-content -->
-		</div><!-- .aiz-content-wrapper -->
-	</div><!-- .aiz-main-wrapper -->
+			</div><!-- .pex-main-content -->
+		</div><!-- .pex-content-wrapper -->
+	</div><!-- .pex-main-wrapper -->
 
     @include('modals.bulk_action_modal')
     @yield('modal')
 
 
 	<script src="{{ static_asset('assets/js/vendors.js') }}" ></script>
-	<script src="{{ static_asset('assets/js/aiz-core.js') }}" ></script>
+	<script src="{{ static_asset('assets/js/pex-core.js') }}" ></script>
 
     @yield('script')
 
     <script type="text/javascript">
 	    @foreach (session('flash_notification', collect())->toArray() as $message)
-	        AIZ.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
+	        PEX.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
             @if ($message['message'] == translate('Product has been inserted successfully'))
                 var data_type = ['digital', 'physical', 'auction', 'wholesale'];
                 data_type.forEach(element => {
@@ -154,7 +154,7 @@
 			filter = $("#menu-search").val().toUpperCase();
 			items = $("#main-menu").find("a");
 			items = items.filter(function(i,item){
-				if($(item).find(".aiz-side-nav-text")[0].innerText.toUpperCase().indexOf(filter) > -1 && $(item).attr('href') !== '#'){
+				if($(item).find(".pex-side-nav-text")[0].innerText.toUpperCase().indexOf(filter) > -1 && $(item).attr('href') !== '#'){
 					return item;
 				}
 			});
@@ -164,12 +164,12 @@
 				$("#search-menu").html('')
 				if(items.length > 0){
 					for (i = 0; i < items.length; i++) {
-						const text = $(items[i]).find(".aiz-side-nav-text")[0].innerText;
+						const text = $(items[i]).find(".pex-side-nav-text")[0].innerText;
 						const link = $(items[i]).attr('href');
-						 $("#search-menu").append(`<li class="aiz-side-nav-item"><a href="${link}" class="aiz-side-nav-link"><i class="las la-ellipsis-h aiz-side-nav-icon"></i><span>${text}</span></a></li`);
+						 $("#search-menu").append(`<li class="pex-side-nav-item"><a href="${link}" class="pex-side-nav-link"><i class="las la-ellipsis-h pex-side-nav-icon"></i><span>${text}</span></a></li`);
 					}
 				}else{
-					$("#search-menu").html(`<li class="aiz-side-nav-item"><span	class="text-center text-muted d-block">{{ translate('Nothing Found') }}</span></li>`);
+					$("#search-menu").html(`<li class="pex-side-nav-item"><span	class="text-center text-muted d-block">{{ translate('Nothing Found') }}</span></li>`);
 				}
 			}else{
 				$("#main-menu").removeClass('d-none');

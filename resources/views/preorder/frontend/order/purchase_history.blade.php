@@ -6,7 +6,7 @@
             <h5 class="mb-0 fs-20 fw-700 text-dark">{{ translate('Preorder List') }}</h5>
         </div>
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead class="text-gray fs-12">
                     <tr>
                         <th class="pl-0 text-center">{{ translate('Order Code')}}</th>
@@ -91,7 +91,7 @@
                 </tbody>
             </table>
             <!-- Pagination -->
-            <div class="aiz-pagination mt-2">
+            <div class="pex-pagination mt-2">
                 {{ $orders->links() }}
             </div>
         </div>

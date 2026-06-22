@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <h5 class="mb-0 h6">{{ translate('Add New Size Chart') }}</h5>
     </div>
     <div class="">
@@ -38,7 +38,7 @@
                             <div class="form-group row">
                                 <label class="col-md-3 col-from-label">{{ translate('Category') }} <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <select class="form-control aiz-selectpicker" name="category_id" id="category_id" data-selected="{{ $size_chart->category_id }}" data-live-search="true" required>
+                                    <select class="form-control pex-selectpicker" name="category_id" id="category_id" data-selected="{{ $size_chart->category_id }}" data-live-search="true" required>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
                                             @foreach ($category->childrenCategories as $childCategory)
@@ -52,7 +52,7 @@
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label" for="signinSrEmail">{{ translate('Images') }}</label>
                                 <div class="col-md-8">
-                                    <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                                    <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                         </div>
@@ -86,7 +86,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-from-label">{{ translate('Fit Type') }}</label>
                                 <div class="col-md-8">
-                                    <select class="form-control aiz-selectpicker" name="fit_type">
+                                    <select class="form-control pex-selectpicker" name="fit_type">
                                         <option value="">{{ translate('Select Fit Type') }}</option>
                                         <option value="slim_fit" @if ($size_chart->fit_type == 'slim_fit') selected @endif>{{ translate('Slim Fit') }}</option>
                                         <option value="regular_fit" @if ($size_chart->fit_type == 'regular_fit') selected @endif>{{ translate('Regular Fit') }}</option>
@@ -98,7 +98,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-from-label">{{ translate('Stretch Type') }}</label>
                                 <div class="col-md-8">
-                                    <select class="form-control aiz-selectpicker" name="stretch_type">
+                                    <select class="form-control pex-selectpicker" name="stretch_type">
                                         <option value="">{{ translate('Select Stretch Type') }}</option>
                                         <option value="non" @if ($size_chart->stretch_type == 'non') selected @endif>{{ translate('Non') }}</option>
                                         <option value="slight" @if ($size_chart->stretch_type == 'slight') selected @endif>{{ translate('Slight') }}</option>
@@ -111,7 +111,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-from-label">{{ translate('Measurement Points') }} <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <select class="form-control aiz-selectpicker" onchange="size_combination()" name="measurement_points[]" id="measurement_points" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Measurement Points') }}" required>
+                                    <select class="form-control pex-selectpicker" onchange="size_combination()" name="measurement_points[]" id="measurement_points" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Measurement Points') }}" required>
                                         @foreach ($measurementPoints as $measurementPoint)
                                             <option value="{{ $measurementPoint->id }}" @if($size_chart->measurement_points != null && in_array($measurementPoint->id, json_decode($size_chart->measurement_points, true))) selected @endif>{{ $measurementPoint->name }}</option>
                                         @endforeach
@@ -122,7 +122,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-from-label">{{ translate('Size Options') }} <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <select class="form-control aiz-selectpicker" onchange="size_combination()" name="size_options[]" id="size_options" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Size Options') }}" required>
+                                    <select class="form-control pex-selectpicker" onchange="size_combination()" name="size_options[]" id="size_options" data-selected-text-format="count" data-live-search="true" multiple data-placeholder="{{ translate('Choose Size Options') }}" required>
                                         @foreach ($sizeOptions as $sizeOption)
                                             <option value="{{ $sizeOption->id }}" @if($size_chart->size_options != null && in_array($sizeOption->id, json_decode($size_chart->size_options, true))) selected @endif>{{ $sizeOption->value }}</option>
                                         @endforeach
@@ -133,17 +133,17 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-from-label">{{ translate('Measurement Type') }}</label>
                                 <div class="col-md-8">
-                                    <label class="aiz-checkbox mr-4">
+                                    <label class="pex-checkbox mr-4">
                                         <input type="checkbox" name="measurement_option[]" value="inch" id="measurement_option_inch" 
                                             onchange="size_combination()" @if (in_array("inch", json_decode($size_chart->measurement_option, true))) checked @endif>
                                         <span class="has-transition fs-12 fw-400 text-gray-dark hov-text-primary">{{  translate('Inches') }}</span>
-                                        <span class="aiz-square-check"></span>
+                                        <span class="pex-square-check"></span>
                                     </label>
-                                    <label class="aiz-checkbox">
+                                    <label class="pex-checkbox">
                                         <input type="checkbox" name="measurement_option[]" value="cen" id="measurement_option_cen" 
                                             onchange="size_combination()" @if (in_array("cen", json_decode($size_chart->measurement_option, true))) checked @endif>
                                         <span class="has-transition fs-12 fw-400 text-gray-dark hov-text-primary">{{  translate('Centimeter') }}</span>
-                                        <span class="aiz-square-check"></span>
+                                        <span class="pex-square-check"></span>
                                     </label>
                                 </div>
                             </div>

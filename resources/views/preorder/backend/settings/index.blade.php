@@ -14,7 +14,7 @@
                     <div class="form-group row">
                         <label class="col-md-4 col-from-label">{{translate('Preorder Product for Seller')}}</label>
                         <div class="col-md-8">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="checkbox" onchange="updateSettings(this, 'seller_preorder_product')" @if( get_setting('seller_preorder_product') == 1) checked @endif>
                                 <span></span>
                             </label>
@@ -54,7 +54,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-from-label">{{ translate('Image For Product Marketing') }}</label>
                         <div class="col-md-8">
-                            <div class="input-group " data-toggle="aizuploader" data-type="image">
+                            <div class="input-group " data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                 </div>
@@ -94,7 +94,7 @@
                         <label class="col-md-3 col-from-label">{{ translate('Preorder Request Instructions') }}</label>
                         <div class="col-md-8">
                             <input type="hidden" name="types[]" value="preorder_request_instruction">
-                            <textarea name="preorder_request_instruction" rows="4" class="aiz-text-editor form-control" 
+                            <textarea name="preorder_request_instruction" rows="4" class="pex-text-editor form-control" 
                                 data-buttons='[["font", ["bold", "underline", "italic"]],["para", ["ul", "ol"]],["view", ["undo","redo"]]]'>
                                 {{ get_setting('preorder_request_instruction') }}
                             </textarea>
@@ -120,7 +120,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-from-label">{{ translate('Image For Payment QR Code') }}</label>
                         <div class="col-md-8">
-                            <div class="input-group " data-toggle="aizuploader" data-type="image">
+                            <div class="input-group " data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                 </div>
@@ -136,7 +136,7 @@
                         <label class="col-md-3 col-from-label">{{ translate('Payment Instructions') }}</label>
                         <div class="col-md-8">
                             <input type="hidden" name="types[]" value="pre_payment_instruction">
-                            <textarea name="pre_payment_instruction" rows="4" class="aiz-text-editor form-control" 
+                            <textarea name="pre_payment_instruction" rows="4" class="pex-text-editor form-control" 
                                 data-buttons='[["font", ["bold", "underline", "italic"]],["para", ["ul", "ol"]],["view", ["undo","redo"]]]'>
                                 {{ get_setting('pre_payment_instruction') }}
                             </textarea>
@@ -159,7 +159,7 @@
     <script type="text/javascript">
         function updateSettings(el, type) {
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
             var value = ($(el).is(':checked')) ? 1 : 0;
@@ -169,9 +169,9 @@
                 value: value
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
                 } else {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }

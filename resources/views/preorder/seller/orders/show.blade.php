@@ -449,7 +449,7 @@
                                         <div class="form-group ">
                                             <label class="col-form-label" for="signinSrEmail">{{translate('Proof
                                                 of shipping')}}</label>
-                                            <div class="input-group" data-toggle="aizuploader"
+                                            <div class="input-group" data-toggle="pexuploader"
                                                 data-type="image">
                                                 @if(!in_array($order->shipping_status, [2, 3]))
                                                 <div class="input-group-prepend">

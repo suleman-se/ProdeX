@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use AizPackages\CombinationGenerate\Services\CombinationService;
+use App\Services\CombinationService;
 use App\Http\Requests\ProductDraftRequest;
 use App\Http\Requests\ProductRequest;
 use App\Models\BusinessSetting;

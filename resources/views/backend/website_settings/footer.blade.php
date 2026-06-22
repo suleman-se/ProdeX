@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
     	<div class="row align-items-center">
     		<div class="col">
     			<h1 class="h3">{{ translate('Website Footer') }}</h1>
@@ -72,7 +72,7 @@
 								<!-- Footer Logo -->
     							<div class="form-group">
     			                    <label class="form-label" for="signinSrEmail">{{ translate('Footer Logo') }}</label>
-    			                    <div class="input-group " data-toggle="aizuploader" data-type="image">
+    			                    <div class="input-group " data-toggle="pexuploader" data-type="image">
     			                        <div class="input-group-prepend">
     			                            <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse') }}</div>
     			                        </div>
@@ -87,7 +87,7 @@
     			                <div class="form-group">
     								<label>{{ translate('About description') }} ({{ translate('Translatable') }})</label>
     								<input type="hidden" name="types[][{{ $lang }}]" value="about_us_description">
-    								<textarea class="aiz-text-editor form-control" name="about_us_description" data-buttons='[["font", ["bold", "underline", "italic"]],["para", ["ul", "ol"]],["view", ["undo","redo"]]]' placeholder="Type.." data-min-height="150">
+    								<textarea class="pex-text-editor form-control" name="about_us_description" data-buttons='[["font", ["bold", "underline", "italic"]],["para", ["ul", "ol"]],["view", ["undo","redo"]]]' placeholder="Type.." data-min-height="150">
                                         {!! get_setting('about_us_description',null,$lang); !!}
                                     </textarea>
     							</div>
@@ -252,7 +252,7 @@
                         <div class="form-group">
                   			<label>{{ translate('Copyright Text') }} ({{ translate('Translatable') }})</label>
                   			<input type="hidden" name="types[][{{ $lang }}]" value="frontend_copyright_text">
-                  			<textarea class="aiz-text-editor form-control" name="frontend_copyright_text" data-buttons='[["font", ["bold", "underline", "italic"]],["insert", ["link"]],["view", ["undo","redo"]]]' placeholder="Type.." data-min-height="150">
+                  			<textarea class="pex-text-editor form-control" name="frontend_copyright_text" data-buttons='[["font", ["bold", "underline", "italic"]],["insert", ["link"]],["view", ["undo","redo"]]]' placeholder="Type.." data-min-height="150">
                                 {!! get_setting('frontend_copyright_text',null,$lang) !!}
                             </textarea>
                   		</div>
@@ -268,7 +268,7 @@
                     <div class="form-group row">
                       <label class="col-md-2 col-from-label">{{translate('Show Social Links?')}}</label>
                       <div class="col-md-9">
-                        <label class="aiz-switch aiz-switch-success mb-0">
+                        <label class="pex-switch pex-switch-success mb-0">
                           <input type="hidden" name="types[]" value="show_social_links">
                           <input type="checkbox" name="show_social_links" @if( get_setting('show_social_links') == 'on') checked @endif>
                           <span></span>
@@ -365,7 +365,7 @@
 					<div class="card-body">
 						<div class="form-group">
 							<label>{{ translate('Payment Methods') }}</label>
-							<div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+							<div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
 								<div class="input-group-prepend">
 									<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 								</div>

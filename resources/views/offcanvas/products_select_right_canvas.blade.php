@@ -22,7 +22,7 @@
         <!--Table-->
         <div class="row gutters-5 mt-3">
             <div class="col-md-6">
-                <select class="form-control aiz-selectpicker" name="selected_Products_category" onchange="filterProductByCategory()" data-placeholder="{{ translate('Select a Category')}}" data-live-search="true">
+                <select class="form-control pex-selectpicker" name="selected_Products_category" onchange="filterProductByCategory()" data-placeholder="{{ translate('Select a Category')}}" data-live-search="true">
                     <option value="">{{ translate('Choose Category') }}</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->getTranslation('name') }} </option>

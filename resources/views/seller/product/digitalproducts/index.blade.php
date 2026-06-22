@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 
 @section('panel_content')
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
       <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{ translate('Digital Products') }}</h1>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -98,11 +98,11 @@
                                     @endif
                                 </td>
                             @endif
-                            <td><label class="aiz-switch aiz-switch-success mb-0">
+                            <td><label class="pex-switch pex-switch-success mb-0">
                                 <input onchange="update_published(this)" value="{{ $product->id }}" type="checkbox" <?php if($product->published == 1) echo "checked";?> >
                                 <span class="slider round"></span></label>
                             </td>
-                            <td><label class="aiz-switch aiz-switch-success mb-0">
+                            <td><label class="pex-switch pex-switch-success mb-0">
                                 <input onchange="update_featured(this)" value="{{ $product->id }}" type="checkbox" <?php if($product->seller_featured == 1) echo "checked";?> >
                                 <span class="slider round"></span></label>
                             </td>
@@ -121,7 +121,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
                 {{ $products->links() }}
           	</div>
         </div>
@@ -144,10 +144,10 @@
             }
             $.post('{{ route('seller.products.featured') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Featured products updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Featured products updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                     location.reload();
                 }
             });
@@ -162,21 +162,21 @@
             }
             $.post('{{ route('seller.products.published') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Published products updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Published products updated successfully') }}');
                 }
                 else if(data == 2){
-                    AIZ.plugins.notify('danger', '{{ translate('Please upgrade your package.') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Please upgrade your package.') }}');
                     location.reload();
                 }
                 else if(data == 3){
-                    AIZ.plugins.notify('danger', '{{ translate('GST verification is pending for your account.') }}');
+                    PEX.plugins.notify('danger', '{{ translate('GST verification is pending for your account.') }}');
                     location.reload();
                 }
                 else if(data == 4){
-                    AIZ.plugins.notify('warning', '{{ translate('Please assign GST details') }}');
+                    PEX.plugins.notify('warning', '{{ translate('Please assign GST details') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                     location.reload();
                 }
             });

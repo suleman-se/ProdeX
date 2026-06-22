@@ -8,7 +8,7 @@
                 <h5 class="mb-0 h6">{{translate('Attribute Information')}}</h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('attributes.store') }}" method="POST" id="aizSubmitForm">
+                <form action="{{ route('attributes.store') }}" method="POST" id="pexSubmitForm">
                     @csrf
                     <div class="form-group mb-3">
                         <label for="name">{{ translate('Attribute Name') }}</label>

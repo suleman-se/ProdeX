@@ -8,7 +8,7 @@
                 <h3 class="h6 mb-0">{{ translate('Server information') }}</h3>
             </div>
             <div class="card-body">
-                <table class="table table-striped aiz-table">
+                <table class="table table-striped pex-table">
                     <thead>
                         <tr>
                             <th>{{ translate('Name') }}</th>
@@ -62,7 +62,7 @@
                 <h3 class="h6 mb-0">{{ translate('php.ini Config') }}</h3>
             </div>
             <div class="card-body">
-                <table class="table table-striped aiz-table">
+                <table class="table table-striped pex-table">
                     <thead>
                         <tr>
                             <th>{{ translate('Config Name') }}</th>

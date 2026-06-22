@@ -5,7 +5,7 @@
         </a>
     </div>
     <!-- All Categories -->
-    <div class="aiz-floating-button">
+    <div class="pex-floating-button">
         <a href="{{ route('categories.all') }}">
             <span class="circle">
                 <span class="">
@@ -27,7 +27,7 @@
         </a>
     </div>
     <!-- Flash Sale -->
-    <div class="aiz-floating-button">
+    <div class="pex-floating-button">
         <a href="{{ route('flash-deals') }}">
             <span class="circle">
                 <span class="">
@@ -45,7 +45,7 @@
         </a>
     </div>
     <!-- Today's Deal -->
-    <div class="aiz-floating-button">
+    <div class="pex-floating-button">
         <a href="{{ route('todays-deal') }}">
             <span class="circle">
                 <span class="">
@@ -67,7 +67,7 @@
     </div>
     @if(addon_is_activated('auction'))
     <!-- Auction -->
-    <div class="aiz-floating-button">
+    <div class="pex-floating-button">
         <a href="{{ route('auction_products.all') }}">
             <span class="circle">
                 <span class="">

@@ -15,7 +15,7 @@
                 </div>
             </div>
             @if(isset($has_pagination))
-            <div class="aiz-pagination mt-3">
+            <div class="pex-pagination mt-3">
                 {{ $best_selling_products->links() }}
             </div>
             @endif

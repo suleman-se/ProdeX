@@ -31,28 +31,65 @@ class AdminController extends Controller
      */
     public function admin_dashboard(Request $request)
     {
+        ini_set('max_execution_time', 300);
+        set_time_limit(300);
         CoreComponentRepository::initializeCache();
         $root_categories = Category::where('level', 0)->get();
 
         $data['cached_graph_data'] = Cache::remember('cached_graph_data', 86400, function () use ($root_categories) {
-            $num_of_sale_data = null;
-            $qty_data = null;
-            foreach ($root_categories as $key => $category) {
-                $category_ids = \App\Utility\CategoryUtility::children_ids($category->id);
-                $category_ids[] = $category->id;
+            // Fetch all categories and products with stocks in just 2 queries
+            $all_categories = Category::all();
+            $all_products = Product::with('stocks')->select('id', 'category_id', 'num_of_sale')->get();
 
-                $products = Product::with('stocks')->whereIn('category_id', $category_ids)->get();
-                $qty = 0;
-                $sale = 0;
-                foreach ($products as $key => $product) {
-                    $sale += $product->num_of_sale;
-                    foreach ($product->stocks as $key => $stock) {
-                        $qty += $stock->qty;
+            // Build parent-to-child category mapping in memory
+            $category_by_parent = [];
+            foreach ($all_categories as $cat) {
+                $category_by_parent[$cat->parent_id][] = $cat->id;
+            }
+
+            // Recursive helper function to traverse category tree in memory (no queries)
+            $getChildrenIds = function ($parentId) use (&$getChildrenIds, $category_by_parent) {
+                $ids = [];
+                if (isset($category_by_parent[$parentId])) {
+                    foreach ($category_by_parent[$parentId] as $childId) {
+                        $ids[] = $childId;
+                        $ids = array_merge($ids, $getChildrenIds($childId));
                     }
                 }
+                return $ids;
+            };
+
+            // Map products by category ID for fast O(1) lookups in memory
+            $products_by_category = [];
+            foreach ($all_products as $product) {
+                $products_by_category[$product->category_id][] = $product;
+            }
+
+            $num_of_sale_data = '';
+            $qty_data = '';
+
+            foreach ($root_categories as $category) {
+                $category_ids = $getChildrenIds($category->id);
+                $category_ids[] = $category->id;
+
+                $qty = 0;
+                $sale = 0;
+
+                foreach ($category_ids as $catId) {
+                    if (isset($products_by_category[$catId])) {
+                        foreach ($products_by_category[$catId] as $product) {
+                            $sale += $product->num_of_sale;
+                            foreach ($product->stocks as $stock) {
+                                $qty += $stock->qty;
+                            }
+                        }
+                    }
+                }
+
                 $qty_data .= $qty . ',';
                 $num_of_sale_data .= $sale . ',';
             }
+
             $item['num_of_sale_data'] = $num_of_sale_data;
             $item['qty_data'] = $qty_data;
 

@@ -1,7 +1,7 @@
 @php
     $cart_added = [];
 @endphp
-<div class="aiz-card-box h-auto bg-white py-3 hov-scale-img">
+<div class="pex-card-box h-auto bg-white py-3 hov-scale-img">
     <div class="position-relative  img-fit overflow-hidden" >
         @php
             $product_url = route('product', $product->slug);
@@ -58,7 +58,7 @@
         @endif
         @if ($product->auction_product == 0)
             <!-- Desktop Icons (Top Right) -->
-            <div class="d-none d-sm-block absolute-top-right aiz-p-hov-icon">
+            <div class="d-none d-sm-block absolute-top-right pex-p-hov-icon">
                 <!-- Wishlist Icon -->
                 <a href="javascript:void(0)" class="hov-svg-white" onclick="addToWishList({{ $product->id }})"
                     data-toggle="tooltip" data-title="{{ translate('Add to wishlist') }}" data-placement="left">
@@ -83,7 +83,7 @@
             </div>
 
             <!-- Mobile Icons (Bottom) -->
-            <div class="d-sm-none position-absolute aiz-p-hov-icon-mobile"
+            <div class="d-sm-none position-absolute pex-p-hov-icon-mobile"
                 style="bottom: -10px; left: 50%; transform: translateX(-50%); z-index: 10;">
                 <div class="d-inline-flex px-2 py-1 shadow-sm">
                     <!-- Cart Icon -->
@@ -130,7 +130,7 @@
             @endphp
 
             @if ( (is_array($colors) && count($colors) > 0) || (is_array($attributes) && count($attributes) > 0) )
-                <a class="cart-btn absolute-bottom-left w-100 h-35px aiz-p-hov-icon text-white fs-13 fw-700 d-none d-sm-flex flex-column justify-content-center align-items-center @if (in_array($product->id, $cart_added)) active @endif"
+                <a class="cart-btn absolute-bottom-left w-100 h-35px pex-p-hov-icon text-white fs-13 fw-700 d-none d-sm-flex flex-column justify-content-center align-items-center @if (in_array($product->id, $cart_added)) active @endif"
                     href="javascript:void(0)" onclick="showAddToCartRightCanvas({{ $product->id }})">
                     <span class="cart-btn-text">
                         {{ translate('Select Option') }}
@@ -138,7 +138,7 @@
                     <span><i class="las la-sliders-h" style="font-size: 1.4rem;"></i></span>
                 </a>
             @else
-                <a class="cart-btn absolute-bottom-left w-100 h-35px aiz-p-hov-icon text-white fs-13 fw-700 d-none d-sm-flex flex-column justify-content-center align-items-center @if (in_array($product->id, $cart_added)) active @endif"
+                <a class="cart-btn absolute-bottom-left w-100 h-35px pex-p-hov-icon text-white fs-13 fw-700 d-none d-sm-flex flex-column justify-content-center align-items-center @if (in_array($product->id, $cart_added)) active @endif"
                     href="javascript:void(0)" @if (Auth::check() || get_Setting('guest_checkout_activation') == 1) onclick="addToCartSingleProduct({{ $product->id }})" @else onclick="showLoginModal()" @endif>
                     <span class="cart-btn-text">
                         {{ translate('Add to Cart') }}
@@ -162,7 +162,7 @@
                 $min_bid_amount = $highest_bid != null ? $highest_bid + 1 : $product->starting_bid;
                 $gst_rate = gst_applicable_product_rate($product->id);
             @endphp
-            <a class="cart-btn absolute-bottom-left w-100 h-35px aiz-p-hov-icon text-white fs-13 fw-700 d-flex flex-column justify-content-center align-items-center @if (in_array($product->id, $cart_added)) active @endif"
+            <a class="cart-btn absolute-bottom-left w-100 h-35px pex-p-hov-icon text-white fs-13 fw-700 d-flex flex-column justify-content-center align-items-center @if (in_array($product->id, $cart_added)) active @endif"
                 href="javascript:void(0)" onclick="bid_single_modal({{ $product->id }}, {{ $min_bid_amount }}, {{ $gst_rate }})">
                 <span class="cart-btn-text">{{ translate('Place Bid') }}</span>
                 <span><i class="las la-2x la-gavel"></i></span>

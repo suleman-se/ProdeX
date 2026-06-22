@@ -141,7 +141,7 @@
                     <h3 class="fs-18 mb-0 text-center">{{translate('AWS S3 File System Activation')}}</h3>
                 </div>
                 <div class="card-body">
-                    <label class="aiz-switch mb-0">
+                    <label class="pex-switch mb-0">
                         <input type="radio" name="FILESYSTEM_DRIVER" onchange="updateSettings(this, 'FILESYSTEM_DRIVER', 'aws')" <?php if(env('FILESYSTEM_DRIVER') == 'aws') echo "checked";?>>
                         <span></span>
                     </label>
@@ -153,7 +153,7 @@
                     <h3 class="fs-18 mb-0 text-center">{{translate('Backblaze File System Activation')}}</h3>
                 </div>
                 <div class="card-body">
-                    <label class="aiz-switch mb-0">
+                    <label class="pex-switch mb-0">
                         <input type="radio" name="FILESYSTEM_DRIVER" onchange="updateSettings(this, 'FILESYSTEM_DRIVER', 'backblaze')" <?php if(env('FILESYSTEM_DRIVER') == 'backblaze') echo "checked";?>>
                         <span></span>
                     </label>
@@ -165,7 +165,7 @@
                     <h3 class="fs-18 mb-0 text-center">{{translate('Local File System Activation')}}</h3>
                 </div>
                 <div class="card-body">
-                    <label class="aiz-switch mb-0">
+                    <label class="pex-switch mb-0">
                         <input type="radio" name="FILESYSTEM_DRIVER" onchange="updateSettings(this, 'FILESYSTEM_DRIVER', 'local')" <?php if(env('FILESYSTEM_DRIVER') == 'local') echo "checked";?>>
                         <span></span>
                     </label>
@@ -190,7 +190,7 @@
                                 <label class="control-label">{{translate('CACHE_DRIVER')}}</label>
                             </div>
                             <div class="col-lg-8">
-                                <select class="form-control aiz-selectpicker mb-2 mb-md-0" name="CACHE_DRIVER">
+                                <select class="form-control pex-selectpicker mb-2 mb-md-0" name="CACHE_DRIVER">
                                     <option value="file" @if (env('CACHE_DRIVER') == "file") selected @endif>{{ translate('file') }}</option>
                                     <option value="redis" @if (env('CACHE_DRIVER') == "redis") selected @endif>{{ translate('redis') }}</option>
                                 </select>
@@ -202,7 +202,7 @@
                                 <label class="control-label">{{translate('SESSION_DRIVER')}}</label>
                             </div>
                             <div class="col-lg-8">
-                                <select class="form-control aiz-selectpicker mb-2 mb-md-0" name="SESSION_DRIVER">
+                                <select class="form-control pex-selectpicker mb-2 mb-md-0" name="SESSION_DRIVER">
                                     <option value="file" @if (env('SESSION_DRIVER') == "file") selected @endif>{{ translate('file') }}</option>
                                     <option value="redis" @if (env('SESSION_DRIVER') == "redis") selected @endif>{{ translate('redis') }}</option>
                                 </select>
@@ -271,7 +271,7 @@
         function updateSettings(el, type, value_type){ 
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
             const BACKBLAZE_KEY = "{{ env('BACKBLAZE_ACCESS_KEY_ID', '') }}";
@@ -282,7 +282,7 @@
                 (value_type === 'backblaze' && (!BACKBLAZE_KEY || BACKBLAZE_KEY === '')) ||
                 (value_type === 'aws' && (!AWS_KEY || AWS_KEY === ''))
             ) {
-                AIZ.plugins.notify('info', value_type.toUpperCase() + ' ' + notifyMessage);
+                PEX.plugins.notify('info', value_type.toUpperCase() + ' ' + notifyMessage);
                 return;
             }
 
@@ -293,10 +293,10 @@
                 value:value_type
             }, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

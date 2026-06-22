@@ -1,9 +1,9 @@
 @props(['notifications'])
 <div class="form-group">
-    <div class="aiz-checkbox-inline ml-3">
-        <label class="aiz-checkbox">
+    <div class="pex-checkbox-inline ml-3">
+        <label class="pex-checkbox">
             <input type="checkbox" class="check-all">
-            <span class="aiz-square-check"></span>{{ translate('Select All') }}
+            <span class="pex-square-check"></span>{{ translate('Select All') }}
         </label>
     </div>
 </div>
@@ -39,9 +39,9 @@
                     @endphp
                     <div class="d-flex">
                         <div class="form-group d-inline-block">
-                            <label class="aiz-checkbox">
+                            <label class="pex-checkbox">
                                 <input type="checkbox" class="check-one" name='id[]' value="{{$notification->id}}">
-                                <span class="aiz-square-check"></span>
+                                <span class="pex-square-check"></span>
                             </label>
                         </div>
 

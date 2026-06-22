@@ -8,7 +8,7 @@
 
 
     <div class="col-12 col-sm-12 col-lg-10 mx-auto">
-        <div class="aiz-titlebar text-left pb-5px">
+        <div class="pex-titlebar text-left pb-5px">
             <div class="row align-items-center">
                 <div class="col-auto">
                     <h1 class="h3 fw-bold">{{ translate('All Pickup Addresses') }}</h1>
@@ -115,7 +115,7 @@
         function update_status(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -127,10 +127,10 @@
             }
             $.post('{{ route('pickup_addresses.status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Status updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Status updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
@@ -158,7 +158,7 @@
                 type: 'GET',
                 success: function(response) {
                     if (response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
                         hideBulkActionModal();
                         getPickupAddresses(currentTab);
                     }
@@ -180,20 +180,20 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', 'Selected items Deleted successfully');
+                        PEX.plugins.notify('success', 'Selected items Deleted successfully');
                         hideBulkActionModal();
                         getPickupAddresses(currentTab);
                     }
                 },
                 error: function () {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }
 
         function bulkDeleted() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one pickup address') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one pickup address') }}');
                 return;
             }
 

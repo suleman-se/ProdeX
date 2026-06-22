@@ -22,7 +22,7 @@
         <input type="number" lang="en" min="0" step="0.01" placeholder="{{translate('Discount')}}" name="discount" class="form-control" value="{{ $coupon->discount }}" required>
     </div>
     <div class="col-lg-2">
-        <select class="form-control aiz-selectpicker" name="discount_type">
+        <select class="form-control pex-selectpicker" name="discount_type">
             <option value="amount" @if ($coupon->discount_type == 'amount') selected  @endif >{{translate('Amount')}}</option>
             <option value="percent" @if ($coupon->discount_type == 'percent') selected  @endif>{{translate('Percent')}}</option>
         </select>
@@ -42,7 +42,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.aiz-selectpicker').selectpicker();
-        $('.aiz-date-range').daterangepicker();
+        $('.pex-selectpicker').selectpicker();
+        $('.pex-date-range').daterangepicker();
     });
 </script>

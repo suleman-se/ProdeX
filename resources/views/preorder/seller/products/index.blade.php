@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 @section('panel_content')
 
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-auto">
                 <h1 class="h3">{{ translate('Preorder Products') }}</h1>
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <select class="form-control form-control-sm aiz-selectpicker" name="type" onchange="sort_products()">
+                                <select class="form-control form-control-sm pex-selectpicker" name="type" onchange="sort_products()">
                                     <option value="">{{ translate('Filter by') }}</option>
                                     <option value="unit_price,desc" @isset($col_name , $query) @if($col_name == 'unit_price' && $query == 'desc') selected @endif @endisset>{{translate('Base Price (High > Low)')}}</option>
                                     <option value="unit_price,asc" @isset($col_name , $query) @if($col_name == 'unit_price' && $query == 'asc') selected @endif @endisset>{{translate('Base Price (Low > High)')}}</option>
@@ -105,15 +105,15 @@
 
 
             <div class="card-body">
-                <table class="table aiz-table mb-0">
+                <table class="table pex-table mb-0">
                     <thead>
                         <tr class="text-muted fs-12 fw-600">
                             <th>
                                 <div class="form-group">
-                                    <div class="aiz-checkbox-inline">
-                                        <label class="aiz-checkbox">
+                                    <div class="pex-checkbox-inline">
+                                        <label class="pex-checkbox">
                                             <input type="checkbox" class="check-all">
-                                            <span class="aiz-square-check"></span>
+                                            <span class="pex-square-check"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -137,9 +137,9 @@
                             <tr>
                                 <td>
                                     <div class="form-group d-inline-block">
-                                        <label class="aiz-checkbox">
+                                        <label class="pex-checkbox">
                                             <input type="checkbox" class="check-one" name="ids[]" value="{{ $product->id }}">
-                                            <span class="aiz-square-check"></span>
+                                            <span class="pex-square-check"></span>
                                         </label>
                                     </div>
                                 </td>
@@ -230,7 +230,7 @@
                                 <td>
                                     <div class="mb-2">
                                         <span class="opacity-60 text-muted text-truncate-2 fs-12">{{ translate('Publish') }}</span>
-                                        <label class="aiz-switch aiz-switch-success mb-0 mt-2">
+                                        <label class="pex-switch pex-switch-success mb-0 mt-2">
                                             <input onchange="update_published(this)" 
                                                 value="{{ $product->id }}"
                                                 type="checkbox" 
@@ -275,7 +275,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="aiz-pagination">
+                <div class="pex-pagination">
                     {{ $products->appends(request()->input())->links() }}
                 </div>
             </div>
@@ -321,20 +321,20 @@
                 status: status
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success', '{{ translate('Published product updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Published product updated successfully') }}');
                 }
                 else if(data == 2){
-                    AIZ.plugins.notify('danger', '{{ translate('Please upgrade your package.') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Please upgrade your package.') }}');
                 } 
                 else if(data == 3){
-                    AIZ.plugins.notify('warning', '{{ translate('GST verification is pending for your account.') }}');
+                    PEX.plugins.notify('warning', '{{ translate('GST verification is pending for your account.') }}');
                 } 
                 else if(data == 4){
-                    AIZ.plugins.notify('warning', '{{ translate('Please assign GST details') }}');
+                    PEX.plugins.notify('warning', '{{ translate('Please assign GST details') }}');
                 }
 
                 else {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
                 location.reload();
             });
@@ -353,9 +353,9 @@
                 status: status
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success', '{{ translate('Featured product updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Featured product updated successfully') }}');
                 } else {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
@@ -374,9 +374,9 @@
                 product_ids: productIds
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success', '{{ translate('Products deleted successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Products deleted successfully') }}');
                 } else {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
                 location.reload();
             });

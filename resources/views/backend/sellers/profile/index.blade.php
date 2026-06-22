@@ -442,12 +442,12 @@
             
             // Initialize FooTable after content loads
             setTimeout(function() {
-                if (typeof AIZ !== 'undefined' && AIZ.plugins.fooTable) {
-                    AIZ.plugins.sectionFooTable('#tab-content');
-                    $('.aiz-table').trigger('footable_redraw');
+                if (typeof PEX !== 'undefined' && PEX.plugins.fooTable) {
+                    PEX.plugins.sectionFooTable('#tab-content');
+                    $('.pex-table').trigger('footable_redraw');
 
-                    if (AIZ.plugins.bootstrapSelect) {
-                        AIZ.plugins.bootstrapSelect('refresh');
+                    if (PEX.plugins.bootstrapSelect) {
+                        PEX.plugins.bootstrapSelect('refresh');
                     }
                 }
             }, 100);
@@ -549,14 +549,14 @@
                     });
 
                     $('.check-all').prop('checked', false);
-                    AIZ.plugins.notify('success', 'Selected items deleted successfully');
+                    PEX.plugins.notify('success', 'Selected items deleted successfully');
                     $('#bulk-delete-modal').modal('hide');
                 } else {
-                    AIZ.plugins.notify('danger', 'Delete failed. Try again.');
+                    PEX.plugins.notify('danger', 'Delete failed. Try again.');
                 }
             },
             error: function() {
-                AIZ.plugins.notify('danger', 'Something went wrong.');
+                PEX.plugins.notify('danger', 'Something went wrong.');
             }
         });
     }
@@ -627,7 +627,7 @@
 
         function showConfirmationModal({ url, message }) {
             if ('{{ env('DEMO_MODE') }}' === 'On') {
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
             document.getElementById('universal-modal-message').innerText = message;

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="align-items-center">
             <h1 class="h3">{{ translate('Email Templates') }}</h1>
         </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table aiz-table mb-0">
+                <table class="table pex-table mb-0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -44,7 +44,7 @@
                                 <td>
                                     {{ $emailTemplate->subject }}</td>
                                 <td>
-                                    <label class="aiz-switch aiz-switch-success mb-0">
+                                    <label class="pex-switch pex-switch-success mb-0">
                                         <input onchange="update_status(this)" 
                                             value="{{ $emailTemplate->id }}"
                                             type="checkbox" 
@@ -64,7 +64,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="aiz-pagination">
+                <div class="pex-pagination">
                     {{ $emailTemplates->appends(request()->input())->links() }}
                 </div>
             </div>
@@ -89,10 +89,10 @@
                 status: status
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success',
+                    PEX.plugins.notify('success',
                         '{{ translate('Email Template status updated successfully') }}');
                 } else {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

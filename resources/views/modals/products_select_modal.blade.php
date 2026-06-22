@@ -8,7 +8,7 @@
             <div class="modal-body" style="min-height: 300px;">
                 <div class="row gutters-5">
                     <div class="col-md-6">
-                        <select class="form-control aiz-selectpicker" name="selected_Products_category" onchange="filterProductByCategory()" data-placeholder="{{ translate('Select a Category')}}" data-live-search="true">
+                        <select class="form-control pex-selectpicker" name="selected_Products_category" onchange="filterProductByCategory()" data-placeholder="{{ translate('Select a Category')}}" data-live-search="true">
                             <option value="">{{ translate('Choose Category') }}</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->getTranslation('name') }} </option>

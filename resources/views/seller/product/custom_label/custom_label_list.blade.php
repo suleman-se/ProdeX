@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 
 @section('panel_content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Custom Label') }}</h1>
@@ -18,7 +18,7 @@
 
     <div class="card col-md-12 mx-auto">
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                     <tr>
                         <th data-breakpoints="lg">#</th>
@@ -64,7 +64,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
                 {{ $custom_labels->appends(request()->input())->links() }}
             </div>
         </div>

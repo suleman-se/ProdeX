@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Custom Label') }}</h1>
@@ -21,7 +21,7 @@
             <div class="form-group mb-0 row">
                 <label class="col-md-2 col-from-label">{{translate('Sellers Can Create Custom Label')}}?</label>
                 <div class="col-md-10">
-                    <label class="aiz-switch aiz-switch-success mb-0 d-block">
+                    <label class="pex-switch pex-switch-success mb-0 d-block">
                         <input type="checkbox" 
                             id="seller_can_add_custom_label_checkbox" 
                             @if(get_setting('seller_can_add_custom_label')) checked @endif>
@@ -117,7 +117,7 @@
 
             $('#seller_can_add_custom_label_checkbox').on('change', function() {
                 if('{{ env('DEMO_MODE') }}' == 'On') {
-                    AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                    PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                     $(this).prop('checked', !$(this).is(':checked'));
                     return;
                 }
@@ -148,7 +148,7 @@
 
             window.trigger_alert = function(el) {
                 if('{{ env('DEMO_MODE') }}' == 'On'){
-                    AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                    PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                     return;
                 }
 
@@ -190,12 +190,12 @@
                     seller_access: seller_access
                 }, function(data) {
                     if (data == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Custom Label seller access updated successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Custom Label seller access updated successfully') }}');
                     } else {
-                        AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                        PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                     }
                 }).fail(function() {
-                    AIZ.plugins.notify('danger', '{{ translate('Network error') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Network error') }}');
                 });
             }
 
@@ -229,7 +229,7 @@
 
             window.updateSettings = function(type, value) {
                 if('{{ env('DEMO_MODE') }}' == 'On') {
-                    AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                    PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                     return;
                 }
 
@@ -239,12 +239,12 @@
                     value: value
                 }, function(data) {
                     if (data == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
                     } else {
-                        AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                        PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                     }
                 }).fail(function() {
-                    AIZ.plugins.notify('danger', '{{ translate('Network error') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Network error') }}');
                 });
             };
 
@@ -280,7 +280,7 @@
                         $('#custom-label-table-wrapper').html(
                             '<div class="text-center text-danger py-5">Something went wrong</div>'
                         );
-                        AIZ.plugins.notify('danger', '{{ translate("Something went wrong") }}');
+                        PEX.plugins.notify('danger', '{{ translate("Something went wrong") }}');
                     }
                 });
             });

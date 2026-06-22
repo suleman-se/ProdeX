@@ -1,14 +1,14 @@
 <div class="card-body">
-    <table class="table mb-0" id="aiz-data-table">
+    <table class="table mb-0" id="pex-data-table">
         <thead>
             <tr>
                 @if (auth()->user()->can('pickup_address_delete'))
                     <th>
                         <div class="form-group">
-                            <div class="aiz-checkbox-inline">
-                                <label class="aiz-checkbox pt-5px d-block">
+                            <div class="pex-checkbox-inline">
+                                <label class="pex-checkbox pt-5px d-block">
                                     <input type="checkbox" class="check-all">
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                 </label>
                             </div>
                         </div>
@@ -42,10 +42,10 @@
                             </div>
                             @if (auth()->user()->can('pickup_address_delete'))
                             <div class="form-group d-inline-block">
-                                <label class="aiz-checkbox">
+                                <label class="pex-checkbox">
                                     <input type="checkbox" class="check-one" name="id[]"
                                         value="{{ $pickup_address->id }}">
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                 </label>
                             </div>
                             @else
@@ -75,7 +75,7 @@
                     <td class="hide-xs" data-label="Status">
                         <div class="row gutters-5 w-80px w-md-80px mw-80">
                             <div class="col">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" onchange="update_status(this)"
                                         value="{{ $pickup_address->id }}" <?php if ($pickup_address->status == 1) {
                                             echo 'checked';
@@ -158,7 +158,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="aiz-pagination">
+    <div class="pex-pagination">
         {{ $pickup_addresses->appends(request()->input())->links() }}
     </div>
 </div>

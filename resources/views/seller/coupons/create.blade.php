@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 @section('panel_content')
 
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Add Your Coupon') }}</h1>
@@ -31,7 +31,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-from-label" for="name">{{translate('Coupon Type')}}</label>
                             <div class="col-lg-9">
-                                <select name="type" id="coupon_type" class="form-control aiz-selectpicker" onchange="coupon_form()" required>
+                                <select name="type" id="coupon_type" class="form-control pex-selectpicker" onchange="coupon_form()" required>
                                     <option value="">{{translate('Select One') }}</option>
                                     <option value="product_base" @if (old('type') == 'product_base') selected @endif>{{translate('For Products')}}</option>
                                     <option value="cart_base" @if (old('type') == 'cart_base') selected @endif>{{translate('For Total Orders')}}</option>

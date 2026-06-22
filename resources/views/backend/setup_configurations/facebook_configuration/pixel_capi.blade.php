@@ -12,7 +12,7 @@
                         @csrf
                         <input type="hidden" name="pixel" value="facebook_pixel_capi">
                         <div class="d-flex mb-1 align-items-center">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input value="1" name="facebook_pixel_capi" type="checkbox" @if (get_setting('facebook_pixel_capi') == 1)
                                     checked
                                 @endif>

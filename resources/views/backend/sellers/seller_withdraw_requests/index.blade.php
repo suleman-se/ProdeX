@@ -5,7 +5,7 @@
             <h5 class="mb-0 h6">{{translate('Seller Withdraw Request')}}</h5>
         </div>
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                     <tr>
                         <th data-breakpoints="lg">#</th>
@@ -58,7 +58,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
                 {{ $seller_withdraw_requests->links() }}
             </div>
         </div>

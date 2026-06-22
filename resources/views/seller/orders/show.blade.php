@@ -20,7 +20,7 @@
                     <div class="col-md-3 ml-auto">
                         <label for="update_payment_status">{{ translate('Payment Status') }}</label>
                         @if (($order->payment_type == 'cash_on_delivery' || (addon_is_activated('offline_payment') == 1 && $order->manual_payment == 1)) && $payment_status == 'unpaid')
-                            <select class="form-control aiz-selectpicker" data-minimum-results-for-search="Infinity"
+                            <select class="form-control pex-selectpicker" data-minimum-results-for-search="Infinity"
                                 id="update_payment_status">
                                 <option value="unpaid" @if ($payment_status == 'unpaid') selected @endif>
                                     {{ translate('Unpaid') }}</option>
@@ -34,7 +34,7 @@
                     <div class="col-md-3 ml-auto">
                         <label for="update_delivery_status">{{ translate('Delivery Status') }}</label>
                         @if ($delivery_status != 'delivered' && $delivery_status != 'cancelled')
-                            <select class="form-control aiz-selectpicker" data-minimum-results-for-search="Infinity"
+                            <select class="form-control pex-selectpicker" data-minimum-results-for-search="Infinity"
                                 id="update_delivery_status">
                                 <option value="pending" @if ($delivery_status == 'pending') selected @endif>
                                     {{ translate('Pending') }}</option>
@@ -164,7 +164,7 @@
             <hr class="new-section-sm bord-no">
             <div class="row">
                 <div class="col-lg-12 table-responsive">
-                    <table class="table-bordered aiz-table invoice-summary table">
+                    <table class="table-bordered pex-table invoice-summary table">
                         <thead>
                             <tr class="bg-trans-dark">
                                 <th data-breakpoints="lg" class="min-col">#</th>
@@ -420,7 +420,7 @@
                 status: status
             }, function(data) {
                 $('#order_details').modal('hide');
-                AIZ.plugins.notify('success', '{{ translate('Order status has been updated') }}');
+                PEX.plugins.notify('success', '{{ translate('Order status has been updated') }}');
                 location.reload().setTimeOut(500);
             });
         });
@@ -435,7 +435,7 @@
             }, function(data) {
                 $('#order_details').modal('hide');
                 //console.log(data);
-                AIZ.plugins.notify('success', '{{ translate('Payment status has been updated') }}');
+                PEX.plugins.notify('success', '{{ translate('Payment status has been updated') }}');
                 location.reload().setTimeOut(500);
             });
         });

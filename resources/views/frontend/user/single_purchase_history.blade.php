@@ -200,7 +200,7 @@
 @endforelse
 
 @if ($orders->count() > 0)
-    <div class="aiz-pagination mt-4 mb-4" id="pagination">
+    <div class="pex-pagination mt-4 mb-4" id="pagination">
         {{ $orders->links() }}
     </div>
 @endif

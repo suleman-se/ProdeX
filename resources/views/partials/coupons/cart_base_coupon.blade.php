@@ -19,7 +19,7 @@
       <input type="number" lang="en" min="0" step="0.01" placeholder="{{translate('Discount')}}" name="discount" class="form-control" required>
    </div>
    <div class="col-lg-2">
-       <select class="form-control aiz-selectpicker" name="discount_type">
+       <select class="form-control pex-selectpicker" name="discount_type">
            <option value="amount">{{translate('Amount')}}</option>
            <option value="percent">{{translate('Percent')}}</option>
        </select>
@@ -34,14 +34,14 @@
 <div class="form-group row">
     <label class="col-sm-3 control-label" for="start_date">{{translate('Date')}}</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control aiz-date-range" name="date_range" placeholder="{{ translate('Select Date') }}">
+      <input type="text" class="form-control pex-date-range" name="date_range" placeholder="{{ translate('Select Date') }}">
     </div>
 </div>
 
 <script type="text/javascript">
 
     $(document).ready(function(){
-        $('.aiz-selectpicker').selectpicker();
-        $('.aiz-date-range').daterangepicker();
+        $('.pex-selectpicker').selectpicker();
+        $('.pex-date-range').daterangepicker();
     });
 </script>

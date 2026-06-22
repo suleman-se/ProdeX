@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="align-items-center">
             <h1 class="h3">{{ translate('Notification Types') }}</h1>
         </div>
@@ -48,7 +48,7 @@
         </form>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table aiz-table mb-0">
+                <table class="table pex-table mb-0">
                     <thead>
                         <tr>
                             <th width="40">#</th>
@@ -70,7 +70,7 @@
                                 <td class="fs-12 fw-700">{{ $notificationType->getTranslation('name') }}</td>
                                 <td class="fs-11">{{ $notificationType->getTranslation('default_text') }}</td>
                                 <td>
-                                    <label class="aiz-switch aiz-switch-success mb-0">
+                                    <label class="pex-switch pex-switch-success mb-0">
                                         <input onchange="update_status(this)" 
                                             value="{{ $notificationType->id }}"
                                             type="checkbox" 
@@ -92,7 +92,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="aiz-pagination">
+                <div class="pex-pagination">
                     {{ $notificationTypes->appends(request()->input())->links() }}
                 </div>
             </div>
@@ -117,10 +117,10 @@
                 status: status
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success',
+                    PEX.plugins.notify('success',
                         '{{ translate('Notification type status updated successfully') }}');
                 } else {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

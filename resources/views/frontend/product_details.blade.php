@@ -130,7 +130,7 @@
                 <!--DESCRIPTION SECTION START-->
                 <section id="description">
                     <div class="py-30px px-30px border  bg-white border-light-gray rounded-2">
-                        <div class="mw-100 overflow-hidden text-left aiz-editor-data">
+                        <div class="mw-100 overflow-hidden text-left pex-editor-data">
                             <?php echo $detailedProduct->getTranslation('description'); ?>
                         </div>
                     </div>
@@ -383,7 +383,7 @@
                     </div>
                      <div class="pb-3">
                         <h5 class="fs-16 fw-600 text-dark">{{translate('Share to')}}</h5>
-                        <div class="aiz-share text-center"></div>
+                        <div class="pex-share text-center"></div>
                      </div>
                 </div>
             </div>
@@ -684,10 +684,10 @@
             $temp.val(url).select();
             try {
                 document.execCommand("copy");
-                AIZ.plugins.notify('success', '{{ translate('Link copied to clipboard') }}');
+                PEX.plugins.notify('success', '{{ translate('Link copied to clipboard') }}');
                 //reset temp input value
             } catch (err) {
-                AIZ.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
+                PEX.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
             }
             $temp.remove();
         }
@@ -698,7 +698,7 @@
             var skuText = $('#variant_sku').text().trim();
 
             if (skuText === "") {
-                AIZ.plugins.notify('warning', 'No SKU to copy');
+                PEX.plugins.notify('warning', 'No SKU to copy');
                 return;
             }
 
@@ -708,9 +708,9 @@
 
             try {
                 document.execCommand("copy");
-                AIZ.plugins.notify('success', '{{ translate('SKU copied to clipboard') }}');
+                PEX.plugins.notify('success', '{{ translate('SKU copied to clipboard') }}');
             } catch (err) {
-                AIZ.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
+                PEX.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
             }
             
             $temp.remove();
@@ -855,7 +855,7 @@
             @if (isCustomer() || isSeller())
                 $('#bid_for_detail_product').modal('show');
           	@elseif (isAdmin())
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, Only customers & Sellers can Bid.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, Only customers & Sellers can Bid.") }}');
             @else
                 $('#login_modal').modal('show');
             @endif
@@ -865,7 +865,7 @@
             $('#size-chart-show-modal .modal-title').html('');
             $('#size-chart-show-modal .modal-body').html('');
             if (id == 0) {
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, There is no size guide found for this product.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, There is no size guide found for this product.") }}');
                 return false;
             }
             $.ajax({
@@ -968,12 +968,12 @@
                             if (rightOffcanvas) {
                                 rightOffcanvas.innerHTML = html;
 
-                                if (typeof AIZ !== 'undefined' && AIZ.extra && AIZ.extra.inputRating) {
-                                    AIZ.extra.inputRating();
+                                if (typeof PEX !== 'undefined' && PEX.extra && PEX.extra.inputRating) {
+                                    PEX.extra.inputRating();
                                 }
 
-                                if (typeof AIZ !== 'undefined' && AIZ.plugins && AIZ.plugins.aizUploader) {
-                                    AIZ.plugins.aizUploader();
+                                if (typeof PEX !== 'undefined' && PEX.plugins && PEX.plugins.pexUploader) {
+                                    PEX.plugins.pexUploader();
                                 }
                             }
                         },
@@ -981,14 +981,14 @@
                             if (rightOffcanvas) {
                                 rightOffcanvas.innerHTML = '<div class="p-4 text-center text-danger">{{ translate("Failed to load review form") }}</div>';
                             }
-                            AIZ.plugins.notify('danger', '{{ translate("Something went wrong") }}');
+                            PEX.plugins.notify('danger', '{{ translate("Something went wrong") }}');
                         }
                     });
                 @else
-                    AIZ.plugins.notify('warning', '{{ translate("Sorry, You need to buy this product to give review.") }}');
+                    PEX.plugins.notify('warning', '{{ translate("Sorry, You need to buy this product to give review.") }}');
                 @endif    
             @elseif (Auth::check() && !isCustomer())
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
             @else
                 $('#login_modal').modal('show');
             @endif    
@@ -1006,7 +1006,7 @@
             const comment = $('textarea[name="comment"]').val();
 
             if (!product_id) {
-                AIZ.plugins.notify('danger', 'Product ID is missing!');
+                PEX.plugins.notify('danger', 'Product ID is missing!');
                 return;
             }
 
@@ -1024,11 +1024,11 @@
             }
             
             if (!$('input[name="rating"]:checked').val()) {
-                AIZ.plugins.notify('warning', '{{ translate("Please select a rating") }}');
+                PEX.plugins.notify('warning', '{{ translate("Please select a rating") }}');
                 return;
             }
             if (!$('textarea[name="comment"]').val()) {
-                AIZ.plugins.notify('warning', '{{ translate("Please write a comment") }}');
+                PEX.plugins.notify('warning', '{{ translate("Please write a comment") }}');
                 return;
             }
             
@@ -1042,7 +1042,7 @@
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    AIZ.plugins.notify('success', '{{ translate("Review submitted successfully") }}');
+                    PEX.plugins.notify('success', '{{ translate("Review submitted successfully") }}');
                     
                     if (typeof closeOffcanvas === 'function') {
                         closeOffcanvas();
@@ -1065,7 +1065,7 @@
                 error: function(xhr) {
                     btn.prop('disabled', false).html('{{ translate("Confirm") }}');
                     const errorMsg = xhr.responseJSON?.message || '{{ translate("Something went wrong") }}';
-                    AIZ.plugins.notify('danger', errorMsg);
+                    PEX.plugins.notify('danger', errorMsg);
                 }
             });
         });

@@ -26,20 +26,15 @@
 						<div class="form-group row">
 							<label class="col-xxl-3 col-from-label fs-13">{{translate('Product Name')}} <span class="text-danger">*</span></label>
 							<div class="col-xxl-9">
-								<select name="layout" class="form-control aiz-selectpicker mb-2 mb-md-0" required>
+								<select name="layout" class="form-control pex-selectpicker mb-2 mb-md-0" required>
                                     <option value="classic">Classic</option>
                                     <!--<option value="metro">Metro</option>-->
                                     <!--<option value="minima">Minima</option>-->
                                 </select>
 							</div>
 						</div>
-						<!-- Purchase Code -->
-						<div class="form-group row">
-							<label class="col-xxl-3 col-from-label fs-13">{{translate('Purchase Code')}} <span class="text-danger">*</span></label>
-							<div class="col-xxl-9">
-								<input type="text" class="form-control" name="purchase_key" placeholder="{{ translate('CodeCanyon Purchase Code') }}" required>
-							</div>
-						</div>
+						<!-- Purchase Code (dummy) -->
+						<input type="hidden" name="purchase_key" value="11112222-3333-4444-5555-666677778888">
 						<!-- Domain Name -->
 						<div class="form-group row">
 							<label class="col-xxl-3 col-from-label fs-13">{{translate('Domain Name')}} <span class="text-danger">*</span></label>

@@ -5,9 +5,8 @@
     <div class="">
         <div class="row ">
             <div class="col-md-6">
-                <div class="nav border-bottom aiz-nav-tabs">
+                <div class="nav border-bottom pex-nav-tabs">
                     <a class="p-3 fs-16 text-reset show active" data-toggle="tab" href="#installed">{{ translate('Installed Addon')}}</a>
-                    <a class="p-3 fs-16 text-reset" data-toggle="tab" href="#available">{{ translate('Available Addon')}}</a>
                 </div>
             </div>
 			{{-- <div class="col mt-3 mt-md-0 text-center text-md-right">
@@ -16,9 +15,6 @@
 				</a>
             </div> --}}
             <div class="col mt-3 mt-md-0 text-center text-md-right">
-                <a href="https://activeitzone.com/activation/addon" class="btn btn-primary mb-3 mb-sm-0 mx-3 mx-md-0 mr-lg-3" target="_blank">
-					{{ translate('Activate Addon Link') }}
-				</a>
                 <a href="{{ route('addons.create')}}" class="btn btn-primary mx-3 mx-md-0">{{ translate('Install/Update Addon')}}</a>
             </div>
         </div>
@@ -47,7 +43,7 @@
                                                 </div>
                                             @endif
                                             <div class="ml-auto mr-0">
-                                                <label class="aiz-switch mb-0">
+                                                <label class="pex-switch mb-0">
                                                     <input type="checkbox" data-identifier="{{ $addon->unique_identifier }}" onchange="updateStatus(this, {{ $addon->id }})" <?php if($addon->activated) echo "checked";?>>
                                                     <span></span>
                                                 </label>
@@ -68,11 +64,6 @@
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="available">
-            <div class="row" id="available-addons-content">
-
-            </div>
-        </div>
     </div>
 
 
@@ -87,7 +78,7 @@
 
     function updateStatus(el, id) {
         if ('{{env('DEMO_MODE')}}' == 'On') {
-            AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+            PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
             $(el).prop('checked', !$(el).is(':checked')); 
             return;
         }
@@ -108,9 +99,9 @@
         // Perform AJAX
         $.post('{{ route('addons.activation') }}', {_token:'{{ csrf_token() }}',id:id, status:status}, function(data){
             if (data == 1){
-                AIZ.plugins.notify('success', '{{ translate('Status updated successfully') }}');
+                PEX.plugins.notify('success', '{{ translate('Status updated successfully') }}');
             } else {
-                AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 $(el).prop('checked', !$(el).is(':checked')); // Reset on error
             }
             gstConfirmed = false; 
@@ -142,51 +133,5 @@
              $(lastEl).prop('checked', false);
         }
     });
-
-        $(document).ready(function(){
-            $.post('https://activeitzone.com/addons/public/addons', {item: 'ecommerce'}, function(data){
-                //console.log(data);
-                html = '';
-                data.forEach((item, i) => {
-                    if(item.link != null){
-                        html += `<div class="col-lg-4 col-md-6 ">
-                                    <div class="card addon-card">
-                                        <div class="card-body">
-                                            <a href="${item.link}" target="_blank"><img class="img-fluid" src="${item.image}"></a>
-                                            <div class="pt-4">
-                                                <a class="fs-16 fw-600 text-reset" href="${item.link}" target="_blank">${item.name}</a>
-                                                <div class="rating mb-2"><i class="la la-star active"></i><i class="la la-star active"></i><i class="la la-star active"></i><i class="la la-star active"></i><i class="la la-star active"></i></div>
-                                                <p class="mar-no text-truncate-3">${item.short_description}</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="text-danger fs-22 fw-600">$${item.price}</div>
-                                            <div class=""><a href="${item.link}" target="_blank" class="btn btn-sm btn-secondary">Preview</a> <a href="${item.purchase}" target="_blank" class="btn btn-sm btn-primary">Purchase</a></div>
-                                        </div>
-                                    </div>
-                                </div>`;
-                    }
-                    else {
-                        html += `<div class="col-lg-4 col-md-6 ">
-                                    <div class="card addon-card">
-                                        <div class="card-body">
-                                            <a><img class="img-fluid" src="${item.image}"></a>
-                                            <div class="pt-4">
-                                                <a class="fs-16 fw-600 text-reset" >${item.name}</a>
-                                                <div class="rating mb-2"><i class="la la-star active"></i><i class="la la-star active"></i><i class="la la-star active"></i><i class="la la-star active"></i><i class="la la-star active"></i></div>
-                                                <p class="mar-no text-truncate-3">${item.short_description}</p>
-                                            </div>
-                                            <div class="card-footer">
-                                                <div class="text-center"><div class="btn btn-outline btn-primary">Coming Soon</div></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>`;
-                    }
-
-                });
-                $('#available-addons-content').html(html);
-            });
-        })
 </script>
 @endsection

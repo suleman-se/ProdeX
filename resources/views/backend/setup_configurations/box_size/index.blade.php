@@ -127,7 +127,7 @@
                 type: 'GET',
                 success: function(response) {
                     if (response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
                         hideBulkActionModal();
                         getShippingBoxSizes(currentTab);
                     }
@@ -149,20 +149,20 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', 'Selected items Deleted successfully');
+                        PEX.plugins.notify('success', 'Selected items Deleted successfully');
                         hideBulkActionModal();
                         getShippingBoxSizes(currentTab);
                     }
                 },
                 error: function () {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }
 
         function bulkDeleted() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one shipping box size') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one shipping box size') }}');
                 return;
             }
 

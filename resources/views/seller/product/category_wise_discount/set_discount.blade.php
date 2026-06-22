@@ -2,7 +2,7 @@
 
 @section('panel_content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{translate('Set Category Base Product Discount')}}</h1>
@@ -21,7 +21,7 @@
         </form>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -78,7 +78,7 @@
                         </td>
                        
                         <td>
-                            <input type="text" class="form-control aiz-date-range rounded-2" value="{{ $start_date && $end_date ? $start_date . ' to ' . $end_date : '' }}" placeholder="{{translate('Select Date')}}" id="date_range_{{ $category->id }}" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
+                            <input type="text" class="form-control pex-date-range rounded-2" value="{{ $start_date && $end_date ? $start_date . ' to ' . $end_date : '' }}" placeholder="{{translate('Select Date')}}" id="date_range_{{ $category->id }}" placeholder="{{translate('Select Date')}}" data-time-picker="true" data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
                         </td>
                         <td class="text-right">
                             <div class="form-group mb-0 text-right">
@@ -89,7 +89,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $categories->appends(request()->input())->links() }}
         </div>
     </div>
@@ -125,7 +125,7 @@
 
         $(document).ready(function() {
             setTimeout(() => {
-                AIZ.plugins.dateRange();
+                PEX.plugins.dateRange();
             }, "2000");
         });
         
@@ -141,7 +141,7 @@
             var dateRange =  $("#date_range_" + CategoryId).val();
 
             if(discount < 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Discount can not be less than 0') }}');
+                PEX.plugins.notify('danger', '{{ translate('Discount can not be less than 0') }}');
             }
             else{
                 $.post('{{ route('seller.set_product_discount') }}', {
@@ -151,10 +151,10 @@
                     date_range:dateRange
                 }, function(data) {
                     if(data == 1){
-                        AIZ.plugins.notify('success', '{{ translate('Category Wise Product Discount Set Successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Category Wise Product Discount Set Successfully') }}');
                     }
                     else{
-                        AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                        PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                     }
                     location.reload();
                 });

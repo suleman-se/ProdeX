@@ -133,7 +133,7 @@
                                                     <!-- Home Delivery -->
                                                     @if (get_setting('shipping_type') != 'carrier_wise_shipping')
                                                     <div class="col-6">
-                                                        <label class="aiz-megabox d-block bg-white mb-0">
+                                                        <label class="pex-megabox d-block bg-white mb-0">
                                                             <input
                                                                 type="radio"
                                                                 name="shipping_type_{{ get_admin()->id }}"
@@ -142,8 +142,8 @@
                                                                 data-target=".pickup_point_id_admin"
                                                                 checked
                                                             >
-                                                            <span class="d-flex aiz-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
-                                                                <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                            <span class="d-flex pex-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
+                                                                <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                                 <span class="flex-grow-1 pl-3 fw-600">{{  translate('Home Delivery') }}</span>
                                                             </span>
                                                         </label>
@@ -151,7 +151,7 @@
                                                     <!-- Carrier -->
                                                     @else
                                                     <div class="col-6">
-                                                        <label class="aiz-megabox d-block bg-white mb-0">
+                                                        <label class="pex-megabox d-block bg-white mb-0">
                                                             <input
                                                                 type="radio"
                                                                 name="shipping_type_{{ get_admin()->id }}"
@@ -160,8 +160,8 @@
                                                                 data-target=".pickup_point_id_admin"
                                                                 checked
                                                             >
-                                                            <span class="d-flex aiz-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
-                                                                <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                            <span class="d-flex pex-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
+                                                                <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                                 <span class="flex-grow-1 pl-3 fw-600">{{  translate('Carrier') }}</span>
                                                             </span>
                                                         </label>
@@ -170,7 +170,7 @@
                                                     <!-- Local Pickup -->
                                                     @if ($pickup_point_list)
                                                     <div class="col-6">
-                                                        <label class="aiz-megabox d-block bg-white mb-0">
+                                                        <label class="pex-megabox d-block bg-white mb-0">
                                                             <input
                                                                 type="radio"
                                                                 name="shipping_type_{{ get_admin()->id }}"
@@ -178,8 +178,8 @@
                                                                 onchange="show_pickup_point(this, 'admin')"
                                                                 data-target=".pickup_point_id_admin"
                                                             >
-                                                            <span class="d-flex aiz-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
-                                                                <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                            <span class="d-flex pex-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
+                                                                <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                                 <span class="flex-grow-1 pl-3 fw-600">{{  translate('Local Pickup') }}</span>
                                                             </span>
                                                         </label>
@@ -191,7 +191,7 @@
                                                 @if ($pickup_point_list)
                                                     <div class="mt-3 pickup_point_id_admin d-none">
                                                         <select
-                                                            class="form-control aiz-selectpicker rounded-0"
+                                                            class="form-control pex-selectpicker rounded-0"
                                                             name="pickup_point_id_{{ get_admin()->id }}"
                                                             data-live-search="true"
                                                         >
@@ -218,15 +218,15 @@
                                             <div class="row pt-3 carrier_id_admin">
                                                 @foreach($carrier_list as $carrier_key => $carrier)
                                                     <div class="col-md-12 mb-2">
-                                                        <label class="aiz-megabox d-block bg-white mb-0">
+                                                        <label class="pex-megabox d-block bg-white mb-0">
                                                             <input
                                                                 type="radio"
                                                                 name="carrier_id_{{ get_admin()->id }}"
                                                                 value="{{ $carrier->id }}"
                                                                 @if($carrier_key == 0) checked @endif
                                                             >
-                                                            <span class="d-flex flex-wrap p-3 aiz-megabox-elem rounded-0">
-                                                                <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                            <span class="d-flex flex-wrap p-3 pex-megabox-elem rounded-0">
+                                                                <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                                 <span class="flex-grow-1 pl-3 fw-600">
                                                                     <img src="{{ uploaded_asset($carrier->logo)}}" alt="Image" class="w-50px img-fit">
                                                                 </span>
@@ -294,7 +294,7 @@
                                                             <!-- Home Delivery -->
                                                             @if (get_setting('shipping_type') != 'carrier_wise_shipping')
                                                             <div class="col-6">
-                                                                <label class="aiz-megabox d-block bg-white mb-0">
+                                                                <label class="pex-megabox d-block bg-white mb-0">
                                                                     <input
                                                                         type="radio"
                                                                         name="shipping_type_{{ $key }}"
@@ -303,8 +303,8 @@
                                                                         data-target=".pickup_point_id_{{ $key }}"
                                                                         checked
                                                                     >
-                                                                    <span class="d-flex p-3 aiz-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
-                                                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                                    <span class="d-flex p-3 pex-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
+                                                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                                         <span class="flex-grow-1 pl-3 fw-600">{{  translate('Home Delivery') }}</span>
                                                                     </span>
                                                                 </label>
@@ -312,7 +312,7 @@
                                                             <!-- Carrier -->
                                                             @else
                                                             <div class="col-6">
-                                                                <label class="aiz-megabox d-block bg-white mb-0">
+                                                                <label class="pex-megabox d-block bg-white mb-0">
                                                                     <input
                                                                         type="radio"
                                                                         name="shipping_type_{{ $key }}"
@@ -321,8 +321,8 @@
                                                                         data-target=".pickup_point_id_{{ $key }}"
                                                                         checked
                                                                     >
-                                                                    <span class="d-flex p-3 aiz-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
-                                                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                                    <span class="d-flex p-3 pex-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
+                                                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                                         <span class="flex-grow-1 pl-3 fw-600">{{  translate('Carrier') }}</span>
                                                                     </span>
                                                                 </label>
@@ -331,7 +331,7 @@
                                                             <!-- Local Pickup -->
                                                             @if ($pickup_point_list)
                                                                 <div class="col-6">
-                                                                    <label class="aiz-megabox d-block bg-white mb-0">
+                                                                    <label class="pex-megabox d-block bg-white mb-0">
                                                                         <input
                                                                             type="radio"
                                                                             name="shipping_type_{{ $key }}"
@@ -339,8 +339,8 @@
                                                                             onchange="show_pickup_point(this, {{ $key }})"
                                                                             data-target=".pickup_point_id_{{ $key }}"
                                                                         >
-                                                                        <span class="d-flex p-3 aiz-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
-                                                                            <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                                        <span class="d-flex p-3 pex-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
+                                                                            <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                                             <span class="flex-grow-1 pl-3 fw-600">{{  translate('Local Pickup') }}</span>
                                                                         </span>
                                                                     </label>
@@ -352,7 +352,7 @@
                                                         @if ($pickup_point_list)
                                                             <div class="mt-4 pickup_point_id_{{ $key }} d-none">
                                                                 <select
-                                                                    class="form-control aiz-selectpicker rounded-0"
+                                                                    class="form-control pex-selectpicker rounded-0"
                                                                     name="pickup_point_id_{{ $key }}"
                                                                     data-live-search="true"
                                                                 >
@@ -379,15 +379,15 @@
                                                     <div class="row pt-3 carrier_id_{{ $key }}">
                                                         @foreach($carrier_list as $carrier_key => $carrier)
                                                             <div class="col-md-12 mb-2">
-                                                                <label class="aiz-megabox d-block bg-white mb-0">
+                                                                <label class="pex-megabox d-block bg-white mb-0">
                                                                     <input
                                                                         type="radio"
                                                                         name="carrier_id_{{ $key }}"
                                                                         value="{{ $carrier->id }}"
                                                                         @if($carrier_key == 0) checked @endif
                                                                     >
-                                                                    <span class="d-flex flex-wrap p-3 aiz-megabox-elem rounded-0">
-                                                                        <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                                                    <span class="d-flex flex-wrap p-3 pex-megabox-elem rounded-0">
+                                                                        <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                                         <span class="flex-grow-1 pl-3 fw-600">
                                                                             <img src="{{ uploaded_asset($carrier->logo)}}" alt="Image" class="w-50px img-fit">
                                                                         </span>

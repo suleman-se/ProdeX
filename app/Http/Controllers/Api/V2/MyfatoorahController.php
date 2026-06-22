@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V2;
 
 use App\Http\Controllers\CheckoutController;
-use MyFatoorah\Library\PaymentMyfatoorahApiV2;
+use MyFatoorah\Library\API\Payment\MyFatoorahPaymentStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CustomerPackageController;
 use App\Http\Controllers\WalletController;
@@ -20,14 +20,23 @@ use Redirect;
 class MyfatoorahController extends Controller
 {
     public $mfObj;
-    /**
-     * create MyFatoorah object
-     */
+
     public function __construct()
     {
+    }
 
-        // If you want to set the credentials and the mode manually.
-        $this->mfObj = new PaymentMyfatoorahApiV2(env('MYFATOORAH_TOKEN'), env('MYFATOORAH_COUNTRY_ISO'), get_setting('myfatoorah_sandbox') == 1 ? true : false);
+    protected function getMfObj()
+    {
+        if (!$this->mfObj) {
+            $config = [
+                'apiKey'    => env('MYFATOORAH_TOKEN') ?: 'temp_key_for_artisan_route_list',
+                'isTest'    => get_setting('myfatoorah_sandbox') == 1 ? true : false,
+                'vcCode'    => env('MYFATOORAH_COUNTRY_ISO') ?: 'KWT',
+                'loggerObj' => storage_path('logs/myfatoorah.log')
+            ];
+            $this->mfObj = new MyFatoorahPaymentStatus($config);
+        }
+        return $this->mfObj;
     }
 
     /**
@@ -73,7 +82,7 @@ class MyfatoorahController extends Controller
             'CustomerReference'  => $CustomerReference,
         ];
         try {
-            $data            = $this->mfObj->getInvoiceURL($data, $paymentMethodId);
+            $data            = $this->getMfObj()->getInvoiceURL($data, $paymentMethodId);
             if ($data['invoiceId']) {
                 $checkoutUrl = $data['invoiceURL'];
                 return Redirect::to($checkoutUrl);
@@ -94,7 +103,7 @@ class MyfatoorahController extends Controller
     public function callback(Request $request)
     {
         try {
-            $response = $this->mfObj->getPaymentStatus(request('paymentId'), 'PaymentId');
+            $response = $this->getMfObj()->getPaymentStatus(request('paymentId'), 'PaymentId');
             if ($response->InvoiceStatus == 'Paid') {
                 $customerReference = explode("-", $response->CustomerReference);
                 $payment_type = $customerReference[0];

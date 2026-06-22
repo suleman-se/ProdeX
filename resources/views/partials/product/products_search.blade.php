@@ -1,5 +1,5 @@
 @if(count($products) > 0)
-<table class="table table-bordered aiz-table">
+<table class="table table-bordered pex-table">
     <tbody>
       @php 
       $select_type = $single_select  ? 'radio' : 'checkbox'; 
@@ -12,9 +12,9 @@
               <td class="py-2">
                 <div class="from-group row align-items-center">
                   <div class="col-auto">
-                    <label class="aiz-checkbox">
+                    <label class="pex-checkbox">
                       <input type="{{ $select_type }}" @if($pos_check == 1 && $product->pos == 1) checked disabled @endif class="check-one product-select" name="{{$name}}" value="{{ $product->id }}">
-                      <span class="aiz-square-check"></span>
+                      <span class="pex-square-check"></span>
                     </label>
                     <img class="size-48px img-fit" src="{{ uploaded_asset($product->thumbnail_img)}}">
                   </div>

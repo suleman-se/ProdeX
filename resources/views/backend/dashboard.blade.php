@@ -681,7 +681,7 @@
     @include('backend.dashboard.dashboard_js')
 
     <script type="text/javascript">
-        AIZ.plugins.chart('#graph-3', {
+        PEX.plugins.chart('#graph-3', {
             type: 'line',
             data: {
                 labels: [
@@ -729,7 +729,7 @@
             }
         });
 
-        AIZ.plugins.chart('#graph-2', {
+        PEX.plugins.chart('#graph-2', {
             type: 'doughnut',
             data: {
                 labels: [

@@ -22,7 +22,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-from-label">{{translate('System Logo - White')}}</label>
                             <div class="col-sm-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                     </div>
@@ -37,7 +37,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-from-label">{{translate('System Logo - Black')}}</label>
                             <div class="col-sm-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                     </div>
@@ -53,7 +53,7 @@
                             <label class="col-sm-3 col-from-label">{{translate('System Timezone')}}</label>
                             <div class="col-sm-9">
                                 <input type="hidden" name="types[]" value="timezone">
-                                <select name="timezone" class="form-control aiz-selectpicker" data-live-search="true">
+                                <select name="timezone" class="form-control pex-selectpicker" data-live-search="true">
                                     @foreach (timezones() as $key => $value)
                                         <option value="{{ $value }}" @if (app_timezone() == $value)
                                             selected
@@ -65,7 +65,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-from-label">{{translate('Admin login page background')}}</label>
                             <div class="col-sm-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                     </div>

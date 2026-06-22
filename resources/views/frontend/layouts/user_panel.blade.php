@@ -4,7 +4,7 @@
     <div class="container">
         <div class="d-flex align-items-start">
 			@include('frontend.inc.user_side_nav')
-			<div class="aiz-user-panel">
+			<div class="pex-user-panel">
 				@yield('panel_content')
             </div>
         </div>

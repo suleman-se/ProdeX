@@ -2,7 +2,7 @@
 
 @section('panel_content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-auto">
             <h1 class="h3">{{translate('Detail Reviews')}}</h1>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr class="opacity-70">
                     <th data-breakpoints="lg">#</th>
@@ -109,7 +109,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $reviews->appends(request()->input())->links() }}
         </div>
     </div>

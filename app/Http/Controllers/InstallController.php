@@ -16,7 +16,12 @@ use ZipArchive;
 class InstallController extends Controller
 {
     public function step0() {
-        $this->writeEnvironmentFile('APP_URL', URL::to('/'));
+        // Only write to .env if APP_URL has actually changed to prevent
+        // php artisan serve from restarting on every page load
+        $currentUrl = URL::to('/');
+        if (filter_var($currentUrl, FILTER_VALIDATE_URL) && !str_contains($currentUrl, '://:') && env('APP_URL') !== $currentUrl) {
+            $this->writeEnvironmentFile('APP_URL', $currentUrl);
+        }
         return view('installation.step0');
     }
 
@@ -27,33 +32,21 @@ class InstallController extends Controller
         return view('installation.step1', compact('permission'));
     }
 
-    public function step2() {
-        return view('installation.step2');
-    }
-
-    public function step3($error = "") {
+    public function step2($error = "") {
         CoreComponentRepository::instantiateShopRepository();
         if($error == ""){
-            return view('installation.step3');
+            return view('installation.step2');
         }else {
-            return view('installation.step3', compact('error'));
+            return view('installation.step2', compact('error'));
         }
+    }
+
+    public function step3() {
+        return view('installation.step3');
     }
 
     public function step4() {
         return view('installation.step4');
-    }
-
-    public function step5() {
-        return view('installation.step5');
-    }
-
-    public function purchase_code(Request $request) {
-        Session::put('purchase_code', $request->purchase_code);
-        if ($request->system_key != null) {
-            $this->writeEnvironmentFile('SYSTEM_KEY', $request->system_key);
-        }
-        return redirect('step3');
     }
 
     public function system_settings(Request $request) {
@@ -84,15 +77,9 @@ class InstallController extends Controller
         copy($newRouteServiceProvier, $previousRouteServiceProvier);
         //sleep(5);
 
-        if (Session::has('purchase_code')) {
-            $business_settings = new BusinessSetting;
-            $business_settings->type = 'purchase_code';
-            $business_settings->value = Session::get('purchase_code');
-            $business_settings->save();
-            Session::forget('purchase_code');
-        }
+        
         Artisan::call('optimize:clear');
-        return view('installation.step6');
+        return view('installation.step5');
     }
     public function database_installation(Request $request) {
 
@@ -102,19 +89,19 @@ class InstallController extends Controller
                 foreach ($request->types as $type) {
                     $this->writeEnvironmentFile($type, $request[$type]);
                 }
-                return redirect('step4');
+                return redirect('step2');
             }else {
-                return redirect('step3');
+                return redirect('step2');
             }
         }else {
-            return redirect('step3/database_error');
+            return redirect('step2/database_error');
         }
     }
 
     public function import_sql() {
         $sql_path = base_path('shop.sql');
         DB::unprepared(file_get_contents($sql_path));
-        return redirect('step5');
+        return redirect('step4');
     }
 
     public function import_sql_with_demo() {
@@ -130,7 +117,7 @@ class InstallController extends Controller
         $zip->open(base_path('public/uploads.zip'));
         $zip->extractTo('public/uploads/all/');
         flash(translate('Demo data uploaded successfully'))->success();
-        return redirect('step5');
+        return redirect('step4');
     }
 
     function check_database_connection($db_host = "", $db_name = "", $db_user = "", $db_pass = "") {

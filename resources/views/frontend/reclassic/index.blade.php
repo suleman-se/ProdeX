@@ -5,7 +5,7 @@
         .home-slider {
             max-width: 100% !important;
         }
-        .home-banner-area .aiz-category-menu .sub-cat-menu {
+        .home-banner-area .pex-category-menu .sub-cat-menu {
             width: calc(100% - 290px);
             left: calc(280px);
         }
@@ -54,7 +54,7 @@
                     <!-- Sliders -->
                     @if (get_setting('home_slider_images', null, $lang) != null)
                         <div class="home-slider">
-                            <div class="aiz-carousel overflow-hidden rounded-2" data-autoplay="true" data-infinite="true">
+                            <div class="pex-carousel overflow-hidden rounded-2" data-autoplay="true" data-infinite="true">
                                 @php
                                     $decoded_slider_images = json_decode(get_setting('home_slider_images', null, $lang), true);
                                     $sliders = get_slider_images($decoded_slider_images);
@@ -79,7 +79,7 @@
                     <!-- Featured Categories -->
                     @if (count($featured_categories) > 0)
                         <div class="bg-whit mt-4">
-                            <div class="aiz-carousel slick-left arrow-inactive-none arrow-x-0" data-items="6.5" data-xxl-items="6.5" data-xl-items="4.5"
+                            <div class="pex-carousel slick-left arrow-inactive-none arrow-x-0" data-items="6.5" data-xxl-items="6.5" data-xl-items="4.5"
                                 data-lg-items="5" data-md-items="5" data-sm-items="3" data-xs-items="2" data-arrows="true">
                                 @foreach ($featured_categories as $key => $category)
                                     @php
@@ -175,7 +175,7 @@
                     $home_banner1_links = get_setting('home_banner1_links', null, $lang);
                 @endphp
                 <div class="w-100">
-                    <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+                    <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
                         data-items="{{ count($banner_1_imags) }}" data-xxl-items="{{ count($banner_1_imags) }}"
                         data-xl-items="{{ count($banner_1_imags) }}" data-lg-items="{{ $data_md }}"
                         data-md-items="{{ $data_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -220,7 +220,7 @@
                                 </svg>
                             </h3>
                             <!-- Countdown -->
-                            <div class="aiz-count-down align-items-center ml-2 mb-2 mb-lg-0" data-date="{{ date('Y/m/d H:i:s', $flash_deal->end_date) }}"></div>
+                            <div class="pex-count-down align-items-center ml-2 mb-2 mb-lg-0" data-date="{{ date('Y/m/d H:i:s', $flash_deal->end_date) }}"></div>
                         </div>
 
                         <!-- Links -->
@@ -252,7 +252,7 @@
                                 $flash_deal_products = get_flash_deal_products($flash_deal->id);
                             @endphp
                             <div class="pr-md-3">
-                                <div class="aiz-carousel gutters-16 arrow-inactive-none arrow-x-0"
+                                <div class="pex-carousel gutters-16 arrow-inactive-none arrow-x-0"
                                 data-items="5" data-xxl-items="5" data-xl-items="4" data-lg-items="3" data-md-items="2.5"
                                 data-sm-items="2.3" data-xs-items="1" data-arrows="true" data-dots="false">
                                 @foreach ($flash_deal_products as $key => $flash_deal_product)
@@ -265,7 +265,7 @@
                                                 }
                                             @endphp
                                             <div
-                                                class="aiz-card-box h-180px h-md-200px h-lg-280px flash-deal-item position-relative text-center">
+                                                class="pex-card-box h-180px h-md-200px h-lg-280px flash-deal-item position-relative text-center">
                                                 <a href="{{ $product_url }}"
                                                     class="d-block overflow-hidden hov-scale-img"
                                                     title="{{ $flash_deal_product->product->getTranslation('name') }}">
@@ -324,7 +324,7 @@
                         $home_preorder_banner_1_links = get_setting('home_preorder_banner_1_links', null, $lang);
                     @endphp
                     <div class="rounded-2 overflow-hidden">
-                        <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+                        <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
                         data-items="{{ count($banner_2_imags) }}" data-xxl-items="{{ count($banner_2_imags) }}"
                         data-xl-items="{{ count($banner_2_imags) }}" data-lg-items="{{ $data_md }}"
                         data-md-items="{{ $data_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -365,7 +365,7 @@
                     $home_banner2_links = get_setting('home_banner2_links', null, $lang);
                 @endphp
                 <div class="rounded-2 overflow-hidden">
-                    <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+                    <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
                     data-items="{{ count($banner_2_imags) }}" data-xxl-items="{{ count($banner_2_imags) }}"
                     data-xl-items="{{ count($banner_2_imags) }}" data-lg-items="{{ $data_md }}"
                     data-md-items="{{ $data_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -407,7 +407,7 @@
                     $data_md = count($banner_3_imags) >= 2 ? 2 : 1;
                     $home_banner3_links = get_setting('home_banner3_links', null, $lang);
                 @endphp
-                <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+                <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
                     data-items="{{ count($banner_3_imags) }}" data-xxl-items="{{ count($banner_3_imags) }}"
                     data-xl-items="{{ count($banner_3_imags) }}" data-lg-items="{{ $data_md }}"
                     data-md-items="{{ $data_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -553,7 +553,7 @@
                                 @foreach ($classified_products as $key => $classified_product)
                                     <div
                                         class="col-xxl-4 col-md-6 has-transition hov-shadow-out z-1">
-                                        <div class="aiz-card-box py-2 has-transition">
+                                        <div class="pex-card-box py-2 has-transition">
                                             <div class="row hov-scale-img">
                                                 <div class="col-4 col-md-5 mb-3 mb-md-0">
                                                     <a href="{{ route('customer.product', $classified_product->slug) }}"

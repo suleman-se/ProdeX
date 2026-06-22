@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label for="custom_reviewer_image">{{ translate('Custom Reviewer Image')}}</label>
                         <div class="">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                 </div>
@@ -37,7 +37,7 @@
                         @if($product != null)
                             <input type="text" value="{{ $product->main_category->getTranslation('name') }}" class="form-control" readonly>                        
                         @else
-                            <select class="form-control aiz-selectpicker" 
+                            <select class="form-control pex-selectpicker" 
                                 data-live-search="true" 
                                 data-placeholder="{{ translate('Select Category') }}" 
                                 name="category_id">
@@ -56,7 +56,7 @@
                         <label for="product">{{ translate('Product')}} <span class="text-danger">*</span></label>
                         <select name="product_id" 
                                 id="product_selection" 
-                                class="form-control aiz-selectpicker"  
+                                class="form-control pex-selectpicker"  
                                 data-placeholder="{{ translate('Choose Product') }}" 
                                 data-live-search="true"
                                 disabled
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <div class="date-selection-div d-none">
-                            <input type="text" class="form-control aiz-date-range" name="custom_date" placeholder="{{ translate('Select Date') }}" data-single="true" data-time-picker="true" data-format="Y-MM-DD HH:mm:ss" data-show-dropdown="true" autocomplete="off">
+                            <input type="text" class="form-control pex-date-range" name="custom_date" placeholder="{{ translate('Select Date') }}" data-single="true" data-time-picker="true" data-format="Y-MM-DD HH:mm:ss" data-show-dropdown="true" autocomplete="off">
                         </div>
                     </div>
 
@@ -131,7 +131,7 @@
                     <div class="form-group">
                         <label class="" for="photos">{{translate('Review Images')}}</label>
                         <div class="">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                 </div>
@@ -187,7 +187,7 @@
                     if(data != '') {
                         $("#product_selection").removeAttr("disabled");
                         $('#product_selection').html(data);
-                        AIZ.plugins.bootstrapSelect('refresh');
+                        PEX.plugins.bootstrapSelect('refresh');
                     }
                 }
             });

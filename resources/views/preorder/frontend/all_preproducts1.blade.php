@@ -33,7 +33,7 @@
                     @endforeach
                 </div>
                 <!-- Pagination -->
-                <div class="aiz-pagination aiz-pagination-center mt-4">
+                <div class="pex-pagination pex-pagination-center mt-4">
                     {{ $products->links() }}
                 </div>
             </div>

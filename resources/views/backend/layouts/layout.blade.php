@@ -20,12 +20,12 @@
 	<!-- google font -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
 
-	<!-- aiz core css -->
+	<!-- pex core css -->
 	<link rel="stylesheet" href="{{ static_asset('assets/css/vendors.css') }}">
     @if(\App\Models\Language::where('code', Session::get('locale', Config::get('app.locale')))->first()->rtl == 1)
     <link rel="stylesheet" href="{{ static_asset('assets/css/bootstrap-rtl.min.css') }}">
     @endif
-	<link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css?v=') }}{{ rand(1000,9999) }}">
+	<link rel="stylesheet" href="{{ static_asset('assets/css/pex-core.css?v=') }}{{ rand(1000,9999) }}">
 
     <style>
         body {
@@ -33,8 +33,8 @@
         }
     </style>
 	<script>
-    	var AIZ = AIZ || {};
-        AIZ.local = {
+    	var PEX = PEX || {};
+        PEX.local = {
             nothing_selected: '{{ translate('Nothing selected') }}',
             nothing_found: '{{ translate('Nothing found') }}',
             choose_file: '{{ translate('Choose file') }}',
@@ -61,23 +61,23 @@
 </head>
 <body class="">
 
-	<div class="aiz-main-wrapper d-flex">
+	<div class="pex-main-wrapper d-flex">
         <div class="flex-grow-1">
             @yield('content')
         </div>
-    </div><!-- .aiz-main-wrapper -->
+    </div><!-- .pex-main-wrapper -->
 
     @yield('modal')
 
 
     <script src="{{ static_asset('assets/js/vendors.js') }}" ></script>
-    <script src="{{ static_asset('assets/js/aiz-core.js?v=') }}{{ rand(1000,9999) }}" ></script>
+    <script src="{{ static_asset('assets/js/pex-core.js?v=') }}{{ rand(1000,9999) }}" ></script>
 
     @yield('script')
 
     <script type="text/javascript">
         @foreach (session('flash_notification', collect())->toArray() as $message)
-            AIZ.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
+            PEX.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
         @endforeach
     </script>
 

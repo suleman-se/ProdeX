@@ -22,11 +22,11 @@
                 <input type="hidden" name="ticket_id" value="{{$ticket->id}}" required>
                 <input type="hidden" name="user_id" value="{{$ticket->user_id}}">
                 <div class="form-group">
-                    <textarea class="aiz-text-editor rounded-0" name="reply" data-buttons='[["font", ["bold", "underline", "italic"]],["para", ["ul", "ol"]],["view", ["undo","redo"]]]' required></textarea>
+                    <textarea class="pex-text-editor rounded-0" name="reply" data-buttons='[["font", ["bold", "underline", "italic"]],["para", ["ul", "ol"]],["view", ["undo","redo"]]]' required></textarea>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-12">
-                        <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                        <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium rounded-0">{{ translate('Browse')}}</div>
                             </div>

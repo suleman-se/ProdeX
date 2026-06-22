@@ -24,7 +24,7 @@
                                 <div class="col-12 col-md-4 col-xl-4 col-xxl-2 mb-2">
                                     <label for="assign_deliver_boy">{{ translate('Assign Deliver Boy') }}</label>
                                     @if (($delivery_status == 'pending' || $delivery_status == 'confirmed' || $delivery_status == 'picked_up') && auth()->user()->can('assign_delivery_boy_for_orders'))
-                                        <select class="form-control aiz-selectpicker" data-live-search="true"
+                                        <select class="form-control pex-selectpicker" data-live-search="true"
                                             data-minimum-results-for-search="Infinity" id="assign_deliver_boy">
                                             <option value="">{{ translate('Select Delivery Boy') }}</option>
                                             @foreach ($delivery_boys as $delivery_boy)
@@ -45,8 +45,8 @@
                         <div class="col-12 col-md-4 col-xl-4 col-xxl-2 mb-2">
                             <label for="update_payment_status">{{ translate('Payment Status') }}</label>
                             @if (auth()->user()->can('update_order_payment_status') && $payment_status == 'unpaid')
-                                {{-- <select class="form-control aiz-selectpicker" data-minimum-results-for-search="Infinity" id="update_payment_status"> --}}
-                                <select class="form-control aiz-selectpicker" data-minimum-results-for-search="Infinity" id="update_payment_status" onchange="confirm_payment_status()">
+                                {{-- <select class="form-control pex-selectpicker" data-minimum-results-for-search="Infinity" id="update_payment_status"> --}}
+                                <select class="form-control pex-selectpicker" data-minimum-results-for-search="Infinity" id="update_payment_status" onchange="confirm_payment_status()">
                                     <option value="unpaid" @if ($payment_status == 'unpaid') selected @endif>
                                         {{ translate('Unpaid') }}
                                     </option>
@@ -63,7 +63,7 @@
                             @if ($order->shipping_method == 'shiprocket' || $order->shipping_method == 'steadfast' || $order->shipping_method == 'pathao' || $order->shipping_method == 'redx')
                                 <input type="text" class="form-control" value="{{ ucfirst(str_replace('_', ' ', $delivery_status)) }}" disabled>
                             @elseif (auth()->user()->can('update_order_delivery_status') && $delivery_status != 'delivered' && $delivery_status != 'cancelled')
-                                <select class="form-control aiz-selectpicker" data-minimum-results-for-search="Infinity"
+                                <select class="form-control pex-selectpicker" data-minimum-results-for-search="Infinity"
                                     id="update_delivery_status">
                                     <option value="pending" @if ($delivery_status == 'pending') selected @endif>
                                         {{ translate('Pending') }}
@@ -107,7 +107,7 @@
                                     @if ($shipping_method)
                                         <input type="text" class="form-control" value="{{ ucfirst(translate($shipping_method)) }}" disabled>
                                     @else
-                                        <select class="form-control aiz-selectpicker" id="select_shipping_info" name="shipping_system">
+                                        <select class="form-control pex-selectpicker" id="select_shipping_info" name="shipping_system">
                                             <option value="">
                                                 {{ translate('Select Shipping System') }}
                                             </option>
@@ -169,7 +169,7 @@
                                         <input type="text" class="form-control" value="{{ $order->shiprocket_courier_name }}" disabled>
                                     @else
                                         <select
-                                            class="form-control aiz-selectpicker"
+                                            class="form-control pex-selectpicker"
                                             id="shiprocket_courier"
                                             data-live-search="true">
                                             <option value="">{{ translate('Loading...') }}</option>
@@ -375,7 +375,7 @@
             <hr class="new-section-sm bord-no">
             <div class="row">
                 <div class="col-lg-12 table-responsive">
-                    <table class="table-bordered aiz-table invoice-summary table">
+                    <table class="table-bordered pex-table invoice-summary table">
                         <thead>
                             <tr class="bg-trans-dark">
                                 <th data-breakpoints="lg" class="min-col">#</th>
@@ -810,7 +810,7 @@
                 order_id: order_id,
                 delivery_boy: delivery_boy
             }, function(data) {
-                AIZ.plugins.notify('success', '{{ translate('Delivery boy has been assigned') }}');
+                PEX.plugins.notify('success', '{{ translate('Delivery boy has been assigned') }}');
             });
         });
         $('#update_delivery_status').on('change', function() {
@@ -821,7 +821,7 @@
                 order_id: order_id,
                 status: status
             }, function(data) {
-                AIZ.plugins.notify('success', '{{ translate('Delivery status has been updated') }}');
+                PEX.plugins.notify('success', '{{ translate('Delivery status has been updated') }}');
                 location.reload();
             });
         });
@@ -840,8 +840,8 @@
                 status: 'paid'
             }, function(data) {
                 $('#update_payment_status').prop('disabled', true);
-                AIZ.plugins.bootstrapSelect('refresh');
-                AIZ.plugins.notify('success', '{{ translate('Payment status has been updated') }}');
+                PEX.plugins.bootstrapSelect('refresh');
+                PEX.plugins.notify('success', '{{ translate('Payment status has been updated') }}');
                 location.reload();
             });
         }
@@ -854,7 +854,7 @@
                 order_id: order_id,
                 tracking_code: tracking_code
             }, function(data) {
-                AIZ.plugins.notify('success', '{{ translate('Order tracking code has been updated') }}');
+                PEX.plugins.notify('success', '{{ translate('Order tracking code has been updated') }}');
             });
         });
     </script>
@@ -869,13 +869,13 @@
                 $.ajax({
                     url: "{{ route('pickup.addresses.list') }}",
                     type: 'POST',
-                    headers: { 'X-CSRF-TOKEN': AIZ.data.csrf },
+                    headers: { 'X-CSRF-TOKEN': PEX.data.csrf },
                     data: { user_id: sellerId, shipping_system: 'shiprocket' }
                 }),
                 $.ajax({
                     url: "{{ route('box.sizes.list') }}",
                     type: 'POST',
-                    headers: { 'X-CSRF-TOKEN': AIZ.data.csrf },
+                    headers: { 'X-CSRF-TOKEN': PEX.data.csrf },
                     data: { user_id: sellerId, shipping_system: 'shiprocket' }
                 })
             ).done(function(pickupResponse, boxResponse) {
@@ -944,21 +944,21 @@
                 const boxId = $('input[name="box_size_id"]:checked').val();
 
                 if (!pickupId || !boxId) {
-                    AIZ.plugins.notify('warning', '{{ translate("Please select pickup address and box size.") }}');
+                    PEX.plugins.notify('warning', '{{ translate("Please select pickup address and box size.") }}');
                     return;
                 }
 
                 $.post("{{ route('orders.confirm_shiprocket_info') }}", {
-                    _token: AIZ.data.csrf,
+                    _token: PEX.data.csrf,
                     order_id: {{ $order->id }},
                     pickup_address_id: pickupId,
                     shipping_box_size_id: boxId
                 }, function (response) {
                     if (response.success) {
-                        AIZ.plugins.notify('success', response.message);
+                        PEX.plugins.notify('success', response.message);
                         location.reload();
                     } else {
-                        AIZ.plugins.notify('danger', response.message);
+                        PEX.plugins.notify('danger', response.message);
                     }
                 });
             });
@@ -973,12 +973,12 @@
             if (!shipmentId || courierAssigned) return;
         
             $.post("{{ route('shiprocket.couriers') }}", {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 order_id: orderId
             }).done(function (res) {
         
                 if (!res.success) {
-                    AIZ.plugins.notify('danger', res.message);
+                    PEX.plugins.notify('danger', res.message);
                     return;
                 }
         
@@ -1004,22 +1004,22 @@
             const selectedCourierId = $('#shiprocket_courier').val();
         
             if (!selectedCourierId) {
-                AIZ.plugins.notify('warning', '{{ translate("Please select a courier first.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Please select a courier first.") }}');
                 return;
             }
         
             $('#confirm-awb-modal').modal('hide');
         
             $.post("{{ route('shiprocket.assign.awb') }}", {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 order_id: orderId,
                 courier_id: selectedCourierId
             }).done(function (res) {
                 if (res.success) {
-                    AIZ.plugins.notify('success', res.message);
+                    PEX.plugins.notify('success', res.message);
                     location.reload();
                 } else {
-                    AIZ.plugins.notify('danger', res.message);
+                    PEX.plugins.notify('danger', res.message);
                 }
             });
         });
@@ -1045,15 +1045,15 @@
                 $('#confirm-pickup-modal').modal('hide');
 
                 $.post("{{ route('shiprocket.request.pickup') }}", {
-                    _token: AIZ.data.csrf,
+                    _token: PEX.data.csrf,
                     order_id: pickupOrderId
                 }).done(function (res) {
 
                     if (res.success) {
-                        AIZ.plugins.notify('success', res.message);
+                        PEX.plugins.notify('success', res.message);
                         location.reload();
                     } else {
-                        AIZ.plugins.notify('danger', res.message);
+                        PEX.plugins.notify('danger', res.message);
                     }
                 });
             });
@@ -1096,19 +1096,19 @@
                     url: "{{ route('steadfast.create.order') }}",
                     method: "POST",
                     data: {
-                        _token: AIZ.data.csrf,
+                        _token: PEX.data.csrf,
                         order_id: selectedOrderId
                     },
                     success: function (res) {
                         if (res.success) {
-                            AIZ.plugins.notify('success', res.message);
+                            PEX.plugins.notify('success', res.message);
                             location.reload();
                         } else {
-                            AIZ.plugins.notify('danger', res.message);
+                            PEX.plugins.notify('danger', res.message);
                         }
                     },
                     error: function () {
-                        AIZ.plugins.notify('danger', 'Something went wrong');
+                        PEX.plugins.notify('danger', 'Something went wrong');
                     },
                     complete: function () {
                         $('#steadfastConfirmBtn')
@@ -1131,7 +1131,7 @@
                 $.ajax({
                     url: "{{ route('pathao.all.store') }}",
                     type: 'GET',
-                    headers: { 'X-CSRF-TOKEN': AIZ.data.csrf },
+                    headers: { 'X-CSRF-TOKEN': PEX.data.csrf },
                     success: function (res) {
 
                         if (!res.success) {
@@ -1187,21 +1187,21 @@
                     let storeId = $('input[name="store_id"]:checked').val();
 
                     if (!storeId) {
-                        AIZ.plugins.notify('warning', '{{ translate("Please select store") }}');
+                        PEX.plugins.notify('warning', '{{ translate("Please select store") }}');
                         return;
                     }
 
                     $.post("{{ route('pathao.create.order') }}", {
-                        _token: AIZ.data.csrf,
+                        _token: PEX.data.csrf,
                         order_id: {{ $order->id }},
                         store_id: storeId
                     }, function (res) {
 
                         if (res.success) {
-                            AIZ.plugins.notify('success', res.message);
+                            PEX.plugins.notify('success', res.message);
                             location.reload();
                         } else {
-                            AIZ.plugins.notify('danger', res.message);
+                            PEX.plugins.notify('danger', res.message);
                         }
                     });
                 });
@@ -1233,7 +1233,7 @@
                     url: "{{ route('redx.all_pickup_store.delivery_area') }}",
                     success: function (html) {
                         rightOffcanvas.innerHTML = html;
-                        AIZ.plugins.bootstrapSelect('refresh');
+                        PEX.plugins.bootstrapSelect('refresh');
                     },
                     error: function () {
                         rightOffcanvas.innerHTML =
@@ -1269,7 +1269,7 @@
                 const areaName = $('select[name="delivery_area_id"] option:selected').text();
 
                 if (!pickupStoreId || !areaId) {
-                    AIZ.plugins.notify('warning', 'Please select pickup store and delivery area');
+                    PEX.plugins.notify('warning', 'Please select pickup store and delivery area');
                     return;
                 }
 
@@ -1282,7 +1282,7 @@
                     url: "{{ route('redx_order.create') }}",
                     type: "POST",
                     data: {
-                        _token: AIZ.data.csrf,
+                        _token: PEX.data.csrf,
                         order_id: {{ $order->id }},
                         shipping_system: 'redx',
                         pickup_store_id: pickupStoreId,
@@ -1291,14 +1291,14 @@
                     },
                     success: function (res) {
                         if (res.success) {
-                            AIZ.plugins.notify('success', res.message);
+                            PEX.plugins.notify('success', res.message);
                             location.reload();
                         } else {
-                            AIZ.plugins.notify('danger', res.message);
+                            PEX.plugins.notify('danger', res.message);
                         }
                     },
                     error: function () {
-                        AIZ.plugins.notify('danger', 'RedX API error');
+                        PEX.plugins.notify('danger', 'RedX API error');
                     }
                 });
             });

@@ -11,7 +11,7 @@
                     <form class="form-horizontal" action="{{ route('ai_config.update') }}" method="POST">
                         @csrf
                         <div class="d-flex align-items-center mb-3">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input value="1" name="ai_activation" type="checkbox" @if (get_setting('ai_activation') == 1) checked @endif>
                                 <span class="slider round"></span>
                             </label>
@@ -20,7 +20,7 @@
                         
                         <div class="form-group">
                             <label class="col-from-label">{{translate('Select AI Model')}}</label>
-                            <select class="form-control aiz-selectpicker" name="gemini_model">
+                            <select class="form-control pex-selectpicker" name="gemini_model">
                                 <optgroup label="Gemini 3.1 (Cutting Edge)">
                                     <option value="gemini-3.1-pro-preview" @if(get_setting('gemini_model') == 'gemini-3.1-pro-preview') selected @endif>Gemini 3.1 Pro (Advanced)</option>
                                     <option value="gemini-3.1-flash-lite-preview" @if(get_setting('gemini_model') == 'gemini-3.1-flash-lite-preview') selected @endif>Gemini 3.1 Flash-Lite (Super Fast)</option>

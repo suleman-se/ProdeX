@@ -19,7 +19,7 @@
                                 </div>
                                 <input type="hidden" name="types[]" value="DEFAULT_LANGUAGE">
                                 <div class="col-lg-6">
-                                    <select class="form-control aiz-selectpicker" name="DEFAULT_LANGUAGE" data-selected="{{ env('DEFAULT_LANGUAGE') }}">
+                                    <select class="form-control pex-selectpicker" name="DEFAULT_LANGUAGE" data-selected="{{ env('DEFAULT_LANGUAGE') }}">
                                         @foreach (\App\Models\Language::where('status', 1)->get() as $key => $language)
                                             <option value="{{ $language->code }}" @if(env('DEFAULT_LANGUAGE') == $language->code) selected @endif>
                                                 {{ $language->name }}
@@ -90,7 +90,7 @@
     </div>
 </div>
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
 	<div class="align-items-center">
 		<div class="text-md-right">
 			<a href="{{ route('languages.create') }}" class="btn btn-circle btn-info">
@@ -105,7 +105,7 @@
         <h5 class="mb-0 h6">{{translate('Language')}}</h5>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -127,11 +127,11 @@
                         <td>{{ $language->name }}</td>
                         <td>{{ $language->code }}</td>
                         <td>{{ $language->app_lang_code }}</td>
-                        <td><label class="aiz-switch aiz-switch-success mb-0">
+                        <td><label class="pex-switch pex-switch-success mb-0">
                             <input onchange="update_rtl_status(this)" value="{{ $language->id }}" type="checkbox" @if($language->rtl == 1) checked @endif>
                             <span class="slider round"></span></label>
                         </td>
-                        <td><label class="aiz-switch aiz-switch-success mb-0">
+                        <td><label class="pex-switch pex-switch-success mb-0">
                             <input onchange="update_status(this)" value="{{ $language->id }}" type="checkbox" @if($language->status == 1) checked @endif>
                             <span class="slider round"></span></label>
                         </td>
@@ -155,7 +155,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $languages->appends(request()->input())->links() }}
         </div>
     </div>
@@ -173,7 +173,7 @@
         function update_rtl_status(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -188,14 +188,14 @@
                     location.reload();
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
         function update_status(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -214,7 +214,7 @@
                     location.reload();
                 }
                 else {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

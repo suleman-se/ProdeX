@@ -2,7 +2,7 @@
 
 @section('panel_content')
 
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
       <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{ translate('Money Withdraw') }}</h1>
@@ -37,7 +37,7 @@
             <h5 class="mb-0 h6">{{ translate('Withdraw Request history')}}</h5>
         </div>
           <div class="card-body">
-              <table class="table aiz-table mb-0">
+              <table class="table pex-table mb-0">
                   <thead>
                       <tr>
                           <th>#</th>
@@ -67,7 +67,7 @@
                       @endforeach
                   </tbody>
               </table>
-              <div class="aiz-pagination">
+              <div class="pex-pagination">
                   {{ $seller_withdraw_requests->links() }}
               </div>
           </div>

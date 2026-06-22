@@ -241,13 +241,13 @@
                         @endif
                     </div>
                     <div class="p-3">
-                        <div class="aiz-carousel gutters-16 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='true'>
+                        <div class="pex-carousel gutters-16 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='true'>
                             @php
                             $products = get_similiar_classified_products($detailedProduct->category_id, $detailedProduct->id, 10);
                             @endphp
                             @forelse ($products as $key => $product)
                             <div class="carousel-box overflow-hidden has-transition hov-shadow-out z-1 border-right border-top border-bottom @if ($key == 0) border-left @endif">
-                                <div class="aiz-card-box my-3">
+                                <div class="pex-card-box my-3">
                                     <div class="position-relative">
                                         <a href="{{ route('customer.product', $product->slug) }}" class="d-block">
                                             <img class="img-fit lazyload mx-auto h-140px h-md-210px"
@@ -347,7 +347,7 @@
                 </div>
                     <div class="pb-3">
                     <h5 class="fs-16 fw-600 text-dark">{{translate('Share to')}}</h5>
-                    <div class="aiz-share text-center"></div>
+                    <div class="pex-share text-center"></div>
                     </div>
             </div>
         </div>
@@ -519,10 +519,10 @@ document.addEventListener("DOMContentLoaded", function () {
         $temp.val(url).select();
         try {
             document.execCommand("copy");
-            AIZ.plugins.notify('success', '{{ translate('
+            PEX.plugins.notify('success', '{{ translate('
                 Link copied to clipboard ') }}');
         } catch (err) {
-            AIZ.plugins.notify('danger', '{{ translate('
+            PEX.plugins.notify('danger', '{{ translate('
                 Oops, unable to copy ') }}');
         }
         $temp.remove();
@@ -535,10 +535,10 @@ document.addEventListener("DOMContentLoaded", function () {
         $temp.val(url).select();
         try {
             document.execCommand("copy");
-            AIZ.plugins.notify('success', '{{ translate('Link copied to clipboard') }}');
+            PEX.plugins.notify('success', '{{ translate('Link copied to clipboard') }}');
             //reset temp input value
         } catch (err) {
-            AIZ.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
+            PEX.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
         }
         $temp.remove();
     }

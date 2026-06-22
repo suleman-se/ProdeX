@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <h5 class="mb-0 h6">{{ translate('Area Information') }}</h5>
 </div>
 
@@ -33,7 +33,7 @@
                   @if(get_setting('has_state') == 1)
                   <div class="form-group">
                       <label for="state_id">{{ translate('State') }}</label>
-                      <select class="select2 form-control aiz-selectpicker" id="state_id" name="state_id" data-toggle="select2" data-placeholder="{{ translate('Choose ...') }}" data-live-search="true" required>
+                      <select class="select2 form-control pex-selectpicker" id="state_id" name="state_id" data-toggle="select2" data-placeholder="{{ translate('Choose ...') }}" data-live-search="true" required>
                           @foreach ($states as $state)
                             <option value="{{ $state->id }}" @if(optional($area->city)->state_id == $state->id) selected @endif>{{ $state->name }}</option>
                           @endforeach
@@ -42,7 +42,7 @@
                   @else
                   <div class="form-group">
                       <label for="country_id">{{ translate('Country') }}</label>
-                      <select class="select2 form-control aiz-selectpicker" id="country_id" name="country_id" data-toggle="select2" data-placeholder="{{ translate('Choose ...') }}" data-live-search="true" required>
+                      <select class="select2 form-control pex-selectpicker" id="country_id" name="country_id" data-toggle="select2" data-placeholder="{{ translate('Choose ...') }}" data-live-search="true" required>
                           @foreach ($countries as $country)
                             <option value="{{ $country->id }}" @if(optional($area->city)->country_id == $country->id) selected @endif>{{ $country->name }}</option>
                           @endforeach
@@ -52,7 +52,7 @@
 
                   <div class="form-group">
                       <label for="city_id">{{ translate('City') }}</label>
-                      <select class="select2 form-control aiz-selectpicker" id="city_id" name="city_id" data-toggle="select2" data-placeholder="{{ translate('Choose ...') }}" data-live-search="true" required>
+                      <select class="select2 form-control pex-selectpicker" id="city_id" name="city_id" data-toggle="select2" data-placeholder="{{ translate('Choose ...') }}" data-live-search="true" required>
                           @foreach ($cities as $city)
                             <option value="{{ $city->id }}" @if($area->city_id == $city->id) selected @endif>{{ $city->name }}</option>
                           @endforeach

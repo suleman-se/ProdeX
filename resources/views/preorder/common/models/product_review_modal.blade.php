@@ -49,7 +49,7 @@
             <div class="form-group">
                 <label class="" for="photos">{{translate('Review Images')}}</label>
                 <div class="">
-                    <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                    <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-soft-secondary font-weight-medium rounded-0">{{ translate('Browse')}}</div>
                         </div>

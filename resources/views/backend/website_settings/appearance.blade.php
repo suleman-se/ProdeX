@@ -40,7 +40,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-from-label">{{ translate('Site Icon') }}</label>
                         <div class="col-md-8">
-                            <div class="input-group " data-toggle="aizuploader" data-type="image">
+                            <div class="input-group " data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                 </div>
@@ -56,7 +56,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-from-label">{{translate('System Logo - White')}}</label>
                         <div class="col-sm-8">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                 </div>
@@ -72,7 +72,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-from-label">{{translate('System Logo - Black')}}</label>
                         <div class="col-sm-8">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                 </div>
@@ -89,7 +89,7 @@
                         <label class="col-sm-3 col-from-label">{{translate('System Timezone')}}</label>
                         <div class="col-sm-8">
                             <input type="hidden" name="types[]" value="timezone">
-                            <select name="timezone" class="form-control aiz-selectpicker" data-live-search="true">
+                            <select name="timezone" class="form-control pex-selectpicker" data-live-search="true">
                                 @foreach (timezones() as $key => $value)
                                 <option value="{{ $value }}" @if (app_timezone()==$value)
                                     selected
@@ -103,7 +103,7 @@
                         <label class="col-sm-3 col-from-label">{{translate('Uploaded image format')}}</label>
                         <div class="col-sm-8">
                             <input type="hidden" name="types[]" value="uploaded_image_format">
-                            <select name="uploaded_image_format" class="form-control aiz-selectpicker" data-live-search="true" data-selected="{{ get_setting('uploaded_image_format') }}">
+                            <select name="uploaded_image_format" class="form-control pex-selectpicker" data-live-search="true" data-selected="{{ get_setting('uploaded_image_format') }}">
                                 <option value="default">{{ translate('default') }}</option>
                                 <option value="png">{{ translate('PNG') }}</option>
                                 <option value="jpg">{{ translate('JPEG') }}</option>
@@ -168,7 +168,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-from-label">{{ translate('Flash Deal Page Banner - Large') }}</label>
                         <div class="col-md-8">
-                            <div class="input-group " data-toggle="aizuploader" data-type="image">
+                            <div class="input-group " data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                 </div>
@@ -184,7 +184,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-from-label">{{ translate('Flash Deal Page Banner - Small') }}</label>
                         <div class="col-md-8">
-                            <div class="input-group " data-toggle="aizuploader" data-type="image">
+                            <div class="input-group " data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                 </div>
@@ -216,7 +216,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-from-label">{{translate('Use Image Watermark (During Upload)')}}</label>
                         <div class="col-md-8">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input type="hidden" name="types[]" value="use_image_watermark">
                                 <input type="checkbox" name="use_image_watermark" @if( get_setting('use_image_watermark')=='on' ) checked @endif>
                                 <span></span>
@@ -228,7 +228,7 @@
                         <label class="col-md-3 col-from-label">{{ translate('Watermark Type') }}</label>
                         <div class="col-md-8">
                             <input type="hidden" name="types[]" value="image_watermark_type">
-                            <select name="image_watermark_type" class="form-control aiz-selectpicker">
+                            <select name="image_watermark_type" class="form-control pex-selectpicker">
                                 <option value="image" @if (get_setting('image_watermark_type')=="image" ) selected @endif>{{ translate('Image') }}</option>
                                 <option value="text" @if (get_setting('image_watermark_type')=="text" ) selected @endif>{{ translate('Text') }}</option>
                             </select>
@@ -238,7 +238,7 @@
                     <div class="form-group row @if (get_setting('image_watermark_type') == " text") d-none @endif" id="watermark_image">
                         <label class="col-md-3 col-from-label">{{ translate('Watermark Image') }}</label>
                         <div class="col-md-8">
-                            <div class="input-group " data-toggle="aizuploader" data-type="image">
+                            <div class="input-group " data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                 </div>
@@ -273,10 +273,10 @@
                             <div class="col-md-8">
                                 <div class="input-group">
                                     <input type="hidden" name="types[]" value="watermark_text_color">
-                                    <input type="text" class="form-control aiz-color-input" placeholder="Ex: #e1e1e1" name="watermark_text_color" value="{{ get_setting('watermark_text_color') }}">
+                                    <input type="text" class="form-control pex-color-input" placeholder="Ex: #e1e1e1" name="watermark_text_color" value="{{ get_setting('watermark_text_color') }}">
                                     <div class="input-group-append">
                                         <span class="input-group-text p-0">
-                                            <input class="aiz-color-picker border-0 size-40px" type="color" value="{{ get_setting('watermark_text_color') }}">
+                                            <input class="pex-color-picker border-0 size-40px" type="color" value="{{ get_setting('watermark_text_color') }}">
                                         </span>
                                     </div>
                                 </div>
@@ -288,7 +288,7 @@
                         <label class="col-md-3 col-from-label">{{translate('Watermark Position')}}</label>
                         <div class="col-md-8">
                             <input type="hidden" name="types[]" value="watermark_position">
-                            <select name="watermark_position" class="form-control aiz-selectpicker" data-selected="{{ get_setting('watermark_position') }}">
+                            <select name="watermark_position" class="form-control pex-selectpicker" data-selected="{{ get_setting('watermark_position') }}">
                                 <option value="top-left">{{ translate('Top-Left') }}</option>
                                 <option value="top-right">{{ translate('Top-Right') }}</option>
                                 <option value="bottom-left">{{ translate('Bottom-Left') }}</option>
@@ -342,7 +342,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-from-label">{{ translate('Meta Image') }}</label>
                         <div class="col-md-8">
-                            <div class="input-group " data-toggle="aizuploader" data-type="image">
+                            <div class="input-group " data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                                 </div>

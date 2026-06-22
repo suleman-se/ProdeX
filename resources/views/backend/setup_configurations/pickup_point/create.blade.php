@@ -32,7 +32,7 @@
                     <div class="form-group row row">
                         <label class="col-sm-3 col-from-label">{{translate('Pickup Point Status')}}</label>
                         <div class="col-sm-3">
-                            <label class="aiz-switch aiz-switch-success mb-0" style="margin-top:5px;">
+                            <label class="pex-switch pex-switch-success mb-0" style="margin-top:5px;">
                         		<input value="1" type="checkbox" name="pick_up_status">
                         		<span class="slider round"></span>
                             </label>
@@ -41,7 +41,7 @@
                     <div class="form-group row row">
                         <label class="col-sm-3 col-from-label" for="name">{{translate('Pick-up Point Manager')}}</label>
                         <div class="col-sm-9">
-                            <select name="staff_id" class="form-control aiz-selectpicker" required>
+                            <select name="staff_id" class="form-control pex-selectpicker" required>
                                 @foreach(\App\Models\Staff::all() as $staff)
                                     @if ($staff->user != null)
                                         <option value="{{$staff->id}}">{{$staff->user->name}}</option>

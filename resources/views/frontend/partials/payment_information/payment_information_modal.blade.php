@@ -20,7 +20,7 @@
     <!-- Type -->
     <div class="form-group mb-3">
         <label>{{ translate('Type')}} <span class="text-danger">*</span></label>
-        <select name="payment_type" class="form-control aiz-selectpicker" data-live-search="true">
+        <select name="payment_type" class="form-control pex-selectpicker" data-live-search="true">
             <option value="">{{ translate('Select Payment Type') }}</option>
             <option value="bank_transfer">{{ ucfirst(translate('Bank Transfer'))  }}</option>
             <option value="others">{{ ucfirst(translate('Others'))  }}</option>
@@ -30,7 +30,7 @@
         <!-- Name -->
         <div class="form-group mb-3">
             <label>{{ translate('Name')}} <span class="text-danger">*</span></label>
-            <select name="payment_name" class="form-control aiz-selectpicker" data-live-search="true" required>
+            <select name="payment_name" class="form-control pex-selectpicker" data-live-search="true" required>
                 <option value="">{{ translate('Select Payment Method') }}</option>
                 @foreach ($payment_methods as $payment_method)
                     <option value="{{ $payment_method->id }}">{{ $payment_method->name }}</option>
@@ -53,7 +53,7 @@
     <div class="bank-fields d-none">
         <div class="form-group mb-3">
             <label>{{ translate('Bank Name')}} <span class="text-danger">*</span></label>
-            <select name="bank_name" class="form-control aiz-selectpicker" data-live-search="true" required>
+            <select name="bank_name" class="form-control pex-selectpicker" data-live-search="true" required>
                 <option value="">{{ translate('Select Bank') }}</option>
                 @foreach ($bank_payment_methods as $bank_payment_method)
                     <option value="{{ $bank_payment_method->id }}">{{ $bank_payment_method->name }}</option>

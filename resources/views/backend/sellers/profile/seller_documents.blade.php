@@ -14,7 +14,7 @@
         @endphp
 
         <div class="col-auto w-140px w-lg-220px">
-            <div class="aiz-file-box">
+            <div class="pex-file-box">
 
                 <div class="dropdown-file">
                     <a class="dropdown-link" data-toggle="dropdown">
@@ -32,7 +32,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="card card-file aiz-uploader-select c-default" title="{{ $file_name }}">
+                <div class="card card-file pex-uploader-select c-default" title="{{ $file_name }}">
                     @if ($is_image)
                     <div class="card-file-thumb">
                         <img src="{{ my_asset($file_path) }}" class="img-fit">

@@ -6,7 +6,7 @@
     $route = Route::currentRouteName() == 'sellers.index' ? 'all_seller_route' : 'seller_rating_followers';
 @endphp
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-auto">
             <h1 class="h3">{{ $route == 'all_seller_route' ? translate('All Sellers') : translate('Sellers Review & Followers ')}}</h1>
@@ -42,14 +42,14 @@
                     </div>
                 </div>
                 <div class="col-lg-2 ml-auto">
-                    <select class="form-control aiz-selectpicker" name="verification_status" onchange="sort_sellers()" data-selected="{{ $verification_status }}">
+                    <select class="form-control pex-selectpicker" name="verification_status" onchange="sort_sellers()" data-selected="{{ $verification_status }}">
                         <option value="">{{ translate('Filter by Verification Status') }}</option>
                         <option value="verified">{{ translate('Verified') }}</option>
                         <option value="un_verified">{{ translate('Unverified') }}</option>
                     </select>
                 </div>
                 <div class="col-md-2 ml-auto">
-                    <select class="form-control aiz-selectpicker" name="approved_status" id="approved_status" onchange="sort_sellers()">
+                    <select class="form-control pex-selectpicker" name="approved_status" id="approved_status" onchange="sort_sellers()">
                         <option value="">{{translate('Filter by Approval')}}</option>
                         <option value="1"  @isset($approved) @if($approved == '1') selected @endif @endisset>{{translate('Approved')}}</option>
                         <option value="0"  @isset($approved) @if($approved == '0') selected @endif @endisset>{{translate('Non-Approved')}}</option>
@@ -64,16 +64,16 @@
         </div>
 
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                 <tr>
                     <th>
                         @if(auth()->user()->can('delete_seller') && ($route == 'all_seller_route'))
                             <div class="form-group">
-                                <div class="aiz-checkbox-inline">
-                                    <label class="aiz-checkbox">
+                                <div class="pex-checkbox-inline">
+                                    <label class="pex-checkbox">
                                         <input type="checkbox" class="check-all">
-                                        <span class="aiz-square-check"></span>
+                                        <span class="pex-square-check"></span>
                                     </label>
                                 </div>
                             </div>
@@ -107,10 +107,10 @@
                         <td>
                             @if(auth()->user()->can('delete_seller') && ($route == 'all_seller_route'))
                                 <div class="form-group">
-                                    <div class="aiz-checkbox-inline">
-                                        <label class="aiz-checkbox">
+                                    <div class="pex-checkbox-inline">
+                                        <label class="pex-checkbox">
                                             <input type="checkbox" class="check-one" name="id[]" value="{{$shop->id}}">
-                                            <span class="aiz-square-check"></span>
+                                            <span class="pex-square-check"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -186,7 +186,7 @@
                                 </div>
                             </td>
                             <td>
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input
                                         @can('approve_seller') onchange="update_approved(this)" @endcan
                                         value="{{ $shop->id }}" type="checkbox"
@@ -289,7 +289,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
               {{ $shops->appends(request()->input())->links() }}
             </div>
         </div>
@@ -407,7 +407,7 @@
 
         function update_approved(el){
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -419,10 +419,10 @@
             }
             $.post('{{ route('sellers.approved') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Approved sellers updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Approved sellers updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
@@ -449,7 +449,7 @@
 
         function showConfirmationModal({ url, message }) {
             if ('{{ env('DEMO_MODE') }}' === 'On') {
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -492,7 +492,7 @@
                 $('#set_seller_commission').modal('show', {backdrop: 'static'});
             }
             else{
-                AIZ.plugins.notify('danger', '{{ translate('Please Select Seller first.') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please Select Seller first.') }}');
             }
         }
 

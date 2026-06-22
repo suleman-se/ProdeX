@@ -15,7 +15,7 @@
                                 <label class="col-from-label">{{translate('Facebook Chat')}}</label>
                             </div>
                             <div class="col-md-7">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input value="1" name="facebook_chat" type="checkbox" @if (get_setting('facebook_chat') == 1)
                                         checked
                                     @endif>

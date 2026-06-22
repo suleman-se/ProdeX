@@ -8,7 +8,7 @@
 
 
     <div class="col-12 col-sm-12 col-lg-12 mx-auto">
-        <div class="aiz-titlebar text-left pb-5px">
+        <div class="pex-titlebar text-left pb-5px">
             <div class="row align-items-center">
                 <div class="col-auto">
                     <h1 class="h3 fw-bold">{{ translate('All Customers') }}</h1>
@@ -149,7 +149,7 @@
                 type: 'GET',
                 success: function(response) {
                     if (response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
                         hideBulkActionModal();
                         getCustomers(currentTab);
                     }
@@ -172,13 +172,13 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', 'Selected customers Deleted successfully');
+                        PEX.plugins.notify('success', 'Selected customers Deleted successfully');
                         hideBulkActionModal();
                         getCustomers(currentTab);
                     }
                 },
                 error: function () {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }
@@ -186,7 +186,7 @@
         function bulkDeleted() 
         {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one customer') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one customer') }}');
                 return;
             }
 
@@ -234,7 +234,7 @@
         function confirm_ban(url)
         {
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
             
@@ -244,7 +244,7 @@
         function confirm_unban(url)
         {
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
             
@@ -301,7 +301,7 @@
                 type: "POST",
                 url: "{{ route('admin_offline_wallet_recharge_modal') }}",
                 data: {
-                    _token: AIZ.data.csrf,
+                    _token: PEX.data.csrf,
                     customer_id: userId
                 },
                 success: function (html) {
@@ -342,12 +342,12 @@
             const photo = $('input[name="photo"]').val();
 
             if (!amount) {
-                AIZ.plugins.notify('warning', 'Please fill amount');
+                PEX.plugins.notify('warning', 'Please fill amount');
                 return;
             }
 
             if (!trx_id) {
-                AIZ.plugins.notify('warning', 'Please fill transaction id');
+                PEX.plugins.notify('warning', 'Please fill transaction id');
                 return;
             }
 
@@ -360,19 +360,19 @@
                 url: "{{ route('admin_wallet_recharge.make_payment') }}",
                 type: "POST",
                 data: {
-                    _token: AIZ.data.csrf,
+                    _token: PEX.data.csrf,
                     user_id: user_id,
                     amount: amount,
                     trx_id: trx_id,
                     photo: photo
                 },
                 success: function (res) {
-                    AIZ.plugins.notify('success', 'Wallet recharged successfully');
+                    PEX.plugins.notify('success', 'Wallet recharged successfully');
                     closeRightcanvas();
                     location.reload();
                 },
                 error: function () {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                     btn.prop('disabled', false);
                     btn.find('.spinner-border').remove();
                 }

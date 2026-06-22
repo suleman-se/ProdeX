@@ -44,7 +44,7 @@
                     </div>
                     <!-- Products -->
                     <div class="px-0 px-sm-2 w-100 overflow-hidden">
-                        <div class="aiz-carousel arrow-x-0 arrow-inactive-none bg-white border border-white" data-items="5"
+                        <div class="pex-carousel arrow-x-0 arrow-inactive-none bg-white border border-white" data-items="5"
                             data-xxl-items="5" data-xl-items="3.5" data-lg-items="3" data-md-items="2" data-sm-items="1"
                             data-xs-items="2" data-arrows='false' data-infinite='false'>
                             @foreach ($newest_preorder_products as $key => $product)

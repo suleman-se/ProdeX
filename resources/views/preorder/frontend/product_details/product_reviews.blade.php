@@ -66,13 +66,13 @@
                         $('#product-review-modal').modal('show', {
                             backdrop: 'static'
                         });
-                        AIZ.extra.inputRating();
+                        PEX.extra.inputRating();
                     });
                 @else
-                    AIZ.plugins.notify('warning', '{{ translate("Sorry, You need to buy this product to give review.") }}');
+                    PEX.plugins.notify('warning', '{{ translate("Sorry, You need to buy this product to give review.") }}');
                 @endif
             @elseif (Auth::check() && !isCustomer())
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
             @else
                 $('#login_modal').modal('show');
             @endif

@@ -5,11 +5,11 @@
         </h3>
     </div>
     <div class="px-4">
-        <div class="aiz-carousel gutters-5 half-outside-arrow" data-items="5" data-xl-items="3" data-lg-items="4"
+        <div class="pex-carousel gutters-5 half-outside-arrow" data-items="5" data-xl-items="3" data-lg-items="4"
             data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='true'>
             @foreach ($fq_bought_products as $key => $related_product)
             <div class="carousel-box">
-                <div class="aiz-card-box hov-shadow-md my-2 has-transition hov-scale-img">
+                <div class="pex-card-box hov-shadow-md my-2 has-transition hov-scale-img">
                     <div class="">
                         <a href="{{ route('product', $related_product?->slug) }}" class="d-block">
                             <img class="img-fit lazyload mx-auto h-140px h-md-190px has-transition"

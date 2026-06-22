@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AddressController;
-use App\Http\Controllers\AizUploadController;
+use App\Http\Controllers\PexUploadController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\PaymentInformationController;
@@ -81,13 +81,13 @@ Route::get('/refresh-csrf', function () {
     return csrf_token();
 });
 
-// AIZ Uploader
-Route::controller(AizUploadController::class)->group(function () {
-    Route::post('/aiz-uploader', 'show_uploader');
-    Route::post('/aiz-uploader/upload', 'upload');
-    Route::get('/aiz-uploader/get-uploaded-files', 'get_uploaded_files');
-    Route::post('/aiz-uploader/get_file_by_ids', 'get_preview_files');
-    Route::get('/aiz-uploader/download/{id}', 'attachment_download')->name('download_attachment');
+// PEX Uploader
+Route::controller(PexUploadController::class)->group(function () {
+    Route::post('/pex-uploader', 'show_uploader');
+    Route::post('/pex-uploader/upload', 'upload');
+    Route::get('/pex-uploader/get-uploaded-files', 'get_uploaded_files');
+    Route::post('/pex-uploader/get_file_by_ids', 'get_preview_files');
+    Route::get('/pex-uploader/download/{id}', 'attachment_download')->name('download_attachment');
 });
 
 Route::group(['middleware' => ['prevent-back-history','handle-demo-login']], function () {

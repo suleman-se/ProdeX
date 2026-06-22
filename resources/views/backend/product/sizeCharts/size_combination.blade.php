@@ -1,5 +1,5 @@
 @if($measurement_option_inch == 1 || $measurement_option_cen == 1)
-  <table class="table table-bordered aiz-table footable footable-2 breakpoint-xl" style="">
+  <table class="table table-bordered pex-table footable footable-2 breakpoint-xl" style="">
     <thead>
       <tr class="footable-header">
         <th>{{ translate('Measurement Points') }}</th>

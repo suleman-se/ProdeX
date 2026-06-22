@@ -40,7 +40,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-from-label" for="name">{{translate('Role')}}</label>
                         <div class="col-sm-9">
-                            <select name="role_id" required class="form-control aiz-selectpicker">
+                            <select name="role_id" required class="form-control pex-selectpicker">
                                 @foreach($roles as $role)
                                     <option value="{{$role->id}}" @php if($staff->role_id == $role->id) echo "selected"; @endphp >{{$role->name}}</option>
                                 @endforeach

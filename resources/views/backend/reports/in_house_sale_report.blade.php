@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
 	<div class=" align-items-center">
        <h1 class="h3">{{translate('Inhouse Product sale report')}}</h1>
 	</div>
@@ -16,7 +16,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label">{{translate('Sort by Category')}} :</label>
                         <div class="col-md-5">
-                            <select id="demo-ease" class="aiz-selectpicker" name="category_id" required>
+                            <select id="demo-ease" class="pex-selectpicker" name="category_id" required>
                                 <option value="">{{ translate('Choose Category') }}</option>
                                 @foreach (\App\Models\Category::all() as $key => $category)
                                     <option value="{{ $category->id }}" @if($category->id == $sort_by) selected @endif >{{ $category->getTranslation('name') }}</option>
@@ -29,7 +29,7 @@
                     </div>
                 </form>
 
-                <table class="table table-bordered aiz-table mb-0">
+                <table class="table table-bordered pex-table mb-0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -47,7 +47,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="aiz-pagination mt-4">
+                <div class="pex-pagination mt-4">
                     {{ $products->appends(request()->input())->links() }}
                 </div>
             </div>

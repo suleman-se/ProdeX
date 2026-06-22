@@ -1,14 +1,14 @@
 <div class="card-body">
-    <table class="table mb-0" id="aiz-data-table">
+    <table class="table mb-0" id="pex-data-table">
         <thead>
             <tr>
                 @if (auth()->user()->can('delete_product_category'))
                     <th>
                         <div class="form-group">
-                            <div class="aiz-checkbox-inline">
-                                <label class="aiz-checkbox pt-5px d-block">
+                            <div class="pex-checkbox-inline">
+                                <label class="pex-checkbox pt-5px d-block">
                                     <input type="checkbox" class="check-all">
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                 </label>
                             </div>
                         </div>
@@ -50,10 +50,10 @@
                             </div>
                             @if (auth()->user()->can('delete_product_category'))
                             <div class="form-group d-inline-block">
-                                <label class="aiz-checkbox">
+                                <label class="pex-checkbox">
                                     <input type="checkbox" class="check-one" name="id[]"
                                         value="{{ $category->id }}">
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                 </label>
                             </div>
                             @else
@@ -122,7 +122,7 @@
                     <td class="hide-md" data-label="Featured">
                         <div class="row gutters-5 w-80px w-md-80px mw-80">
                             <div class="col">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" onchange="update_featured(this)"
                                         value="{{ $category->id }}" <?php if ($category->featured == 1) {
                                             echo 'checked';
@@ -135,7 +135,7 @@
                     <td class="hide-md" data-label="Hot Category">
                         <div class="row gutters-5 w-80px w-md-80px mw-80">
                             <div class="col">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input type="checkbox" onchange="update_hot(this)"
                                         value="{{ $category->id }}" <?php if ($category->hot_category == 1) {
                                             echo 'checked';
@@ -259,7 +259,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="aiz-pagination">
+    <div class="pex-pagination">
         {{ $categories->appends(request()->input())->links() }}
     </div>
 </div>

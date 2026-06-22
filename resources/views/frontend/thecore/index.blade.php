@@ -16,7 +16,7 @@
             <!-- Sliders -->
             <div class="col-lg-5 col-md-7 col-12">
                 @if (get_setting('home_slider_images', null, $lang) != null)
-                <div class="aiz-carousel dots-inside-bottom thecore-hero-slider" data-autoplay="true" data-infinite="true">
+                <div class="pex-carousel dots-inside-bottom thecore-hero-slider" data-autoplay="true" data-infinite="true">
                     @php
                     $decoded_slider_images = json_decode(
                     get_setting('home_slider_images', null, $lang),
@@ -74,7 +74,7 @@
 
                                         <div class="position-absolute bottom-0 w-100 py-3 d-none d-md-block">
                                             <div class="d-flex justify-content-center">
-                                                <div class="aiz-count-down-circle rounded-2 p-0 p-xl-2 mx-3 bg-white shadow-lg"
+                                                <div class="pex-count-down-circle rounded-2 p-0 p-xl-2 mx-3 bg-white shadow-lg"
                                                     end-date="{{ date('Y/m/d H:i:s', $flash_deal->end_date) }}">
                                                 </div>
                                             </div>
@@ -98,7 +98,7 @@
                             <span class="d-inline-block fs-16 fw-700">{{ translate('Hot Categories') }}</span>
                         </div>
                         
-                        <div class="aiz-carousel  arrow-inactive-transparent arrow-x-0 carousel-arrow"
+                        <div class="pex-carousel  arrow-inactive-transparent arrow-x-0 carousel-arrow"
                             data-rows="2" data-items="{{ $flash_deal != null ? '4' : '6' }}" data-xxl-items="{{ $flash_deal != null ? '4' : '6' }}" data-xl-items="{{ $flash_deal != null ? '4' : '6' }}" data-lg-items="{{ $flash_deal != null ? '4' : '6' }}"
                             data-md-items="{{ $flash_deal != null ? '4' : '6' }}" data-sm-items="5" data-xs-items="4" data-arrows="false" data-dots="false" data-autoplay="true" data-infinite="true">
                         
@@ -156,7 +156,7 @@
                 </div>
 
                 <div class="col-sm-6 col-md-8 col-lg-9 col-12">
-                    <div class="aiz-carousel  arrow-inactive-transparent arrow-x-0  carousel-arrow"
+                    <div class="pex-carousel  arrow-inactive-transparent arrow-x-0  carousel-arrow"
                         data-rows="1" data-items="6" data-xxl-items="6" data-xl-items="5" data-lg-items="4"
                         data-md-items="3" data-sm-items="1" data-xs-items="4" data-arrows="true" data-dots="false" data-autoplay="true" data-infinite="true">
                     
@@ -194,119 +194,11 @@
     <div class="container">    
         <div class="d-sm-flex">
             <!-- Best Selling -->
-            @php
-             $best_selling_products = get_best_selling_products(20);
-            @endphp
-            @if (count($best_selling_products) > 0)
-            <div class="px-0 px-sm-4 w-100 overflow-hidden rounded-75 best-salling-section pt-32px pb-26px mb-4 mb-sm-0" style="background-color: {{ get_setting('best_selling_section_bg_color', '#E7EFEC') }}">
-                <!-- Top Section -->
-                <div class="d-flex mb-2 mb-md-3 align-items-baseline justify-content-between px-3 px-md-2">
-                    <!-- Title -->
-                    <h3 class="fs-16 fw-600 mb-2 mb-sm-0">
-                        <span class="">{{ translate('Best Selling') }}</span>
-                    </h3>
-                    <a type="button" class="arrow-next text-white bg-dark view-more-slide-btn d-flex align-items-center" href="{{route('best-selling')}}">
-                        <span><i class="las la-angle-right fs-20 fw-600"></i></span>
-                        <span class="fs-12 mr-2 text">{{translate('View All')}}</span>
-                    </a>
-                </div>
-                <div class="aiz-carousel arrow-x-0 arrow-inactive-none" data-items="5"
-                    data-xxl-items="5" data-xl-items="5" data-lg-items="5" data-md-items="3" data-sm-items="1"
-                    data-xs-items="3" data-arrows="false" data-dots="false" data-autoplay="false" data-infinite="true">
-                    @foreach ($best_selling_products as $key => $product)
-                        <div class="px-3">
-                            <div class="img h-80px w-80px h-lg-100px w-lg-100px  h-xl-130px w-xl-130px h-xxl-170px w-xxl-170px rounded overflow-hidden mx-auto position-relative image-hover-effect">
-                                <a href="{{ route('product', $product->slug) }}" title="{{ $product->getTranslation('name') }}">
-                                    <img class="lazyload img-fit m-auto has-transition product-main-image"
-                                    src="{{ static_asset('assets/img/placeholder.jpg') }}"
-                                    data-src="{{ get_image($product->thumbnail) }}"
-                                    alt="{{ $product->getTranslation('name') }}"
-                                    onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
-
-                                    <img
-                                    class="lazyload img-fit m-auto has-transition product-main-image product-hover-image position-absolute"
-                                    src="{{ get_first_product_image($product->thumbnail, $product->photos) }}"
-                                    alt="{{ $product->getTranslation('name') }}"
-                                    title="{{ $product->getTranslation('name') }}"
-                                    onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
-                                </a>
-                            </div>
-
-                            <!-- Name -->
-                            <div class="fs-13 mr-sm-1 mt-3 text-center mt-2 px-xs-0 px-sm-4" title="{{ $product->getTranslation('name') }}">
-                                <a class="fw-400 text-truncate-2 hov-text-primary text-reset" href="{{ route('product', $product->slug) }}">{{ $product->getTranslation('name') }}</a>
-                            </div>
-
-                            <!-- Price -->
-                            <div class="fs-14 mr-1 mt-1 text-center">
-                                <span class="d-block fw-700">{{ home_discounted_base_price($product) }}</span>
-                                @if (home_base_price($product) != home_discounted_base_price($product))
-                                    <del class="d-block text-secondary fs-12 fw-400">{{ home_base_price($product) }}</del>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+            <div id="section_best_selling" class="w-100 mb-4 mb-sm-0">
             </div>
             <!-- Todays Deal -->
-            @endif
-            @php
-             $todays_deal_products = get_todays_deal_products(20);
-            @endphp
-            @if (count($todays_deal_products) > 0)
-            <div class="px-0 mt-sm-0 ml-sm-4 w-100  w-md-50 w-lg-35 overflow-hidden border border-2 border-dark rounded-75 todays-deal pt-32px pb-26px" style="background-color: {{ get_setting('todays_deal_bg_color', '#ffffff') }}">
-                <div class="d-flex mx-3 mb-3 align-items-baseline justify-content-between">
-                    <!-- Title -->
-                    <h3 class="fs-16 fw-600 mb-2 mb-sm-0">
-                        <span class="">{{ translate('Todays Deal') }}</span>
-                    </h3>
-                    <!-- Links -->
-                    <a type="button" class="arrow-next text-white bg-dark view-more-slide-btn d-flex align-items-center" href="{{ route('todays-deal') }}">
-                        <span><i class="las la-angle-right fs-20 fw-600"></i></span>
-                        <span class="fs-12 mr-2 text">View All</span>
-                    </a>
-                </div>  
-        
-                <div class="aiz-carousel arrow-x-0 arrow-inactive-none" data-items="1"
-                    data-xxl-items="1" data-xl-items="1" data-lg-items="1" data-md-items="1" data-sm-items="1"
-                    data-xs-items="1" data-arrows="true" data-dots="false" data-autoplay="true" data-infinite="true">
-                    @foreach ($todays_deal_products as $key => $product)
-                        <div class="px-3">
-                            <div class="img h-80px w-80px h-lg-100px w-lg-100px  h-xl-130px w-xl-130px h-xxl-170px w-xxl-170px rounded overflow-hidden mx-auto position-relative image-hover-effect">
-                                <a href="{{ route('product', $product->slug) }}" title="{{ $product->getTranslation('name') }}">
-                                    <img class="lazyload img-fit m-auto has-transition product-main-image"
-                                    src="{{ static_asset('assets/img/placeholder.jpg') }}"
-                                    data-src="{{ get_image($product->thumbnail) }}"
-                                    alt="{{ $product->getTranslation('name') }}"
-                                    onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
-
-                                    <img
-                                    class="lazyload img-fit m-auto has-transition product-main-image product-hover-image position-absolute"
-                                    src="{{ get_first_product_image($product->thumbnail, $product->photos) }}"
-                                    alt="{{ $product->getTranslation('name') }}"
-                                    title="{{ $product->getTranslation('name') }}"
-                                    onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
-                                </a>
-                            </div>
-
-                            <!-- Name -->
-                            <div class="fs-13 mr-1 mt-3 text-center px-xs-0 px-sm-4" title="{{ $product->getTranslation('name') }}">
-                                <a class="fw-400 text-truncate-2 hov-text-primary text-reset" href="{{ route('product', $product->slug) }}">{{ $product->getTranslation('name') }}</a>
-                            </div>
-
-                            <!-- Price -->
-                            <div class="fs-14 mr-1 mt-1 text-center">
-                                <span class="d-block fw-700">{{ home_discounted_base_price($product) }}</span>
-                                @if (home_base_price($product) != home_discounted_base_price($product))
-                                    <del
-                                        class="d-block text-secondary fs-12 fw-400">{{ home_base_price($product) }}</del>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+            <div id="todays_deal" class="w-100  w-md-50 w-lg-35">
             </div>
-            @endif
         </div>
     </div>
 </section>
@@ -322,7 +214,7 @@
         $home_banner1_links = get_setting('home_banner1_links', null, $lang);
         @endphp
         <div class="w-100 pr-3 pr-md-0">
-            <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15 home-banner-1"
+            <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15 home-banner-1"
                 data-items="{{ count($banner_1_imags) }}" data-xxl-items="{{ count($banner_1_imags) }}"
                 data-xl-items="{{ count($banner_1_imags) }}" data-lg-items="{{ $data_md }}"
                 data-md-items="2.5" data-sm-items="2.5" data-xs-items="1.5" data-arrows="false"
@@ -377,7 +269,7 @@
                                     <span class="fs-12 mr-2 text">View All</span>
                                 </a>
                             </div>
-                            <div class="aiz-carousel arrow-x-0 arrow-inactive-none" data-items="7"
+                            <div class="pex-carousel arrow-x-0 arrow-inactive-none" data-items="7"
                                 data-xxl-items="7" data-xl-items="6" data-lg-items="5" data-md-items="4" data-sm-items="4"
                                 data-xs-items="3" data-arrows="false" data-dots="false" data-autoplay="true" data-infinite="true">
                                 @foreach ($classified_products as $key => $product)
@@ -447,7 +339,7 @@ $homeBanner2SmallImages = get_setting('home_banner2_sm_images', null, $lang);
         $data_small_md = count($banner_2_small_imags) >= 2 ? 2 : 1;
         $home_banner2_links = get_setting('home_banner2_links', null, $lang);
         @endphp
-        <div class="d-none d-md-block aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+        <div class="d-none d-md-block pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
             data-items="{{ count($banner_2_imags) }}" data-xxl-items="{{ count($banner_2_imags) }}"
             data-xl-items="{{ count($banner_2_imags) }}" data-lg-items="{{ $data_md }}"
             data-md-items="{{ $data_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -466,7 +358,7 @@ $homeBanner2SmallImages = get_setting('home_banner2_sm_images', null, $lang);
         </div>
 
 
-        <div class="d-md-none aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+        <div class="d-md-none pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
             data-items="{{ count($banner_2_imags) }}" data-xxl-items="{{ count($banner_2_imags) }}"
             data-xl-items="{{ count($banner_2_imags) }}" data-lg-items="{{ $data_small_md }}"
             data-md-items="{{ $data_small_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -560,7 +452,7 @@ $homeBanner2SmallImages = get_setting('home_banner2_sm_images', null, $lang);
                 $button.prop('disabled', true).text('{{ translate("No More Products") }}');
             } else {
                 $('#newest-products-list').append(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             }
         }).fail(function() {
             $button.prop('disabled', false);

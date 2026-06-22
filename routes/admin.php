@@ -5,7 +5,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\Admin\Report\EarningReportController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AIController;
-use App\Http\Controllers\AizUploadController;
+use App\Http\Controllers\PexUploadController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AttributeController;
@@ -725,8 +725,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'prevent-ba
     Route::post('/import-data', [BusinessSettingsController::class, 'import_data'])->name('import_data');
 
     // uploaded files
-    Route::resource('/uploaded-files', AizUploadController::class);
-    Route::controller(AizUploadController::class)->group(function () {
+    Route::resource('/uploaded-files', PexUploadController::class);
+    Route::controller(PexUploadController::class)->group(function () {
         Route::any('/uploaded-files/file-info', 'file_info')->name('uploaded-files.info');
         Route::get('/uploaded-files/destroy/{id}', 'destroy')->name('uploaded-files.destroy');
         Route::post('/bulk-uploaded-files-delete', 'bulk_uploaded_files_delete')->name('bulk-uploaded-files-delete');

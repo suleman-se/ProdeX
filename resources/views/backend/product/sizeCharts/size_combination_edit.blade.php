@@ -6,7 +6,7 @@
     $size_options = App\Models\AttributeValue::selectRaw('id,value')->whereIn('id', json_decode($size_chart->size_options, true))->get();
 @endphp
 @if($measurement_option_inch == 1 || $measurement_option_cen == 1)
-  <table class="table table-bordered aiz-table breakpoint-xl" style="">
+  <table class="table table-bordered pex-table breakpoint-xl" style="">
     <thead>
       <tr class="footable-header">
         <th>{{ translate('Measurement Points') }}</th>

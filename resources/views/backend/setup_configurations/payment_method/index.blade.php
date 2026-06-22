@@ -10,7 +10,7 @@
                             <img class="mr-3" src="{{ static_asset('assets/img/cards/'.$payment_method->name.'.png') }}" height="30">
                             <h5 class="mb-0 h6">{{ ucfirst(translate($payment_method->name)) }}</h5>
                         </div>
-                        <label class="aiz-switch aiz-switch-success mb-0 float-right">
+                        <label class="pex-switch pex-switch-success mb-0 float-right">
                             <input type="checkbox" onchange="updatePaymentSettings(this, {{ $payment_method->id }})" @if ($payment_method->active == 1) checked @endif>
                             <span class="slider round"></span>
                         </label>
@@ -29,7 +29,7 @@
                             <img class="mr-3" src="{{ static_asset('assets/img/cards/cod.png') }}" height="30">
                             <h5 class="mb-0 h6">{{ translate('Cash Payment') }}</h5>
                         </div>
-                        <label class="aiz-switch aiz-switch-success mb-0 float-right">
+                        <label class="pex-switch pex-switch-success mb-0 float-right">
                             <input type="checkbox" onchange="updateSettings(this, 'cash_payment')" @if (get_setting('cash_payment') == 1) checked @endif>
                             <span class="slider round"></span>
                         </label>
@@ -47,7 +47,7 @@
             function updatePaymentSettings(el, id) {
 
                 if('{{env('DEMO_MODE')}}' == 'On'){
-                    AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                    PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                     return;
                 }
 
@@ -63,9 +63,9 @@
                     value: value
                 }, function(data) {
                     if (data == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Payment Settings updated successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Payment Settings updated successfully') }}');
                     } else {
-                        AIZ.plugins.notify('danger', 'Something went wrong');
+                        PEX.plugins.notify('danger', 'Something went wrong');
                     }
                 });
             }
@@ -73,7 +73,7 @@
             function updateSettings(el, type) {
 
                 if('{{env('DEMO_MODE')}}' == 'On'){
-                    AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                    PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                     return;
                 }
 
@@ -89,9 +89,9 @@
                     value: value
                 }, function(data) {
                     if (data == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
                     } else {
-                        AIZ.plugins.notify('danger', 'Something went wrong');
+                        PEX.plugins.notify('danger', 'Something went wrong');
                     }
                 });
             }

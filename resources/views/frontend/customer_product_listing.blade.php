@@ -41,12 +41,12 @@
                 <div class="row">
                     <!-- Sidebar Filters -->
                     <div class="col-xl-3 side-filter d-xl-block">
-                        <div class="aiz-filter-sidebar collapse-sidebar-wrap sidebar-xl sidebar-right z-1035">
-                            <div class="overlay overlay-fixed dark c-pointer" data-toggle="class-toggle" data-target=".aiz-filter-sidebar" data-same=".filter-sidebar-thumb"></div>
+                        <div class="pex-filter-sidebar collapse-sidebar-wrap sidebar-xl sidebar-right z-1035">
+                            <div class="overlay overlay-fixed dark c-pointer" data-toggle="class-toggle" data-target=".pex-filter-sidebar" data-same=".filter-sidebar-thumb"></div>
                             <div class="collapse-sidebar c-scrollbar-light text-left">
                                 <div class="d-flex d-xl-none justify-content-between align-items-center pl-3 border-bottom">
                                     <h3 class="h6 mb-0 fw-600">{{ translate('Filters') }}</h3>
-                                    <button type="button" class="btn btn-sm p-2 filter-sidebar-thumb" data-toggle="class-toggle" data-target=".aiz-filter-sidebar" type="button">
+                                    <button type="button" class="btn btn-sm p-2 filter-sidebar-thumb" data-toggle="class-toggle" data-target=".pex-filter-sidebar" type="button">
                                         <i class="las la-times la-2x"></i>
                                     </button>
                                 </div>
@@ -130,7 +130,7 @@
                         <div class="text-left">
                             <div class="d-flex">
                                 <div class="form-group w-200px">
-                                    <select class="form-control form-control-sm aiz-selectpicker rounded-0" name="sort_by" onchange="filter()">
+                                    <select class="form-control form-control-sm pex-selectpicker rounded-0" name="sort_by" onchange="filter()">
                                         <option value="">{{ translate('Sort by')}}</option>
                                         <option value="1" @isset($sort_by) @if ($sort_by == '1') selected @endif @endisset>{{ translate('Newest')}}</option>
                                         <option value="2" @isset($sort_by) @if ($sort_by == '2') selected @endif @endisset>{{ translate('Oldest')}}</option>
@@ -139,14 +139,14 @@
                                     </select>
                                 </div>
                                 <div class="form-group ml-auto mr-0 w-200px d-none d-md-block">
-                                    <select class="form-control form-control-sm aiz-selectpicker rounded-0" name="condition" onchange="filter()">
+                                    <select class="form-control form-control-sm pex-selectpicker rounded-0" name="condition" onchange="filter()">
                                         <option value="">{{ translate('Type')}}</option>
                                         <option value="new" @isset($condition) @if ($condition == 'new') selected @endif @endisset>{{ translate('New')}}</option>
                                         <option value="used" @isset($condition) @if ($condition == 'used') selected @endif @endisset>{{ translate('Used')}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group ml-2 mr-0 w-200px d-none d-md-block">
-                                    <select class="form-control form-control-sm aiz-selectpicker rounded-0" data-live-search="true" name="brand" onchange="filter()">
+                                    <select class="form-control form-control-sm pex-selectpicker rounded-0" data-live-search="true" name="brand" onchange="filter()">
                                         <option value="">{{ translate('Brands')}}</option>
                                         @foreach (get_all_brands() as $brand)
                                             <option value="{{ $brand->slug }}" @isset($brand_id) @if ($brand_id == $brand->id) selected @endif @endisset>{{ $brand->getTranslation('name') }}</option>
@@ -154,7 +154,7 @@
                                     </select>
                                 </div>
                                 <div class="d-xl-none ml-auto ml-md-3 mr-0 form-group align-self-end">
-                                    <button type="button" class="btn btn-icon p-0" data-toggle="class-toggle" data-target=".aiz-filter-sidebar">
+                                    <button type="button" class="btn btn-icon p-0" data-toggle="class-toggle" data-target=".pex-filter-sidebar">
                                         <i class="la la-filter la-2x"></i>
                                     </button>
                                 </div>
@@ -166,7 +166,7 @@
                             <div class="row gutters-16 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-4 row-cols-md-3 row-cols-2 border-top border-left">
                                 @foreach ($customer_products as $key => $product)
                                     <div class="col overflow-hidden has-transition hov-shadow-out z-1 border-right border-bottom">
-                                        <div class="aiz-card-box my-3">
+                                        <div class="pex-card-box my-3">
                                             <div class="position-relative">
                                                 <!-- Image -->
                                                 <a href="{{ route('customer.product', $product->slug) }}" class="d-block">
@@ -202,7 +202,7 @@
                         </div>
 
                         <!-- Pagination -->
-                        <div class="aiz-pagination aiz-pagination-center mt-4">
+                        <div class="pex-pagination pex-pagination-center mt-4">
                             {{ $customer_products->links() }}
                         </div>
 

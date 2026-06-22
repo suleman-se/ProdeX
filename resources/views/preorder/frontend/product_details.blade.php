@@ -156,9 +156,9 @@
             $temp.val(url).select();
             try {
                 document.execCommand("copy");
-                AIZ.plugins.notify('success', '{{ translate('Link copied to clipboard') }}');
+                PEX.plugins.notify('success', '{{ translate('Link copied to clipboard') }}');
             } catch (err) {
-                AIZ.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
+                PEX.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
             }
             $temp.remove();
         }
@@ -211,7 +211,7 @@
             @if (isCustomer() || isSeller())
                 $('#bid_for_detail_product').modal('show');
           	@elseif (isAdmin())
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, Only customers & Sellers can Bid.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, Only customers & Sellers can Bid.") }}');
             @else
                 $('#login_modal').modal('show');
             @endif
@@ -230,13 +230,13 @@
                         $('#product-review-modal').modal('show', {
                             backdrop: 'static'
                         });
-                        AIZ.extra.inputRating();
+                        PEX.extra.inputRating();
                     });
                 @else
-                    AIZ.plugins.notify('warning', '{{ translate("Sorry, You need to buy this product to give review.") }}');
+                    PEX.plugins.notify('warning', '{{ translate("Sorry, You need to buy this product to give review.") }}');
                 @endif
             @elseif (Auth::check() && !isCustomer())
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
             @else
                 $('#login_modal').modal('show');
             @endif
@@ -264,7 +264,7 @@
                     });
                 });
             @elseif (Auth::check() && !isCustomer())
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, Only customers can give review.") }}');
             @else
                 $('#login_modal').modal('show');
             @endif

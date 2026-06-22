@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
 	<div class="align-items-center">
 		<h1 class="h3">{{translate('All Warranties')}}</h1>
 	</div>
@@ -24,7 +24,7 @@
 				</div>
 		    </div>
 		    <div class="card-body">
-		        <table class="table aiz-table mb-0">
+		        <table class="table pex-table mb-0">
 		            <thead>
 		                <tr>
 		                    <th>#</th>
@@ -57,7 +57,7 @@
 		                @endforeach
 		            </tbody>
 		        </table>
-		        <div class="aiz-pagination">
+		        <div class="pex-pagination">
                 	{{ $warranties->appends(request()->input())->links() }}
             	</div>
 		    </div>
@@ -78,7 +78,7 @@
 						</div>
 						<div class="form-group mb-3">
 							<label for="name">{{translate('Logo')}} <small>({{ translate('40x40') }})</small></label>
-							<div class="input-group" data-toggle="aizuploader" data-type="image">
+							<div class="input-group" data-toggle="pexuploader" data-type="image">
 								<div class="input-group-prepend">
 										<div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
 								</div>

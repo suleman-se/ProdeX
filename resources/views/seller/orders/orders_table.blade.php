@@ -1,14 +1,14 @@
 <div class="card-body">
-    <table class="table mb-0" id="aiz-data-table">
+    <table class="table mb-0" id="pex-data-table">
         <thead>
             <tr>
 
                 <th>
                     <div class="form-group">
-                        <div class="aiz-checkbox-inline">
-                            <label class="aiz-checkbox pt-5px d-block">
+                        <div class="pex-checkbox-inline">
+                            <label class="pex-checkbox pt-5px d-block">
                                 <input type="checkbox" class="check-all">
-                                <span class="aiz-square-check"></span>
+                                <span class="pex-square-check"></span>
                             </label>
                         </div>
                     </div>
@@ -35,9 +35,9 @@
                     </div>
 
                     <div class="form-group d-inline-block">
-                        <label class="aiz-checkbox">
+                        <label class="pex-checkbox">
                             <input type="checkbox" class="check-one" name="id[]" value="{{ $order->id }}">
-                            <span class="aiz-square-check mt-1"></span>
+                            <span class="pex-square-check mt-1"></span>
                         </label>
                     </div>
                 </td>
@@ -165,7 +165,7 @@
     </table>
 
     @if($orders->hasPages())
-    <div class="aiz-pagination mt-3" id="pagination">
+    <div class="pex-pagination mt-3" id="pagination">
         {{ $orders->links() }}
     </div>
     @endif

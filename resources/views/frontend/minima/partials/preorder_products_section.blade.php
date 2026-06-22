@@ -17,7 +17,7 @@
                 </div>
                 <!-- Products Section -->
                 <div class="px-sm-3">
-                    <div class="aiz-carousel sm-gutters-15 arrow-none" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='false'>
+                    <div class="pex-carousel sm-gutters-15 arrow-none" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='false'>
                         @foreach ($preorder_products as $key => $product)
                             @include('preorder.frontend.product_box2',['product' => $product])
                         @endforeach

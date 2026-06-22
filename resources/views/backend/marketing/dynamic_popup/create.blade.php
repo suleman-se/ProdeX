@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <h5 class="mb-0 h6">{{ translate('Add New Dynamic Popup') }}</h5>
     </div>
     <div class="">
@@ -53,7 +53,7 @@
                                     <span class="fs-12 text-secondary fw-400">{{ translate('(512px X 280px)') }}</span>
                                 </label>
                                 <div class="col-md-8">
-                                    <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                                    <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="false">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                         </div>
@@ -81,10 +81,10 @@
                                 </label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="btn_background_color" required>
+                                        <input type="text" class="form-control pex-color-input" placeholder="#000000" name="btn_background_color" required>
                                         <div class="input-group-append">
                                             <span class="input-group-text p-0">
-                                                <input class="aiz-color-picker border-0 size-40px" type="color">
+                                                <input class="pex-color-picker border-0 size-40px" type="color">
                                             </span>
                                         </div>
                                     </div>

@@ -9,7 +9,7 @@
     			<h1 class="h6">{{translate('User Search Report')}}</h1>
     		</div>
             <div class="card-body">
-                <table class="table table-bordered aiz-table mb-0">
+                <table class="table table-bordered pex-table mb-0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -27,7 +27,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="aiz-pagination mt-4">
+                <div class="pex-pagination mt-4">
                     {{ $searches->links() }}
                 </div>
             </div>

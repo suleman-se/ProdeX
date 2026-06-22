@@ -34,7 +34,7 @@
                                         <!-- Quantity -->
                                         <div class="col-md-1 col order-1 order-md-0">
                                             @if ($cartItem['digital'] != 1 && $product->auction_product == 0)
-                                                <div class="d-flex flex-column align-items-start aiz-plus-minus mr-2 ml-0">
+                                                <div class="d-flex flex-column align-items-start pex-plus-minus mr-2 ml-0">
                                                     <button
                                                         class="btn col-auto btn-icon btn-sm btn-circle btn-light"
                                                         type="button" data-type="plus"

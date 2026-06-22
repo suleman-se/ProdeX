@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="align-items-center">
             <h1 class="h3">{{ translate('Element Type Details') }}</h1>
         </div>
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="card-body">
-                    <table class="table aiz-table mb-0">
+                    <table class="table pex-table mb-0">
                         <thead>
                             <tr>
                                 <th width="5%;">#</th>
@@ -84,12 +84,12 @@
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <input type="hidden" name="names[]" value="top_header_bg_color">
-                                        <input type="text" class="form-control aiz-color-input" placeholder="#000000"
+                                        <input type="text" class="form-control pex-color-input" placeholder="#000000"
                                             name="top_header_bg_color" value="{{ $style_values['top_header_bg_color'] ?? '#000000' }}">
                                         <div class="input-group-append">
                                             <span class="input-group-text p-0">
                                                 <input data-target="top_header_bg_color" value="{{ $style_values['top_header_bg_color'] ?? '#000000' }}"
-                                                    class="aiz-color-picker border-0 size-40px" type="color">
+                                                    class="pex-color-picker border-0 size-40px" type="color">
                                             </span>
                                         </div>
                                     </div>
@@ -101,12 +101,12 @@
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <input type="hidden" name="names[]" value="middle_header_bg_color">
-                                        <input type="text" class="form-control aiz-color-input" placeholder="#000000"
+                                        <input type="text" class="form-control pex-color-input" placeholder="#000000"
                                             name="middle_header_bg_color" value="{{ $style_values['middle_header_bg_color'] ?? '#000000' }}">
                                         <div class="input-group-append">
                                             <span class="input-group-text p-0">
                                                 <input data-target="middle_header_bg_color" value="{{ $style_values['middle_header_bg_color'] ?? '#000000' }}"
-                                                    class="aiz-color-picker border-0 size-40px" type="color">
+                                                    class="pex-color-picker border-0 size-40px" type="color">
                                             </span>
                                         </div>
                                     </div>
@@ -118,12 +118,12 @@
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <input type="hidden" name="names[]" value="bottom_header_bg_color">
-                                        <input type="text" class="form-control aiz-color-input" placeholder="#000000"
+                                        <input type="text" class="form-control pex-color-input" placeholder="#000000"
                                             name="bottom_header_bg_color" value="{{ $style_values['bottom_header_bg_color'] ?? '#000000' }}">
                                         <div class="input-group-append">
                                             <span class="input-group-text p-0">
                                                 <input data-target="bottom_header_bg_color" value="{{ $style_values['bottom_header_bg_color'] ?? '#000000' }}"
-                                                    class="aiz-color-picker border-0 size-40px" type="color">
+                                                    class="pex-color-picker border-0 size-40px" type="color">
                                             </span>
                                         </div>
                                     </div>
@@ -136,12 +136,12 @@
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <input type="hidden" name="names[]" value="top_header_text_color">
-                                        <input type="text" class="form-control aiz-color-input" placeholder="#000000"
+                                        <input type="text" class="form-control pex-color-input" placeholder="#000000"
                                             name="top_header_text_color" value="{{ $style_values['top_header_text_color'] ?? '#000000' }}">
                                         <div class="input-group-append">
                                             <span class="input-group-text p-0">
                                                 <input data-target="top_header_text_color" value="{{ $style_values['top_header_text_color'] ?? '#000000' }}"
-                                                    class="aiz-color-picker border-0 size-40px" type="color">
+                                                    class="pex-color-picker border-0 size-40px" type="color">
                                             </span>
                                         </div>
                                     </div>
@@ -153,12 +153,12 @@
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <input type="hidden" name="names[]" value="middle_header_text_color">
-                                        <input type="text" class="form-control aiz-color-input" placeholder="#000000"
+                                        <input type="text" class="form-control pex-color-input" placeholder="#000000"
                                             name="middle_header_text_color" value="{{ $style_values['middle_header_text_color'] ?? '#000000' }}">
                                         <div class="input-group-append">
                                             <span class="input-group-text p-0">
                                                 <input data-target="middle_header_text_color" value="{{ $style_values['middle_header_text_color'] ?? '#000000' }}"
-                                                    class="aiz-color-picker border-0 size-40px" type="color">
+                                                    class="pex-color-picker border-0 size-40px" type="color">
                                             </span>
                                         </div>
                                     </div>
@@ -170,12 +170,12 @@
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <input type="hidden" name="names[]" value="bottom_header_text_color">
-                                        <input type="text" class="form-control aiz-color-input" placeholder="#000000"
+                                        <input type="text" class="form-control pex-color-input" placeholder="#000000"
                                             name="bottom_header_text_color" value="{{ $style_values['bottom_header_text_color'] ?? '#000000' }}">
                                         <div class="input-group-append">
                                             <span class="input-group-text p-0">
                                                 <input data-target="bottom_header_text_color" value="{{ $style_values['bottom_header_text_color'] ?? '#000000' }}"
-                                                    class="aiz-color-picker border-0 size-40px" type="color">
+                                                    class="pex-color-picker border-0 size-40px" type="color">
                                             </span>
                                         </div>
                                     </div>

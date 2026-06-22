@@ -13,7 +13,7 @@
             border-color: var(--primary);
         }
     </style>
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <h5 class="mb-0 h6">{{ translate('Add New Custom Alerts') }}</h5>
     </div>
     <div class="">
@@ -45,7 +45,7 @@
                                 </label>
                                 <div class="col-md-8 row">
                                     <div class="col-6">
-                                        <label class="aiz-megabox d-block bg-white mb-0">
+                                        <label class="pex-megabox d-block bg-white mb-0">
                                             <input
                                                 type="radio"
                                                 name="type"
@@ -54,14 +54,14 @@
                                                 data-target="custom-alert-small"
                                                 checked
                                             >
-                                            <span class="d-flex align-items-center aiz-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
-                                                <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                            <span class="d-flex align-items-center pex-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
+                                                <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                 <span class="flex-grow-1 pl-3 fw-600">{{  translate('Small') }}</span>
                                             </span>
                                         </label>
                                     </div>
                                     <div class="col-6">
-                                        <label class="aiz-megabox d-block bg-white mb-0">
+                                        <label class="pex-megabox d-block bg-white mb-0">
                                             <input
                                                 type="radio"
                                                 name="type"
@@ -69,8 +69,8 @@
                                                 onchange="show_image_type(this)"
                                                 data-target="custom-alert-large"
                                             >
-                                            <span class="d-flex align-items-center aiz-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
-                                                <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                            <span class="d-flex align-items-center pex-megabox-elem rounded-0" style="padding: 0.75rem 1.2rem;">
+                                                <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                                 <span class="flex-grow-1 pl-3 fw-600">{{  translate('Large') }}</span>
                                             </span>
                                         </label>
@@ -85,7 +85,7 @@
                                     <span class="fs-12 text-secondary fw-400 img_size_guide d-none" id="img_size_guide_large">{{ translate('(300px X 160px)') }}</span>
                                 </label>
                                 <div class="col-md-8">
-                                    <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                                    <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="false">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                         </div>
@@ -122,10 +122,10 @@
                                 </label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <input type="text" class="form-control aiz-color-input" placeholder="#000000" name="background_color" required>
+                                        <input type="text" class="form-control pex-color-input" placeholder="#000000" name="background_color" required>
                                         <div class="input-group-append">
                                             <span class="input-group-text p-0">
-                                                <input class="aiz-color-picker border-0 size-40px" type="color">
+                                                <input class="pex-color-picker border-0 size-40px" type="color">
                                             </span>
                                         </div>
                                     </div>
@@ -154,7 +154,7 @@
                                     <span class="fs-12 text-secondary fw-400">{{ translate('(Select time duration for auto close the alert)') }}</span>
                                 </label>
                                 <div class="col-md-8">
-                                    <select name="auto_hide" class="form-control aiz-selectpicker" required>
+                                    <select name="auto_hide" class="form-control pex-selectpicker" required>
                                         <option value="" disabled>{{ translate('Select Auto Close Duration') }}</option>
                                         <option value="0">{{ translate('Auto Close Disabled') }}</option>
                                         <option value="3">{{ translate('3 Seconds') }}</option>

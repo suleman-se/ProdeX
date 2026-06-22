@@ -51,12 +51,12 @@
     @endif
 	@include('header.' .get_element_type_by_id(get_setting('header_element')))
 <!-- Top Menu Sidebar -->
-<div class="aiz-top-menu-sidebar collapse-sidebar-wrap sidebar-xl sidebar-left d-lg-none z-1035">
-    <div class="overlay overlay-fixed dark c-pointer" data-toggle="class-toggle" data-target=".aiz-top-menu-sidebar"
+<div class="pex-top-menu-sidebar collapse-sidebar-wrap sidebar-xl sidebar-left d-lg-none z-1035">
+    <div class="overlay overlay-fixed dark c-pointer" data-toggle="class-toggle" data-target=".pex-top-menu-sidebar"
         data-same=".hide-top-menu-bar"></div>
     <div class="collapse-sidebar c-scrollbar-light text-left">
         <button type="button" class="btn btn-sm p-4 hide-top-menu-bar" data-toggle="class-toggle"
-            data-target=".aiz-top-menu-sidebar">
+            data-target=".pex-top-menu-sidebar">
             <i class="las la-times la-2x text-primary"></i>
         </button>
         @auth
@@ -182,13 +182,13 @@
             }
 
             $.post('{{ route('orders.details') }}', {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 order_id: order_id
             }, function (data) {
                 $('#order-details-modal-body').html(data);
                 $('#order_details').modal();
                 $('.c-preloader').hide();
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
             });
         }
     </script>

@@ -53,7 +53,7 @@
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="form-group mb-0">
-                                <input type="text" class="aiz-date-range form-control form-control-sm" value="{{ $date }}"
+                                <input type="text" class="pex-date-range form-control form-control-sm" value="{{ $date }}"
                                     name="date" placeholder="{{ translate('Filter by date') }}" data-format="DD-MM-Y"
                                     data-separator=" to " data-advanced-range="true" autocomplete="off">
                             </div>
@@ -75,7 +75,7 @@
                 <div class="col-3 text-end">
                     <div class="row">
                         <div class="col-lg-8">
-                            <select class="form-control form-control-sm aiz-selectpicker" id="bulk_action">
+                            <select class="form-control form-control-sm pex-selectpicker" id="bulk_action">
                                 <option value="">{{ translate('Bulk Action') }}</option>
                                 <option value="bulk_delete">{{ translate('Bulk Delete') }}</option>
                             </select>
@@ -92,15 +92,15 @@
         </div>
 
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                     <tr>
                         <th>
                             <div class="form-group">
-                                <div class="aiz-checkbox-inline">
-                                    <label class="aiz-checkbox">
+                                <div class="pex-checkbox-inline">
+                                    <label class="pex-checkbox">
                                         <input type="checkbox" class="check-all">
-                                        <span class="aiz-square-check"></span>
+                                        <span class="pex-square-check"></span>
                                     </label>
                                 </div>
                             </div>
@@ -121,10 +121,10 @@
                     <tr>
                         <td>
                             <div class="form-group">
-                                <div class="aiz-checkbox-inline">
-                                    <label class="aiz-checkbox">
+                                <div class="pex-checkbox-inline">
+                                    <label class="pex-checkbox">
                                         <input type="checkbox" class="check-one" name="id[]" value="{{ $order->id }}">
-                                        <span class="aiz-square-check"></span>
+                                        <span class="pex-square-check"></span>
                                     </label>
                                 </div>
                             </div>
@@ -216,7 +216,7 @@
                 </tbody>
             </table>
 
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
                 {{ $orders->appends(request()->input())->links() }}
             </div>
 
@@ -255,9 +255,9 @@
         });
         $.post('{{ route('seller.bulk-preorder-delete') }}', { _token: '{{ csrf_token() }}', order_ids: orderIds }, function(data) {
             if (data == 1) {
-                AIZ.plugins.notify('success', '{{ translate('Orders deleted successfully') }}');
+                PEX.plugins.notify('success', '{{ translate('Orders deleted successfully') }}');
             } else {
-                AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
             }
             location.reload();
         });

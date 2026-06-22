@@ -50,7 +50,7 @@
           <div class="form-group row">
               <label class="col-md-3 col-from-label" for="payment_option">{{translate('Payment Method')}}</label>
               <div class="col-md-9">
-                  <select name="payment_option" id="payment_option" class="form-control aiz-selectpicker" required>
+                  <select name="payment_option" id="payment_option" class="form-control pex-selectpicker" required>
                       <option value="">{{translate('Select Payment Method')}}</option>
                       @if($shop->cash_on_delivery_status == 1)
                           <option value="cash">{{translate('Cash')}}</option>
@@ -105,6 +105,6 @@
         }
       });
       $("#txn_div").hide();
-      AIZ.plugins.bootstrapSelect('refresh');
+      PEX.plugins.bootstrapSelect('refresh');
   });
 </script>

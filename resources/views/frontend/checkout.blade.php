@@ -65,9 +65,9 @@
 
                                         <!-- Agree Box -->
                                         <div class="pt-2rem fs-14">
-                                            <label class="aiz-checkbox">
+                                            <label class="pex-checkbox">
                                                 <input type="checkbox" required id="agree_checkbox" onchange="stepCompletionPaymentInfo()">
-                                                <span class="aiz-square-check"></span>
+                                                <span class="pex-square-check"></span>
                                                 <span>{{ translate('I agree to the') }}</span>
                                             </label>
                                             <a href="{{ route('terms') }}"
@@ -159,7 +159,7 @@
             if ($('#agree_checkbox').is(":checked")) {
                 ;
                 if (minimum_order_amount_check && $('#sub_total').val() < minimum_order_amount) {
-                    AIZ.plugins.notify('danger',
+                    PEX.plugins.notify('danger',
                         '{{ translate('You order amount is less then the minimum order amount') }}');
                         deactivateButtonLoader(el);
                         return;
@@ -171,7 +171,7 @@
                     if(isOkShipping && isOkDelivery && isOkPayment) {
                         allIsOk = true;
                     }else{
-                        AIZ.plugins.notify('danger', '{{ translate("Please fill in all mandatory fields!") }}');
+                        PEX.plugins.notify('danger', '{{ translate("Please fill in all mandatory fields!") }}');
                         $('#checkout-form [required]').each(function (i, el) {
                             if ($(el).val() == '' || $(el).val() == undefined) {
                                 var is_trx_id = $('.d-none #trx_id').length;
@@ -197,7 +197,7 @@
 
                 }
             } else {
-                AIZ.plugins.notify('danger', '{{ translate('You need to agree with our policies') }}');
+                PEX.plugins.notify('danger', '{{ translate('You need to agree with our policies') }}');
                 deactivateButtonLoader(el);
             }
         }
@@ -207,7 +207,7 @@
             activateButtonLoader(el);
             if ($('#agree_checkbox').is(":checked")) {
                 if (minimum_order_amount_check && $('#sub_total').val() < minimum_order_amount) {
-                    AIZ.plugins.notify('danger',
+                    PEX.plugins.notify('danger',
                         '{{ translate('You order amount is less then the minimum order amount') }}');
                         deactivateButtonLoader(el);
                         return;
@@ -215,7 +215,7 @@
                     var offline_payment_active = '{{ addon_is_activated('offline_payment') }}';
                     if (offline_payment_active == '1' && $('.offline_payment_option').is(":checked") && $('#trx_id')
                         .val() == '') {
-                        AIZ.plugins.notify('danger', '{{ translate('You need to put Transaction id') }}');
+                        PEX.plugins.notify('danger', '{{ translate('You need to put Transaction id') }}');
                         deactivateButtonLoader(el);
                         return;
                     } else {
@@ -226,7 +226,7 @@
                         if(isOkShipping && isOkDelivery && isOkPayment) {
                             allIsOk = true;
                         }else{
-                            AIZ.plugins.notify('danger', '{{ translate("Please fill in all mandatory fields!") }}');
+                            PEX.plugins.notify('danger', '{{ translate("Please fill in all mandatory fields!") }}');
                             $('#checkout-form [required]').each(function (i, el) {
                                 if ($(el).val() == '' || $(el).val() == undefined) {
                                     var is_trx_id = $('.d-none #trx_id').length;
@@ -259,7 +259,7 @@
                     }
                 }
             } else {
-                AIZ.plugins.notify('danger', '{{ translate('You need to agree with our policies') }}');
+                PEX.plugins.notify('danger', '{{ translate('You need to agree with our policies') }}');
                 deactivateButtonLoader(el);
             }
         }
@@ -268,14 +268,14 @@
             function openOtpModal() {
 
                 $.post("{{ route('checkout.send_purchase_otp') }}", {
-                    _token: AIZ.data.csrf
+                    _token: PEX.data.csrf
                 }, function(response){
 
                     if(response.status){
                         $('#cod_wallet_otp-modal').modal('show');
-                        AIZ.plugins.notify('success', response.message);
+                        PEX.plugins.notify('success', response.message);
                     }else{
-                        AIZ.plugins.notify('danger', response.message);
+                        PEX.plugins.notify('danger', response.message);
                     }
 
                 });
@@ -287,7 +287,7 @@
                 let otp_code = $('input[name="otp_code"]').val();
 
                 $.post("{{ route('checkout.verify_purchase_otp') }}", {
-                    _token: AIZ.data.csrf,
+                    _token: PEX.data.csrf,
                     otp_code: otp_code
                 }, function(response){
 
@@ -302,7 +302,7 @@
                         
                         $('#checkout-form').submit();
                     }else{
-                        AIZ.plugins.notify('danger', response.message);
+                        PEX.plugins.notify('danger', response.message);
                     }
 
                 });
@@ -332,7 +332,7 @@
         $(document).on("click", "#coupon-apply", function() {
             @if (Auth::check())
                 @if(Auth::user()->user_type != 'customer')
-                    AIZ.plugins.notify('warning', "{{ translate('Please Login as a customer to apply coupon code.') }}");
+                    PEX.plugins.notify('warning', "{{ translate('Please Login as a customer to apply coupon code.') }}");
                     return false;
                 @endif
 
@@ -348,7 +348,7 @@
                     contentType: false,
                     processData: false,
                     success: function(data, textStatus, jqXHR) {
-                        AIZ.plugins.notify(data.response_message.response, data.response_message.message);
+                        PEX.plugins.notify(data.response_message.response, data.response_message.message);
                         $("#cart_summary").html(data.html);
                     }
                 });
@@ -379,30 +379,30 @@
         });
 
         function updateDeliveryAddress(id, city_id = 0, area_id=0) {
-            $('.aiz-refresh').addClass('active');
+            $('.pex-refresh').addClass('active');
             $.post('{{ route('checkout.updateDeliveryAddress') }}', {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 address_id: id,
                 city_id: city_id,
                 area_id: area_id
             }, function(data) {
                 $('#delivery_info').html(data.delivery_info);
                 $('#cart_summary').html(data.cart_summary);
-                $('.aiz-refresh').removeClass('active');
+                $('.pex-refresh').removeClass('active');
                 carrierCount = data.carrier_count;
                 checkCarrerShippingInfo();
             });
            
-            AIZ.plugins.bootstrapSelect("refresh");
+            PEX.plugins.bootstrapSelect("refresh");
         }
 
         function updateBillingAddress(id) {
-            $('.aiz-refresh').addClass('active');
+            $('.pex-refresh').addClass('active');
             $.post('{{ route('checkout.updateBillingAddress') }}', {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 billing_address_id: id
             }, function(data) {
-                $('.aiz-refresh').removeClass('active');
+                $('.pex-refresh').removeClass('active');
             });
         }
 
@@ -526,9 +526,9 @@
                 country_id = $('select[name="country_id"]').val() != null ? $('select[name="country_id"]').val() : 0;
                 city_id = $('select[name="city_id"]').val() != null ? $('select[name="city_id"]').val() : 0;
             @endif
-            $('.aiz-refresh').addClass('active');
+            $('.pex-refresh').addClass('active');
             $.post('{{ route('checkout.updateDeliveryInfo') }}', {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 shipping_type: shipping_type,
                 type_id: type_id,
                 user_id: user_id,
@@ -538,9 +538,9 @@
                 $('#cart_summary').html(data);
                 checkCarrerShippingInfo();
                 stepCompletionDeliveryInfo();
-                $('.aiz-refresh').removeClass('active');
+                $('.pex-refresh').removeClass('active');
             });
-            AIZ.plugins.bootstrapSelect("refresh");
+            PEX.plugins.bootstrapSelect("refresh");
         }
 
         function show_pickup_point(el, user_id) {

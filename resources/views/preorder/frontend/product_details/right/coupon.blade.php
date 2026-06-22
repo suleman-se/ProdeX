@@ -81,10 +81,10 @@
         const couponCode = document.getElementById('coupon-code').textContent;
         navigator.clipboard.writeText(couponCode)
             .then(() => {
-                AIZ.plugins.notify('success', "{{ translate('Coupon code copied to clipboard!') }}");
+                PEX.plugins.notify('success', "{{ translate('Coupon code copied to clipboard!') }}");
             })
             .catch(err => {
-                AIZ.plugins.notify('error', "{{ translate('Failed to copy') }}");
+                PEX.plugins.notify('error', "{{ translate('Failed to copy') }}");
             });
     }
 </script>

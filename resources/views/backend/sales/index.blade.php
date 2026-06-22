@@ -6,7 +6,7 @@
         CoreComponentRepository::initializeCache();
     @endphp
 
-    <div class="aiz-titlebar text-left pb-5px">
+    <div class="pex-titlebar text-left pb-5px">
         <div class="row align-items-center">
             <div class="col-auto">
                 <h1 class="h3 fw-bold">{{$order_types}}</h1>
@@ -89,7 +89,7 @@
                     
                     @if($seller_type == 'seller')
                     <div class="col-md-2 mr-0 px-0 inner-select ml-1">
-                        <select class="form-control  aiz-selectpicker mb-2 mb-md-0 bg-light" id="user_id" name="user_id" onchange="sort_orders()">
+                        <select class="form-control  pex-selectpicker mb-2 mb-md-0 bg-light" id="user_id" name="user_id" onchange="sort_orders()">
                             <option value="" class="hov-bg-light text-secondary fs-14 fw-40">{{ translate('All Sellers') }}</option>
                             @foreach (App\Models\User::where('user_type', '=', 'seller')->get() as $key => $seller)
                                 <option class="hov-bg-light text-secondary fs-14 fw-40" value="{{ $seller->id }}">
@@ -146,7 +146,7 @@
 
                     @if(Route::currentRouteName() != 'unpaid_orders.index')
                     <div class="col-md-2 ml-auto pr-0 pr-md-1 pl-0 inner-select ">
-                        <select class="form-control  aiz-selectpicker mb-2 mb-md-0 bg-light" name="payment_status"
+                        <select class="form-control  pex-selectpicker mb-2 mb-md-0 bg-light" name="payment_status"
                             id="payment_status" onchange="sort_orders()">
                             <option value="" class="hov-text-light text-white fs-14 fw-400">{{ translate('Filter by Payment Status') }}</option>
                             <option value="payment_status,paid" class="hov-bg-light text-secondary fs-14 fw-40"
@@ -161,7 +161,7 @@
                     @endif
 
                     <div class="col-md-2 ml-auto pl-0 inner-select input-group mb-0 border border-light px-3 bg-light rounded-1">
-                        <input type="text" class="aiz-date-range form-control form-control-sm border-0 px-2 bg-transparent" value=""
+                        <input type="text" class="pex-date-range form-control form-control-sm border-0 px-2 bg-transparent" value=""
                             name="date" placeholder="{{ translate('Filter by date') }}" data-format="DD-MM-Y"
                             data-separator=" to " data-advanced-range="true" autocomplete="off">
                     </div>
@@ -244,7 +244,7 @@
                 type: 'GET',
                 success: function(response) {
                     if (response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
                         hideBulkActionModal();
                         getOrders(currentTab);
                     }
@@ -266,7 +266,7 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected items deleted successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected items deleted successfully') }}');
                         hideBulkActionModal(); 
                         getOrders(currentTab);
                     }
@@ -288,7 +288,7 @@
         
         function bulkDelete() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
                 return;
             }
             showBulkActionModal();
@@ -304,7 +304,7 @@
 
         function bulkPublish() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
                 return;
             }
             showBulkActionModal();
@@ -319,7 +319,7 @@
 
         function bulkProductTodaysDeal() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
                 return;
             }
             showBulkActionModal();
@@ -335,7 +335,7 @@
         
         function bulkFeatured() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
                 return;
             }
             showBulkActionModal();
@@ -355,7 +355,7 @@
             var order_from = '{{ $order_from }}'
             var slug = slug.replace(/-/g, '_');
             let keyword = $('#search_input').val();
-            let dateRange = $('.aiz-date-range').val();
+            let dateRange = $('.pex-date-range').val();
             let col = '{{ $col ?? '' }}';
             let status = '{{ $status ?? '' }}';
             $('#tab-content').html('<div class="footable-loader mt-5"><span class="fooicon fooicon-loader"></span></div>');
@@ -412,10 +412,10 @@
         }
 
         $(document).ready(function() {
-            $('.aiz-date-range').on('apply.daterangepicker', function(ev, picker) {
+            $('.pex-date-range').on('apply.daterangepicker', function(ev, picker) {
                 getOrders(currentTab);
             });
-            $('.aiz-date-range').on('change', function() {
+            $('.pex-date-range').on('change', function() {
                 getOrders(currentTab);
             });
         });
@@ -484,7 +484,7 @@
                 $('#complete_unpaid_order_payment').modal('show', {backdrop: 'static'});
             }
             else{
-                AIZ.plugins.notify('danger', '{{ translate('Please Select Order first.') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please Select Order first.') }}');
             }
         }
         

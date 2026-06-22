@@ -1,14 +1,14 @@
 <div class="card-body">
-    <table class="table mb-0" id="aiz-data-table">
+    <table class="table mb-0" id="pex-data-table">
         <thead>
             <tr>
                 @if (auth()->user()->can('shipping_box_size_delete'))
                     <th>
                         <div class="form-group">
-                            <div class="aiz-checkbox-inline">
-                                <label class="aiz-checkbox pt-5px d-block">
+                            <div class="pex-checkbox-inline">
+                                <label class="pex-checkbox pt-5px d-block">
                                     <input type="checkbox" class="check-all">
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                 </label>
                             </div>
                         </div>
@@ -45,10 +45,10 @@
                             </div>
                             @if (auth()->user()->can('shipping_box_size_delete'))
                             <div class="form-group d-inline-block">
-                                <label class="aiz-checkbox">
+                                <label class="pex-checkbox">
                                     <input type="checkbox" class="check-one" name="id[]"
                                         value="{{ $shipping_box_size->id }}">
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                 </label>
                             </div>
                             @else
@@ -167,7 +167,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="aiz-pagination">
+    <div class="pex-pagination">
         {{ $shipping_box_sizes->appends(request()->input())->links() }}
     </div>
 </div>

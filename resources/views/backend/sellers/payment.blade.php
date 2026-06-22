@@ -7,7 +7,7 @@
         <h5 class="mb-0 h6">{{ $user->name }} ({{ $user->shop->name }})</h5>
     </div>
     <div class="card-body">
-        <table class="table aiz-table">
+        <table class="table pex-table">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>

@@ -124,7 +124,7 @@
             <div class="d-flex align-items-center">
                 <!-- top menu sidebar button -->
                 <button type="button" class="btn d-lg-none mr-3 mr-sm-4 p-0 active" data-toggle="class-toggle"
-                    data-target=".aiz-top-menu-sidebar">
+                    data-target=".pex-top-menu-sidebar">
                     <svg id="Component_43_1" data-name="Component 43 – 1" xmlns="http://www.w3.org/2000/svg" width="16"
                         height="16" viewBox="0 0 16 16">
                         <rect id="Rectangle_19062" data-name="Rectangle 19062" width="16" height="2"
@@ -424,7 +424,7 @@
         <div class="hover-user-top-menu position-absolute top-100 left-0 right-0 z-3">
             <div class="container">
                 <div class="position-static float-right">
-                    <div class="aiz-user-top-menu bg-white rounded-0 border-top shadow-sm" style="width:220px;">
+                    <div class="pex-user-top-menu bg-white rounded-0 border-top shadow-sm" style="width:220px;">
                         <ul class="list-unstyled no-scrollbar mb-0 text-left">
                             @if (isAdmin())
                                 <li class="user-top-nav-element border border-top-0" data-id="1">

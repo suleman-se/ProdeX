@@ -202,7 +202,7 @@ Route::group(['prefix' => 'v2', 'middleware' => ['app_language']], function () {
 
         Route::post('file/image-upload', 'App\Http\Controllers\Api\V2\FileController@imageUpload')->middleware('auth:sanctum');
         Route::get('file-all', 'App\Http\Controllers\Api\V2\FileController@index')->middleware('auth:sanctum');
-        Route::post('file/upload', 'App\Http\Controllers\Api\V2\AizUploadController@upload')->middleware('auth:sanctum');
+        Route::post('file/upload', 'App\Http\Controllers\Api\V2\PexUploadController@upload')->middleware('auth:sanctum');
 
         Route::get('wallet/balance', [WalletController::class, 'balance'])->middleware('auth:sanctum');
         Route::post('wallet/offline-recharge', [WalletController::class, 'offline_recharge'])->middleware('auth:sanctum');

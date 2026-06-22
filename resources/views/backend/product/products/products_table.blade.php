@@ -1,14 +1,14 @@
 <div class="card-body">
-    <table class="table mb-0" id="aiz-data-table">
+    <table class="table mb-0" id="pex-data-table">
          <thead>
             <tr>
                 @if (auth()->user()->can('product_delete'))
                     <th>
                         <div class="form-group">
-                            <div class="aiz-checkbox-inline">
-                                <label class="aiz-checkbox pt-5px d-block">
+                            <div class="pex-checkbox-inline">
+                                <label class="pex-checkbox pt-5px d-block">
                                     <input type="checkbox" class="check-all">
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                 </label>
                             </div>
                         </div>
@@ -52,9 +52,9 @@
                     </div>
                     @if (auth()->user()->can('product_delete'))
                     <div class="form-group d-inline-block">
-                        <label class="aiz-checkbox">
+                        <label class="pex-checkbox">
                             <input type="checkbox" class="check-one" name="id[]"value="{{ $product->id }}">
-                            <span class="aiz-square-check"></span>
+                            <span class="pex-square-check"></span>
                         </label>
                     </div>
                     @else
@@ -138,7 +138,7 @@
                         
                 <td class="hide-xxl align-middle" data-label="Published">
                     @if (!$product->draft)
-                    <label class="aiz-switch aiz-switch-blue mb-0">
+                    <label class="pex-switch pex-switch-blue mb-0">
                         <input onchange="update_published(this)" value="{{ $product->id }}"type="checkbox" <?php if ($product->published == 1) {
                                 echo 'checked';
                             } ?>>
@@ -149,7 +149,7 @@
                 @if (get_setting('product_approve_by_admin') == 1 && $type == 'seller')
                 <td class="hide-xxl align-middle" data-label="Approved">
                      @if (!$product->draft)
-                    <label class="aiz-switch aiz-switch-blue mb-0">
+                    <label class="pex-switch pex-switch-blue mb-0">
                         <input onchange="update_approved(this)" value="{{ $product->id }}"
                             type="checkbox" <?php if ($product->approved == 1) {
                                 echo 'checked';
@@ -162,7 +162,7 @@
 
                 <td class="hide-xxl align-middle" data-label="Featured">
                     @if (!$product->draft)
-                    <label class="aiz-switch aiz-switch-blue mb-0">
+                    <label class="pex-switch pex-switch-blue mb-0">
                         <input onchange="update_featured(this)" value="{{ $product->id }}"
                             type="checkbox" <?php if ($product->featured == 1) {
                                 echo 'checked';
@@ -174,7 +174,7 @@
 
                 <td class="hide-xxl align-middle" data-label="TodaysDeal">
                     @if (!$product->draft)
-                    <label class="aiz-switch aiz-switch-blue mb-0">
+                    <label class="pex-switch pex-switch-blue mb-0">
                         <input onchange="update_todays_deal(this)" value="{{ $product->id }}"
                             type="checkbox" <?php if ($product->todays_deal == 1) {
                                 echo 'checked';
@@ -324,7 +324,7 @@
             @endforelse
         </tbody>
     </table>
-    <div class="aiz-pagination" id="pagination">
+    <div class="pex-pagination" id="pagination">
         {{ $products->links() }}
     </div>
 </div>

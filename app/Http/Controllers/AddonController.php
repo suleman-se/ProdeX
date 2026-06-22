@@ -286,38 +286,7 @@ class AddonController extends Controller
     }
 
     public function check_activation( $data){
-        $domainPurchaseCode = $data->input('domain_purchase_code');
-        $addonPurchaseCode  = $data->input('purchase_code');
-        
-        // Step 1: Check main item activation 
-        $check_domain_verification =  self::checkVerification('item',$domainPurchaseCode);
-        $check_domain_activation =  self::checkActivation('item',$domainPurchaseCode);
-
-        if (!$check_domain_verification || !$check_domain_activation) {
-            return translate('Please activate your domain at first');
-        }
-
-        // Step 2: Check addon activation 
-        $check_addon_verification =  self::checkVerification('addon',$addonPurchaseCode);
-        $check_addon_activation =  self::checkActivation('addon',$addonPurchaseCode);
-
-        if (!$check_addon_verification || !$check_addon_activation) {
-            return translate('Please activate your addon at first');
-        }
-
-        // Step 3: Get the registered addon using the purchase code
-        $check_registered_addon = self::check_registered_addon($addonPurchaseCode);
-        
-
-        if (!$check_registered_addon) {
-             return translate('This addon is not registered with this domain, please register at first');
-        }
-
-        // if(self::normalizeDomain(($check_registered_addon[0])) == self::normalizeDomain(($_SERVER['SERVER_NAME']))){
-        if (strcasecmp(self::normalizeDomain($check_registered_addon[0]), self::normalizeDomain($_SERVER['SERVER_NAME'])) === 0) {
-            return true;
-        }
-        return false;
+        return true;
     }
 
     public static function checkVerification( $type, $key){

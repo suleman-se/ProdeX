@@ -2,7 +2,7 @@
 
 @section('panel_content')
 
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
       <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{ translate('Shop Settings')}}
@@ -30,7 +30,7 @@
                 <div class="row mb-3">
                     <label class="col-md-2 col-form-label">{{ translate('Shop Logo') }}</label>
                     <div class="col-md-10">
-                        <div class="input-group" data-toggle="aizuploader" data-type="image">
+                        <div class="input-group" data-toggle="pexuploader" data-type="image">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                             </div>
@@ -181,7 +181,7 @@
                     </div>
                     <div class="col-md-10">
                         <div class="mb-3">
-                            <select class="form-control aiz-selectpicker" data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
+                            <select class="form-control pex-selectpicker" data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
                                 <option value="">{{ translate('Select your country') }}</option>
                                 @foreach (\App\Models\Country::where('status', 1)->get() as $key => $country)
                                 <option value="{{ $country->id }}" @if(isset($business_info['country']) && $business_info['country'] == $country->name) selected @endif>{{ $country->name }} </option>
@@ -198,7 +198,7 @@
                         <label>{{ translate('State')}} <span class="text-danger">*</span></label>
                     </div>
                     <div class="col-md-10">
-                        <select class="form-control mb-3 aiz-selectpicker" data-live-search="true" name="state_id" required>
+                        <select class="form-control mb-3 pex-selectpicker" data-live-search="true" name="state_id" required>
 
                         </select>
                     </div>
@@ -294,7 +294,7 @@
                     <div class="col-md-10">
                         <div class="row p-3 p-md-4 mb-3 mb-md-2rem mx-0" style="border: 1px dashed #e4e5eb;">
                             <div class="col-md-6">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -325,7 +325,7 @@
                                             <!-- Image -->
                                             <div class="col-md-5">
                                                 <div class="form-group mb-md-0">
-                                                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                    <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                                         </div>
@@ -368,7 +368,7 @@
                                         <!-- Image -->
                                         <div class="col-md-5">
                                             <div class="form-group mb-md-0">
-                                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                                     </div>
@@ -416,7 +416,7 @@
                                             <!-- Image -->
                                             <div class="col-md-5">
                                                 <div class="form-group mb-md-0">
-                                                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                    <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                                         </div>
@@ -459,7 +459,7 @@
                                         <!-- Image -->
                                         <div class="col-md-5">
                                             <div class="form-group mb-md-0">
-                                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                                     </div>
@@ -508,7 +508,7 @@
                                             <!-- Image -->
                                             <div class="col-md-5">
                                                 <div class="form-group mb-md-0">
-                                                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                    <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                                         </div>
@@ -555,7 +555,7 @@
                                         <!-- Image -->
                                         <div class="col-md-5">
                                             <div class="form-group mb-md-0">
-                                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                                     </div>
@@ -604,7 +604,7 @@
                                             <!-- Image -->
                                             <div class="col-md-5">
                                                 <div class="form-group mb-md-0">
-                                                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                    <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                                         </div>
@@ -651,7 +651,7 @@
                                         <!-- Image -->
                                         <div class="col-md-5">
                                             <div class="form-group mb-md-0">
-                                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                                     </div>
@@ -932,7 +932,7 @@
                         }
                     });
                 }
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });

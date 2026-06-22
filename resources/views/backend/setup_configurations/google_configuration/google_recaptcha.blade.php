@@ -15,7 +15,7 @@
                             <label class="control-label">{{translate('Google reCAPTCHA')}}</label>
                         </div>
                         <div class="col-md-8">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input value="1" name="google_recaptcha" type="checkbox" @if (get_setting('google_recaptcha')==1)
                                     checked
                                     @endif>
@@ -47,7 +47,7 @@
                          <input type="hidden" name="types[]" value="RECAPTCHA_SCORE_THRESHOLD">
                         <label class="col-md-4 col-from-label">{{ translate('Accept V3 Score') }}</label>
                         <div class="col-md-8">
-                           <select class="form-control aiz-selectpicker" name="RECAPTCHA_SCORE_THRESHOLD" id="accept-v3-score" data-live-search="true">
+                           <select class="form-control pex-selectpicker" name="RECAPTCHA_SCORE_THRESHOLD" id="accept-v3-score" data-live-search="true">
                                 <option value="">{{ translate('Select Score') }}</option>
                                 <option value="0.3" {{ env('RECAPTCHA_SCORE_THRESHOLD') == '0.3' ? 'selected' : '' }}>More than or equal to 0.3</option>
                                 <option value="0.5" {{ env('RECAPTCHA_SCORE_THRESHOLD') == '0.5' ? 'selected' : '' }}>More than or equal to 0.5</option>
@@ -128,7 +128,7 @@
                                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                                     <div class="p-2 border mt-1 mb-2">
                                         <label class="control-label d-flex">{{ $label }}</label>
-                                        <label class="aiz-switch aiz-switch-success">
+                                        <label class="pex-switch pex-switch-success">
                                             <input type="checkbox"
                                                onchange="triggerConfirmation(this, '{{ $key }}', '{{ $label }}')"
                                                 {{ get_setting($key) == 1 ? 'checked' : '' }}>
@@ -205,7 +205,7 @@
    function updateSettings(el, type) {
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
             
@@ -217,9 +217,9 @@
                 value: value
             }, function(data) {
                 if (data == 1) {
-                    AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
                 } else {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }

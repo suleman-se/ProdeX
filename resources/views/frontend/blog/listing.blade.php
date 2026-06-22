@@ -24,7 +24,7 @@
                             </ul>
                         </div>
                         <div class="col d-xl-none mb-lg-3 text-right">
-                            <button type="button" class="btn btn-icon p-0 active" data-toggle="class-toggle" data-target=".aiz-filter-sidebar">
+                            <button type="button" class="btn btn-icon p-0 active" data-toggle="class-toggle" data-target=".pex-filter-sidebar">
                                 <i class="la la-filter la-2x"></i>
                             </button>
                         </div>
@@ -68,7 +68,7 @@
                         
                     </div>
                     <!-- Pagination -->
-                    <div class="aiz-pagination mt-4">
+                    <div class="pex-pagination mt-4">
                         {{ $blogs->links() }}
                     </div>
                 </div>
@@ -77,12 +77,12 @@
                 <div class="col-xl-3">
                     <!-- Filters -->
                     <form class="mb-4" id="search-form" action="" method="GET">
-                        <div class="aiz-filter-sidebar collapse-sidebar-wrap sidebar-xl sidebar-right z-1035">
-                            <div class="overlay overlay-fixed dark c-pointer" data-toggle="class-toggle" data-target=".aiz-filter-sidebar" data-same=".filter-sidebar-thumb"></div>
+                        <div class="pex-filter-sidebar collapse-sidebar-wrap sidebar-xl sidebar-right z-1035">
+                            <div class="overlay overlay-fixed dark c-pointer" data-toggle="class-toggle" data-target=".pex-filter-sidebar" data-same=".filter-sidebar-thumb"></div>
                             <div class="collapse-sidebar c-scrollbar-light text-left" style="overflow-y: auto;">
                                 <div class="d-flex d-xl-none justify-content-between align-items-center pl-3 border-bottom">
                                     <h3 class="h6 mb-0 fw-600">{{ translate('Filters') }}</h3>
-                                    <button type="button" class="btn btn-sm p-2 filter-sidebar-thumb" data-toggle="class-toggle" data-target=".aiz-filter-sidebar" >
+                                    <button type="button" class="btn btn-sm p-2 filter-sidebar-thumb" data-toggle="class-toggle" data-target=".pex-filter-sidebar" >
                                         <i class="las la-times la-2x"></i>
                                     </button>
                                 </div>
@@ -100,16 +100,16 @@
                                 <!-- Categories -->
                                 <div class="bg-white border mb-3 mx-3 mx-xl-0">
                                     <div class="fs-16 fw-700 p-3">{{ translate('Categories')}}</div>
-                                    <div class="p-3 aiz-checkbox-list">
+                                    <div class="p-3 pex-checkbox-list">
                                         @foreach (get_all_blog_categories() as $category)
-                                        <label class="aiz-checkbox mb-3">
+                                        <label class="pex-checkbox mb-3">
                                             <input
                                                 type="checkbox"
                                                 name="selected_categories[]"
                                                 value="{{ $category->slug }}" @if (in_array($category->slug, $selected_categories)) checked @endif
                                                 onchange="filter()"
                                             >
-                                            <span class="aiz-square-check"></span>
+                                            <span class="pex-square-check"></span>
                                             <span class="fs-14 fw-400 text-dark has-transition hov-text-primary">{{ $category->category_name }}</span>
                                         </label>
                                         @endforeach

@@ -44,10 +44,10 @@
             });
             $.post('{{ route('seller.notifications.bulk_delete') }}', {_token:'{{ csrf_token() }}', notification_ids:notificationIds}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Notification Deleted successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Notification Deleted successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
                 location.reload();
             });

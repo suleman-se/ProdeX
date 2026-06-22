@@ -14,7 +14,7 @@
                 <h5 class="mb-0 h6">{{translate('Category Information')}}</h5>
             </div>
             <div class="card-body">
-                <form class="form-horizontal" action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data" id="aizSubmitForm" >
+                <form class="form-horizontal" action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data" id="pexSubmitForm" >
                 	@csrf
                     <div class="form-group mb-3">
                         <label class="col-form-label">{{translate('Name')}}</label>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label class=" col-form-label">{{translate('Parent Category')}}</label>
-                        <select class="select2 form-control aiz-selectpicker" name="parent_id" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true">
+                        <select class="select2 form-control pex-selectpicker" name="parent_id" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true">
                             @include('backend.product.categories.categories_option', ['categories' => $categories])
                             {{-- <option value="0">{{ translate('No Parent') }}</option>
                             @foreach ($categories as $category)
@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label class="col-form-label" for="signinSrEmail">{{translate('Banner')}}</label>
-                        <div class="input-group" data-toggle="aizuploader" data-type="image">
+                        <div class="input-group" data-toggle="pexuploader" data-type="image">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                             </div>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label class="col-form-label" for="signinSrEmail">{{translate('Icon')}}</label>
-                        <div class="input-group" data-toggle="aizuploader" data-type="image">
+                        <div class="input-group" data-toggle="pexuploader" data-type="image">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                             </div>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label class="col-form-label" for="signinSrEmail">{{translate('Cover Image')}}</label>
-                        <div class="input-group" data-toggle="aizuploader" data-type="image">
+                        <div class="input-group" data-toggle="pexuploader" data-type="image">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                             </div>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label class="col-form-label">{{translate('Filtering Attributes')}}</label>
-                        <select class="select2 form-control aiz-selectpicker" name="filtering_attributes[]" data-toggle="select2" data-placeholder="Choose ..."data-live-search="true" multiple>
+                        <select class="select2 form-control pex-selectpicker" name="filtering_attributes[]" data-toggle="select2" data-placeholder="Choose ..."data-live-search="true" multiple>
                             @foreach (\App\Models\Attribute::all() as $attribute)
                                 <option value="{{ $attribute->id }}">{{ $attribute->getTranslation('name') }}</option>
                             @endforeach
@@ -132,7 +132,7 @@
         $('.type-option').removeClass('border-primary');
         $('.type-option[data-value="'+val+'"]').addClass('border-primary');
         $('select[name="parent_id"]').html('');
-        AIZ.plugins.bootstrapSelect('refresh');
+        PEX.plugins.bootstrapSelect('refresh');
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -144,7 +144,7 @@
             },
             success: function(data) {
                 $('select[name="parent_id"]').html(data);
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
             }
         });
     }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3 pb-2 border-bottom border-gray">
+<div class="pex-titlebar text-left mt-2 mb-3 pb-2 border-bottom border-gray">
 	<div class="row align-items-center">
 		<div class="col">
 			<h1 class="h3">{{ translate('Authentication Page Layout') }}</h1>
@@ -19,9 +19,9 @@
 
 				<!-- Boxed -->
 				<div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-					<label class="aiz-megabox d-block mb-3">
+					<label class="pex-megabox d-block mb-3">
 						<input value="boxed" type="radio" name="authentication_layout_select" @if(($authentication_layout == null) || ($authentication_layout == 'boxed')) checked @endif>
-						<span class="d-block aiz-megabox-elem rounded-0 img-overlay">
+						<span class="d-block pex-megabox-elem rounded-0 img-overlay">
 							<div class="h-190px w-100 overflow-hidden">
 								<img src="{{ static_asset('assets/img/authentication_pages/boxed.png') }}" class="w-100" alt="authentication-page">
 							</div>
@@ -38,9 +38,9 @@
 
 				<!-- Free 2 -->
 				<div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-					<label class="aiz-megabox d-block mb-3">
+					<label class="pex-megabox d-block mb-3">
 						<input value="free" type="radio" name="authentication_layout_select" @if($authentication_layout == 'free') checked @endif>
-						<span class="d-block aiz-megabox-elem rounded-0 img-overlay">
+						<span class="d-block pex-megabox-elem rounded-0 img-overlay">
 							<div class="h-190px w-100 overflow-hidden">
 								<img src="{{ static_asset('assets/img/authentication_pages/free.png') }}" class="w-100" alt="authentication-page">
 							</div>
@@ -57,9 +57,9 @@
 
 				<!-- Focused -->
 				<div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-					<label class="aiz-megabox d-block mb-3">
+					<label class="pex-megabox d-block mb-3">
 						<input value="focused" type="radio" name="authentication_layout_select" @if($authentication_layout == 'focused') checked @endif>
-						<span class="d-block aiz-megabox-elem rounded-0 img-overlay">
+						<span class="d-block pex-megabox-elem rounded-0 img-overlay">
 							<div class="h-190px w-100 overflow-hidden">
 								<img src="{{ static_asset('assets/img/authentication_pages/focused.png') }}" class="w-100" alt="authentication-page">
 							</div>
@@ -94,7 +94,7 @@
 </div>
 
 <!-- Authentication Page Images -->
-<div class="aiz-titlebar border-bottom border-gray mb-3 mt-2 mt-md-5 pb-2 text-left">
+<div class="pex-titlebar border-bottom border-gray mb-3 mt-2 mt-md-5 pb-2 text-left">
 	<div class="row align-items-center">
 		<div class="col">
 			<h1 class="h3">{{ translate('Authentication Page Images') }}</h1>
@@ -111,7 +111,7 @@
 				<!-- Admin Login Page Image -->
 				<div class="form-group col-lg-6">
 					<label class="from-label fs-13">{{translate('Admin login Page Image')}}</label>
-					<div class="input-group" data-toggle="aizuploader" data-type="image">
+					<div class="input-group" data-toggle="pexuploader" data-type="image">
 						<div class="input-group-prepend">
 							<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 						</div>
@@ -126,7 +126,7 @@
 				<!-- Customer Login page Image -->
 				<div class="form-group col-lg-6">
 					<label class="from-label fs-13">{{ translate('Customer Login page Image') }}</label>
-					<div class="input-group " data-toggle="aizuploader" data-type="image">
+					<div class="input-group " data-toggle="pexuploader" data-type="image">
 						<div class="input-group-prepend">
 							<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 						</div>
@@ -141,7 +141,7 @@
 				<!-- Customer Register page Image -->
 				<div class="form-group col-lg-6">
 					<label class="from-label fs-13">{{ translate('Customer Register Page Image') }}</label>
-					<div class="input-group " data-toggle="aizuploader" data-type="image">
+					<div class="input-group " data-toggle="pexuploader" data-type="image">
 						<div class="input-group-prepend">
 							<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 						</div>
@@ -157,7 +157,7 @@
 					<!-- Seller Login page Image -->
 					<div class="form-group col-lg-6">
 						<label class="from-label fs-13">{{ translate('Seller Login Page Image') }}</label>
-						<div class="input-group " data-toggle="aizuploader" data-type="image">
+						<div class="input-group " data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 								<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 							</div>
@@ -172,7 +172,7 @@
 					<!-- Seller Register page Image -->
 					<div class="form-group col-lg-6">
 						<label class="from-label fs-13">{{ translate('Seller Register Page Image') }}</label>
-						<div class="input-group " data-toggle="aizuploader" data-type="image">
+						<div class="input-group " data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 								<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 							</div>
@@ -190,7 +190,7 @@
 					<!-- Delivery Boy Login page Background -->
 					<div class="form-group col-lg-6">
 						<label class="from-label fs-13">{{ translate('Delivery Boy Login Page Image') }}</label>
-						<div class="input-group " data-toggle="aizuploader" data-type="image">
+						<div class="input-group " data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 								<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 							</div>
@@ -206,7 +206,7 @@
 				<!-- Forgot Password Page Image -->
 				<div class="form-group col-lg-6">
 					<label class="from-label fs-13">{{ translate('Forgot password') }}</label>
-					<div class="input-group " data-toggle="aizuploader" data-type="image">
+					<div class="input-group " data-toggle="pexuploader" data-type="image">
 						<div class="input-group-prepend">
 							<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 						</div>
@@ -221,7 +221,7 @@
 				<!-- Password Reset Page Image -->
 				<div class="form-group col-lg-6">
 					<label class="from-label fs-13">{{ translate('Password Reset Page Image') }}</label>
-					<div class="input-group " data-toggle="aizuploader" data-type="image">
+					<div class="input-group " data-toggle="pexuploader" data-type="image">
 						<div class="input-group-prepend">
 							<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 						</div>
@@ -236,7 +236,7 @@
 				@if (addon_is_activated('otp_system'))
 					<div class="form-group col-lg-6">
 						<label class="from-label fs-13">{{ translate('Phone Number Verification Page Image') }}</label>
-						<div class="input-group " data-toggle="aizuploader" data-type="image">
+						<div class="input-group " data-toggle="pexuploader" data-type="image">
 							<div class="input-group-prepend">
 								<div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
 							</div>
@@ -276,8 +276,8 @@
 		function imageShowOverlay(img){
 			$('#image-show-overlay .overlay-img img').attr('src', '').prop('src', img);
 			$('#image-show-overlay').addClass('show');
-			$('.aiz-main-wrapper').css('height', '100vh');
-			$('.aiz-main-wrapper').css('overflow-y', 'hidden');
+			$('.pex-main-wrapper').css('height', '100vh');
+			$('.pex-main-wrapper').css('overflow-y', 'hidden');
 		}
 
 		$('#image-show-overlay .btn').click(function(){
@@ -296,8 +296,8 @@
 			if($('#image-show-overlay').hasClass('show')){
 				$('#image-show-overlay').removeClass('show');
 			}
-			$('.aiz-main-wrapper').css('height', '100%');
-			$('.aiz-main-wrapper').css('overflow-y', 'auto');
+			$('.pex-main-wrapper').css('height', '100%');
+			$('.pex-main-wrapper').css('overflow-y', 'auto');
 		}
 	</script>
 @endsection

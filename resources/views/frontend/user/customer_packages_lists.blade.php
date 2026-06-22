@@ -84,7 +84,7 @@
                         </div>
                         <div class="col-md-10">
                             <div class="mb-3">
-                                <select class="form-control aiz-selectpicker rounded-0" onchange="payment_type(this.value)"
+                                <select class="form-control pex-selectpicker rounded-0" onchange="payment_type(this.value)"
                                     data-minimum-results-for-search="Infinity">
                                     <option value="">{{ translate('Select One') }}</option>
                                     <option value="online">{{ translate('Online payment') }}</option>

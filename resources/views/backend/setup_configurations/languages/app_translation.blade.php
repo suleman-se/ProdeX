@@ -43,7 +43,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="aiz-pagination">
+                <div class="pex-pagination">
                    {{ $lang_keys->appends(request()->input())->links() }}
                 </div>
 

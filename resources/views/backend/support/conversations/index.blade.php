@@ -7,7 +7,7 @@
         <h5 class="mb-0 h6">{{translate('Conversations')}}</h5>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0" cellspacing="0" width="100%">
+        <table class="table pex-table mb-0" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>

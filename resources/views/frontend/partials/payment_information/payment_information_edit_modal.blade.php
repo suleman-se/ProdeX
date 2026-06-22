@@ -20,7 +20,7 @@
     <!-- Type -->
     <div class="form-group mb-3">
         <label>{{ translate('Type')}} <span class="text-danger">*</span></label>
-        <select name="payment_type" class="form-control aiz-selectpicker" data-live-search="true">
+        <select name="payment_type" class="form-control pex-selectpicker" data-live-search="true">
             <option value="">{{ translate('Select Payment Type') }}</option>
             <option value="bank_transfer" {{ isset($payment_information) && $payment_information->payment_type == 'bank_transfer' ? 'selected' : '' }}>
                 {{ ucfirst(translate('Bank Transfer'))  }}
@@ -33,7 +33,7 @@
         <!-- Name -->
         <div class="form-group mb-3">
             <label>{{ translate('Name')}} <span class="text-danger">*</span></label>
-            <select name="payment_name" class="form-control aiz-selectpicker">
+            <select name="payment_name" class="form-control pex-selectpicker">
 
                 <option value="">{{ translate('Select Method') }}</option>
 
@@ -68,7 +68,7 @@
         class="bank-fields {{ isset($payment_information) && $payment_information->payment_type == 'bank_transfer' ? '' : 'd-none' }}">
         <div class="form-group mb-3">
             <label>{{ translate('Bank Name')}} <span class="text-danger">*</span></label>
-            <select name="bank_name" class="form-control aiz-selectpicker" data-live-search="true">
+            <select name="bank_name" class="form-control pex-selectpicker" data-live-search="true">
 
                 <option value="">{{ translate('Select Bank') }}</option>
 

@@ -1,5 +1,5 @@
 <div class="carousel-box m-4">
-    <div class="aiz-card-box hov-shadow-md my-2 has-transition hov-scale-img ">
+    <div class="pex-card-box hov-shadow-md my-2 has-transition hov-scale-img ">
 
         <div class="position-relative">
             <!-- Make the container relative -->

@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-auto">
             <h1 class="h3">{{translate('Detail Reviews')}}</h1>
@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0">
+        <table class="table pex-table mb-0">
             <thead>
                 <tr class="opacity-70">
                     <th data-breakpoints="lg">#</th>
@@ -131,7 +131,7 @@
                                 {{ date("j F, Y", strtotime($review->created_at)) }}
                             </div>
                             <div>
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input onchange="update_published(this)" value="{{ $review->id }}" type="checkbox" <?php if ($review->status == 1) echo "checked"; ?> >
                                     <span class="slider round"></span>
                                 </label>
@@ -151,7 +151,7 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="aiz-pagination">
+        <div class="pex-pagination">
             {{ $reviews->appends(request()->input())->links() }}
         </div>
     </div>
@@ -168,7 +168,7 @@
 
         function update_published(el){
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -181,10 +181,10 @@
             
             $.post('{{ route('reviews.published') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Published reviews updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Published reviews updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

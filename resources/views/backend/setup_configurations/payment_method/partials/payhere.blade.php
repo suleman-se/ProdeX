@@ -39,7 +39,7 @@
             <label class="col-from-label">{{ translate('Payhere Sandbox Mode') }}</label>
         </div>
         <div class="col-md-8">
-            <label class="aiz-switch aiz-switch-success mb-0">
+            <label class="pex-switch pex-switch-success mb-0">
                 <input value="1" name="payhere_sandbox" type="checkbox"
                     @if (get_setting('payhere_sandbox') == 1) checked @endif>
                 <span class="slider round"></span>

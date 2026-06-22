@@ -79,7 +79,7 @@
                     if(($('[name="'+key+'"').attr('type') == 'text') || ($('[name="'+key+'"').attr('type') == 'number')){
                         if (key == 'tags[]'){
                             $('[name="'+key+'"').val(obj[key]);	
-                            AIZ.plugins.tagify();
+                            PEX.plugins.tagify();
                             tags_defined = 'yes';
                         }else{
                             $('[name="'+key+'"').val(obj[key]);	
@@ -104,7 +104,7 @@
             }
         }
         if(tags_defined == 'no'){
-            AIZ.plugins.tagify();
+            PEX.plugins.tagify();
         }
     });
 

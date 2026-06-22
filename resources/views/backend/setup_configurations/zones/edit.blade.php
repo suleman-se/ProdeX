@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Add New Zone') }}</h1>
@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <label>{{ translate('Select Country') }}</label>
 
-                            <select name="country_id[]" class="aiz-selectpicker form-control" data-live-search="true" multiple>
+                            <select name="country_id[]" class="pex-selectpicker form-control" data-live-search="true" multiple>
                                 @foreach ($countries as $country)
                                     <option value="{{ $country->id }}" @if(isset($country->zone) && $country->zone->id == $zone->id) selected @endif>
                                         {{ $country->name }}

@@ -17,7 +17,7 @@
     </form>
 
     <div class="card-body">
-        <table class="aiz-table" cellspacing="0" width="100%">
+        <table class="pex-table" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th data-breakpoints="lg">{{ translate('Ticket ID') }}</th>

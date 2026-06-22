@@ -32,7 +32,7 @@
                         </div>
                         <!-- Products Section -->
                         <div class="px-xl-1">
-                            <div class="aiz-carousel arrow-none" data-items="{{ $xxl_items }}" data-xl-items="{{ $xl_items }}" data-lg-items="{{ $lg_items }}"  data-md-items="{{ $md_items }}" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='false'>
+                            <div class="pex-carousel arrow-none" data-items="{{ $xxl_items }}" data-xl-items="{{ $xl_items }}" data-lg-items="{{ $lg_items }}"  data-md-items="{{ $md_items }}" data-sm-items="2" data-xs-items="2" data-arrows='true' data-infinite='false'>
                                 @foreach (get_featured_products() as $key => $product)
                                 <div class="carousel-box position-relative px-0 has-transition hov-animate-outline">
                                     <div class="px-3">
@@ -51,7 +51,7 @@
                             $banner_1_imags = json_decode($homeBanner1Images);
                             $home_banner1_links = get_setting('home_banner1_links', null, $lang);
                         @endphp
-                        <div class="aiz-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
+                        <div class="pex-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
                             data-items="1" data-arrows="true" data-dots="false" data-autoplay="true">
                             @foreach ($banner_1_imags as $key => $value)
                                 <div class="carousel-box overflow-hidden hov-scale-img">

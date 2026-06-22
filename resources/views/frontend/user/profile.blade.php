@@ -1,7 +1,7 @@
 @extends('frontend.layouts.user_panel')
 
 @section('panel_content')
-<div class="aiz-titlebar mb-4">
+<div class="pex-titlebar mb-4">
     <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="fs-20 fw-700 text-dark">{{ translate('Manage Profile') }}</h1>
@@ -35,7 +35,7 @@
             <div class="form-group row">
                 <label class="col-md-2 col-form-label fs-14">{{ translate('Photo') }}</label>
                 <div class="col-md-10">
-                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                    <div class="input-group" data-toggle="pexuploader" data-type="image">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-soft-secondary font-weight-medium rounded-0">{{ translate('Browse')}}</div>
                         </div>
@@ -82,7 +82,7 @@
                     <label class="col-md-6 col-form-label fs-14">{{ translate('Do you want to activate OTP for cash on delivery and wallet payment?') }}</label>
                     <div class="col-xxl-6 mt-2">
                         <div class="input-group">
-                            <label class="aiz-switch aiz-switch-success">
+                            <label class="pex-switch pex-switch-success">
                                 <input type="checkbox"
                                     id="activate_otp_for_cashOnDelivery_and_wallet"
                                     @checked(Auth::user()->otp_activation_purchase_cod_wallet == 1)>
@@ -345,15 +345,15 @@
                 $('.default').removeClass('d-none');
                 $('.loading').addClass('d-none');
                 if (data.status == 2){
-                    AIZ.plugins.notify('warning', data.message);
+                    PEX.plugins.notify('warning', data.message);
                 }
                 else if (data.status == 1){
-                    AIZ.plugins.notify('success', data.message);
+                    PEX.plugins.notify('success', data.message);
                     $('input[name="code"]').prop('disabled', false);
                     $('button[type="submit"]').prop('disabled', false);
                 }
                 else{
-                    AIZ.plugins.notify('danger', data.message);
+                    PEX.plugins.notify('danger', data.message);
                 }
             });
     });
@@ -384,18 +384,18 @@
             value: value
         }, function(data) {
             if (data == 1) {
-                AIZ.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
+                PEX.plugins.notify('success', '{{ translate('Settings updated successfully') }}');
             } else {
-                AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
             }
         }).fail(function() {
-            AIZ.plugins.notify('danger', '{{ translate('Network error') }}');
+            PEX.plugins.notify('danger', '{{ translate('Network error') }}');
         });
     }
 
     $('#activate_otp_for_cashOnDelivery_and_wallet').on('change', function() {
         if('{{ env('DEMO_MODE') }}' == 'On') {
-            AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+            PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
             $(this).prop('checked', !$(this).is(':checked'));
             return;
         }
@@ -471,7 +471,7 @@
                     if (rightOffcanvas) {
                         rightOffcanvas.innerHTML = '<div class="p-4 text-center text-danger">{{ translate("Failed to load") }}</div>';
                     }
-                    AIZ.plugins.notify('danger', '{{ translate("Something went wrong") }}');
+                    PEX.plugins.notify('danger', '{{ translate("Something went wrong") }}');
                 }
             });
         }
@@ -524,7 +524,7 @@
             }
 
             let formData = {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 payment_type: $('select[name="payment_type"]').val(),
                 payment_name: $('select[name="payment_name"]').val(),
                 other_payment_method: $('input[name="other_payment_method"]').val(),
@@ -542,13 +542,13 @@
                 data: formData,
 
                 success: function (res) {
-                    AIZ.plugins.notify('success', 'Payment Information added successfully');
+                    PEX.plugins.notify('success', 'Payment Information added successfully');
                     closeOffcanvas();
                     location.reload();
                 },
 
                 error: function (xhr) {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                     btn.prop('disabled', false);
                     btn.find('.spinner-border').remove();
 
@@ -590,7 +590,7 @@
                     if (rightOffcanvas) {
                         rightOffcanvas.innerHTML = '<div class="p-4 text-center text-danger">{{ translate("Failed to load") }}</div>';
                     }
-                    AIZ.plugins.notify('danger', '{{ translate("Something went wrong") }}');
+                    PEX.plugins.notify('danger', '{{ translate("Something went wrong") }}');
                 }
             });
         };
@@ -610,7 +610,7 @@
             }
 
             let formData = {
-                _token: AIZ.data.csrf,
+                _token: PEX.data.csrf,
                 payment_information_id: paymentInformationId, 
                 payment_type: $('select[name="payment_type"]').val(),
                 payment_name: $('select[name="payment_name"]').val(),
@@ -629,13 +629,13 @@
                 data: formData,
 
                 success: function (res) {
-                    AIZ.plugins.notify('success', 'Payment Information added successfully');
+                    PEX.plugins.notify('success', 'Payment Information added successfully');
                     closeOffcanvas();
                     location.reload();
                 },
 
                 error: function (xhr) {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                     btn.prop('disabled', false);
                     btn.find('.spinner-border').remove();
 
@@ -648,7 +648,7 @@
             const paymentType = $('select[name="payment_type"]').val();
 
             if (!paymentType) {
-                AIZ.plugins.notify('danger', 'Please select a payment type.');
+                PEX.plugins.notify('danger', 'Please select a payment type.');
                 return false;
             }
 
@@ -656,30 +656,30 @@
                 const bankName = $('select[name="bank_name"]').val();
 
                 if (!bankName) {
-                    AIZ.plugins.notify('danger', 'Please select a bank name.');
+                    PEX.plugins.notify('danger', 'Please select a bank name.');
                     return false;
                 }
 
                 if (bankName === 'other_bank') {
                     const otherBankName = $('input[name="other_bank_name"]').val().trim();
                     if (!otherBankName) {
-                        AIZ.plugins.notify('danger', 'Please enter the bank name.');
+                        PEX.plugins.notify('danger', 'Please enter the bank name.');
                         return false;
                     }
                 }
 
                 if (!$('input[name="account_name"]').val().trim()) {
-                    AIZ.plugins.notify('danger', 'Please enter the account name.');
+                    PEX.plugins.notify('danger', 'Please enter the account name.');
                     return false;
                 }
 
                 if (!$('input[name="account_number"]').val().trim()) {
-                    AIZ.plugins.notify('danger', 'Please enter the account number.');
+                    PEX.plugins.notify('danger', 'Please enter the account number.');
                     return false;
                 }
 
                 if (!$('input[name="routing_number"]').val().trim()) {
-                    AIZ.plugins.notify('danger', 'Please enter the routing number.');
+                    PEX.plugins.notify('danger', 'Please enter the routing number.');
                     return false;
                 }
             }
@@ -688,20 +688,20 @@
                 const paymentName = $('select[name="payment_name"]').val();
 
                 if (!paymentName) {
-                    AIZ.plugins.notify('danger', 'Please select a payment method.');
+                    PEX.plugins.notify('danger', 'Please select a payment method.');
                     return false;
                 }
 
                 if (paymentName === 'other_method') {
                     const otherMethod = $('input[name="other_payment_method"]').val().trim();
                     if (!otherMethod) {
-                        AIZ.plugins.notify('danger', 'Please enter the payment method name.');
+                        PEX.plugins.notify('danger', 'Please enter the payment method name.');
                         return false;
                     }
                 }
 
                 if (!$('textarea[name="payment_instructions"]').val().trim()) {
-                    AIZ.plugins.notify('danger', 'Please enter the payment instructions.');
+                    PEX.plugins.notify('danger', 'Please enter the payment instructions.');
                     return false;
                 }
             }

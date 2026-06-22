@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="align-items-center">
             <h1 class="h3">{{ translate('All Elements') }}</h1>
         </div>
@@ -14,7 +14,7 @@
                     <h5 class="mb-0 h6">{{ translate('Elements') }}</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table aiz-table mb-0">
+                    <table class="table pex-table mb-0">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -55,7 +55,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="aiz-pagination">
+                    <div class="pex-pagination">
                         {{ $elements->links() }}
                     </div>
                 </div>

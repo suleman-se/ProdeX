@@ -8,10 +8,10 @@
         <div class="align-items-center gutters-5 row">
             @foreach($notes as $key => $note)
                 <div class="col-6 col-md-6">
-                    <label class="aiz-megabox d-block mb-3">
+                    <label class="pex-megabox d-block mb-3">
                         <input type="radio" name="note" value="{{ $note->id }}" id="note_id" onchange="addNote(this.value, '{{ $note->note_type }}')">
                         <input type="hidden" value="{{ $note->getTranslation('description') }}" id="note_description_{{ $note->id }}">
-                        <span class="d-block p-3 aiz-megabox-elem">
+                        <span class="d-block p-3 pex-megabox-elem">
                             <p class="text-truncate-3 m-0">
                                 {{ $note->getTranslation('description') }}
                             </p>

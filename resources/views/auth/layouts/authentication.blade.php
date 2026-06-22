@@ -35,7 +35,7 @@
     @if ($rtl == 1)
         <link rel="stylesheet" href="{{ static_asset('assets/css/bootstrap-rtl.min.css') }}">
     @endif
-    <link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css?v=') }}{{ rand(1000, 9999) }}">
+    <link rel="stylesheet" href="{{ static_asset('assets/css/pex-core.css?v=') }}{{ rand(1000, 9999) }}">
     
     <style>
         :root{
@@ -87,7 +87,7 @@
 
     @yield('css')
     <script>
-        var AIZ = AIZ || {};
+        var PEX = PEX || {};
     </script>
 </head>
 <body>

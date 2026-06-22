@@ -14,7 +14,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="aiz-pagination mt-4">
+            <div class="pex-pagination mt-4">
                 {{ $products->appends(request()->input())->links() }}
             </div>
         </div>

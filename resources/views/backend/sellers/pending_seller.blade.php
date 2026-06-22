@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-auto">
             <h1 class="h3">{{ translate('Pending Sellers') }}</h1>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -49,7 +49,7 @@
                             <td>{{ $shop->user->email ?? '-' }}</td>
                             <td>{{ $shop->created_at ? $shop->created_at->format('Y-m-d H:i:s') : '-' }}</td>
                             <td>
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input
                                         @can('approve_seller') onchange="update_approved(this)" @endcan
                                         value="{{ $shop->id }}" type="checkbox"
@@ -88,7 +88,7 @@
                 </tbody>
             </table>
 
-            <div class="aiz-pagination">
+            <div class="pex-pagination">
                 {{ $shops->appends(request()->input())->links() }}
             </div>
         </div>
@@ -128,7 +128,7 @@
 <script>
     function update_approved(el){
         if ('{{ env('DEMO_MODE') }}' === 'On') {
-            AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+            PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
             return;
         }
         let registration_approval = el.checked ? 1 : 0;
@@ -141,14 +141,14 @@
             registration_approval: registration_approval
         }, function (data) {
             if (data == 1) {
-                AIZ.plugins.notify('success', '{{ translate('Pending sellers Approved successfully') }}');
+                PEX.plugins.notify('success', '{{ translate('Pending sellers Approved successfully') }}');
                 if (registration_approval === 1) {
                     $row.fadeOut(300, function() {
                         $(this).remove();
                     });
                 }
             } else {
-                AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
             }
         });
     }
@@ -156,7 +156,7 @@
 
     function update_registration_verification_approval(shop_id){
         if ('{{ env('DEMO_MODE') }}' === 'On') {
-            AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+            PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
             return;
         }
         $.post('{{ route('sellers.registration.approved') }}', {
@@ -166,13 +166,13 @@
             verification_status : 1
         }, function (data) {
             if (data == 1) {
-                AIZ.plugins.notify('success', '{{ translate('Unverified sellers Verified successfully') }}');
+                PEX.plugins.notify('success', '{{ translate('Unverified sellers Verified successfully') }}');
                 $('#docsPreviewModal').modal('hide');
                 setTimeout(() => {
                     location.reload();
                 }, 800);
             } else {
-                AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
             }
         });
     }

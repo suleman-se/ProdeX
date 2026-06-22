@@ -15,7 +15,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-from-label" for="name">{{translate('Emails')}} ({{translate('Users')}})</label>
                         <div class="col-sm-10">
-                            <select class="form-control aiz-selectpicker" name="user_emails[]" multiple data-selected-text-format="count" data-actions-box="true">
+                            <select class="form-control pex-selectpicker" name="user_emails[]" multiple data-selected-text-format="count" data-actions-box="true">
                                 @foreach($users as $user)
                                     <option value="{{$user->email}}">{{$user->email}}</option>
                                 @endforeach
@@ -25,7 +25,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-from-label" for="name">{{translate('Emails')}} ({{translate('Subscribers')}})</label>
                         <div class="col-sm-10">
-                            <select class="form-control aiz-selectpicker" name="subscriber_emails[]" multiple data-selected-text-format="count" data-actions-box="true">
+                            <select class="form-control pex-selectpicker" name="subscriber_emails[]" multiple data-selected-text-format="count" data-actions-box="true">
                                 @foreach($subscribers as $subscriber)
                                     <option value="{{$subscriber->email}}">{{$subscriber->email}}</option>
                                 @endforeach
@@ -41,7 +41,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-from-label" for="name">{{translate('Newsletter content')}}</label>
                         <div class="col-sm-10">
-                            <textarea rows="8" class="form-control aiz-text-editor" data-buttons='[["font", ["bold", "underline", "italic"]],["para", ["ul", "ol"]], ["insert", ["link", "picture"]],["view", ["undo","redo"]]]' name="content" required></textarea>
+                            <textarea rows="8" class="form-control pex-text-editor" data-buttons='[["font", ["bold", "underline", "italic"]],["para", ["ul", "ol"]], ["insert", ["link", "picture"]],["view", ["undo","redo"]]]' name="content" required></textarea>
                         </div>
                     </div>
                     <div class="form-group mb-0 text-right">

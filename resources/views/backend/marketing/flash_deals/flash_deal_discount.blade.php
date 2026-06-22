@@ -1,5 +1,5 @@
 @if(count($product_ids) > 0)
-<table class="table table-bordered aiz-table">
+<table class="table table-bordered pex-table">
   <thead>
   	<tr>
   		<td width="50%">
@@ -39,7 +39,7 @@
                 <input type="number" lang="en" name="discount_{{ $id }}" value="{{ $product->discount }}" min="0" step="1" class="form-control" required>
             </td>
             <td>
-                <select class="form-control aiz-selectpicker" name="discount_type_{{ $id }}">
+                <select class="form-control pex-selectpicker" name="discount_type_{{ $id }}">
                   <option value="amount">{{ translate('Flat') }}</option>
                   <option value="percent">{{ translate('Percent') }}</option>
                 </select>

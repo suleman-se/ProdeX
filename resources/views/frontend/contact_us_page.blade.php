@@ -178,7 +178,7 @@
 
     <script type="text/javascript">
         function showWarning(){
-            AIZ.plugins.notify('warning', "{{ translate('Something went wrong.') }}");
+            PEX.plugins.notify('warning', "{{ translate('Something went wrong.') }}");
             return false;
         }
     </script>

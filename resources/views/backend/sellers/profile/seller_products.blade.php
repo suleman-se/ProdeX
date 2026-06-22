@@ -7,15 +7,15 @@
            <form class="" id="sort_products" action="" method="GET">
                <div>
 
-                   <table class="table aiz-table inv-table-2 mb-0">
+                   <table class="table pex-table inv-table-2 mb-0">
                        <thead>
                            <tr>
                                <th class="place-th-checkbox">
                                    <div class="form-group">
-                                       <div class="aiz-checkbox-inline">
-                                           <label class="aiz-checkbox">
+                                       <div class="pex-checkbox-inline">
+                                           <label class="pex-checkbox">
                                                <input type="checkbox" class="check-all">
-                                               <span class="aiz-square-check"></span>
+                                               <span class="pex-square-check"></span>
                                            </label>
                                        </div>
                                    </div>
@@ -35,9 +35,9 @@
                            <tr class="row-item" data-id="{{ $product->id }}">
                                <td>
                                    <div class="form-group d-inline-block mt-2">
-                                       <label class="aiz-checkbox">
+                                       <label class="pex-checkbox">
                                            <input type="checkbox" class="check-one" name="id[]" value="{{ $product->id }}">
-                                           <span class="aiz-square-check"></span>
+                                           <span class="pex-square-check"></span>
                                        </label>
                                    </div>
                                </td>
@@ -117,7 +117,7 @@
 
                        </tbody>
                    </table>
-                   <div class="aiz-pagination inv-pagination mt-4">
+                   <div class="pex-pagination inv-pagination mt-4">
                        {{ $products->appends(request()->input())->links() }}
                    </div>
 

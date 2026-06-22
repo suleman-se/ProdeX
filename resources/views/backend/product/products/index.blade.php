@@ -6,7 +6,7 @@
         CoreComponentRepository::initializeCache();
     @endphp
 
-    <div class="aiz-titlebar text-left pb-5px">
+    <div class="pex-titlebar text-left pb-5px">
         <div class="row align-items-center">
             <div class="col-auto">
                 @if(isset($back_to) && $back_to== 'brands')
@@ -107,7 +107,7 @@
                     </div>
                     @if($seller_type == 'seller')
                     <div class="col-md-2 mr-0 px-0 inner-select ml-1">
-                        <select class="form-control  aiz-selectpicker mb-2 mb-md-0 bg-light" id="user_id" name="user_id" onchange="sort_products()">
+                        <select class="form-control  pex-selectpicker mb-2 mb-md-0 bg-light" id="user_id" name="user_id" onchange="sort_products()">
                             <option value="" class="hov-bg-light text-secondary fs-14 fw-40">{{ translate('All Sellers') }}</option>
                             @foreach (App\Models\User::where('user_type', '=', 'seller')->get() as $key => $seller)
                                 <option class="hov-bg-light text-secondary fs-14 fw-40" value="{{ $seller->id }}">
@@ -156,7 +156,7 @@
 
 
                     <div class="col-md-2 ml-auto pr-0 pr-md-3 pl-0 inner-select ">
-                        <select class="form-control  aiz-selectpicker mb-2 mb-md-0 bg-light" name="type"
+                        <select class="form-control  pex-selectpicker mb-2 mb-md-0 bg-light" name="type"
                             id="type" onchange="sort_products()">
                             <option value="" class="hov-text-light text-white fs-14 fw-400">Sort</option>
                             <option value="rating,desc" class="hov-bg-light text-secondary fs-14 fw-40"
@@ -240,7 +240,7 @@
         function update_todays_deal(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -252,10 +252,10 @@
             }
             $.post('{{ route('products.todays_deal') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Todays Deal updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Todays Deal updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
@@ -263,7 +263,7 @@
         function update_published(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -275,16 +275,16 @@
             }
             $.post('{{ route('products.published') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Published products updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Published products updated successfully') }}');
                 }
                 else if(data == 3){
-                    AIZ.plugins.notify('danger', '{{ translate('GST verification is pending for this account.') }}');
+                    PEX.plugins.notify('danger', '{{ translate('GST verification is pending for this account.') }}');
                 }
                 else if(data == 4){
-                    AIZ.plugins.notify('warning', '{{ translate('Please assign GST details') }}');
+                    PEX.plugins.notify('warning', '{{ translate('Please assign GST details') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
@@ -292,7 +292,7 @@
         function update_approved(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -308,17 +308,17 @@
                 approved    :   approved
             }, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Product approval update successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Product approval update successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
 
         function update_featured(el){
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -330,10 +330,10 @@
             }
             $.post('{{ route('products.featured') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Featured products updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Featured products updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
@@ -348,7 +348,7 @@
                 type: 'GET',
                 success: function(response) {
                     if (response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
                         hideBulkActionModal();
                         getProducts(currentTab);
                     }
@@ -371,7 +371,7 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected items deleted successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected items deleted successfully') }}');
                         hideBulkActionModal(); 
                         getProducts(currentTab);
                     }
@@ -393,13 +393,13 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected items Published successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected items Published successfully') }}');
                         hideBulkActionModal(); 
                         getProducts(currentTab);
                     }
                 },
                 error: function () {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }
@@ -418,13 +418,13 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success','{{ translate('Selected items added in featured successfully') }}' );
+                        PEX.plugins.notify('success','{{ translate('Selected items added in featured successfully') }}' );
                         hideBulkActionModal(); 
                         getProducts(currentTab);
                     }
                 },
                 error: function () {
-                    AIZ.plugins.notify('danger', 'Something went wrong');
+                    PEX.plugins.notify('danger', 'Something went wrong');
                 }
             });
         }
@@ -444,7 +444,7 @@
                 processData: false,
                 success: function (response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Selected products have been marked as Today’s Deals.') }}');
+                        PEX.plugins.notify('success', '{{ translate('Selected products have been marked as Today’s Deals.') }}');
                         hideBulkActionModal();
                         getProducts(currentTab);
                     }
@@ -468,7 +468,7 @@
         
         function bulkDelete() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
                 return;
             }
             showBulkActionModal();
@@ -484,7 +484,7 @@
 
         function bulkPublish() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
                 return;
             }
             showBulkActionModal();
@@ -499,7 +499,7 @@
 
         function bulkProductTodaysDeal() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
                 return;
             }
             showBulkActionModal();
@@ -515,7 +515,7 @@
         
         function bulkFeatured() {
             if ($('.check-one:checked').length == 0) {
-                AIZ.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
+                PEX.plugins.notify('danger', '{{ translate('Please select at least one item') }}');
                 return;
             }
             showBulkActionModal();
@@ -704,12 +704,12 @@
                 },
                 success: function(response) {
                     if(response == 1) {
-                        AIZ.plugins.notify('success', '{{ translate('Stock updated successfully') }}');
+                        PEX.plugins.notify('success', '{{ translate('Stock updated successfully') }}');
                         closeRightcanvas();
                     }
                 },
                 error: function() {
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

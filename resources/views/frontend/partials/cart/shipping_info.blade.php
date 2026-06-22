@@ -64,11 +64,11 @@
                 <div class="border {{ $is_disabled ? ' border-danger' : '' }} mb-3" id="default-address-box">
                     <div class="row">
                         <div class="col-md-8">
-                            <label class="aiz-megabox d-block bg-white mb-0">
+                            <label class="pex-megabox d-block bg-white mb-0">
                                 <input type="radio" name="single_address_id" value="{{ $address->id }}" {{ $address->id == $address_id && !$is_disabled ? 'checked' : '' }}
                                              {{ $is_disabled ? 'disabled' : '' }}>
-                                <span class="d-flex p-3 aiz-megabox-elem border-0">
-                                    <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                <span class="d-flex p-3 pex-megabox-elem border-0">
+                                    <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                     <span class="pl-3 text-left w-xl-300px"  id="choose-default">
                                         {{ $address->address }}, {{ $address->area ? $address->area->name . ',' : '' }} {{ $address->postal_code }}-{{ $address->city->name }},{{ $address->state && $address->state->status == 1 ? $address->state->name . ',' : '' }} {{ optional($address->country)->name }}
                                         <br>  {{ $address->phone }}
@@ -100,10 +100,10 @@
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                     @if($address)
                     <div class="form-group form-check px-0 py-1 m-0">
-                        <label class="aiz-checkbox m-0">
+                        <label class="pex-checkbox m-0">
                             <input type="radio" data-type="shipping" name="billing_address_id" value="" required>
                             <span class="fs-14 fw-300 text-reset">{{ translate('Use this as billing address') }}</span>
-                            <span class="aiz-square-check"></span>
+                            <span class="pex-square-check"></span>
                         </label>
                     </div>
                     @endif
@@ -152,10 +152,10 @@
                 <div class="border {{ $is_disabled ? ' border-danger' : '' }} mb-3" id="default-billing-address-box">
                     <div class="row">
                         <div class="col-md-8">
-                            <label class="aiz-megabox d-block bg-white mb-0">
+                            <label class="pex-megabox d-block bg-white mb-0">
                                 <input type="radio" name="single_billing_address_id" data-type="billing" value="{{ $address->id }}" checked {{ $is_disabled ? 'disabled' : '' }} required >
-                                <span class="d-flex p-3 aiz-megabox-elem border-0">
-                                    <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                <span class="d-flex p-3 pex-megabox-elem border-0">
+                                    <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                     <span class="pl-3 text-left w-xl-300px" id="choose-default-billing">
                                         {{ $address->address }}, {{ $address->area ? $address->area->name . ',' : '' }} {{ $address->postal_code }}-{{ $address->city->name }},{{ $address->state && $address->state->status == 1 ? $address->state->name . ',' : '' }} {{ optional($address->country)->name }}
                                         <br>  {{ $address->phone }}
@@ -231,11 +231,11 @@
                         <div class="border {{ $is_disabled ? 'border-danger' : '' }} mb-3">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <label class="aiz-megabox d-block bg-white mb-0">
+                                    <label class="pex-megabox d-block bg-white mb-0">
                                         <input type="radio" name="address_id" value="{{ $address->id }}" {{ $address->id == $address_id && !$is_disabled ? 'checked' : '' }}
                                              {{ $is_disabled ? 'disabled' : '' }} required>
-                                        <span class="d-flex p-3 aiz-megabox-elem border-0">
-                                            <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="d-flex p-3 pex-megabox-elem border-0">
+                                            <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                             <span class="pl-3 text-left w-xl-300px address-text">
                                                 {{ $address->address }}, {{ $address->area ? $address->area->name . ',' : '' }} {{ $address->postal_code }}-{{ $address->city->name }},{{ $address->state && $address->state->status == 1 ? $address->state->name . ',' : '' }} {{ optional($address->country)->name }}
                                               <br>  {{ $address->phone }}
@@ -315,11 +315,11 @@
                         <div class="border {{ $is_disabled ? 'border-danger' : '' }} mb-3">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <label class="aiz-megabox d-block bg-white mb-0">
+                                    <label class="pex-megabox d-block bg-white mb-0">
                                         <input type="radio" name="billing_address_id" data-type="billing" value="{{ $address->id }}" {{ $address->set_billing == 1 ? 'checked' : '' }}
                                                 {{ $is_disabled ? 'disabled' : '' }} required>
-                                        <span class="d-flex p-3 aiz-megabox-elem border-0">
-                                            <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                        <span class="d-flex p-3 pex-megabox-elem border-0">
+                                            <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                             <span class="pl-3 text-left w-xl-300px address-text">
                                                 {{ $address->address }}, {{ $address->area ? $address->area->name . ',' : '' }} {{ $address->postal_code }}-{{ $address->city->name }},{{ $address->state && $address->state->status == 1 ? $address->state->name . ',' : '' }} {{ optional($address->country)->name }}
                                                 <br>  {{ $address->phone }}

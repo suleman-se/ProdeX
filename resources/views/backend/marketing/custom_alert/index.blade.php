@@ -3,8 +3,8 @@
 @section('content')
 
 <style>
-    .aiz-table tr td,
-    .aiz-table thead th {
+    .pex-table tr td,
+    .pex-table thead th {
         vertical-align: middle;
         padding: 0.5rem;
     }
@@ -18,12 +18,12 @@
         border-radius: 8px;
     }
 
-    .aiz-megabox .aiz-megabox-elem {
+    .pex-megabox .pex-megabox-elem {
         border: 3px solid #e9e9ec;
     }
 </style>
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{translate('Custom Alerts')}}</h1>
@@ -45,9 +45,9 @@
         <div class="row">
             <!-- From Bottom-left -->
             <div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-                <label class="aiz-megabox mb-3">
+                <label class="pex-megabox mb-3">
                     <input value="bottom-left" class="custom_alert_location" type="radio" onchange="confirm_alert_location('bottom-left')" @if(get_setting('custom_alert_location')=='bottom-left' ) checked @endif>
-                    <span class="d-block aiz-megabox-elem rounded-0">
+                    <span class="d-block pex-megabox-elem rounded-0">
                         <div class="h-120px w-180px overflow-hidden">
                             <img src="{{ static_asset('assets/img/alerts/alert-bottom-left.png') }}" class="h-100 w-100" alt="alert">
                         </div>
@@ -58,9 +58,9 @@
             </div>
             <!-- From Bottom-right -->
             <div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-                <label class="aiz-megabox mb-3">
+                <label class="pex-megabox mb-3">
                     <input value="bottom-right" class="custom_alert_location" type="radio" onchange="confirm_alert_location('bottom-right')" @if(get_setting('custom_alert_location')=='bottom-right' ) checked @endif>
-                    <span class="d-block aiz-megabox-elem rounded-0">
+                    <span class="d-block pex-megabox-elem rounded-0">
                         <div class="h-120px w-180px overflow-hidden">
                             <img src="{{ static_asset('assets/img/alerts/alert-bottom-right.png') }}" class="h-100 w-100" alt="alert">
                         </div>
@@ -71,9 +71,9 @@
             </div>
             <!-- From Top-left -->
             <div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-                <label class="aiz-megabox mb-3">
+                <label class="pex-megabox mb-3">
                     <input value="top-left" class="custom_alert_location" type="radio" onchange="confirm_alert_location('top-left')" @if(get_setting('custom_alert_location')=='top-left' ) checked @endif>
-                    <span class="d-block aiz-megabox-elem rounded-0">
+                    <span class="d-block pex-megabox-elem rounded-0">
                         <div class="h-120px w-180px overflow-hidden">
                             <img src="{{ static_asset('assets/img/alerts/alert-top-left.png') }}" class="h-100 w-100" alt="alert">
                         </div>
@@ -84,9 +84,9 @@
             </div>
             <!-- From Top-right -->
             <div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-                <label class="aiz-megabox mb-3">
+                <label class="pex-megabox mb-3">
                     <input value="top-right" class="custom_alert_location" type="radio" onchange="confirm_alert_location('top-right')" @if(get_setting('custom_alert_location')=='top-right' ) checked @endif>
-                    <span class="d-block aiz-megabox-elem rounded-0">
+                    <span class="d-block pex-megabox-elem rounded-0">
                         <div class="h-120px w-180px overflow-hidden">
                             <img src="{{ static_asset('assets/img/alerts/alert-top-right.png') }}" class="h-100 w-100" alt="alert">
                         </div>
@@ -125,16 +125,16 @@
         </div>
 
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                     <tr>
                         @can('delete_custom_alerts')
                         <th width="40">
                             <div class="form-group">
-                                <div class="aiz-checkbox-inline">
-                                    <label class="aiz-checkbox">
+                                <div class="pex-checkbox-inline">
+                                    <label class="pex-checkbox">
                                         <input type="checkbox" class="check-all">
-                                        <span class="aiz-square-check"></span>
+                                        <span class="pex-square-check"></span>
                                     </label>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                             <span class="bg-secondary text-white px-3 py-2 rounded-2">{{ translate('default') }}</span>
                         </td>
                         <td>
-                            <label class="aiz-switch aiz-switch-primary mb-0">
+                            <label class="pex-switch pex-switch-primary mb-0">
                                 <input
                                     value="0" type="checkbox" disabled @if (get_setting('show_custom_product_sale_alert')==1) checked @endif>
                                 <span class="slider round"></span>
@@ -200,10 +200,10 @@
                         <td>
                             @if($custom_alert->id != 1 && $custom_alert->id != 200 && $custom_alert->id != 300)
                             <div class="form-group">
-                                <div class="aiz-checkbox-inline">
-                                    <label class="aiz-checkbox">
+                                <div class="pex-checkbox-inline">
+                                    <label class="pex-checkbox">
                                         <input type="checkbox" class="check-one" name="id[]" value="{{$custom_alert->id}}">
-                                        <span class="aiz-square-check"></span>
+                                        <span class="pex-square-check"></span>
                                     </label>
                                 </div>
                             </div>
@@ -233,7 +233,7 @@
                             @endif
                         </td>
                         <td>
-                            <label class="aiz-switch aiz-switch-primary mb-0">
+                            <label class="pex-switch pex-switch-primary mb-0">
                                 <input
                                     @can('publish_custom_alerts') onchange="trigger_alert(this)" @endcan
                                     value="{{ $custom_alert->id }}" id="trigger_alert_{{ $custom_alert->id }}" type="checkbox" @if($custom_alert->status == 1) checked @endif
@@ -266,7 +266,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination mt-3">
+            <div class="pex-pagination mt-3">
                 {{ $custom_alerts->appends(request()->input())->links() }}
             </div>
         </div>
@@ -331,7 +331,7 @@
     function trigger_alert(el) {
 
        if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -356,7 +356,7 @@
         $.post('{{ route('custom-alerts.update-status') }}', {_token: '{{ csrf_token() }}', id: id, status: status},
             function(data) {
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Custom Alert status updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Custom Alert status updated successfully') }}');
                 }
             });
     }

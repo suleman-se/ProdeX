@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class=" align-items-center">
             <h1 class="h3">{{ translate('Earning Report') }}</h1>
         </div>
@@ -397,7 +397,7 @@
         sales_analytics($(".sales_analytics_tab").data('target'));
         payouts_analytics($(".payouts_analytic_tab").data('target'));
         // Total Sale Report
-        AIZ.plugins.chart('#graph-1', {
+        PEX.plugins.chart('#graph-1', {
             type: 'bar',
             data: {
                 labels: [
@@ -439,7 +439,7 @@
         });
 
         // Seller Payout Report
-        AIZ.plugins.chart('#graph-2', {
+        PEX.plugins.chart('#graph-2', {
             type: 'bar',
             data: {
                 labels: [
@@ -569,7 +569,7 @@
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                 },
                 type: "POST",
-                url: AIZ.data.appUrl +
+                url: PEX.data.appUrl +
                     "/admin/reports/earning-payout-report/net-sales",
                 data: {
                     interval_type: interval_type,
@@ -653,7 +653,7 @@
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                 },
                 type: "POST",
-                url: AIZ.data.appUrl +
+                url: PEX.data.appUrl +
                     "/admin/reports/earning-payout-report/payouts",
                 data: {
                     interval_type: interval_type,
@@ -725,7 +725,7 @@
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                 },
                 type: "POST",
-                url: AIZ.data.appUrl +
+                url: PEX.data.appUrl +
                     "/admin/reports/earning-payout-report/sale-analytic",
                 data: {
                     interval_type: interval_type,
@@ -803,7 +803,7 @@
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                 },
                 type: "POST",
-                url: AIZ.data.appUrl +
+                url: PEX.data.appUrl +
                     "/admin/reports/earning-payout-report/payout-analytic",
                 data: {
                     interval_type: interval_type,

@@ -9,7 +9,7 @@
 
 
     <div class="col-12 col-sm-12 col-lg-10 mx-auto">
-        <div class="aiz-titlebar text-left pb-5px">
+        <div class="pex-titlebar text-left pb-5px">
             <div class="row align-items-center">
                 <div class="col-auto">
                     <h1 class="h3 fw-bold">{{ translate('All Brands') }}</h1>
@@ -133,7 +133,7 @@
     }
     function single_delete(brandId) {
         if('{{env('DEMO_MODE')}}' == 'On'){
-            AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+            PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
             hideBulkActionModal();
             return;
         }
@@ -142,7 +142,7 @@
             type: 'GET',
             success: function(response) {
                 if (response == 1) {
-                    AIZ.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Selected item deleted successfully') }}');
                     hideBulkActionModal();
                     getBrands(currentTab);
                 }
@@ -152,7 +152,7 @@
 
     function bulk_delete() {
         if('{{env('DEMO_MODE')}}' == 'On'){
-            AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+            PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
             hideBulkActionModal();
             return;
         }
@@ -169,20 +169,20 @@
             processData: false,
             success: function (response) {
                 if(response == 1) {
-                    AIZ.plugins.notify('success', 'Selected Brands Deleted successfully');
+                    PEX.plugins.notify('success', 'Selected Brands Deleted successfully');
                     hideBulkActionModal(); 
                     getBrands(currentTab);
                 }
             },
             error: function () {
-                AIZ.plugins.notify('danger', 'Something went wrong');
+                PEX.plugins.notify('danger', 'Something went wrong');
             }
         });
     }
 
     function bulkDeleted() {
         if ($('.check-one:checked').length == 0) {
-            AIZ.plugins.notify('danger', '{{ translate('Please select at least one brand') }}');
+            PEX.plugins.notify('danger', '{{ translate('Please select at least one brand') }}');
             return;
         }
         showBulkActionModal();

@@ -26,7 +26,7 @@
             }
         }
         @media (min-width: 992px) {
-            .aiz-count-down-box-div{
+            .pex-count-down-box-div{
                 position: absolute;
                 top: 70%;
                 left: 50%;
@@ -44,7 +44,7 @@
             <div class="container">
                 <!-- Categories -->
                 <div class="bg-white px-sm-3">
-                    <div class="aiz-carousel sm-gutters-17" data-items="8" data-xxl-items="8" data-xl-items="8"
+                    <div class="pex-carousel sm-gutters-17" data-items="8" data-xxl-items="8" data-xl-items="8"
                         data-lg-items="6" data-md-items="5" data-sm-items="3" data-xs-items="2" data-arrows="true"
                         data-dots="false" data-autoplay="false" data-infinite="true" data-center="false">
                         @foreach ($featured_categories as $key => $category)
@@ -81,7 +81,7 @@
             <!-- Sliders -->
             <div class="home-slider slider-full">
                 @if (get_setting('home_slider_images', null, $lang) != null)
-                    <div class="aiz-carousel dots-inside-bottom mobile-img-auto-height" data-autoplay="true" data-infinite="true">
+                    <div class="pex-carousel dots-inside-bottom mobile-img-auto-height" data-autoplay="true" data-infinite="true">
                         @php
                             $decoded_slider_images = json_decode(get_setting('home_slider_images', null, $lang), true);
                             $sliders = get_slider_images($decoded_slider_images);
@@ -131,8 +131,8 @@
                             </svg>
                         </h3>
                         <!-- Countdown -->
-                        <div class="aiz-count-down-box-div">
-                            <div class="aiz-count-down-box align-items-center mb-2 mb-lg-0" data-date="{{ date('Y/m/d H:i:s', $flash_deal->end_date) }}"></div>
+                        <div class="pex-count-down-box-div">
+                            <div class="pex-count-down-box align-items-center mb-2 mb-lg-0" data-date="{{ date('Y/m/d H:i:s', $flash_deal->end_date) }}"></div>
                         </div>
                         <!-- Links -->
                         <div>
@@ -162,7 +162,7 @@
                             @php
                                 $flash_deal_products = get_flash_deal_products($flash_deal->id);
                             @endphp
-                            <div class="aiz-carousel arrow-inactive-none arrow-x-0"
+                            <div class="pex-carousel arrow-inactive-none arrow-x-0"
                                 data-items="6" data-xxl-items="6" data-xl-items="5" data-lg-items="3.7" data-md-items="3"
                                 data-sm-items="2.7" data-xs-items="1.5" data-arrows="true" data-dots="false">
                                 @foreach ($flash_deal_products as $key => $flash_deal_product)
@@ -239,7 +239,7 @@
                     $data_md = count($banner_2_imags) >= 2 ? 2 : 1;
                     $home_preorder_banner_1_links = get_setting('home_preorder_banner_1_links', null, $lang);
                 @endphp
-                <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+                <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
                     data-items="{{ count($banner_2_imags) }}" data-xxl-items="{{ count($banner_2_imags) }}"
                     data-xl-items="{{ count($banner_2_imags) }}" data-lg-items="{{ $data_md }}"
                     data-md-items="{{ $data_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -278,7 +278,7 @@
                     $data_md = count($banner_2_imags) >= 2 ? 2 : 1;
                     $home_banner2_links = get_setting('home_banner2_links', null, $lang);
                 @endphp
-                <div class="aiz-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
+                <div class="pex-carousel gutters-16 overflow-hidden arrow-inactive-none arrow-dark arrow-x-15"
                     data-items="{{ count($banner_2_imags) }}" data-xxl-items="{{ count($banner_2_imags) }}"
                     data-xl-items="{{ count($banner_2_imags) }}" data-lg-items="{{ $data_md }}"
                     data-md-items="{{ $data_md }}" data-sm-items="1" data-xs-items="1" data-arrows="true"
@@ -332,7 +332,7 @@
                         $banner_3_imags = json_decode($homeBanner3Images);
                         $home_banner3_links = get_setting('home_banner3_links', null, $lang);
                     @endphp
-                    <div class="aiz-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
+                    <div class="pex-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
                         data-items="1" data-arrows="true" data-dots="false" data-autoplay="true">
                         @foreach ($banner_3_imags as $key => $value)
                             <div class="carousel-box overflow-hidden hov-scale-img">
@@ -380,7 +380,7 @@
                                 $banner_4_imags = json_decode($homeBanner4Images);
                                 $home_banner4_links = get_setting('home_banner4_links', null, $lang);
                             @endphp
-                            <div class="aiz-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
+                            <div class="pex-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
                                 data-items="1" data-arrows="true" data-dots="false" data-autoplay="true">
                                 @foreach ($banner_4_imags as $key => $value)
                                     <div class="carousel-box overflow-hidden hov-scale-img">
@@ -414,7 +414,7 @@
                                     </div>
                                 </div>
                                 <!-- Sellers Section -->
-                                <div class="aiz-carousel arrow-x-0 arrow-inactive-none" data-rows="{{ $data_rows }}" data-items="{{ $xxl_items }}" data-xxl-items="{{ $xxl_items }}"
+                                <div class="pex-carousel arrow-x-0 arrow-inactive-none" data-rows="{{ $data_rows }}" data-items="{{ $xxl_items }}" data-xxl-items="{{ $xxl_items }}"
                                     data-xl-items="{{ $xl_items }}" data-lg-items="{{ $lg_items }}" data-md-items="{{ $md_items }}" data-sm-items="2" data-xs-items="1.4"
                                     data-arrows="true" data-dots="false">
                                     @foreach ($best_selers as $key => $seller)
@@ -507,7 +507,7 @@
                                     </div>
                                 </div>
                                 <!-- Brands Section -->
-                                <div class="aiz-carousel arrow-x-0 arrow-inactive-none py-4" data-rows="{{ $data_rows }}" data-items="{{ $xxl_items }}" data-xxl-items="{{ $xxl_items }}"
+                                <div class="pex-carousel arrow-x-0 arrow-inactive-none py-4" data-rows="{{ $data_rows }}" data-items="{{ $xxl_items }}" data-xxl-items="{{ $xxl_items }}"
                                     data-xl-items="{{ $xl_items }}" data-lg-items="{{ $lg_items }}" data-md-items="{{ $md_items }}" data-sm-items="{{ $sm_items }}" data-xs-items="{{ $xs_items }}"
                                     data-arrows="true" data-dots="false">
                                     @foreach ($brands as $brand)
@@ -535,7 +535,7 @@
                             $home_banner5_links = get_setting('home_banner5_links', null, $lang);
                         @endphp
                         <div class="{{ $col_val }} d-none d-xl-block">
-                            <div class="aiz-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
+                            <div class="pex-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
                                 data-items="1" data-arrows="true" data-dots="false" data-autoplay="true">
                                 @foreach ($banner_5_imags as $key => $value)
                                     <div class="carousel-box overflow-hidden hov-scale-img">
@@ -558,7 +558,7 @@
                             $banner_6_imags = json_decode($homeBanner6Images);
                             $home_banner6_links = get_setting('home_banner6_links', null, $lang);
                         @endphp
-                        <div class="{{ $col_val }} d-none d-xl-block"><div class="aiz-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
+                        <div class="{{ $col_val }} d-none d-xl-block"><div class="pex-carousel overflow-hidden arrow-inactive-none arrow-dark arrow-x-0"
                             data-items="1" data-arrows="true" data-dots="false" data-autoplay="true">
                                 @foreach ($banner_6_imags as $key => $value)
                                     <div class="carousel-box overflow-hidden hov-scale-img">
@@ -679,7 +679,7 @@
                             </div>
                             <!-- Products -->
                             <div class="px-0 px-sm-4 w-100 overflow-hidden">
-                                <div class="aiz-carousel arrow-x-0 arrow-inactive-none" data-items="5"
+                                <div class="pex-carousel arrow-x-0 arrow-inactive-none" data-items="5"
                                     data-xxl-items="5" data-xl-items="3.5" data-lg-items="3" data-md-items="2" data-sm-items="1"
                                     data-xs-items="2" data-arrows='true' data-infinite='false'>
                                     @foreach ($classified_products as $key => $classified_product)

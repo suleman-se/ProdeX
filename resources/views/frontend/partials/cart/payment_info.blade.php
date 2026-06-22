@@ -12,10 +12,10 @@
     <div class="row gutters-10">
         @foreach (get_activate_payment_methods() as $payment_method)
             <div class="col-xl-4 col-md-6">
-                <label class="aiz-megabox d-block mb-3">
+                <label class="pex-megabox d-block mb-3">
                     <input value="{{ $payment_method->name }}" class="online_payment" type="radio"
                         name="payment_option" checked>
-                    <span class="d-flex align-items-center justify-content-between aiz-megabox-elem rounded-0 p-3">
+                    <span class="d-flex align-items-center justify-content-between pex-megabox-elem rounded-0 p-3">
                         <span class="d-block fw-400 fs-14">{{ ucfirst(translate($payment_method->name)) }}</span>
                         <span class="rounded-1 h-40px w-70px overflow-hidden flex-shrink-0">
                             <img src="{{ static_asset('assets/img/cards/'.$payment_method->name.'.png') }}"
@@ -43,10 +43,10 @@
             @endphp
             @if ($digital != 1 && $cod_on == 1)
                 <div class="col-xl-4 col-md-6">
-                    <label class="aiz-megabox d-block mb-3">
+                    <label class="pex-megabox d-block mb-3">
                         <input value="cash_on_delivery" class="online_payment" type="radio"
                             name="payment_option" checked>
-                        <span class="d-flex align-items-center justify-content-between aiz-megabox-elem rounded-0 p-3">
+                        <span class="d-flex align-items-center justify-content-between pex-megabox-elem rounded-0 p-3">
                             <span class="d-block fw-400 fs-14">{{ translate('Cash on Delivery') }}</span>
                             <span class="rounded-1 h-40px w-70px overflow-hidden">
                                 <img src="{{ static_asset('assets/img/cards/cod.png') }}"
@@ -63,12 +63,12 @@
             @if (addon_is_activated('offline_payment'))
                 @foreach (get_all_manual_payment_methods() as $method)
                     <div class="col-xl-4 col-md-6">
-                        <label class="aiz-megabox d-block mb-3">
+                        <label class="pex-megabox d-block mb-3">
                             <input value="{{ $method->heading }}" type="radio"
                                 name="payment_option" class="offline_payment_option"
                                 onchange="toggleManualPaymentData({{ $method->id }})"
                                 data-id="{{ $method->id }}" checked>
-                            <span class="d-flex align-items-center justify-content-between aiz-megabox-elem rounded-0 p-3">
+                            <span class="d-flex align-items-center justify-content-between pex-megabox-elem rounded-0 p-3">
                                 <span class="d-block fw-400 fs-14">{{ $method->heading }}</span>
                                 <span class="rounded-1 h-40px w-70px overflow-hidden">
                                     <img src="{{ uploaded_asset($method->photo) }}"
@@ -123,7 +123,7 @@
             <div class="form-group row">
                 <label class="col-md-3 col-form-label">{{ translate('Photo') }}</label>
                 <div class="col-md-9">
-                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                    <div class="input-group" data-toggle="pexuploader" data-type="image">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-soft-secondary font-weight-medium">
                                 {{ translate('Browse') }}</div>

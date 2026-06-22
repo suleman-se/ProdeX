@@ -8,18 +8,18 @@
             <div class="border mb-3" id="default-payment-info-box">
                 <div class="row">
                     <div class="col-md-8">
-                        <label class="aiz-megabox d-block bg-white mb-0">
+                        <label class="pex-megabox d-block bg-white mb-0">
                             <input type="radio" name="single_payment_infomation_id" value="{{ $payment_information->id }}" {{ $payment_information->id == $payment_information_id ? 'checked' : '' }}>
                             @if ($payment_information->payment_type == 'bank_transfer')
-                                <span class="d-flex p-3 aiz-megabox-elem border-0">
-                                    <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                <span class="d-flex p-3 pex-megabox-elem border-0">
+                                    <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="pl-3 text-left w-xl-300px"  id="choose-default">
                                             {{ optional($payment_information->payout_method)->name ?? $payment_information->bank_name }}, {{ $payment_information->account_name }}, {{ $payment_information->account_number }}, {{ $payment_information->routing_number }}
                                         </span>
                                 </span>
                             @else
-                                <span class="d-flex p-3 aiz-megabox-elem border-0">
-                                    <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                                <span class="d-flex p-3 pex-megabox-elem border-0">
+                                    <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                                         <span class="pl-3 text-left w-xl-300px"  id="choose-default">
                                             {{ optional($payment_information->other_payout_method)->name ?? $payment_information->payment_name }}
                                         </span>

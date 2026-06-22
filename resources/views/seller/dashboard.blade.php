@@ -2,7 +2,7 @@
 
 @section('panel_content')
     @if(addon_is_activated('gst_system') && !auth()->user()->shop->gst_verification)
-        <div class="aiz-titlebar mt-2 mb-4">
+        <div class="pex-titlebar mt-2 mb-4">
             <div class="row align-items-center">
             
                 <div class="col-md-12 alert alert-info text-center ">
@@ -631,12 +631,12 @@
             <div class="card-title text-primary">
                 <h6 class="mb-0 fs-16 fw-600">{{ translate('Top 12 Products') }}</h6>
             </div>
-            <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4"
+            <div class="pex-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4"
                 data-md-items="3" data-sm-items="2" data-arrows='true'>
                 @foreach ($products as $key => $product)
                     <div class="carousel-box">
                         <div
-                            class="aiz-card-box border border-light rounded shadow-sm hov-shadow-md mb-2 has-transition bg-white">
+                            class="pex-card-box border border-light rounded shadow-sm hov-shadow-md mb-2 has-transition bg-white">
                             <div class="position-relative">
                                 <a href="{{ route('product', $product->slug) }}" class="d-block">
                                     <img class="img-fit lazyload mx-auto h-210px"
@@ -728,7 +728,7 @@
                         <div class="form-group">
                             <label for="company-type" class="fs-13 fw-bold">{{ translate('Company Type (Dropdown Selection):') }}</label>
                             <select
-                                class="form-control aiz-selectpicker bg-soft-light rounded-2"
+                                class="form-control pex-selectpicker bg-soft-light rounded-2"
                                 data-live-search="true" name="shop_type" required>
                                 <option value="installer">Installer</option>
                                 <option value="developer">Developer</option>
@@ -865,7 +865,7 @@
 
 @section('script')
     <script type="text/javascript">
-        AIZ.plugins.chart('#graph-1', {
+        PEX.plugins.chart('#graph-1', {
             type: 'bar',
             data: {
                 labels: [

@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-10">
                     <div class="mb-3">
-                        <select class="form-control aiz-selectpicker rounded-0" @if (get_setting('shipping_type') == 'carrier_wise_shipping') onchange="updateDeliveryAddress(this.value)" @endif
+                        <select class="form-control pex-selectpicker rounded-0" @if (get_setting('shipping_type') == 'carrier_wise_shipping') onchange="updateDeliveryAddress(this.value)" @endif
                             data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
                             <option value="">{{ translate('Select your country') }}</option>
                             @foreach (get_active_countries() as $key => $country)
@@ -62,7 +62,7 @@
                     <label>{{ translate('State')}} <span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-10">
-                    <select class="form-control mb-3 aiz-selectpicker rounded-0" data-live-search="true" name="state_id" required>
+                    <select class="form-control mb-3 pex-selectpicker rounded-0" data-live-search="true" name="state_id" required>
 
                     </select>
                 </div>
@@ -75,7 +75,7 @@
                     <label>{{ translate('City')}} <span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-10">
-                    <select class="form-control mb-3 aiz-selectpicker rounded-0" data-live-search="true" name="city_id" required>
+                    <select class="form-control mb-3 pex-selectpicker rounded-0" data-live-search="true" name="city_id" required>
 
                     </select>
                 </div>
@@ -87,7 +87,7 @@
                     <label>{{ translate('Area')}}<span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-10">
-                    <select class="form-control mb-3 aiz-selectpicker rounded-0 guest-checkout" data-live-search="true" name="area_id">
+                    <select class="form-control mb-3 pex-selectpicker rounded-0 guest-checkout" data-live-search="true" name="area_id">
 
                     </select>
                 </div>
@@ -153,10 +153,10 @@
                 </div>
                 <div class="col-md-10">
                     <div class="form-group form-check px-0 py-1 m-0">
-                        <label class="aiz-checkbox m-0">
+                        <label class="pex-checkbox m-0">
                             <input type="checkbox" id="sameAsShipping" name="same_as_shipping" value="1">
                             <span class="fs-14 fw-300 text-reset">{{ translate('Use this as billing address') }}</span>
-                            <span class="aiz-square-check"></span>
+                            <span class="pex-square-check"></span>
                         </label>
                     </div>
                 </div>
@@ -195,7 +195,7 @@
                 </div>
                 <div class="col-md-10">
                     <div class="mb-3">
-                        <select class="form-control aiz-selectpicker rounded-0" 
+                        <select class="form-control pex-selectpicker rounded-0" 
                             data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="billing_country_id" required>
                             <option value="">{{ translate('Select your country') }}</option>
                             @foreach (get_active_countries() as $key => $country)
@@ -216,7 +216,7 @@
                     <label>{{ translate('State')}} <span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-10">
-                    <select class="form-control mb-3 aiz-selectpicker rounded-0" data-live-search="true" name="billing_state_id" required>
+                    <select class="form-control mb-3 pex-selectpicker rounded-0" data-live-search="true" name="billing_state_id" required>
 
                     </select>
                 </div>
@@ -229,7 +229,7 @@
                     <label>{{ translate('City')}} <span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-10">
-                    <select class="form-control mb-3 aiz-selectpicker rounded-0" data-live-search="true" name="billing_city_id" required>
+                    <select class="form-control mb-3 pex-selectpicker rounded-0" data-live-search="true" name="billing_city_id" required>
 
                     </select>
                 </div>
@@ -241,7 +241,7 @@
                     <label>{{ translate('Area')}}<span class="text-danger">*</span></label>
                 </div>
                 <div class="col-md-10">
-                    <select class="form-control mb-3 aiz-selectpicker rounded-0 guest-checkout" data-live-search="true" name="billing_area_id">
+                    <select class="form-control mb-3 pex-selectpicker rounded-0 guest-checkout" data-live-search="true" name="billing_area_id">
 
                     </select>
                 </div>

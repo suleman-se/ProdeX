@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <h5 class="mb-0 h5">{{ translate('Edit Digital Product') }}</h5>
     </div>
     <form class="form form-horizontal mar-top" action="{{ route('digitalproducts.update', $product->id) }}"
@@ -37,7 +37,7 @@
                         <div class="form-group row">
                             <label class="col-lg-2 col-from-label">{{ translate('Product File') }}</label>
                             <div class="col-lg-8">
-                                <div class="input-group" data-toggle="aizuploader" data-multiple="false">
+                                <div class="input-group" data-toggle="pexuploader" data-multiple="false">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">
                                             {{ translate('Browse') }}</div>
@@ -53,7 +53,7 @@
                         <div class="form-group row">
                             <label class="col-lg-2 col-from-label">{{ translate('Tags') }}</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control aiz-tag-input" name="tags[]" id="tags"
+                                <input type="text" class="form-control pex-tag-input" name="tags[]" id="tags"
                                     value="{{ $product->tags }}" placeholder="{{ translate('Type to add a tag') }}">
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                             <label class="col-md-2 col-form-label"
                                 for="signinSrEmail">{{ translate('Main Images') }}</label>
                             <div class="col-md-8">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">
                                             {{ translate('Browse') }}</div>
@@ -86,7 +86,7 @@
                             <label class="col-md-2 col-form-label" for="signinSrEmail">{{ translate('Thumbnail Image') }}
                                 <small>(290x300)</small></label>
                             <div class="col-md-8">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="false">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">
                                             {{ translate('Browse') }}</div>
@@ -131,7 +131,7 @@
                             <label class="col-md-2 col-form-label"
                                 for="signinSrEmail">{{ translate('Meta Image') }}</label>
                             <div class="col-md-8">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image"
+                                <div class="input-group" data-toggle="pexuploader" data-type="image"
                                     data-multiple="false">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">
@@ -205,7 +205,7 @@
                                         value="{{ $tax_amount }}" required>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="form-control aiz-selectpicker" name="tax_type[]" required>
+                                    <select class="form-control pex-selectpicker" name="tax_type[]" required>
                                         <option value="amount" @if($tax_type == 'amount') selected @endif>
                                             {{translate('Flat')}}
                                         </option>
@@ -227,7 +227,7 @@
                             <label class="col-lg-2 col-from-label"
                                 for="start_date">{{ translate('Discount Date Range') }}</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control aiz-date-range"
+                                <input type="text" class="form-control pex-date-range"
                                     value="{{ $start_date && $end_date ? $start_date . ' to ' . $end_date : '' }}" name="date_range"
                                     placeholder="{{ translate('Select Date') }}" data-time-picker="true"
                                     data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
@@ -242,7 +242,7 @@
                                     value="{{ $product->discount }}" required>
                             </div>
                             <div class="col-lg-2">
-                                <select class="form-control aiz-selectpicker" name="discount_type" required>
+                                <select class="form-control pex-selectpicker" name="discount_type" required>
                                     <option value="amount" <?php if ($product->discount_type == 'amount') {
                                         echo 'selected';
                                     } ?>>{{ translate('Flat') }}</option>
@@ -283,7 +283,7 @@
                         <div class="form-group row">
                             <label class="col-lg-2 col-from-label">{{ translate('Description') }} <i class="las la-language text-danger" title="{{translate('Translatable')}}"></i></label>
                             <div class="col-lg-9">
-                                <textarea class="aiz-text-editor" name="description">{{ $product->getTranslation('description', $lang) }}</textarea>
+                                <textarea class="pex-text-editor" name="description">{{ $product->getTranslation('description', $lang) }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -331,7 +331,7 @@
                                         <div id="selected-fq-bought-products">
                                             @if(count($fq_bought_products) > 0)
                                                 <div class="table-responsive mb-4">
-                                                    <table class="table aiz-table mb-0">
+                                                    <table class="table pex-table mb-0">
                                                         <thead>
                                                             <tr>
                                                                 <th class="opacity-50 pl-0">{{ translate('Product Thumb') }}</th>
@@ -389,7 +389,7 @@
                                             <label class="col-md-2 col-from-label">{{translate('Category')}}</label>
                                             <div class="col-md-10">
                                                 <select
-                                                    class="form-control aiz-selectpicker"
+                                                    class="form-control pex-selectpicker"
                                                     data-placeholder="{{ translate('Select a Category')}}"
                                                     name="fq_bought_product_category_id"
                                                     data-live-search="true"
@@ -461,7 +461,7 @@
 <script type="text/javascript">
 
     $(document).ready(function() {
-        AIZ.plugins.tagify();
+        PEX.plugins.tagify();
         $("#treeview").hummingbird();
         var main_id = '{{ $product->category_id != null ? $product->category_id : 0 }}';
         var selected_ids = '{{ implode(",",$old_categories) }}';
@@ -518,9 +518,9 @@
         var productID = $('input[name=id]').val();
         var searchKey = $('input[name=search_keyword]').val();
         var fqBroughCategory = $('select[name=fq_brough_category]').val();
-        $.post('{{ route('product.search') }}', { _token: AIZ.data.csrf, product_id: productID, search_key:searchKey, category:fqBroughCategory, product_type:"digital" }, function(data){
+        $.post('{{ route('product.search') }}', { _token: PEX.data.csrf, product_id: productID, search_key:searchKey, category:fqBroughCategory, product_type:"digital" }, function(data){
             $('#product-list').html(data);
-            AIZ.plugins.fooTable();
+            PEX.plugins.fooTable();
         });
     }
 
@@ -537,10 +537,10 @@
 
         var productIds = selectedProducts.concat(fqBoughtProductIds.filter((item) => selectedProducts.indexOf(item) < 0))
 
-        $.post('{{ route('get-selected-products') }}', { _token: AIZ.data.csrf, product_ids:productIds}, function(data){
+        $.post('{{ route('get-selected-products') }}', { _token: PEX.data.csrf, product_ids:productIds}, function(data){
             $('#fq-bought-product-select-modal').modal('hide');
             $('#selected-fq-bought-products').html(data);
-            AIZ.plugins.fooTable();
+            PEX.plugins.fooTable();
         });
     }
 

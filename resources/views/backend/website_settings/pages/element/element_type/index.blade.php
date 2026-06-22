@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="align-items-center">
             <h1 class="h3">{{ translate('Element Details') }}</h1>
         </div>
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="card-body">
-                    <table class="table aiz-table mb-0"> 
+                    <table class="table pex-table mb-0"> 
                         <thead>
                             <tr>
                                 <th width="5%;">#</th>

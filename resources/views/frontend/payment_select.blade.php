@@ -81,10 +81,10 @@
                                     <!-- Paypal -->
                                     @if (get_setting('paypal_payment') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="paypal" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/paypal.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -97,10 +97,10 @@
                                     <!--Stripe -->
                                     @if (get_setting('stripe_payment') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="stripe" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/stripe.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -113,10 +113,10 @@
                                     <!-- Mercadopago -->
                                     @if (get_setting('mercadopago_payment') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="mercadopago" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/mercadopago.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -130,10 +130,10 @@
                                     <!-- sslcommerz -->
                                     @if (get_setting('sslcommerz_payment') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="sslcommerz" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/sslcommerz.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -147,10 +147,10 @@
                                     <!-- instamojo -->
                                     @if (get_setting('instamojo_payment') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="instamojo" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/instamojo.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -164,10 +164,10 @@
                                     <!-- razorpay -->
                                     @if (get_setting('razorpay') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="razorpay" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/rozarpay.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -181,10 +181,10 @@
                                     <!-- paystack -->
                                     @if (get_setting('paystack') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="paystack" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/paystack.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -198,10 +198,10 @@
                                     <!-- voguepay -->
                                     @if (get_setting('voguepay') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="voguepay" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/vogue.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -215,10 +215,10 @@
                                     <!-- payhere -->
                                     @if (get_setting('payhere') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="payhere" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/payhere.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -232,10 +232,10 @@
                                     <!-- ngenius -->
                                     @if (get_setting('ngenius') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="ngenius" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/ngenius.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -249,10 +249,10 @@
                                     <!-- iyzico -->
                                     @if (get_setting('iyzico') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="iyzico" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/iyzico.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -266,10 +266,10 @@
                                     <!-- nagad -->
                                     @if (get_setting('nagad') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="nagad" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/nagad.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -282,10 +282,10 @@
                                     <!-- bkash -->
                                     @if (get_setting('bkash') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="bkash" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/bkash.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -298,10 +298,10 @@
                                     <!-- aamarpay -->
                                     @if (get_setting('aamarpay') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="aamarpay" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/aamarpay.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -315,10 +315,10 @@
                                     <!-- authorizenet -->
                                     @if (get_setting('authorizenet') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="authorizenet" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/authorizenet.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -332,10 +332,10 @@
                                     <!-- payku -->
                                     @if (get_setting('payku') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="payku" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                     <img src="{{ static_asset('assets/img/cards/payku.png') }}"
                                                         class="img-fit mb-2">
                                                     <span class="d-block text-center">
@@ -350,10 +350,10 @@
                                         <!-- flutterwave -->
                                         @if (get_setting('flutterwave') == 1)
                                             <div class="col-6 col-xl-3 col-md-4">
-                                                <label class="aiz-megabox d-block mb-3">
+                                                <label class="pex-megabox d-block mb-3">
                                                     <input value="flutterwave" class="online_payment" type="radio"
                                                         name="payment_option" checked>
-                                                    <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                    <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                         <img src="{{ static_asset('assets/img/cards/flutterwave.png') }}"
                                                             class="img-fit mb-2">
                                                         <span class="d-block text-center">
@@ -367,10 +367,10 @@
                                         <!-- payfast -->
                                         @if (get_setting('payfast') == 1)
                                             <div class="col-6 col-xl-3 col-md-4">
-                                                <label class="aiz-megabox d-block mb-3">
+                                                <label class="pex-megabox d-block mb-3">
                                                     <input value="payfast" class="online_payment" type="radio"
                                                         name="payment_option" checked>
-                                                    <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                    <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                         <img src="{{ static_asset('assets/img/cards/payfast.png') }}"
                                                             class="img-fit mb-2">
                                                         <span class="d-block text-center">
@@ -387,10 +387,10 @@
                                     @if (addon_is_activated('paytm'))
                                         @if (get_setting('paytm_payment') == 1)
                                             <div class="col-6 col-xl-3 col-md-4">
-                                                <label class="aiz-megabox d-block mb-3">
+                                                <label class="pex-megabox d-block mb-3">
                                                     <input value="paytm" class="online_payment" type="radio"
                                                         name="payment_option" checked>
-                                                    <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                    <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                         <img src="{{ static_asset('assets/img/cards/paytm.png') }}"
                                                             class="img-fit mb-2">
                                                         <span class="d-block text-center">
@@ -404,10 +404,10 @@
                                         <!-- toyyibpay -->
                                         @if (get_setting('toyyibpay_payment') == 1)
                                             <div class="col-6 col-xl-3 col-md-4">
-                                                <label class="aiz-megabox d-block mb-3">
+                                                <label class="pex-megabox d-block mb-3">
                                                     <input value="toyyibpay" class="online_payment" type="radio"
                                                         name="payment_option" checked>
-                                                    <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                    <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                         <img src="{{ static_asset('assets/img/cards/toyyibpay.png') }}"
                                                             class="img-fit mb-2">
                                                         <span class="d-block text-center">
@@ -421,10 +421,10 @@
                                         <!-- myfatoorah -->
                                         @if (get_setting('myfatoorah') == 1)
                                             <div class="col-6 col-xl-3 col-md-4">
-                                                <label class="aiz-megabox d-block mb-3">
+                                                <label class="pex-megabox d-block mb-3">
                                                     <input value="myfatoorah" class="online_payment" type="radio"
                                                         name="payment_option" checked>
-                                                    <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                    <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                         <img src="{{ static_asset('assets/img/cards/myfatoorah.png') }}"
                                                             class="img-fit mb-2">
                                                         <span class="d-block text-center">
@@ -438,10 +438,10 @@
                                         <!-- khalti -->
                                         @if (get_setting('khalti_payment') == 1)
                                             <div class="col-6 col-xl-3 col-md-4">
-                                                <label class="aiz-megabox d-block mb-3">
+                                                <label class="pex-megabox d-block mb-3">
                                                     <input value="Khalti" class="online_payment" type="radio"
                                                         name="payment_option" checked>
-                                                    <span class="d-block aiz-megabox-elem p-3">
+                                                    <span class="d-block pex-megabox-elem p-3">
                                                         <img src="{{ static_asset('assets/img/cards/khalti.png') }}"
                                                             class="img-fluid mb-2">
                                                         <span class="d-block text-center">
@@ -455,10 +455,10 @@
                                         <!-- phonepe -->
                                         @if (get_setting('phonepe_payment') == 1)
                                             <div class="col-6 col-xl-3 col-md-4">
-                                                <label class="aiz-megabox d-block mb-3">
+                                                <label class="pex-megabox d-block mb-3">
                                                     <input value="phonepe" class="online_payment" type="radio"
                                                         name="payment_option" checked>
-                                                    <span class="d-block aiz-megabox-elem p-3">
+                                                    <span class="d-block pex-megabox-elem p-3">
                                                         <img src="{{ static_asset('assets/img/cards/phonepe.png') }}"
                                                             class="img-fluid mb-2">
                                                         <span class="d-block text-center">
@@ -474,10 +474,10 @@
                                     <!-- Paymob -->
                                     @if (get_setting('paymob_payment') == 1)
                                         <div class="col-6 col-xl-3 col-md-4">
-                                            <label class="aiz-megabox d-block mb-3">
+                                            <label class="pex-megabox d-block mb-3">
                                                 <input value="paymob" class="online_payment" type="radio"
                                                     name="payment_option" checked>
-                                                <span class="d-block aiz-megabox-elem p-3">
+                                                <span class="d-block pex-megabox-elem p-3">
                                                     <img src="{{ static_asset('assets/img/cards/paymob.png') }}"
                                                         class="img-fluid mb-2">
                                                     <span class="d-block text-center">
@@ -505,10 +505,10 @@
                                         @endphp
                                         @if ($digital != 1 && $cod_on == 1)
                                             <div class="col-6 col-xl-3 col-md-4">
-                                                <label class="aiz-megabox d-block mb-3">
+                                                <label class="pex-megabox d-block mb-3">
                                                     <input value="cash_on_delivery" class="online_payment" type="radio"
                                                         name="payment_option" checked>
-                                                    <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                    <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                         <img src="{{ static_asset('assets/img/cards/cod.png') }}"
                                                             class="img-fit mb-2">
                                                         <span class="d-block text-center">
@@ -525,12 +525,12 @@
                                         @if (addon_is_activated('offline_payment'))
                                             @foreach (get_all_manual_payment_methods() as $method)
                                                 <div class="col-6 col-xl-3 col-md-4">
-                                                    <label class="aiz-megabox d-block mb-3">
+                                                    <label class="pex-megabox d-block mb-3">
                                                         <input value="{{ $method->heading }}" type="radio"
                                                             name="payment_option" class="offline_payment_option"
                                                             onchange="toggleManualPaymentData({{ $method->id }})"
                                                             data-id="{{ $method->id }}" checked>
-                                                        <span class="d-block aiz-megabox-elem rounded-0 p-3">
+                                                        <span class="d-block pex-megabox-elem rounded-0 p-3">
                                                             <img src="{{ uploaded_asset($method->photo) }}"
                                                                 class="img-fit mb-2">
                                                             <span class="d-block text-center">
@@ -586,7 +586,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">{{ translate('Photo') }}</label>
                                             <div class="col-md-9">
-                                                <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                <div class="input-group" data-toggle="pexuploader" data-type="image">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text bg-soft-secondary font-weight-medium">
                                                             {{ translate('Browse') }}</div>
@@ -625,9 +625,9 @@
 
                             <!-- Agree Box -->
                             <div class="pt-3 px-4 fs-14">
-                                <label class="aiz-checkbox">
+                                <label class="pex-checkbox">
                                     <input type="checkbox" required id="agree_checkbox">
-                                    <span class="aiz-square-check"></span>
+                                    <span class="pex-square-check"></span>
                                     <span>{{ translate('I agree to the') }}</span>
                                 </label>
                                 <a href="{{ route('terms') }}"
@@ -683,13 +683,13 @@
             if ($('#agree_checkbox').is(":checked")) {
                 ;
                 if (minimum_order_amount_check && $('#sub_total').val() < minimum_order_amount) {
-                    AIZ.plugins.notify('danger',
+                    PEX.plugins.notify('danger',
                         '{{ translate('You order amount is less then the minimum order amount') }}');
                 } else {
                     $('#checkout-form').submit();
                 }
             } else {
-                AIZ.plugins.notify('danger', '{{ translate('You need to agree with our policies') }}');
+                PEX.plugins.notify('danger', '{{ translate('You need to agree with our policies') }}');
             }
         }
 
@@ -697,20 +697,20 @@
             $(el).prop('disabled', true);
             if ($('#agree_checkbox').is(":checked")) {
                 if (minimum_order_amount_check && $('#sub_total').val() < minimum_order_amount) {
-                    AIZ.plugins.notify('danger',
+                    PEX.plugins.notify('danger',
                         '{{ translate('You order amount is less then the minimum order amount') }}');
                 } else {
                     var offline_payment_active = '{{ addon_is_activated('offline_payment') }}';
                     if (offline_payment_active == '1' && $('.offline_payment_option').is(":checked") && $('#trx_id')
                         .val() == '') {
-                        AIZ.plugins.notify('danger', '{{ translate('You need to put Transaction id') }}');
+                        PEX.plugins.notify('danger', '{{ translate('You need to put Transaction id') }}');
                         $(el).prop('disabled', false);
                     } else {
                         $('#checkout-form').submit();
                     }
                 }
             } else {
-                AIZ.plugins.notify('danger', '{{ translate('You need to agree with our policies') }}');
+                PEX.plugins.notify('danger', '{{ translate('You need to agree with our policies') }}');
                 $(el).prop('disabled', false);
             }
         }
@@ -736,7 +736,7 @@
                 contentType: false,
                 processData: false,
                 success: function(data, textStatus, jqXHR) {
-                    AIZ.plugins.notify(data.response_message.response, data.response_message.message);
+                    PEX.plugins.notify(data.response_message.response, data.response_message.message);
                     $("#cart_summary").html(data.html);
                 }
             })

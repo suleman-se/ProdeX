@@ -1,5 +1,5 @@
 <!-- sellers -->
-<div class="aiz-carousel dashboard-box-carousel half-outside-arrow" data-items="6.5" data-xl-items="4.5"
+<div class="pex-carousel dashboard-box-carousel half-outside-arrow" data-items="6.5" data-xl-items="4.5"
     data-lg-items="5" data-md-items="7" data-sm-items="5" data-xs-items="3" data-arrows='true'>
     
     @foreach ($new_top_sellers as $key => $top_sellers_product)

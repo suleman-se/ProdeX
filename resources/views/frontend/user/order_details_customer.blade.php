@@ -2,7 +2,7 @@
 
 @section('panel_content')
     <!-- Order id -->
-    <div class="aiz-titlebar mb-4">
+    <div class="pex-titlebar mb-4">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="fs-20 fw-700 text-dark">{{ translate('Order id') }}: {{ $order->code }}</h1>
@@ -121,7 +121,7 @@
                     <h5 class="fs-16 fw-700 text-dark mb-0">{{ translate('Order Details') }}</h5>
                 </div>
                 <div class="card-body table-responsive">
-                    <table class="aiz-table table">
+                    <table class="pex-table table">
                         <thead class="text-gray fs-12">
                             <tr>
                                 <th class="pl-0">#</th>
@@ -366,7 +366,7 @@
                         </div>
                         <div class="col-md-10">
                             <div class="mb-3">
-                                <select class="form-control aiz-selectpicker rounded-0" onchange="payment_modal(this.value)"
+                                <select class="form-control pex-selectpicker rounded-0" onchange="payment_modal(this.value)"
                                     data-minimum-results-for-search="Infinity">
                                     <option value="">{{ translate('Select One') }}</option>
                                     <option value="online">{{ translate('Online payment') }}</option>
@@ -519,12 +519,12 @@
                     if (rightOffcanvas) {
                         rightOffcanvas.innerHTML = html;
 
-                        if (typeof AIZ !== 'undefined' && AIZ.extra && AIZ.extra.inputRating) {
-                            AIZ.extra.inputRating();
+                        if (typeof PEX !== 'undefined' && PEX.extra && PEX.extra.inputRating) {
+                            PEX.extra.inputRating();
                         }
 
-                        if (typeof AIZ !== 'undefined' && AIZ.plugins && AIZ.plugins.aizUploader) {
-                            AIZ.plugins.aizUploader();
+                        if (typeof PEX !== 'undefined' && PEX.plugins && PEX.plugins.pexUploader) {
+                            PEX.plugins.pexUploader();
                         }
                     }
                 },
@@ -532,7 +532,7 @@
                     if (rightOffcanvas) {
                         rightOffcanvas.innerHTML = '<div class="p-4 text-center text-danger">{{ translate("Failed to load review form") }}</div>';
                     }
-                    AIZ.plugins.notify('danger', '{{ translate("Something went wrong") }}');
+                    PEX.plugins.notify('danger', '{{ translate("Something went wrong") }}');
                 }
             });
         }
@@ -549,7 +549,7 @@
             const comment = $('textarea[name="comment"]').val();
 
             if (!product_id) {
-                AIZ.plugins.notify('danger', 'Product ID is missing!');
+                PEX.plugins.notify('danger', 'Product ID is missing!');
                 return;
             }
 
@@ -567,11 +567,11 @@
             }
             
             if (!$('input[name="rating"]:checked').val()) {
-                AIZ.plugins.notify('warning', '{{ translate("Please select a rating") }}');
+                PEX.plugins.notify('warning', '{{ translate("Please select a rating") }}');
                 return;
             }
             if (!$('textarea[name="comment"]').val()) {
-                AIZ.plugins.notify('warning', '{{ translate("Please write a comment") }}');
+                PEX.plugins.notify('warning', '{{ translate("Please write a comment") }}');
                 return;
             }
             
@@ -585,7 +585,7 @@
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    AIZ.plugins.notify('success', '{{ translate("Review submitted successfully") }}');
+                    PEX.plugins.notify('success', '{{ translate("Review submitted successfully") }}');
                     
                     if (typeof closeOffcanvas === 'function') {
                         closeOffcanvas();
@@ -608,7 +608,7 @@
                 error: function(xhr) {
                     btn.prop('disabled', false).html('{{ translate("Confirm") }}');
                     const errorMsg = xhr.responseJSON?.message || '{{ translate("Something went wrong") }}';
-                    AIZ.plugins.notify('danger', errorMsg);
+                    PEX.plugins.notify('danger', errorMsg);
                 }
             });
         });

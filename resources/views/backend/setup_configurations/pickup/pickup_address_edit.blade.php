@@ -9,12 +9,12 @@
                 </div>
                 <div class="card-body">
                     <form action="{{ route('pickup_address.update', $pickup_address->id) }}"
-                        method="POST" id="aizSubmitForm">
+                        method="POST" id="pexSubmitForm">
                         @csrf
 
                         <div class="form-group mb-3">
                             <label class="col-from-label fs-13">{{ translate('Courier Type') }} <span class="text-danger">*</span></label>
-                            <select name="courier_type" class="form-control aiz-selectpicker mb-2 mb-md-0" data-live-search="true">
+                            <select name="courier_type" class="form-control pex-selectpicker mb-2 mb-md-0" data-live-search="true">
                                 <option value="">{{ translate('Set Courier Type') }}</option>
                                 <option value="shiprocket" 
                                     {{ old('courier_type', $pickup_address->courier_type) == 'shiprocket' ? 'selected' : '' }}>

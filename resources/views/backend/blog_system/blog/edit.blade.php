@@ -28,7 +28,7 @@
                         </label>
                         <div class="col-md-9">
                             <select
-                                class="form-control aiz-selectpicker"
+                                class="form-control pex-selectpicker"
                                 name="category_id"
                                 id="category_id"
                                 data-live-search="true"
@@ -61,7 +61,7 @@
                             <small>(1300x650)</small>
                         </label>
                         <div class="col-md-9">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">
                                         {{ translate('Browse')}}
@@ -90,7 +90,7 @@
                             {{translate('Description')}}
                         </label>
                         <div class="col-md-9">
-                            <textarea class="aiz-text-editor" name="description">{{ $blog->description }}</textarea>
+                            <textarea class="pex-text-editor" name="description">{{ $blog->description }}</textarea>
                         </div>
                     </div>
                     
@@ -107,7 +107,7 @@
                             <small>(200x200)+</small>
                         </label>
                         <div class="col-md-9">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
+                            <div class="input-group" data-toggle="pexuploader" data-type="image">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-soft-secondary font-weight-medium">
                                         {{ translate('Browse')}}

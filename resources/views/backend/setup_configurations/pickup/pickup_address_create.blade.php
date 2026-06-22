@@ -8,14 +8,14 @@
                     <h5 class="mb-0 h6">{{ translate('Pickup Address Information') }}</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('pickup_address.store') }}" method="POST" id="aizSubmitForm">
+                    <form action="{{ route('pickup_address.store') }}" method="POST" id="pexSubmitForm">
                         @csrf
 
                         <div class="form-group mb-3">
                             <label class="col-from-label">
                                 {{ translate('Courier Type') }} <span class="text-danger">*</span>
                             </label>
-                            <select name="courier_type" class="form-control aiz-selectpicker" data-live-search="true">
+                            <select name="courier_type" class="form-control pex-selectpicker" data-live-search="true">
                                 <option value="">{{ translate('Set Courier Type') }}
                                 </option>
                                 <option value="shiprocket">{{ ucfirst(translate('Shiprocket') ) }}

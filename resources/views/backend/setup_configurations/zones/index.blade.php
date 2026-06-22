@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('All Zones') }}</h1>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table aiz-table mb-0">
+                    <table class="table pex-table mb-0">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -39,7 +39,7 @@
                                     <td>{{ $zones->firstItem() + $key }}</td>
                                     <td>{{ $zone->name }}</td>
                                     <td>
-                                        <label class="aiz-switch aiz-switch-success mb-0">
+                                        <label class="pex-switch pex-switch-success mb-0">
                                             <input onchange="update_status(this)" value="{{ $zone->id }}" type="checkbox" <?php if($zone->status == 1) echo "checked";?> >
                                             <span class="slider round"></span>
                                         </label>
@@ -56,7 +56,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="aiz-pagination">
+                    <div class="pex-pagination">
                         {{ $zones->appends(request()->input())->links() }}
                     </div>
                 </div>

@@ -22,13 +22,13 @@
 <div class="border mb-4 {{ $is_disabled ? ' border-danger' : '' }}">
     <div class="row">
         <div class="col-md-8">
-            <label class="aiz-megabox d-block bg-white mb-0">
+            <label class="pex-megabox d-block bg-white mb-0">
                 <input type="radio" name="address_id" value="{{ $address->id }}"
                            {{ $address->id == $address_id && !$is_disabled ? 'checked' : '' }}
                            {{ $is_disabled ? 'disabled' : '' }} required>
-                <span class="d-flex p-3 aiz-megabox-elem border-0">
+                <span class="d-flex p-3 pex-megabox-elem border-0">
                     <!-- Checkbox -->
-                    <span class="aiz-rounded-check flex-shrink-0 mt-1"></span>
+                    <span class="pex-rounded-check flex-shrink-0 mt-1"></span>
                     <!-- Address -->
                     <span class="flex-grow-1 pl-3 text-left">
                         <div class="row">

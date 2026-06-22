@@ -101,7 +101,7 @@
                         <label>{{ translate('Country') }} <span class="text-danger">*</span></label>
                     </div>
                     <div class="col-md-10">
-                        <select class="form-control aiz-selectpicker" data-live-search="true" 
+                        <select class="form-control pex-selectpicker" data-live-search="true" 
                                 data-placeholder="{{ translate('Select your country') }}" 
                                 name="country_id" required>
                             <option value="">{{ translate('Select your country') }}</option>
@@ -123,7 +123,7 @@
                         <label>{{ translate('State') }} <span class="text-danger">*</span></label>
                     </div>
                     <div class="col-md-10">
-                        <select class="form-control aiz-selectpicker" data-live-search="true" 
+                        <select class="form-control pex-selectpicker" data-live-search="true" 
                                 name="state_id" required></select>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                         <label>{{ translate('Inhouse Shop Logo') }} <span class="text-danger">*</span></label>
                     </div>
                     <div class="col-md-10">
-                        <div class="input-group " data-toggle="aizuploader" data-type="image">
+                        <div class="input-group " data-toggle="pexuploader" data-type="image">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                             </div>
@@ -160,7 +160,7 @@
                         <label>{{ translate('Invoice Logo') }} <span class="text-danger">*</span></label>
                     </div>
                     <div class="col-md-10">
-                        <div class="input-group " data-toggle="aizuploader" data-type="image">
+                        <div class="input-group " data-toggle="pexuploader" data-type="image">
                             <div class="input-group-prepend">
                                 <div class="input-group-text bg-soft-secondary">{{ translate('Browse') }}</div>
                             </div>
@@ -237,7 +237,7 @@
                         });
                     }
                     
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });

@@ -2,7 +2,7 @@
 
 @section('panel_content')
 
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
       <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{ translate('Bulk Products Upload') }}</h1>
@@ -12,7 +12,7 @@
 
     <div class="card">
         <div class="card-body">
-            <table class="table aiz-table mb-0" style="font-size:14px; background-color: #cce5ff; border-color: #b8daff">
+            <table class="table pex-table mb-0" style="font-size:14px; background-color: #cce5ff; border-color: #b8daff">
                 <tr>
                     <td>{{ translate('1. Download the skeleton file and fill it with data.')}}:</td>
                 </tr>
@@ -32,7 +32,7 @@
 
     <div class="card">
         <div class="card-body">
-            <table class="table aiz-table mb-0" style="font-size:14px;background-color: #cce5ff;border-color: #b8daff">
+            <table class="table pex-table mb-0" style="font-size:14px;background-color: #cce5ff;border-color: #b8daff">
                 <tr>
                     <td>{{ translate('1. Category and Brand should be in numerical id.')}}:</td>
                 </tr>

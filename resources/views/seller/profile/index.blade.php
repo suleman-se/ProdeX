@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 
 @section('panel_content')
-<div class="aiz-titlebar mt-2 mb-4">
+<div class="pex-titlebar mt-2 mb-4">
     <div class="row align-items-center">
         <div class="col-md-6">
             <h1 class="h3">{{ translate('Manage Profile') }}</h1>
@@ -39,7 +39,7 @@
             <div class="form-group row">
                 <label class="col-md-2 col-form-label">{{ translate('Photo') }}</label>
                 <div class="col-md-10">
-                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                    <div class="input-group" data-toggle="pexuploader" data-type="image">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                         </div>
@@ -81,7 +81,7 @@
             <div class="row">
                 <label class="col-md-3 col-form-label">{{ translate('Cash Payment') }}</label>
                 <div class="col-md-9">
-                    <label class="aiz-switch aiz-switch-success mb-3">
+                    <label class="pex-switch pex-switch-success mb-3">
                         <input value="1" name="cash_on_delivery_status" type="checkbox" @if ($user->shop->cash_on_delivery_status == 1) checked @endif>
                         <span class="slider round"></span>
                     </label>
@@ -90,7 +90,7 @@
             <div class="row">
                 <label class="col-md-3 col-form-label">{{ translate('Bank Payment') }}</label>
                 <div class="col-md-9">
-                    <label class="aiz-switch aiz-switch-success mb-3">
+                    <label class="pex-switch pex-switch-success mb-3">
                         <input value="1" name="bank_payment_status" type="checkbox" @if ($user->shop->bank_payment_status == 1) checked @endif>
                         <span class="slider round"></span>
                     </label>
@@ -294,7 +294,7 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
-                                    <select class="form-control aiz-selectpicker" data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
+                                    <select class="form-control pex-selectpicker" data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
                                         <option value="">{{ translate('Select your country') }}</option>
                                         @foreach (\App\Models\Country::where('status', 1)->get() as $key => $country)
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -313,7 +313,7 @@
                                 <label>{{ translate('State')}}</label>
                             </div>
                             <div class="col-md-10">
-                                <select class="form-control mb-3 aiz-selectpicker" data-live-search="true" name="state_id" required>
+                                <select class="form-control mb-3 pex-selectpicker" data-live-search="true" name="state_id" required>
 
                                 </select>
                             </div>
@@ -325,7 +325,7 @@
                                 <label>{{ translate('City')}}</label>
                             </div>
                             <div class="col-md-10">
-                                <select class="form-control mb-3 aiz-selectpicker" data-live-search="true" name="city_id" required>
+                                <select class="form-control mb-3 pex-selectpicker" data-live-search="true" name="city_id" required>
 
                                 </select>
                             </div>
@@ -336,7 +336,7 @@
                                 <label>{{ translate('Area')}}</label>
                             </div>
                             <div class="col-md-10">
-                                <select class="form-control mb-3 aiz-selectpicker rounded-0" data-live-search="true" name="area_id">
+                                <select class="form-control mb-3 pex-selectpicker rounded-0" data-live-search="true" name="area_id">
                                  
                                 </select>
                             </div>
@@ -431,15 +431,15 @@
                 $('.default').removeClass('d-none');
                 $('.loading').addClass('d-none');
                 if (data.status == 2){
-                    AIZ.plugins.notify('warning', data.message);
+                    PEX.plugins.notify('warning', data.message);
                 }
                 else if (data.status == 1){
-                    AIZ.plugins.notify('success', data.message);
+                    PEX.plugins.notify('success', data.message);
                     $('input[name="code"]').prop('disabled', false);
                     $('button[type="submit"]').prop('disabled', false);
                 }
                 else{
-                    AIZ.plugins.notify('danger', data.message);
+                    PEX.plugins.notify('danger', data.message);
                 }
             });
     });
@@ -461,7 +461,7 @@
             success: function(response) {
                 $('#edit_modal_body').html(response.html);
                 $('#edit-address-modal').modal('show');
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
 
                 @if(get_setting('google_map') == 1)
                 var lat = -33.8688;
@@ -526,7 +526,7 @@
                 var obj = JSON.parse(response);
                 if (obj != '') {
                     $('[name="state_id"]').html(obj);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });
@@ -547,7 +547,7 @@
                 var obj = JSON.parse(response);
                 if (obj != '') {
                     $('[name="city_id"]').html(obj);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });
@@ -567,7 +567,7 @@
             success: function (response) {
                 var obj = JSON.parse(response);
                 $('[name="area_id"]').html(obj);
-                AIZ.plugins.bootstrapSelect('refresh');
+                PEX.plugins.bootstrapSelect('refresh');
                 if (obj.includes('<option') && !obj.includes('disabled selected')) {
                     $('[name="area_id"]').attr('required', true);
                     $('.area-field').removeClass('d-none'); 
@@ -594,7 +594,7 @@
                 var obj = JSON.parse(response);
                 if(obj != '') {
                     $('[name="city_id"]').html(obj);
-                    AIZ.plugins.bootstrapSelect('refresh');
+                    PEX.plugins.bootstrapSelect('refresh');
                 }
             }
         });

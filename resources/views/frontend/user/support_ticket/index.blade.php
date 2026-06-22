@@ -1,7 +1,7 @@
 @extends('frontend.layouts.user_panel')
 
 @section('panel_content')
-    <div class="aiz-titlebar mb-4">
+    <div class="pex-titlebar mb-4">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="fs-20 fw-700 text-dark">{{ translate('Support Ticket') }}</h1>
@@ -21,7 +21,7 @@
             <h5 class="mb-0 fs-20 fw-700 text-dark text-center text-md-left">{{ translate('Tickets')}}</h5>
         </div>
           <div class="card-body py-0">
-              <table class="table aiz-table mb-4">
+              <table class="table pex-table mb-4">
                   <thead class="text-gray fs-12">
                       <tr>
                           <th data-breakpoints="lg" class="pl-0">{{ translate('Ticket ID') }}</th>
@@ -57,7 +57,7 @@
                   </tbody>
               </table>
               <!-- Pagination -->
-              <div class="aiz-pagination">
+              <div class="pex-pagination">
                   {{ $tickets->links() }}
               </div>
           </div>
@@ -98,7 +98,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">{{ translate('Photo') }}</label>
                             <div class="col-md-10">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium rounded-0">{{ translate('Browse')}}</div>
                                     </div>

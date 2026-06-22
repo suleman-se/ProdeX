@@ -4,12 +4,12 @@
         // USE STRICT
         "use strict";
 
-        AIZ.data = {
+        PEX.data = {
             csrf: $('meta[name="csrf-token"]').attr("content"),
             appUrl: $('meta[name="app-url"]').attr("content"),
             fileBaseUrl: $('meta[name="file-base-url"]').attr("content"),
         };
-        AIZ.plugins = {
+        PEX.plugins = {
             notify: function (type = "dark", message = "") {
                 $.notify(
                     {
@@ -31,7 +31,7 @@
                         },
                         type: type,
                         template:
-                            '<div data-notify="container" class="aiz-notify alert alert-{0}" role="alert">' +
+                            '<div data-notify="container" class="pex-notify alert alert-{0}" role="alert">' +
                             '<button type="button" aria-hidden="true" data-notify="dismiss" class="close"><i class="las la-times"></i></button>' +
                             '<span data-notify="message">{2}</span>' +
                             '<div class="progress" data-notify="progressbar">' +
@@ -47,7 +47,7 @@
 </script>
 <script>
     @foreach (session('flash_notification', collect())->toArray() as $message)
-        AIZ.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
+        PEX.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
     @endforeach
 
     $('.password-toggle').click(function(){

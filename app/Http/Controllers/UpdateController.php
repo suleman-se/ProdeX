@@ -120,6 +120,7 @@ class UpdateController extends Controller
 
         for ($i=$initial_index; $i < count($keys); $i++) {
             $sql_path = base_path('sqlupdates/'.$versions[$keys[$i]]);
+            if (!file_exists($sql_path)) continue;
             DB::unprepared(file_get_contents($sql_path));
         }
 

@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 
 @section('panel_content')
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
       <div class="row align-items-center">
           <div class="col-md-6">
               <b class="h4">{{ translate('Conversations')}}</b>
@@ -68,7 +68,7 @@
       </ul>
       </div>
     </div>
-    <div class="aiz-pagination">
+    <div class="pex-pagination">
       	{{ $conversations->links() }}
     </div>
 

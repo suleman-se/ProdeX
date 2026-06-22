@@ -24,7 +24,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-from-label" for="name">{{translate('Coupon Type')}}</label>
                         <div class="col-lg-9">
-                            <select name="type" id="coupon_type" class="form-control aiz-selectpicker" onchange="coupon_form()" required>
+                            <select name="type" id="coupon_type" class="form-control pex-selectpicker" onchange="coupon_form()" required>
                                 @if ($coupon->type == "product_base"))
                                     <option value="product_base" selected>{{translate('For Products')}}</option>
                                 @elseif ($coupon->type == "cart_base")

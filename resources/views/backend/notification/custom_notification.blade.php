@@ -25,7 +25,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 control-label fw-700" for="name">{{ translate('Customers') }}</label>
                         <div class="col-sm-9">
-                            <select class="form-control form-control-sm aiz-selectpicker" data-live-search="true"
+                            <select class="form-control form-control-sm pex-selectpicker" data-live-search="true"
                                 name="user_ids[]" id="customers" multiple required>
                                 @foreach ($customers as $customer)
                                     <option value="{{ $customer->id }}">{{ $customer->name }} -
@@ -43,7 +43,7 @@
                         <label class="col-sm-3 control-label fw-700"
                             for="name">{{ translate('Select Type') }}</label>
                         <div class="col-sm-9">
-                            <select class="form-control form-control-sm aiz-selectpicker" data-live-search="true"
+                            <select class="form-control form-control-sm pex-selectpicker" data-live-search="true"
                                 onchange="getContent(this.value)" name="notification_type_id" required>
                                 <option value="">{{ translate('Select the type of the notification') }}</option>
                                 @foreach ($customNotificationTypes as $customNotificationType)
@@ -89,11 +89,11 @@
     <script type="text/javascript">
         // Customer Select and deselect to send custom notification
         $('#select_all').click(function() {
-            $('.aiz-selectpicker').selectpicker('selectAll');
+            $('.pex-selectpicker').selectpicker('selectAll');
         });
 
         $("#deselect_all").click(function() {
-            $('.aiz-selectpicker').selectpicker('deselectAll');
+            $('.pex-selectpicker').selectpicker('deselectAll');
         });
 
         // Get default content by the notification type

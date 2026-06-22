@@ -1,7 +1,7 @@
 @extends('auth.layouts.authentication')
 
 @section('content')
-    <div class="aiz-main-wrapper d-flex flex-column justify-content-md-center bg-white">
+    <div class="pex-main-wrapper d-flex flex-column justify-content-md-center bg-white">
         <section class="bg-white overflow-hidden">
             <div class="row">
                 <div class="col-xxl-6 col-xl-9 col-lg-10 col-md-7 mx-auto py-lg-4">
@@ -179,10 +179,10 @@
 
                                             <!-- Terms and Conditions -->
                                             <div class="mb-3">
-                                                <label class="aiz-checkbox">
+                                                <label class="pex-checkbox">
                                                     <input type="checkbox" name="checkbox_example_1" required>
                                                     <span class="">{{ translate('By signing up you agree to our ')}} <a href="{{ route('terms') }}" class="fw-500">{{ translate('terms and conditions.') }}</a></span>
-                                                    <span class="aiz-square-check"></span>
+                                                    <span class="pex-square-check"></span>
                                                 </label>
                                             </div>
 

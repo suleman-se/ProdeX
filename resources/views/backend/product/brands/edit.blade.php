@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <h5 class="mb-0 h6">{{translate('Brand Information')}}</h5>
 </div>
 
@@ -19,7 +19,7 @@
   					</li>
 	            @endforeach
   			</ul>
-            <form class="p-4" action="{{ route('brands.update', $brand->id) }}" method="POST" enctype="multipart/form-data" id="aizSubmitForm">
+            <form class="p-4" action="{{ route('brands.update', $brand->id) }}" method="POST" enctype="multipart/form-data" id="pexSubmitForm">
                 <input name="_method" type="hidden" value="PATCH">
                 <input type="hidden" name="lang" value="{{ $lang }}">
                 @csrf
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="signinSrEmail">{{translate('Logo')}} <small>({{ translate('120x80') }})</small></label>
-                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                    <div class="input-group" data-toggle="pexuploader" data-type="image">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                         </div>

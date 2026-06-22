@@ -43,12 +43,12 @@
 
                     <!-- Sidebar Filters -->
                     <div class="col-xl-3">
-                        <div class="aiz-filter-sidebar collapse-sidebar-wrap sidebar-xl sidebar-right z-1035">
-                            <div class="overlay overlay-fixed dark c-pointer" data-toggle="class-toggle" data-target=".aiz-filter-sidebar" data-same=".filter-sidebar-thumb"></div>
+                        <div class="pex-filter-sidebar collapse-sidebar-wrap sidebar-xl sidebar-right z-1035">
+                            <div class="overlay overlay-fixed dark c-pointer" data-toggle="class-toggle" data-target=".pex-filter-sidebar" data-same=".filter-sidebar-thumb"></div>
                             <div class="collapse-sidebar c-scrollbar-light text-left">
                                 <div class="d-flex d-xl-none justify-content-between align-items-center pl-3 border-bottom">
                                     <h3 class="h6 mb-0 fw-600">{{ translate('Filters') }}</h3>
-                                    <button type="button" class="btn btn-sm p-2 filter-sidebar-thumb" data-toggle="class-toggle" data-target=".aiz-filter-sidebar" >
+                                    <button type="button" class="btn btn-sm p-2 filter-sidebar-thumb" data-toggle="class-toggle" data-target=".pex-filter-sidebar" >
                                         <i class="las la-times la-2x"></i>
                                     </button>
                                 </div>
@@ -117,25 +117,25 @@
                                         $show = $is_available == null ? '' : 'show';
                                         @endphp
                                         <div class="collapse {{ $show }}" id="collapse_availability_filter">
-                                            <div class="p-3 aiz-checkbox-list">
-                                                    <label class="aiz-checkbox mb-3">
+                                            <div class="p-3 pex-checkbox-list">
+                                                    <label class="pex-checkbox mb-3">
                                                         <input
                                                             type="checkbox"
                                                             name="is_available[]"
                                                             value="1" @if ($is_available == 1) checked @endif
                                                             onchange="filter()"
                                                         >
-                                                        <span class="aiz-square-check"></span>
+                                                        <span class="pex-square-check"></span>
                                                         <span class="fs-14 fw-400 text-dark">{{translate('Available Now')}}</span>
                                                     </label>
-                                                    <label class="aiz-checkbox mb-3">
+                                                    <label class="pex-checkbox mb-3">
                                                         <input
                                                             type="checkbox"
                                                             name="is_available[]"
                                                             value="0" @if ($is_available == 0) checked @endif
                                                             onchange="filter()"
                                                         >
-                                                        <span class="aiz-square-check"></span>
+                                                        <span class="pex-square-check"></span>
                                                         <span class="fs-14 fw-400 text-dark">{{translate('Upcoming ')}}</span>
                                                     </label>
                                             </div>
@@ -202,7 +202,7 @@
                                         @php
                                             $product_count = get_products_count()
                                         @endphp
-                                        <div class="aiz-range-slider">
+                                        <div class="pex-range-slider">
                                             <div
                                                 id="input-slider-range"
                                                 data-range-value-min="@if($product_count < 1) 0 @else {{ get_product_min_unit_price() }} @endif"
@@ -260,16 +260,16 @@
                                             }
                                         @endphp
                                         <div class="collapse {{ $show }}" id="collapse_{{ str_replace(' ', '_', $attribute->name) }}">
-                                            <div class="p-3 aiz-checkbox-list">
+                                            <div class="p-3 pex-checkbox-list">
                                                 @foreach ($attribute->attribute_values as $attribute_value)
-                                                    <label class="aiz-checkbox mb-3">
+                                                    <label class="pex-checkbox mb-3">
                                                         <input
                                                             type="checkbox"
                                                             name="selected_attribute_values[]"
                                                             value="{{ $attribute_value->value }}" @if (in_array($attribute_value->value, $selected_attribute_values)) checked @endif
                                                             onchange="filter()"
                                                         >
-                                                        <span class="aiz-square-check"></span>
+                                                        <span class="pex-square-check"></span>
                                                         <span class="fs-14 fw-400 text-dark">{{ $attribute_value->value }}</span>
                                                     </label>
                                                 @endforeach
@@ -295,9 +295,9 @@
                                             }
                                         @endphp
                                         <div class="collapse {{ $show }}" id="collapse_color">
-                                            <div class="p-3 aiz-radio-inline">
+                                            <div class="p-3 pex-radio-inline">
                                                 @foreach ($colors as $key => $color)
-                                                <label class="aiz-megabox pl-0 mr-2" data-toggle="tooltip" data-title="{{ $color->name }}">
+                                                <label class="pex-megabox pl-0 mr-2" data-toggle="tooltip" data-title="{{ $color->name }}">
                                                     <input
                                                         type="radio"
                                                         name="color"
@@ -305,7 +305,7 @@
                                                         onchange="filter()"
                                                         @if(isset($selected_color) && $selected_color == $color->code) checked @endif
                                                     >
-                                                    <span class="aiz-megabox-elem rounded d-flex align-items-center justify-content-center p-1 mb-2">
+                                                    <span class="pex-megabox-elem rounded d-flex align-items-center justify-content-center p-1 mb-2">
                                                         <span class="size-30px d-inline-block rounded" style="background: {{ $color->code }};"></span>
                                                     </span>
                                                 </label>
@@ -353,8 +353,8 @@
                                         $activeClasses = "bg-soft-dark mr-2 my-2 text-white";
                                         $inActiveClasses = "preorder-border-dashed m-2 text-muted  fw-600";
                                         @endphp
-                                        <div class="p-3 aiz-radio-inline">
-                                            <label class="aiz-megabox pl-0 mr-2" data-toggle="tooltip" data-title="{{ translate('General Products') }}">
+                                        <div class="p-3 pex-radio-inline">
+                                            <label class="pex-megabox pl-0 mr-2" data-toggle="tooltip" data-title="{{ translate('General Products') }}">
                                                 <input
                                                     type="radio"
                                                     name="product_type"
@@ -368,7 +368,7 @@
                                                     <span class="badge badge-inline bg-soft-dark fs-12 mr-2 my-2 p-1 rounded-3 text-white" style="background: {{ translate('General Products') }};"></span>
                                                 </span>
                                             </label>
-                                            <label class="aiz-megabox pl-0 mr-2" data-toggle="tooltip" data-title="{{ translate('Preorder Products') }}">
+                                            <label class="pex-megabox pl-0 mr-2" data-toggle="tooltip" data-title="{{ translate('Preorder Products') }}">
                                                 <input
                                                     type="radio"
                                                     name="product_type"
@@ -401,13 +401,13 @@
                                     <input type="hidden" name="keyword" value="{{ $query }}">
                                 </div>
                                 <div class="col-2 col-lg-auto d-xl-none mb-lg-3 text-right">
-                                    <button type="button" class="btn btn-icon p-0" data-toggle="class-toggle" data-target=".aiz-filter-sidebar">
+                                    <button type="button" class="btn btn-icon p-0" data-toggle="class-toggle" data-target=".pex-filter-sidebar">
                                         <i class="la la-filter la-2x"></i>
                                     </button>
                                 </div>
 
                                 <div class="col-6 col-lg-auto mb-3 w-lg-200px">
-                                    <select class="form-control form-control-sm aiz-selectpicker rounded-0" name="sort_by" onchange="filter()">
+                                    <select class="form-control form-control-sm pex-selectpicker rounded-0" name="sort_by" onchange="filter()">
                                         <option value="">{{ translate('Sort by')}}</option>
                                         <option value="newest" @isset($sort_by) @if ($sort_by == 'newest') selected @endif @endisset>{{ translate('Newest')}}</option>
                                         <option value="oldest" @isset($sort_by) @if ($sort_by == 'oldest') selected @endif @endisset>{{ translate('Oldest')}}</option>
@@ -433,7 +433,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="aiz-pagination mt-4">
+                            <div class="pex-pagination mt-4">
                                 {{-- {{ $products->appends(['general_product' => request('general_product')])->links() }} --}}
                             </div>
                         </div>
@@ -449,7 +449,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="aiz-pagination mt-4">
+                            <div class="pex-pagination mt-4">
                                 {{ $preorder_products->appends(['preorder_product' => request('preorder_product')])->links() }}
                             </div>
                         </div> --}}

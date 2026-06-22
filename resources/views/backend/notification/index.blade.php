@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="align-items-center">
             <h1 class="h3">{{ translate('All Notifications') }}</h1>
         </div>
@@ -50,10 +50,10 @@
             });
             $.post('{{ route('admin.notifications.bulk_delete') }}', {_token:'{{ csrf_token() }}', notification_ids:notificationIds}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Notification Deleted successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Notification Deleted successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
                 location.reload();
             });

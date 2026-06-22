@@ -1,7 +1,7 @@
 @extends('frontend.layouts.user_panel')
 
 @section('panel_content')
-    <div class="aiz-titlebar mb-4">
+    <div class="pex-titlebar mb-4">
         <div class="h6 fw-700">
             <a href="{{ route('preorder-product.details', $conversation->preorderProduct->product_slug) }}" class="fs-14">{{ $conversation->preorderProduct->getTranslation('product_name') }}</a>
         </div>

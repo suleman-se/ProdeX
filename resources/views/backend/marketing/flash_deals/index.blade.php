@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
 	<div class="row align-items-center">
 		<div class="col-md-6">
 			<h1 class="h3">{{translate('All Flash Deals')}}</h1>
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="card-body">
-        <table class="table aiz-table mb-0" >
+        <table class="table pex-table mb-0" >
             <thead>
                 <tr>
                     <th data-breakpoints="lg">#</th>
@@ -54,13 +54,13 @@
                         <td>{{ date('d-m-Y H:i:s', $flash_deal->start_date) }}</td>
                         <td>{{ date('d-m-Y H:i:s', $flash_deal->end_date) }}</td>
                         <td>
-							<label class="aiz-switch aiz-switch-success mb-0">
+							<label class="pex-switch pex-switch-success mb-0">
 								<input onchange="update_flash_deal_status(this)" value="{{ $flash_deal->id }}" type="checkbox" <?php if($flash_deal->status == 1) echo "checked";?> >
 								<span class="slider round"></span>
 							</label>
 						</td>
 						<td>
-							<label class="aiz-switch aiz-switch-success mb-0">
+							<label class="pex-switch pex-switch-success mb-0">
 								<input
                                     @can('publish_flash_deal') onchange="update_flash_deal_feature(this)" @endcan
                                     value="{{ $flash_deal->id }}" type="checkbox"
@@ -106,7 +106,7 @@
         function update_flash_deal_status(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -121,14 +121,14 @@
                     location.reload();
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }
         function update_flash_deal_feature(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -144,7 +144,7 @@
                     location.reload();
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

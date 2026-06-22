@@ -1,5 +1,5 @@
 @if(count($product_ids) > 0)
-<table class="table table-bordered aiz-table">
+<table class="table table-bordered pex-table">
     <thead>
         <tr>
             <td width="50%">

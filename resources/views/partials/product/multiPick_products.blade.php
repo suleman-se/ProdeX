@@ -1,6 +1,6 @@
 <div class="form-group row gst-pics">
        <div class="col">
-          <select name="products[]" id="products" class="form-control aiz-selectpicker"
+          <select name="products[]" id="products" class="form-control pex-selectpicker"
               multiple data-placeholder="{{ translate('Choose Products') }}"
               data-live-search="true" data-selected-text-format="count">
               @foreach($products as $product)

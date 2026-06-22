@@ -22,10 +22,10 @@
         <!-- Notifications -->
         <ul class="list-group list-group-flush">
             <div class="form-group">
-                <div class="aiz-checkbox-inline">
-                    <label class="aiz-checkbox">
+                <div class="pex-checkbox-inline">
+                    <label class="pex-checkbox">
                         <input type="checkbox" class="check-all">
-                        <span class="aiz-square-check"></span>{{ translate('Select All') }}
+                        <span class="pex-square-check"></span>{{ translate('Select All') }}
                     </label>
                 </div>
             </div>
@@ -59,9 +59,9 @@
                                         $notifyContent = $notificationType->getTranslation('default_text');
                                     @endphp
                                     <div class="form-group d-inline-block">
-                                        <label class="aiz-checkbox">
+                                        <label class="pex-checkbox">
                                             <input type="checkbox" class="check-one" name='id[]' value="{{$notification->id}}">
-                                            <span class="aiz-square-check"></span>
+                                            <span class="pex-square-check"></span>
                                         </label>
                                     </div>
                                     @if($notificationShowDesign != 'only_text')
@@ -114,7 +114,7 @@
             @endforelse
         </ul>
         <!-- Pagination -->
-        <div class="aiz-pagination mt-3">
+        <div class="pex-pagination mt-3">
             {{ $notifications->links() }}
         </div>
     </div>
@@ -162,10 +162,10 @@
             });
             $.post('{{ route('notifications.bulk_delete') }}', {_token:'{{ csrf_token() }}', notification_ids:notificationIds}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Notification Deleted successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Notification Deleted successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
                 location.reload();
             });

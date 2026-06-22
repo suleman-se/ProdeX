@@ -293,7 +293,7 @@
     });
 
     var monthlySalesData = @json($monthlySales);
-    AIZ.plugins.chart('#yearlySaleChart', {
+    PEX.plugins.chart('#yearlySaleChart', {
         type: 'bar',
         data: {
             labels: ['January', 'February', 'March', 'April', 'May', 'June','july', 'August', 'September','October','November', 'December'],
@@ -327,7 +327,7 @@
         },
     });
 
-    AIZ.plugins.chart('#preorderStatesChart', {
+    PEX.plugins.chart('#preorderStatesChart', {
         type: 'bar',
         data: {
             labels: [
@@ -373,11 +373,11 @@
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
             type: "POST",
-            url: AIZ.data.appUrl + "/seller/preorder/dashboard/preorder-by-products-section",
+            url: PEX.data.appUrl + "/seller/preorder/dashboard/preorder-by-products-section",
             data: { user_type: user_type,},
             success: function (data) {
                 $("#preorder_by_products_section").html(data);
-                AIZ.plugins.slickCarousel();
+                PEX.plugins.slickCarousel();
             },
         });
     }

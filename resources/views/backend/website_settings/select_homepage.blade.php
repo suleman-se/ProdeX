@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3 pb-2 border-bottom border-gray">
+<div class="pex-titlebar text-left mt-2 mb-3 pb-2 border-bottom border-gray">
 	<div class="row align-items-center">
 		<div class="col">
 			<h1 class="h3">{{ translate('Select Homepage') }}</h1>
@@ -26,9 +26,9 @@
 				<div class="row">
 					<!-- Home Classic -->
 					<div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-						<label class="aiz-megabox d-block mb-3">
+						<label class="pex-megabox d-block mb-3">
 							<input value="classic" type="radio" name="homepage_select" @if((get_setting('homepage_select') == null) || (get_setting('homepage_select') == 'classic')) checked @endif>
-							<span class="d-block aiz-megabox-elem rounded-0 img-overlay">
+							<span class="d-block pex-megabox-elem rounded-0 img-overlay">
 								<div class="h-350px w-100 overflow-hidden">
 									<img src="{{ static_asset('assets/img/pages/home-classic.webp') }}" class="w-100" alt="home-page-1">
 								</div>
@@ -44,9 +44,9 @@
 					</div>
 					<!-- Home Metro -->
 					<div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-						<label class="aiz-megabox d-block mb-3">
+						<label class="pex-megabox d-block mb-3">
 							<input value="metro" type="radio" name="homepage_select" @if(get_setting('homepage_select') == 'metro') checked @endif>
-							<span class="d-block aiz-megabox-elem rounded-0 img-overlay">
+							<span class="d-block pex-megabox-elem rounded-0 img-overlay">
 								<div class="h-350px w-100 overflow-hidden">
 									<img src="{{ static_asset('assets/img/pages/home-metro.webp') }}" class="w-100" alt="home-page-2">
 								</div>
@@ -62,9 +62,9 @@
 					</div>
 					<!-- Home Minima -->
 					<div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-						<label class="aiz-megabox d-block mb-3">
+						<label class="pex-megabox d-block mb-3">
 							<input value="minima" type="radio" name="homepage_select" @if(get_setting('homepage_select') == 'minima') checked @endif>
-							<span class="d-block aiz-megabox-elem rounded-0 img-overlay">
+							<span class="d-block pex-megabox-elem rounded-0 img-overlay">
 								<div class="h-350px w-100 overflow-hidden">
 									<img src="{{ static_asset('assets/img/pages/home-minima.webp') }}" class="w-100" alt="home-page-3">
 								</div>
@@ -80,9 +80,9 @@
 					</div>
 					<!-- Home Megamart -->
 					<div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-						<label class="aiz-megabox d-block mb-3">
+						<label class="pex-megabox d-block mb-3">
 							<input value="megamart" type="radio" name="homepage_select" @if(get_setting('homepage_select') == 'megamart') checked @endif>
-							<span class="d-block aiz-megabox-elem rounded-0 img-overlay">
+							<span class="d-block pex-megabox-elem rounded-0 img-overlay">
 								<div class="h-350px w-100 overflow-hidden">
 									<img src="{{ static_asset('assets/img/pages/home-megamart.webp') }}" class="w-100" alt="home-page-4">
 								</div>
@@ -98,9 +98,9 @@
 					</div>
 					<!-- Home Re-Classic -->
 					<div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-						<label class="aiz-megabox d-block mb-3">
+						<label class="pex-megabox d-block mb-3">
 							<input value="reclassic" type="radio" name="homepage_select" @if(get_setting('homepage_select') == 'reclassic') checked @endif>
-							<span class="d-block aiz-megabox-elem rounded-0 img-overlay">
+							<span class="d-block pex-megabox-elem rounded-0 img-overlay">
 								<div class="h-350px w-100 overflow-hidden">
 									<img src="{{ static_asset('assets/img/pages/home-reclassic.webp') }}" class="w-100" alt="home-page-5">
 								</div>
@@ -117,9 +117,9 @@
 
 					<!-- Home Edge -->
 					<div class="col-xxl-3 col-lg-4 col-sm-6 my-3">
-						<label class="aiz-megabox d-block mb-3">
+						<label class="pex-megabox d-block mb-3">
 							<input value="thecore" type="radio" name="homepage_select" @if(get_setting('homepage_select') == 'thecore') checked @endif>
-							<span class="d-block aiz-megabox-elem rounded-0 img-overlay">
+							<span class="d-block pex-megabox-elem rounded-0 img-overlay">
 								<div class="h-350px w-100 overflow-hidden">
 									<img src="{{ static_asset('assets/img/pages/home-thecore.png') }}" class="w-100" alt="home-page-6">
 								</div>
@@ -171,8 +171,8 @@
 		function imageShowOverlay(img){
 			$('#image-show-overlay .overlay-img img').attr('src', '').prop('src', img);
 			$('#image-show-overlay').addClass('show');
-			$('.aiz-main-wrapper').css('height', '100vh');
-			$('.aiz-main-wrapper').css('overflow-y', 'hidden');
+			$('.pex-main-wrapper').css('height', '100vh');
+			$('.pex-main-wrapper').css('overflow-y', 'hidden');
 		}
 
 		$('#image-show-overlay .btn').click(function(){
@@ -191,8 +191,8 @@
 			if($('#image-show-overlay').hasClass('show')){
 				$('#image-show-overlay').removeClass('show');
 			}
-			$('.aiz-main-wrapper').css('height', '100%');
-			$('.aiz-main-wrapper').css('overflow-y', 'auto');
+			$('.pex-main-wrapper').css('height', '100%');
+			$('.pex-main-wrapper').css('overflow-y', 'auto');
 		}
 	</script>
 @endsection

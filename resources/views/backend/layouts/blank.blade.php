@@ -17,9 +17,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <!-- aiz core css -->
-    <link rel="stylesheet" href="{{ static_asset('assets/css/vendors.css') }}">
-    <link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css?v=') }}{{ rand(1000,9999) }}">
+    <!-- pex core css -->
+    <link rel="stylesheet" href="{{ static_asset('assets/css/vendors.css?v=') }}{{ rand(1000,9999) }}">
+    <link rel="stylesheet" href="{{ static_asset('assets/css/pex-core.css?v=') }}{{ rand(1000,9999) }}">
 
     <style>
         body {
@@ -131,25 +131,25 @@
     </style>
 
     <script>
-        var AIZ = AIZ || {};
+        var PEX = PEX || {};
     </script>
 </head>
 <body>
-    <div class="aiz-main-wrapper d-flex">
+    <div class="pex-main-wrapper d-flex">
 
         <div class="flex-grow-1">
             @yield('content')
         </div>
 
-    </div><!-- .aiz-main-wrapper -->
+    </div><!-- .pex-main-wrapper -->
     <script src="{{ static_asset('assets/js/vendors.js') }}" ></script>
-    <script src="{{ static_asset('assets/js/aiz-core.js?v=') }}{{ rand(1000,9999) }}" ></script>
+    <script src="{{ static_asset('assets/js/pex-core.js?v=') }}{{ rand(1000,9999) }}" ></script>
 
     @yield('script')
 
     <script type="text/javascript">
     @foreach (session('flash_notification', collect())->toArray() as $message)
-        AIZ.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
+        PEX.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
     @endforeach
     </script>
 </body>

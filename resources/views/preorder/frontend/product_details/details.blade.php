@@ -63,7 +63,7 @@
                     });
                 });
             @elseif (Auth::check() && !isCustomer())
-                AIZ.plugins.notify('warning', '{{ translate("Sorry, Only customers can ask questions.") }}');
+                PEX.plugins.notify('warning', '{{ translate("Sorry, Only customers can ask questions.") }}');
             @else
                 $('#login_modal').modal('show');
             @endif

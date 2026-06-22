@@ -29,7 +29,7 @@
             <label class="col-from-label">{{ translate('Authorize Net Sandbox Mode') }}</label>
         </div>
         <div class="col-md-8">
-            <label class="aiz-switch aiz-switch-success mb-0">
+            <label class="pex-switch pex-switch-success mb-0">
                 <input value="1" name="authorizenet_sandbox" type="checkbox"
                     @if (get_setting('authorizenet_sandbox') == 1) checked @endif>
                 <span class="slider round"></span>

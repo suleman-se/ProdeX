@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
     	<div class="row align-items-center">
     		<div class="col-md-12">
     			<h1 class="h3">{{translate('All States')}}</h1>
@@ -20,7 +20,7 @@
                             <input type="text" class="form-control" id="sort_state" name="sort_state" @isset($sort_state) value="{{ $sort_state }}" @endisset placeholder="{{ translate('Type state name') }}">
                         </div>
                         <div class="col-md-3">
-                            <select class="form-control aiz-selectpicker" data-live-search="true" id="sort_country" name="sort_country">
+                            <select class="form-control pex-selectpicker" data-live-search="true" id="sort_country" name="sort_country">
                                 <option value="">{{ translate('Select Country') }}</option>
                                 @foreach (\App\Models\Country::where('status', 1)->get() as $country)
                                     <option value="{{ $country->id }}" @if ($sort_country == $country->id) selected @endif {{$sort_country}}>
@@ -35,7 +35,7 @@
                     </div>
                 </form>
                 <div class="card-body">
-                    <table class="table aiz-table mb-0">
+                    <table class="table pex-table mb-0">
                         <thead>
                             <tr>
                                 <th width="10%">#</th>
@@ -52,7 +52,7 @@
                                     <td>{{ $state->name }}</td>
                                     <td>{{ $state->country->name }}</td>
                                     <td>
-                                        <label class="aiz-switch aiz-switch-success mb-0">
+                                        <label class="pex-switch pex-switch-success mb-0">
                                             <input onchange="triggerConfirmation(this)" value="{{ $state->id }}" type="checkbox" <?php if($state->status == 1) echo "checked";?> >
                                             <span class="slider round"></span>
                                         </label>
@@ -66,7 +66,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="aiz-pagination">
+                    <div class="pex-pagination">
                         {{ $states->appends(request()->input())->links() }}
                     </div>
                 </div>
@@ -87,7 +87,7 @@
 
                         <div class="form-group">
                             <label for="country">{{translate('Country')}}</label>
-                            <select class="select2 form-control aiz-selectpicker" name="country_id" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true">
+                            <select class="select2 form-control pex-selectpicker" name="country_id" data-toggle="select2" data-placeholder="Choose ..." data-live-search="true">
                                 @foreach (\App\Models\Country::where('status', 1)->get() as $country)
                                     <option value="{{ $country->id }}">
                                         {{ $country->name }}
@@ -160,7 +160,7 @@
         function update_status(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -172,10 +172,10 @@
             }
             $.post('{{ route('states.status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('State status updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('State status updated successfully') }}');
                 }
                 else{
-                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                    PEX.plugins.notify('danger', '{{ translate('Something went wrong') }}');
                 }
             });
         }

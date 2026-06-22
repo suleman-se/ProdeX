@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 
 @section('panel_content')
-    <div class="aiz-titlebar text-left pb-5px">
+    <div class="pex-titlebar text-left pb-5px">
         <div class="row align-items-center">
             <div class="col-auto">
                 <h1 class="h3 fw-bold">{{$order_types}}</h1>
@@ -95,7 +95,7 @@
 
                     @if(Route::currentRouteName() != 'unpaid_orders.index')
                     <div class="col-md-2 ml-auto pr-0 pr-md-1 pl-0 inner-select ">
-                        <select class="form-control  aiz-selectpicker mb-2 mb-md-0 bg-light" name="payment_status"
+                        <select class="form-control  pex-selectpicker mb-2 mb-md-0 bg-light" name="payment_status"
                             id="payment_status" onchange="sort_orders()">
                             <option value="" class="hov-text-light text-white fs-14 fw-400">{{ translate('Filter by Payment Status') }}</option>
                             <option value="payment_status,paid" class="hov-bg-light text-secondary fs-14 fw-40"
@@ -110,7 +110,7 @@
                     @endif
 
                     <div class="col-md-2 ml-auto inner-select input-group mb-0 border border-light px-3 bg-light rounded-1 ">
-                        <input type="text" class="aiz-date-range form-control form-control-sm border-0 px-2 bg-transparent" value=""
+                        <input type="text" class="pex-date-range form-control form-control-sm border-0 px-2 bg-transparent" value=""
                             name="date" placeholder="{{ translate('Filter by date') }}" data-format="DD-MM-Y"
                             data-separator=" to " data-advanced-range="true" autocomplete="off">
                     </div>
@@ -170,7 +170,7 @@
             var payment_status = $('#payment_status').val();
             var order_from = '{{ $order_from }}'
             let keyword = $('#search_input').val();
-            let dateRange = $('.aiz-date-range').val();
+            let dateRange = $('.pex-date-range').val();
             $('#tab-content').html('<div class="footable-loader mt-5"><span class="fooicon fooicon-loader"></span></div>');
             $.ajax({
                 url: `{{ route('seller.orders.filter' ) }}?page=${page}`,
@@ -201,10 +201,10 @@
         }
 
         $(document).ready(function() {
-            $('.aiz-date-range').on('apply.daterangepicker', function(ev, picker) {
+            $('.pex-date-range').on('apply.daterangepicker', function(ev, picker) {
                 getOrders();
             });
-            $('.aiz-date-range').on('change', function() {
+            $('.pex-date-range').on('change', function() {
                 getOrders();
             });
         });

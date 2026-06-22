@@ -15,7 +15,7 @@
                                 <label class="col-from-label">{{translate('WhatsApp Chat')}}</label>
                             </div>
                             <div class="col-md-7">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input value="1" name="whatsapp_chat" type="checkbox" @if (get_setting('whatsapp_chat') == 1)
                                         checked
                                     @endif>
@@ -28,7 +28,7 @@
                                 <label class="col-from-label">{{translate('WhatsApp Order')}}</label>
                             </div>
                             <div class="col-md-7">
-                                <label class="aiz-switch aiz-switch-success mb-0 ">
+                                <label class="pex-switch pex-switch-success mb-0 ">
                                     <input value="1" id="whatsapp_order_switch" name="whatsapp_order" type="checkbox" @if (get_setting('whatsapp_order') == 1)
                                         checked
                                     @endif>
@@ -41,7 +41,7 @@
                                 <label class="col-from-label">{{translate('For Seller Products')}}</label>
                             </div>
                             <div class="col-md-7">
-                                <label class="aiz-switch aiz-switch-success mb-0 ">
+                                <label class="pex-switch pex-switch-success mb-0 ">
                                     <input value="1" id="whatsapp_order_seller_prods" name="whatsapp_order_seller_prods" type="checkbox" @if (get_setting('whatsapp_order_seller_prods') == 1)
                                         checked
                                     @endif>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
     <h5 class="mb-0 h6">{{translate('Update Pickup Point Information')}}</h5>
 </div>
 
@@ -47,7 +47,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-from-label">{{translate('Pickup Point Status')}}</label>
                         <div class="col-sm-3">
-                            <label class="aiz-switch aiz-switch-success mb-0" style="margin-top:5px;">
+                            <label class="pex-switch pex-switch-success mb-0" style="margin-top:5px;">
                         		<input value="1" type="checkbox" name="pick_up_status"@if ($pickup_point->pick_up_status == 1) checked @endif>
                         		<span class="slider round"></span>
                             </label>
@@ -56,7 +56,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-from-label" for="name">{{translate('Pick-up Point Manager')}}</label>
                         <div class="col-sm-9">
-                            <select name="staff_id" required class="form-control aiz-selectpicker">
+                            <select name="staff_id" required class="form-control pex-selectpicker">
                                 @foreach(\App\Models\Staff::all() as $staff)
                                     @if ($staff->user!=null )
                                         <option value="{{$staff->id}}" @if ($pickup_point->staff_id == $staff->id) selected @endif>{{$staff->user->name}}</option>

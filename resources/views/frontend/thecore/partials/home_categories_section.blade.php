@@ -29,7 +29,7 @@ $category_name = $category->getTranslation('name');
 
             <!-- Category Products: slide only this on small -->
             <div class="col-8 col-md-7 col-lg-8 col-xl-9">
-                <div class="aiz-carousel arrow-x-0 arrow-inactive-none home-category"
+                <div class="pex-carousel arrow-x-0 arrow-inactive-none home-category"
                     data-items="5" data-xxl-items="5" data-xl-items="4.5"
                     data-lg-items="3" data-md-items="2" data-sm-items="2"
                     data-xs-items="2" data-arrows="true" data-infinite="false">

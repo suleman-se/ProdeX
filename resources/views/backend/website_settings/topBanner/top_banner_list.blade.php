@@ -10,7 +10,7 @@
         max-width: 700px; 
     }
 </style>
-    <div class="aiz-titlebar text-left mt-2 mb-3">
+    <div class="pex-titlebar text-left mt-2 mb-3">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Top Bars') }}</h1>
@@ -40,7 +40,7 @@
             </div>
 
             <div class="card-body">
-                <table class="table aiz-table mb-0">
+                <table class="table pex-table mb-0">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -61,7 +61,7 @@
                                 </td>
                                 <td>{{ $topBanner->link}}</td>
                                 <td>
-                                    <label class="aiz-switch aiz-switch-primary mb-0">
+                                    <label class="pex-switch pex-switch-primary mb-0">
 		    						    <input
                                             onchange="trigger_alert(this)"
                                             value="{{ $topBanner->id }}" id="trigger_alert_{{ $topBanner->id }}" type="checkbox" @if($topBanner->status == 1) checked @endif
@@ -94,7 +94,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="aiz-pagination">
+                <div class="pex-pagination">
                     {{ $topBanners->appends(request()->input())->links() }}
                 </div>
             </div>
@@ -132,7 +132,7 @@
         function trigger_alert(el){
 
             if('{{env('DEMO_MODE')}}' == 'On'){
-                AIZ.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
+                PEX.plugins.notify('info', '{{ translate('Data can not change in demo mode.') }}');
                 return;
             }
 
@@ -157,7 +157,7 @@
             var status = $('#trigger_btn').attr('data-status');
             $.post('{{ route('top-banner.update-status') }}', {_token:'{{ csrf_token() }}', id:id, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Top bar status updated successfully') }}');
+                    PEX.plugins.notify('success', '{{ translate('Top bar status updated successfully') }}');
                 }
             });
         }

@@ -1,8 +1,8 @@
 @extends('auth.layouts.authentication')
 
 @section('content')
-    <!-- aiz-main-wrapper -->
-    <div class="aiz-main-wrapper d-flex flex-column justify-content-center bg-white">
+    <!-- pex-main-wrapper -->
+    <div class="pex-main-wrapper d-flex flex-column justify-content-center bg-white">
         <section class="bg-white overflow-hidden" style="min-height:100vh;">
             <div class="row no-gutters" style="min-height: 100vh;">
                 <!-- Left Side -->

@@ -16,7 +16,7 @@
                             <label class="col-from-label">{{translate('Show Custom Product Visitors')}}</label>
                         </div>
                         <div class="col-md-7">
-                            <label class="aiz-switch aiz-switch-success mb-0">
+                            <label class="pex-switch pex-switch-success mb-0">
                                 <input value="1" name="show_custom_product_visitors" type="checkbox" @if (get_setting('show_custom_product_visitors')==1)
                                     checked
                                     @endif>
@@ -68,7 +68,7 @@
 
         if (min > max) {
             e.preventDefault();
-            AIZ.plugins.notify('danger', '{{ translate('Minimum visitors cannot be greater than maximum visitors.') }}');
+            PEX.plugins.notify('danger', '{{ translate('Minimum visitors cannot be greater than maximum visitors.') }}');
             minInput.focus();
         }
     });

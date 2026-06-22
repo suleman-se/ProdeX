@@ -13,7 +13,7 @@
     }
 @endphp
 <!-- brands -->
-<div class="aiz-carousel dashboard-box-carousel half-outside-arrow" data-items="{{ $data_items }}" data-xl-items="{{ $data_xl_items }}"
+<div class="pex-carousel dashboard-box-carousel half-outside-arrow" data-items="{{ $data_items }}" data-xl-items="{{ $data_xl_items }}"
     data-lg-items="{{ $data_lg_items }}" data-md-items="{{ $data_md_items }}" data-sm-items="{{ $data_md_items }}" data-xs-items="{{ $data_xs_items }}" data-arrows='true'>
     @php
         $top_brands_product_limit = 1;

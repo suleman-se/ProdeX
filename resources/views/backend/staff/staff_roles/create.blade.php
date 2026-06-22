@@ -44,7 +44,7 @@
                                         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                                             <div class="p-2 border mt-1 mb-2">
                                                 <label class="control-label d-flex">{{ translate(Str::headline($permission->name)) }}</label>
-                                                <label class="aiz-switch aiz-switch-success">
+                                                <label class="pex-switch pex-switch-success">
                                                     <input type="checkbox" name="permissions[]" class="form-control demo-sw" value="{{ $permission->id }}">
                                                     <span class="slider round"></span>
                                                 </label>

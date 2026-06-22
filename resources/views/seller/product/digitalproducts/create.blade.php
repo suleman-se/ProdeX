@@ -3,7 +3,7 @@
 @section('panel_content')
 
 <div class="page-content mx-0">
-    <div class="aiz-titlebar mt-2 mb-4">
+    <div class="pex-titlebar mt-2 mb-4">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="h3">{{ translate('Add Your Product') }}</h1>
@@ -53,7 +53,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-from-label">{{ translate('Product File')}}</label>
                             <div class="col-lg-9">
-                                <div class="input-group" data-toggle="aizuploader" data-multiple="false">
+                                <div class="input-group" data-toggle="pexuploader" data-multiple="false">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -67,7 +67,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-from-label">{{translate('Tags')}}</label>
                             <div class="col-lg-9">
-                                <input type="text" class="form-control aiz-tag-input" name="tags[]" placeholder="{{ translate('Type and hit enter') }}">
+                                <input type="text" class="form-control pex-tag-input" name="tags[]" placeholder="{{ translate('Type and hit enter') }}">
                                 <small class="text-muted">{{translate('This is used for search. Input those words by which cutomer can find this product.')}}</small>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label" for="signinSrEmail">{{translate('Gallery Images')}} <small>(600x600)</small></label>
                             <div class="col-lg-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="true">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -97,7 +97,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label" for="signinSrEmail">{{translate('Thumbnail Image')}} <small>(300x300)</small></label>
                             <div class="col-lg-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="false">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -138,7 +138,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label" for="signinSrEmail">{{ translate('Meta Image') }}</label>
                             <div class="col-lg-9">
-                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                                <div class="input-group" data-toggle="pexuploader" data-type="image" data-multiple="false">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
                                     </div>
@@ -187,7 +187,7 @@
                                 <input type="number" lang="en" min="0" value="0" step="0.01" placeholder="{{translate('Tax')}}" name="tax[]" class="form-control" required>
                             </div>
                             <div class="col-md-3">
-                                <select class="form-control aiz-selectpicker" name="tax_type[]">
+                                <select class="form-control pex-selectpicker" name="tax_type[]">
                                     <option value="amount">{{translate('Flat')}}</option>
                                     <option value="percent">{{translate('Percent')}}</option>
                                 </select>
@@ -199,7 +199,7 @@
                             <label class="col-md-3 control-label"
                                 for="start_date">{{ translate('Discount Date Range') }} </label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control aiz-date-range" name="date_range"
+                                <input type="text" class="form-control pex-date-range" name="date_range"
                                     placeholder="{{ translate('Select Date') }}" data-time-picker="true"
                                     data-format="DD-MM-Y HH:mm:ss" data-separator=" to " autocomplete="off">
                             </div>
@@ -210,7 +210,7 @@
                                 <input type="number" lang="en" min="0" value="0" step="0.01" placeholder="{{translate('Discount')}}" name="discount" class="form-control" required>
                             </div>
                             <div class="col-md-3">
-                                <select class="form-control aiz-selectpicker" name="discount_type">
+                                <select class="form-control pex-selectpicker" name="discount_type">
                                     <option value="amount">{{translate('Flat')}}</option>
                                     <option value="percent">{{translate('Percent')}}</option>
                                 </select>
@@ -249,7 +249,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-from-label">{{translate('Description')}}</label>
                             <div class="col-lg-9">
-                                <textarea class="aiz-text-editor" name="description"></textarea>
+                                <textarea class="pex-text-editor" name="description"></textarea>
                             </div>
                         </div>
                     </div>
@@ -295,7 +295,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-from-label">{{translate('Category')}}</label>
                                             <div class="col-md-10">
-                                                <select class="form-control aiz-selectpicker" data-placeholder="{{ translate('Select a Category')}}" name="fq_bought_product_category_id" data-live-search="true">
+                                                <select class="form-control pex-selectpicker" data-placeholder="{{ translate('Select a Category')}}" name="fq_bought_product_category_id" data-live-search="true">
                                                     @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}">{{ $category->getTranslation('name') }}</option>
                                                         @foreach ($category->childrenCategories as $childCategory)
@@ -381,9 +381,9 @@
         function filterFqBoughtProduct() {
             var searchKey = $('input[name=search_keyword]').val();
             var fqBroughCategory = $('select[name=fq_brough_category]').val();
-            $.post('{{ route('seller.product.search') }}', { _token: AIZ.data.csrf, product_id: null, search_key:searchKey, category:fqBroughCategory, product_type:"digital" }, function(data){
+            $.post('{{ route('seller.product.search') }}', { _token: PEX.data.csrf, product_id: null, search_key:searchKey, category:fqBroughCategory, product_type:"digital" }, function(data){
                 $('#product-list').html(data);
-                AIZ.plugins.fooTable();
+                PEX.plugins.fooTable();
             });
         }
 
@@ -400,10 +400,10 @@
 
             var productIds = selectedProducts.concat(fqBoughtProductIds.filter((item) => selectedProducts.indexOf(item) < 0))
 
-            $.post('{{ route('seller.get-selected-products') }}', { _token: AIZ.data.csrf, product_ids:productIds}, function(data){
+            $.post('{{ route('seller.get-selected-products') }}', { _token: PEX.data.csrf, product_ids:productIds}, function(data){
                 $('#fq-bought-product-select-modal').modal('hide');
                 $('#selected-fq-bought-products').html(data);
-                AIZ.plugins.fooTable();
+                PEX.plugins.fooTable();
             });
         }
         

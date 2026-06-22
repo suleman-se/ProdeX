@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 
 @section('panel_content')
-<div class="aiz-titlebar text-left mt-2 mb-3">
+<div class="pex-titlebar text-left mt-2 mb-3">
 	<div class="row align-items-center">
 		<div class="col-md-6">
 			<h1 class="h3">{{translate('All uploaded files')}}</h1>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="col-md-3 ml-auto mr-0">
-                <select class="form-control form-control-xs aiz-selectpicker" name="sort" onchange="sort_uploads()">
+                <select class="form-control form-control-xs pex-selectpicker" name="sort" onchange="sort_uploads()">
                     <option value="newest" @if($sort_by == 'newest') selected="" @endif>{{ translate('Sort by newest') }}</option>
                     <option value="oldest" @if($sort_by == 'oldest') selected="" @endif>{{ translate('Sort by oldest') }}</option>
                     <option value="smallest" @if($sort_by == 'smallest') selected="" @endif>{{ translate('Sort by smallest') }}</option>
@@ -46,11 +46,11 @@
     
 		<div class="card-body">
 			<div class="form-group">
-				<div class="aiz-checkbox-inline">
-					<label class="aiz-checkbox">
+				<div class="pex-checkbox-inline">
+					<label class="pex-checkbox">
 						{{ translate('Select All')}}
 						<input type="checkbox" class="check-all">
-						<span class="aiz-square-check"></span>
+						<span class="pex-square-check"></span>
 					</label>
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 						}
 					@endphp
 					<div class="col-auto w-140px w-lg-220px">
-						<div class="aiz-file-box">
+						<div class="pex-file-box">
 							<div class="dropdown-file" >
 								<a class="dropdown-link" data-toggle="dropdown">
 									<i class="la la-ellipsis-v"></i>
@@ -91,15 +91,15 @@
 							</div>
 
 							<div class="select-box">
-								<div class="aiz-checkbox-inline">
-									<label class="aiz-checkbox">
+								<div class="pex-checkbox-inline">
+									<label class="pex-checkbox">
 										<input type="checkbox" class="check-one" name="id[]" value="{{$file->id}}">
-										<span class="aiz-square-check"></span>
+										<span class="pex-square-check"></span>
 									</label>
 								</div>
 							</div>
 
-							<div class="card card-file aiz-uploader-select c-default" title="{{ $file_name }}.{{ $file->extension }}">
+							<div class="card card-file pex-uploader-select c-default" title="{{ $file_name }}.{{ $file->extension }}">
 								<div class="card-file-thumb">
 									@if($file->type == 'image')
 										<img src="{{ my_asset($file->file_name) }}" class="img-fit">
@@ -121,7 +121,7 @@
 					</div>
 				@endforeach
 			</div>
-			<div class="aiz-pagination mt-3">
+			<div class="pex-pagination mt-3">
 				{{ $all_uploads->appends(request()->input())->links() }}
 			</div>
 		</div>
@@ -157,7 +157,7 @@
             $('#info-modal-content').html('<div class="c-preloader text-center absolute-center"><i class="las la-spinner la-spin la-3x opacity-70"></i></div>');
 			var id = $(e).data('id')
 			$('#info-modal').modal('show');
-			$.post('{{ route('seller.my_uploads.info') }}', {_token: AIZ.data.csrf, id:id}, function(data){
+			$.post('{{ route('seller.my_uploads.info') }}', {_token: PEX.data.csrf, id:id}, function(data){
                 $('#info-modal-content').html(data);
 				// console.log(data);
 			});
@@ -169,9 +169,9 @@
 		    $temp.val(url).select();
 		    try {
 			    document.execCommand("copy");
-			    AIZ.plugins.notify('success', '{{ translate('Link copied to clipboard') }}');
+			    PEX.plugins.notify('success', '{{ translate('Link copied to clipboard') }}');
 			} catch (err) {
-			    AIZ.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
+			    PEX.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
 			}
 		    $temp.remove();
 		}
@@ -209,7 +209,7 @@
 						location.reload();
                     }
 					else{
-						AIZ.plugins.notify('danger', '{{ translate('Something Went Wrong.') }}');
+						PEX.plugins.notify('danger', '{{ translate('Something Went Wrong.') }}');
 					}
                 }
             });

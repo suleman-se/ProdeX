@@ -2,7 +2,7 @@
 
 @section('panel_content')
     @if(get_setting('vendor_commission_activation') == 1)
-        <div class="aiz-titlebar text-left mt-2 mb-3">
+        <div class="pex-titlebar text-left mt-2 mb-3">
         
             <div class="alert alert-info my-2 text-center">
             @if(get_setting('seller_commission_type') == 'fixed_rate')
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group mb-0">
-                        <input type="text" class="form-control form-control-sm aiz-date-range" id="search" name="date_range"@isset($date_range) value="{{ $date_range }}" @endisset placeholder="{{ translate('Daterange') }}" autocomplete="off">
+                        <input type="text" class="form-control form-control-sm pex-date-range" id="search" name="date_range"@isset($date_range) value="{{ $date_range }}" @endisset placeholder="{{ translate('Daterange') }}" autocomplete="off">
                     </div>
                 </div>
                 <div class="col-auto">
@@ -36,7 +36,7 @@
             </div>
         </form>
         <div class="card-body">
-            <table class="table aiz-table mb-0">
+            <table class="table pex-table mb-0">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -69,7 +69,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="aiz-pagination mt-4">
+            <div class="pex-pagination mt-4">
                 {{ $commission_history->links() }}
             </div>
         </div>

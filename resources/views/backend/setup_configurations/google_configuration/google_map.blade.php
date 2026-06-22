@@ -20,7 +20,7 @@
                                 <label class="control-label">{{ translate('Google Map') }}</label>
                             </div>
                             <div class="col-md-8">
-                                <label class="aiz-switch aiz-switch-success mb-0">
+                                <label class="pex-switch pex-switch-success mb-0">
                                     <input value="1" name="google_map" type="checkbox"
                                         @if (get_setting('google_map') == 1) checked @endif>
                                     <span class="slider round"></span>
