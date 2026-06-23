@@ -189,6 +189,8 @@ return [
 
         Spatie\Permission\PermissionServiceProvider::class,
 
+        MehediIitdu\CoreComponentRepository\CoreComponentRepositoryServiceProvider::class,
+
     ],
 
     /*
@@ -240,6 +242,7 @@ return [
         'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
         'Str' => Illuminate\Support\Str::class,
         'Rave' => KingFlamez\Rave\Facades\Rave::class,
+        'CoreComponentRepository' => MehediIitdu\CoreComponentRepository\CoreComponentRepositoryFacade::class,
     ],
 
 ];
