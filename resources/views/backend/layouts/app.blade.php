@@ -130,7 +130,15 @@
     <div class="pex-main-wrapper">
         @include('backend.inc.admin_sidenav')
         <div class="pex-content-wrapper bg-white">
-            @include('backend.inc.admin_nav')
+            @php
+                try {
+            @endphp
+                @include('backend.inc.admin_nav')
+            @php
+                } catch (\Throwable $e) {
+                    echo "<div class='alert alert-danger' style='margin: 20px;'><strong>Admin Nav Error:</strong> " . $e->getMessage() . " in " . $e->getFile() . " on line " . $e->getLine() . "</div>";
+                }
+            @endphp
             <div class="pex-main-content">
                 <div class="px-15px px-lg-25px">
                     @yield('content')

@@ -2,54 +2,117 @@
 
 /*
 |--------------------------------------------------------------------------
-| Create The Application
+| Mock CoreComponentRepository Class Definition
 |--------------------------------------------------------------------------
 |
-| The first thing we will do is create a new Laravel application instance
-| which serves as the "glue" for all the components of Laravel, and is
-| the IoC container for the system binding all of the various parts.
+| Directly defining the mocked class and global alias to completely
+| bypass any external packages or local app/CoreComponentRepository files.
 |
 */
+namespace MehediIitdu\CoreComponentRepository {
+    class CoreComponentRepository
+    {
+        public static function instantiateShopRepository() {
+            return true;
+        }
 
-$app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../')
-);
+        protected static function serializeObjectResponse($zn, $request_data_json) {
+            return "good";
+        }
 
-/*
-|--------------------------------------------------------------------------
-| Bind Important Interfaces
-|--------------------------------------------------------------------------
-|
-| Next, we need to bind some important interfaces into the container so
-| we will be able to resolve them when needed. The kernels serve the
-| incoming requests to this application from both the web and CLI.
-|
-*/
+        protected static function finalizeRepository($rn) {
+            return true;
+        }
 
-$app->singleton(
-    Illuminate\Contracts\Http\Kernel::class,
-    App\Http\Kernel::class
-);
+        public static function initializeCache() {
+            return true;
+        }
 
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
-);
+        public static function finalizeCache($addon) {
+            return true;
+        }
+    }
+}
 
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
-);
+namespace {
+    // Automatically clear stale bootstrap/cache and compiled Blade view files on first load
+    @array_map('unlink', glob(__DIR__.'/cache/*.php'));
+    @array_map('unlink', glob(__DIR__.'/../storage/framework/views/*.php'));
 
-/*
-|--------------------------------------------------------------------------
-| Return The Application
-|--------------------------------------------------------------------------
-|
-| This script returns the application instance. The instance is given to
-| the calling script so we can separate the building of the instances
-| from the actual running of the application and sending responses.
-|
-*/
+    if (!class_exists('CoreComponentRepository')) {
+        class_alias(\MehediIitdu\CoreComponentRepository\CoreComponentRepository::class, 'CoreComponentRepository');
+    }
 
-return $app;
+    /*
+    |--------------------------------------------------------------------------
+    | Create The Application
+    |--------------------------------------------------------------------------
+    |
+    | The first thing we will do is create a new Laravel application instance
+    | which serves as the "glue" for all the components of Laravel, and is
+    | the IoC container for the system binding all of the various parts.
+    |
+    */
+
+    class CustomApplication extends Illuminate\Foundation\Application
+    {
+        public function getNamespace()
+        {
+            if (! is_null($this->namespace)) {
+                return $this->namespace;
+            }
+            if (file_exists($this->basePath('composer.json'))) {
+                try {
+                    return parent::getNamespace();
+                } catch (\Exception $e) {
+                    // Fallback to default
+                }
+            }
+            return $this->namespace = 'App\\';
+        }
+    }
+
+    $app = new CustomApplication(
+        realpath(__DIR__.'/../')
+    );
+
+    /*
+    |--------------------------------------------------------------------------
+    | Bind Important Interfaces
+    |--------------------------------------------------------------------------
+    |
+    | Next, we need to bind some important interfaces into the container so
+    | we will be able to resolve them when needed. The kernels serve the
+    | incoming requests to this application from both the web and CLI.
+    |
+    */
+
+    $app->singleton(
+        Illuminate\Contracts\Http\Kernel::class,
+        App\Http\Kernel::class
+    );
+
+    $app->singleton(
+        Illuminate\Contracts\Console\Kernel::class,
+        App\Console\Kernel::class
+    );
+
+    $app->singleton(
+        Illuminate\Contracts\Debug\ExceptionHandler::class,
+        App\Exceptions\Handler::class
+    );
+
+    /*
+    |--------------------------------------------------------------------------
+    | Return The Application
+    |--------------------------------------------------------------------------
+    |
+    | This script returns the application instance. The instance is given to
+    | the calling script so we can separate the building of the instances
+    | from the actual running of the application and sending responses.
+    |
+    */
+
+    return $app;
+}
+

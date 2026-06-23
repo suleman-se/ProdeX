@@ -19,13 +19,13 @@
                 @php
                     $user_type = auth()->user()->user_type;
                     $notificationType = get_notification_type($notification->notification_type_id, 'id');
-                    $notifyContent = $notificationType->getTranslation('default_text');
+                    $notifyContent = $notificationType ? $notificationType->getTranslation('default_text') : 'Notification';
                 @endphp
                 <div class="d-flex">
                     @if($notificationShowDesign != 'only_text')
                         <div class="size-35px mr-2">
                             <img
-                                src="{{ uploaded_asset($notificationType->image) }}"
+                                src="{{ $notificationType ? uploaded_asset($notificationType->image) : static_asset('assets/img/notification.png') }}"
                                 onerror="this.onerror=null;this.src='{{ static_asset('assets/img/notification.png') }}';"
                                 class="img-fit h-100 {{ $notifyImageDesign }}" >
                         </div>
